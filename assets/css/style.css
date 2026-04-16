@@ -5,7 +5,7 @@
     --color-surface: #1c1a17;
     --color-text-pri: #ede9e2;
     --color-text-sec: #8a8680;
-    --color-border: rgba(255,255,255,0.12);
+    --color-border: rgba(255, 255, 255, 0.12);
     --ease-editorial: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -19,51 +19,118 @@ body {
 
 /* Ambient Visual Layer */
 .ambient-layer {
-    position: fixed; inset: 0; z-index: -2;
-    background: var(--color-bg); pointer-events: none;
-}
-.ambient-tint {
-    position: absolute; inset: 0; z-index: -2; 
-    background-color: var(--color-accent);
-    mix-blend-mode: multiply; opacity: 0.55; pointer-events: none;
-}
-.ambient-video {
-    position: absolute; inset: 0; z-index: -3;
-    width: 100vw; height: 100vh; object-fit: cover;
-    opacity: 0.65; filter: grayscale(100%) contrast(1.1);
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: var(--color-bg);
     pointer-events: none;
 }
+
+.ambient-tint {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--color-accent);
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.ambient-video {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.65;
+    filter: contrast(1.1);
+    pointer-events: none;
+}
+
 .ambient-blur {
-    position: absolute; border-radius: 50%;
-    background: radial-gradient(circle, rgba(198,241,53,0.15) 0%, transparent 60%);
-    filter: blur(80px); opacity: 0.6;
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198, 241, 53, 0.15) 0%, transparent 60%);
+    filter: blur(80px);
+    opacity: 0.6;
     animation: breathe 12s infinite alternate var(--ease-editorial);
 }
+
 .ambient-noise {
-    position: fixed; inset: 0; z-index: -1; opacity: 0.15; pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 @keyframes breathe {
-    0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
-    100% { transform: scale(1.1) translate(-2vw, 3vh); opacity: 0.8; }
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.1) translate(-2vw, 3vh);
+        opacity: 0.8;
+    }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
 }
 
 /* Initial Load Reveal Animation */
 .reveal-up {
-    opacity: 0; transform: translateY(30px); filter: blur(4px);
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
     animation: revealUp 1.2s var(--ease-editorial) forwards;
 }
+
 @keyframes revealUp {
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
 /* Buttons Unification */
 .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 16px 32px; border-radius: 4px;
-    transition: all 0.4s var(--ease-editorial); cursor: pointer; outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 4px;
+    transition: all 0.4s var(--ease-editorial);
+    cursor: pointer;
+    outline: none;
 }
 
 /* Sweep Reflection Button */
@@ -100,9 +167,9 @@ body {
 
 /* ── Glow Border Wrapper (Masked for Transparent BG) ── */
 @property --border-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
 .btn-wrapper-glow {
@@ -116,9 +183,11 @@ body {
 .btn-wrapper-glow::after {
     content: '';
     position: absolute;
-    inset: -2px; /* Overlap border slightly */
+    inset: -2px;
+    /* Overlap border slightly */
     border-radius: 6px;
-    padding: 1.5px; /* Border thickness */
+    padding: 1.5px;
+    /* Border thickness */
     background: conic-gradient(from var(--border-angle) at 50% 50%, transparent 60%, var(--color-accent) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -128,20 +197,28 @@ body {
     z-index: 10;
 }
 
-@keyframes glow-spin { 
-    to { --border-angle: 360deg; } 
+@keyframes glow-spin {
+    to {
+        --border-angle: 360deg;
+    }
 }
 
 .btn--ghost {
-    background: transparent; color: var(--color-text-pri); border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-text-pri);
+    border: 1px solid transparent;
 }
+
 .btn--ghost:hover {
-    color: var(--color-accent); transform: translateX(2px);
+    color: var(--color-accent);
+    transform: translateX(2px);
 }
 
 /* Typography Highlights */
 .editorial-highlight {
-    font-style: italic; color: var(--color-accent); padding-right: 0.1em;
+    font-style: italic;
+    color: var(--color-accent);
+    padding-right: 0.1em;
 }
 
 /* =========================================================
@@ -150,20 +227,1332 @@ body {
 
 /* --- GENERAL TWEAKS --- */
 .ambient-blur {
-    width: 300px; height: 300px; top: 10%; right: -50px;
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: -50px;
 }
 
 /* --- 2. TABLET (768px - 1023px) --- */
 @media (min-width: 768px) {
-    .ambient-blur { width: 500px; height: 500px; top: 20%; right: -100px; }
+    .ambient-blur {
+        width: 500px;
+        height: 500px;
+        top: 20%;
+        right: -100px;
+    }
 }
 
 /* --- 3. DESKTOP (1024px+) --- */
 @media (min-width: 1024px) {
-    .ambient-blur { width: 800px; height: 800px; top: 50%; right: -200px; transform: translateY(-50%); }
+    .ambient-blur {
+        width: 800px;
+        height: 800px;
+        top: 50%;
+        right: -200px;
+        transform: translateY(-50%);
+    }
 }
 
 /* --- UHD DESKTOP (1440px+) --- */
 @media (min-width: 1440px) {
-    .hero-right-col { max-width: 540px; }
+    .hero-right-col {
+        max-width: 540px;
+    }
+}
+
+/* --- SCROLL REVEAL (from Design System) --- */
+.scroll-reveal {
+    opacity: 0;
+
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: blur(8px);
+    transform: translateY(32px) scale(0.98);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+}
+
+/* Stagger Utilities */
+.delay-1 {
+    transition-delay: 0.15s;
+}
+
+.delay-2 {
+    transition-delay: 0.30s;
+}
+
+.delay-3 {
+    transition-delay: 0.45s;
+}
+
+.delay-4 {
+    transition-delay: 0.60s;
+}
+
+/* Magnetic Button Physics */
+.magnetic {
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   BUTTON GLOW
+   ========================================================= */
+.btn-glow {
+    position: relative;
+    padding: 18px 36px;
+    background: transparent;
+    color: var(--color-pri);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-editorial);
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-glow:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    box-shadow: inset 0 0 24px rgba(198, 241, 53, 0.05), 0 0 24px rgba(198, 241, 53, 0.1);
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-editorial);
+    opacity: 0.05;
+}
+
+.btn-glow:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* =========================================================
+   LEAK CARD COMPONENT
+   ========================================================= */
+.leak-card {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 24px;
+    transition: padding-left 0.4s var(--ease-editorial), background 0.4s var(--ease-editorial);
+    position: relative;
+    overflow: hidden;
+}
+
+.leak-card:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.leak-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-editorial);
+    background: linear-gradient(90deg, rgba(198, 241, 53, 0.06) 0%, rgba(198, 241, 53, 0.02) 60%, transparent 100%);
+    pointer-events: none;
+}
+
+.leak-card:hover {
+    padding-left: 16px;
+    background: rgba(198, 241, 53, 0.015);
+    border-color: rgba(198, 241, 53, 0.22);
+}
+
+.leak-card:hover::before {
+    opacity: 1;
+}
+
+.leak-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   SERVICE CARD COMPONENT
+   ========================================================= */
+.vw-service-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #0f0e0c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Tailwind's vw-border/50 approx */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s var(--ease-editorial);
+    cursor: pointer;
+}
+
+.vw-service-card:hover {
+    background-color: #151412;
+    border-color: rgba(198, 241, 53, 0.5);
+    /* vw-accent/50 */
+}
+
+/* Grid Layers */
+.vw-card-grid-base {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+    transform: scale(1);
+    transition: all 0.6s ease-out;
+}
+
+.vw-service-card:hover .vw-card-grid-base {
+    transform: scale(1.04);
+    opacity: 0;
+}
+
+.vw-card-grid-hover {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: linear-gradient(rgba(198, 241, 53, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(198, 241, 53, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.6s ease-out;
+}
+
+.vw-service-card:hover .vw-card-grid-hover {
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+.vw-card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(135deg, rgba(198, 241, 53, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.vw-service-card:hover .vw-card-glow {
+    opacity: 1;
+}
+
+/* Bottom Sweep Bar */
+.vw-card-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-editorial);
+    z-index: 30;
+    pointer-events: none;
+}
+
+.vw-service-card:hover .vw-card-bar {
+    transform: scaleX(1);
+}
+
+/* Arrow Box - STRICTLY SQUARE */
+.vw-card-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-editorial);
+    flex-shrink: 0;
+    margin-top: -4px;
+}
+
+.vw-service-card:hover .vw-card-arrow {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.vw-card-arrow svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-sec);
+    transition: color 0.3s var(--ease-editorial);
+}
+
+.vw-service-card:hover .vw-card-arrow svg {
+    color: #0c0b09;
+}
+
+/* Media Area */
+.vw-card-media {
+    width: 100%;
+    aspect-ratio: 21/9;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    /* border-vw-border/50 */
+    position: relative;
+    margin-top: auto;
+    overflow: hidden;
+    background: #000;
+    z-index: 10;
+}
+
+.vw-card-media-accent {
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: multiply;
+    background-color: var(--color-accent);
+    opacity: 0.1;
+    transition: opacity 0.7s ease-out;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.vw-service-card:hover .vw-card-media-accent {
+    opacity: 0.3;
+}
+
+.vw-card-media-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(15, 14, 12, 0.8) 0%, transparent 100%);
+}
+
+.vw-card-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.7s ease-out;
+}
+
+.vw-service-card:hover .vw-card-media-img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* =========================================================
+   GLOBAL GRID & BEAMS (From Design System)
+   ========================================================= */
+.grid-line-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: transparent;
+    z-index: 0;
+}
+
+.grid-line-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: transparent;
+    z-index: 0;
+}
+
+.ds-ambient-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes beam-v {
+    0% {
+        top: -200px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes beam-h {
+    0% {
+        left: -200px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+.beam-v {
+    position: absolute;
+    width: 1px;
+    height: 200px;
+    opacity: 0;
+    z-index: 10;
+    background: linear-gradient(180deg, transparent, var(--color-accent), transparent);
+}
+
+.beam-h {
+    position: absolute;
+    height: 1px;
+    width: 200px;
+    opacity: 0;
+    z-index: 10;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}
+
+/* =========================================================
+   MARQUEE COMPONENT (From Design System)
+   ========================================================= */
+@keyframes marquee-fwd {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-rev {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.marquee-outer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-outer::before,
+.marquee-outer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-outer::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg), transparent);
+}
+
+.marquee-outer::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg), transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.marquee-track.fwd {
+    animation: marquee-fwd 32s linear infinite;
+}
+
+.marquee-track.rev {
+    animation: marquee-rev 28s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Logos & Assets container in Marquee */
+.marquee-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s var(--ease-editorial);
+    cursor: default;
+}
+
+.marquee-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* =========================================================
+   CAROUSEL UTILITIES & PROJECT CARD
+   ========================================================= */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Brutalist Carousel Controls */
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    border-radius: 0;
+    /* Strict brutalist square */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-pri);
+    transition: all 0.3s var(--ease-editorial);
+    cursor: pointer;
+    outline: none;
+}
+
+.carousel-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0c0b09;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.carousel-btn:disabled:hover {
+    background: transparent;
+    color: var(--color-text-pri);
+}
+
+.carousel-dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background-color: var(--color-accent);
+    transform: scale(1.5);
+}
+
+/* Project Card Architecture */
+.vw-project-card {
+    min-width: 85vw;
+    /* Mobile view */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    transition: all 0.4s var(--ease-editorial);
+    cursor: pointer;
+    background: transparent;
+}
+
+@media (min-width: 768px) {
+    .vw-project-card {
+        min-width: 420px;
+    }
+}
+
+/* Media Upper Block */
+.vw-project-media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Reduced height drastically from 4/5 */
+    background: #0f0e0c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--ease-editorial);
+}
+
+.vw-project-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    opacity: 0.6;
+    transition: all 0.7s var(--ease-editorial);
+}
+
+/* Internal Accents */
+.vw-project-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--color-accent);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s var(--ease-editorial);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.vw-project-corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--color-accent);
+    z-index: 21;
+    opacity: 0;
+    transition: all 0.4s var(--ease-editorial);
+}
+
+.vw-project-c-tl {
+    top: 16px;
+    left: 16px;
+    border-right: none;
+    border-bottom: none;
+    transform: translate(-10px, -10px);
+}
+
+.vw-project-c-br {
+    bottom: 16px;
+    right: 16px;
+    border-left: none;
+    border-top: none;
+    transform: translate(10px, 10px);
+}
+
+/* Card Hover Physics */
+.vw-project-card:hover .vw-project-media {
+    border-color: rgba(198, 241, 53, 0.4);
+}
+
+.vw-project-card:hover .vw-project-media-img {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.vw-project-card:hover .vw-project-media::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.vw-project-card:hover .vw-project-c-tl {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.vw-project-card:hover .vw-project-c-br {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Text Content Area */
+.vw-project-content {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Slightly tighter gap */
+    position: relative;
+}
+
+/* Brutalist Chip/Tag System for Works */
+.vw-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.vw-project-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(198, 241, 53, 0.4);
+    /* Outlined green base */
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.4s var(--ease-editorial);
+    letter-spacing: 0.1em;
+}
+
+.vw-project-card:hover .vw-project-tag {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0c0b09;
+    /* Deep black text */
+    box-shadow: 0 0 12px rgba(198, 241, 53, 0.2);
+}
+
+.vw-project-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--color-text-pri);
+    transition: color 0.3s ease;
+    margin-top: 4px;
+}
+
+.vw-project-card:hover .vw-project-title {
+    color: var(--color-accent);
+}
+
+.vw-project-desc {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--color-text-sec);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* =========================================================
+   PROCESS SECTION (Sticky Scroll)
+   ========================================================= */
+
+.process-media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/4;
+    overflow: hidden;
+    background: #0f0e0c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 1024px) {
+    .process-media-container {
+        aspect-ratio: 4/5;
+    }
+}
+
+.process-media-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    /* Slight zoom for dramatic inbound effect */
+    transition: opacity 0.8s var(--ease-editorial), transform 1.2s var(--ease-editorial), visibility 0.8s;
+}
+
+.process-media-item.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.process-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    opacity: 0.75;
+}
+
+/* Internal Accents for Media container */
+.process-media-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--color-accent);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Step Typography */
+}
+
+/* Logos & Assets container in Marquee */
+.marquee-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s var(--ease-editorial);
+    cursor: default;
+}
+
+.marquee-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* =========================================================
+   CAROUSEL UTILITIES & PROJECT CARD
+   ========================================================= */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Brutalist Carousel Controls */
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    border-radius: 0;
+    /* Strict brutalist square */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-pri);
+    transition: all 0.3s var(--ease-editorial);
+    cursor: pointer;
+    outline: none;
+}
+
+.carousel-btn:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0c0b09;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.carousel-btn:disabled:hover {
+    background: transparent;
+    color: var(--color-text-pri);
+}
+
+.carousel-dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background-color: var(--color-accent);
+    transform: scale(1.5);
+}
+
+/* Project Card Architecture */
+.vw-project-card {
+    min-width: 85vw;
+    /* Mobile view */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    transition: all 0.4s var(--ease-editorial);
+    cursor: pointer;
+    background: transparent;
+}
+
+@media (min-width: 768px) {
+    .vw-project-card {
+        min-width: 420px;
+    }
+}
+
+/* Media Upper Block */
+.vw-project-media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* Reduced height drastically from 4/5 */
+    background: #0f0e0c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--ease-editorial);
+}
+
+.vw-project-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    opacity: 0.6;
+    transition: all 0.7s var(--ease-editorial);
+}
+
+/* Internal Accents */
+.vw-project-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--color-accent);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s var(--ease-editorial);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.vw-project-corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--color-accent);
+    z-index: 21;
+    opacity: 0;
+    transition: all 0.4s var(--ease-editorial);
+}
+
+.vw-project-c-tl {
+    top: 16px;
+    left: 16px;
+    border-right: none;
+    border-bottom: none;
+    transform: translate(-10px, -10px);
+}
+
+.vw-project-c-br {
+    bottom: 16px;
+    right: 16px;
+    border-left: none;
+    border-top: none;
+    transform: translate(10px, 10px);
+}
+
+/* Card Hover Physics */
+.vw-project-card:hover .vw-project-media {
+    border-color: rgba(198, 241, 53, 0.4);
+}
+
+.vw-project-card:hover .vw-project-media-img {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.vw-project-card:hover .vw-project-media::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.vw-project-card:hover .vw-project-c-tl {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.vw-project-card:hover .vw-project-c-br {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Text Content Area */
+.vw-project-content {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Slightly tighter gap */
+    position: relative;
+}
+
+/* Brutalist Chip/Tag System for Works */
+.vw-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.vw-project-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(198, 241, 53, 0.4);
+    /* Outlined green base */
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.4s var(--ease-editorial);
+    letter-spacing: 0.1em;
+}
+
+.vw-project-card:hover .vw-project-tag {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0c0b09;
+    /* Deep black text */
+    box-shadow: 0 0 12px rgba(198, 241, 53, 0.2);
+}
+
+.vw-project-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--color-text-pri);
+    transition: color 0.3s ease;
+    margin-top: 4px;
+}
+
+.vw-project-card:hover .vw-project-title {
+    color: var(--color-accent);
+}
+
+.vw-project-desc {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--color-text-sec);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* =========================================================
+   PROCESS SECTION (Sticky Scroll)
+   ========================================================= */
+
+.process-media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/4;
+    overflow: hidden;
+    background: #0f0e0c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 1024px) {
+    .process-media-container {
+        aspect-ratio: 4/5;
+    }
+}
+
+.process-media-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    /* Slight zoom for dramatic inbound effect */
+    transition: opacity 0.8s var(--ease-editorial), transform 1.2s var(--ease-editorial), visibility 0.8s;
+}
+
+.process-media-item.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.process-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    opacity: 0.75;
+}
+
+/* Internal Accents for Media container */
+.process-media-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--color-accent);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Step Typography */
+.process-step {
+    opacity: 0.3;
+    transition: opacity 0.6s var(--ease-editorial), transform 0.6s var(--ease-editorial);
+}
+
+.process-step.is-active {
+    opacity: 1;
+}
+
+/* ── Final CTA Animations ──────────────────────────── */
+@keyframes ken-burns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    50% {
+        transform: scale(1.08) translate(-1%, 0.5%);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+.cta-bg-img {
+    animation: ken-burns 18s ease-in-out infinite;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+@keyframes vignette-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.88;
+    }
+}
+
+.cta-vignette {
+    animation: vignette-pulse 6s ease-in-out infinite;
+}
+
+/* ── FAQ Accordion ─────────────────────────────────── */
+.faq-list {
+    /* top border handled per-item */
+}
+
+.faq-demo {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.faq-demo:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-demo.is-open {
+    background: rgba(198, 241, 53, 0.025);
+}
+
+.faq-demo-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-demo-q:hover .faq-demo-text {
+    color: var(--color-accent);
+}
+
+.faq-demo-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.faq-demo-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    flex-shrink: 0;
+    width: 24px;
+}
+
+.faq-demo-text {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 26px);
+    color: var(--color-text-pri);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+
+.faq-toggle-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    /* Strictly square — no rounding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-pri);
+    transition: all 0.4s var(--ease-editorial);
+}
+
+.faq-demo.is-open .faq-toggle-icon {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #0c0b09;
+    transform: rotate(45deg);
+}
+
+.faq-demo-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.55s var(--ease-editorial);
+}
+
+.faq-demo.is-open .faq-demo-body {
+    max-height: 400px;
+}
+
+.faq-demo-answer {
+    padding: 0 0 28px 44px;
+    /* aligns under the question text (num width + gap) */
+    font-family: var(--font-ui);
+    font-size: 15px;
+    color: var(--color-text-sec);
+    line-height: 1.75;
+    max-width: 62ch;
+}
+
+/* =========================================================
+   LEAK SECTION — CARD HOVER ANIMATIONS
+   ========================================================= */
+
+/* The icon box */
+.leak-icon {
+    width: 48px; height: 48px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--color-surface);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 10;
+    color: var(--color-text-sec);
+    transition:
+        border-color 0.4s var(--ease-editorial),
+        background  0.4s var(--ease-editorial),
+        color       0.4s var(--ease-editorial),
+        transform   0.4s var(--ease-editorial);
+}
+.leak-icon svg, .leak-icon [data-lucide] {
+    width: 20px; height: 20px;
+    transition: transform 0.4s var(--ease-editorial);
+}
+
+/* The row card */
+.leak-row {
+    position: relative;
+    display: flex; flex-direction: row; align-items: center; gap: 24px;
+    padding: 28px 8px;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.4s var(--ease-editorial);
+}
+.leak-row:last-child { border-bottom: none; }
+
+/* Accent line sweep from left */
+.leak-row::before {
+    content: '';
+    position: absolute; left: 0; bottom: 0;
+    width: 0; height: 2px;
+    background: var(--color-accent);
+    transition: width 0.5s var(--ease-editorial);
+}
+
+/* Hover state */
+.leak-row:hover {
+    background: rgba(198, 241, 53, 0.03);
+}
+.leak-row:hover::before {
+    width: 100%;
+}
+.leak-row:hover .leak-icon {
+    border-color: rgba(198, 241, 53, 0.5);
+    background: rgba(198, 241, 53, 0.08);
+    color: var(--color-accent);
+    transform: translateX(4px);
+}
+.leak-row:hover .leak-icon svg,
+.leak-row:hover .leak-icon [data-lucide] {
+    transform: scale(1.15) rotate(-5deg);
+}
+.leak-row:hover .leak-text-title {
+    color: #ffffff;
 }
