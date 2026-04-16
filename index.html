@@ -3,14 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- SEO Optimization -->
-    <title>Vellumwire | High-End Websites That Generate Calls</title>
-    <meta name="description"
-        content="We rebuild service-business websites with product-level UX, proof-led messaging, and lightweight tracking so visits turn into calls and quote requests.">
+    <title>Vellumwire — High-Performance Websites</title>
+    <meta name="description" content="We rebuild service-business websites with product-level UX, proof-led messaging, and lightweight tracking so your visits turn into qualified calls.">
+    <meta name="keywords" content="web design, conversion optimization, landing pages, b2b web development, studio, vellumwire">
+    <meta name="author" content="Vellumwire">
+    <meta property="og:title" content="Vellumwire — High-Performance Websites">
+    <meta property="og:description" content="We rebuild service-business websites with product-level UX, proof-led messaging, and lightweight tracking so your visits turn into qualified calls.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://vellumwire.com/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="assets/svg/vellumwire-favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +43,7 @@
                             accentHov: '#b0d82e',
                             pri: '#ede9e2',
                             sec: '#8a8680',
-                            mut: '#4a4845',
+                            mut: '#7a7875',
                             border: 'rgba(255,255,255,0.12)'
                         }
                     },
@@ -57,14 +66,21 @@
     <!-- Ambient Visual Layer -->
     <div class="ambient-layer">
         <div class="ambient-tint"></div>
-        <!-- WebGL Background (Unicorn Studio) replacing video -->
-        <div class="ambient-video" style="mask-image: linear-gradient(to bottom, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent)">
-            <div data-us-project="bKN5upvoulAmWvInmHza" style="width: 100%; height: 100%;"></div>
-            <script type="text/javascript">
-                !function(){var e=function(){window.UnicornStudio&&!window.UnicornStudio.isInitialized&&(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)};window.UnicornStudio?e():(window.UnicornStudio={isInitialized:!1},function(){var n=document.createElement("script");n.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",n.onload=e,(document.head||document.body).appendChild(n)}())}();
-            </script>
-        </div>
         <div class="ambient-blur"></div>
+        <div class="ds-ambient-grid"></div>
+        
+        <!-- GLOBAL GRID LINES -->
+        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
+          <div class="grid-line-v" style="left:144px">
+            <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+          </div>
+          <div class="grid-line-v" style="left:576px">
+            <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+          </div>
+          <div class="grid-line-v" style="left:1008px"></div>
+          <div class="grid-line-v" style="left:1296px"></div>
+          <div class="grid-line-h" style="top:144px"></div>
+        </div>
     </div>
     <div class="ambient-noise"></div>
 
@@ -90,56 +106,89 @@
         </button>
     </nav>
 
-    <main class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px]">
-        
-        <!-- Unified Bottom Lockup -->
-        <div class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-12 xl:gap-8">
+    <main
+        class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px]">
+
+        <!-- WebGL Background (Unicorn Studio) -->
+        <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+                    -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent);
+                    mask-image: linear-gradient(to bottom, black 82%, transparent);">
             
+            <!-- Unicorn Studio canvas -->
+            <div data-us-project="bKN5upvoulAmWvInmHza" style="width: 100%; height: 100%;"></div>
+            
+            <script type="text/javascript">
+                !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
+            </script>
+            
+            <!-- Green tint overlay -->
+            <div style="position: absolute; inset: 0; background: #c6f135; mix-blend-mode: multiply; opacity: 0.55; pointer-events: none; z-index: 10;"></div>
+        </div>
+
+        <!-- Unified Bottom Lockup -->
+        <div
+            class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-12 xl:gap-8">
+
             <!-- Left: Massive Wordmark -->
-            <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0" style="animation-delay: 0.7s;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" class="w-full h-auto text-[#ede9e2] drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]">
+            <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0"
+                style="animation-delay: 0.7s;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71"
+                    class="w-full h-auto text-[#ede9e2] drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]">
                     <!-- V -->
-                    <polygon points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"/>
+                    <polygon
+                        points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0" />
                     <!-- e (first) -->
-                    <path d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+                    <path
+                        d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z" />
                     <!-- l l -->
-                    <rect x="206.95" y="0" width="26.79" height="89.71"/>
-                    <rect x="252.01" y="0" width="26.89" height="89.71"/>
+                    <rect x="206.95" y="0" width="26.79" height="89.71" />
+                    <rect x="252.01" y="0" width="26.89" height="89.71" />
                     <!-- u -->
-                    <path d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"/>
+                    <path
+                        d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z" />
                     <!-- m -->
-                    <path d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"/>
+                    <path
+                        d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z" />
                     <!-- w i r e -->
-                    <path d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"/>
+                    <path
+                        d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z" />
                     <!-- i dot -->
-                    <rect x="687.33" y="44.74" width="26.87" height="44.74"/>
+                    <rect x="687.33" y="44.74" width="26.87" height="44.74" />
                     <!-- r -->
-                    <path d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"/>
+                    <path
+                        d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z" />
                     <!-- e (last) -->
-                    <path d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+                    <path
+                        d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z" />
                 </svg>
             </div>
 
             <!-- Right Box: Info Block matching placement -->
             <div class="w-full xl:w-[480px] shrink-0 text-left">
-                <h2 class="font-display text-vw-pri text-3xl md:text-5xl italic tracking-tight leading-[1.05] mb-5 drop-shadow-xl reveal-up" style="animation-delay: 0.1s;">
+                <h2 class="font-display text-vw-pri text-3xl md:text-5xl italic tracking-tight leading-[1.05] mb-5 drop-shadow-xl reveal-up"
+                    style="animation-delay: 0.1s;">
                     A beautiful website that doesn’t generate calls is a <span class="text-vw-accent">liability.</span>
                 </h2>
-                <p class="font-ui text-zinc-300 opacity-90 text-[14px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-6" style="animation-delay: 0.3s;">
-                    We rebuild service-business websites with product-level UX, proof-led messaging, and lightweight tracking so your visits turn into qualified calls.
+                <p class="font-ui text-zinc-300 opacity-90 text-[14px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-6"
+                    style="animation-delay: 0.3s;">
+                    We rebuild service-business websites with product-level UX, proof-led messaging, and lightweight
+                    tracking so your visits turn into qualified calls.
                 </p>
                 <div class="reveal-up flex flex-wrap items-center justify-start gap-6" style="animation-delay: 0.5s;">
-                    <div class="btn-wrapper-glow">
+                    <div class="btn-wrapper-glow magnetic">
                         <button class="btn btn--sweep" style="padding: 12px 24px; border: none;">
                             Book a Teardown
                             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </button>
                     </div>
-                    <div class="flex items-center gap-2 group cursor-pointer" onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
-                        <span class="font-ui text-[10px] text-vw-accent uppercase tracking-[0.2em] transition-colors group-hover:text-white">
+                    <div class="flex items-center gap-2 group cursor-pointer"
+                        onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
+                        <span
+                            class="font-ui text-[10px] text-vw-accent uppercase tracking-[0.2em] transition-colors group-hover:text-white">
                             Scroll
                         </span>
-                        <i data-lucide="arrow-down" class="w-3 h-3 text-vw-accent group-hover:text-white transition-colors"></i>
+                        <i data-lucide="arrow-down"
+                            class="w-3 h-3 text-vw-accent group-hover:text-white transition-colors"></i>
                     </div>
                 </div>
             </div>
@@ -147,10 +196,1273 @@
         </div>
     </main>
 
-    <!-- Init Icons -->
+    <!-- Selected Clients Section -->
+    <section class="relative z-10 w-full border-t border-vw-border py-8 md:py-12 overflow-hidden bg-vw-base">
+
+        <!-- Ambient subtle glow behind marquee removed due to feedback -->
+
+        <div
+            class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full mb-4 border-b border-vw-border/30 pb-4 flex justify-between items-end">
+            <span class="font-mono text-[10px] md:text-xs text-vw-mut uppercase tracking-[0.2em] scroll-reveal">
+                Selected clients
+            </span>
+        </div>
+
+        <!-- Marquee -->
+        <div class="marquee-outer scroll-reveal relative z-10 py-4">
+            <div class="marquee-track fwd" style="animation-duration: 40s;">
+                <!-- List 1 -->
+                <div class="marquee-item">
+                    <span
+                        class="marquee-logo font-ui text-xl md:text-2xl font-extrabold tracking-widest text-vw-sec">VEGA
+                        I.T.</span>
+                    <span
+                        class="marquee-logo font-ui text-2xl md:text-3xl font-bold tracking-tighter text-vw-sec inline-flex items-center gap-2">
+                        <svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        A.B.G.i
+                    </span>
+                    <span class="marquee-logo font-ui text-2xl md:text-3xl font-light tracking-tight text-vw-sec">M<span
+                            class="opacity-60">E</span>D<span
+                            class="font-bold border border-vw-sec rounded-full px-1">M</span>E</span>
+                    <span class="marquee-logo font-ui text-xl md:text-2xl font-bold tracking-tight text-vw-sec">OLLY
+                        OLLY</span>
+                    <span class="marquee-logo font-display text-3xl md:text-4xl italic text-vw-sec pr-4">Play9</span>
+                </div>
+                <!-- List 2 -->
+                <div class="marquee-item" aria-hidden="true">
+                    <span
+                        class="marquee-logo font-ui text-xl md:text-2xl font-extrabold tracking-widest text-vw-sec">VEGA
+                        I.T.</span>
+                    <span
+                        class="marquee-logo font-ui text-2xl md:text-3xl font-bold tracking-tighter text-vw-sec inline-flex items-center gap-2">
+                        <svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        A.B.G.i
+                    </span>
+                    <span class="marquee-logo font-ui text-2xl md:text-3xl font-light tracking-tight text-vw-sec">M<span
+                            class="opacity-60">E</span>D<span
+                            class="font-bold border border-vw-sec rounded-full px-1">M</span>E</span>
+                    <span class="marquee-logo font-ui text-xl md:text-2xl font-bold tracking-tight text-vw-sec">OLLY
+                        OLLY</span>
+                    <span class="marquee-logo font-display text-3xl md:text-4xl italic text-vw-sec pr-4">Play9</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Leak Section -->
+    <section class="relative z-10 w-full border-t border-vw-border py-20 overflow-hidden">
+        
+        <!-- Subtle Glow for Section -->
+        <div class="absolute inset-[20%] z-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
+            <div class="w-[400px] h-[400px] bg-white blur-[150px] rounded-full mix-blend-overlay"></div>
+        </div>
+
+        <div class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 pt-12 pb-16 items-start">
+            
+            <!-- Header (Left Column) -->
+            <div class="flex flex-col gap-6 scroll-reveal sticky top-32">
+                <span class="font-mono text-[9px] md:text-[10px] text-vw-mut uppercase tracking-[0.16em]">
+                    The Leak
+                </span>
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] pr-4">
+                    Where service websites lose <span class="text-vw-accent italic opacity-90">leads</span>
+                </h2>
+                <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">
+                    Most sites don't fail on design. They fail on clarity, proof, and flow. Stop guessing what's wrong.
+                </p>
+                <div class="mt-8 hidden lg:block">
+                    <button class="btn-glow">
+                        Book a 15-min teardown
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- List of Leaks (Right Column) -->
+            <div class="flex flex-col border-t lg:border-t-0 border-vw-border">
+                
+                <!-- Card 1 -->
+                <div class="leak-row scroll-reveal group">
+                    <img src="assets/img/leak_cta.png" class="absolute inset-0 w-full h-full object-cover z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" alt="" />
+                    <div class="leak-icon">
+                        <i data-lucide="navigation"></i>
+                    </div>
+                    <div class="flex flex-col gap-1.5 z-10 relative">
+                        <h3 class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">Unclear CTA path</h3>
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                            Visitors can't tell what to do next so they bounce or call a competitor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="leak-row scroll-reveal delay-1 group">
+                    <img src="assets/img/leak_trust.png" class="absolute inset-0 w-full h-full object-cover z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" alt="" />
+                    <div class="leak-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <div class="flex flex-col gap-1.5 z-10 relative">
+                        <h3 class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">Trust signals in the wrong place</h3>
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                            Reviews, credentials, and proof aren't placed where decisions happen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="leak-row scroll-reveal delay-2 group">
+                    <img src="assets/img/leak_friction.png" class="absolute inset-0 w-full h-full object-cover z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" alt="" />
+                    <div class="leak-icon">
+                        <i data-lucide="git-pull-request"></i>
+                    </div>
+                    <div class="flex flex-col gap-1.5 z-10 relative">
+                        <h3 class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">Friction in the request flow</h3>
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                            Long forms, hidden contact options, or slow pages kill intent.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bottom CTA (Mobile Only) -->
+                <div class="flex lg:hidden flex-col items-start gap-4 mt-12 scroll-reveal delay-2">
+                    <button class="btn-glow">
+                        Book a 15-min teardown
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- What We Do (Autoplay Full Bleed Right) -->
+    <section id="what-we-do" class="relative w-full border-t border-vw-border pt-16 lg:pt-24 pb-24 lg:pb-0 overflow-hidden lg:overflow-visible">
+        
+        <!-- Text Content Area -->
+        <div class="px-6 md:px-12 lg:pl-16 lg:pr-24 w-full relative z-10">
+            <div class="w-full lg:w-[42%] xl:w-[38%] flex flex-col gap-12">
+                
+                <!-- Heading -->
+                <div class="flex flex-col gap-6 scroll-reveal">
+                    <span class="font-mono text-[9px] md:text-[10px] text-vw-mut uppercase tracking-[0.16em]">
+                        What We Do
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05]">
+                        Turn visits into calls and quote requests
+                    </h2>
+                    <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">
+                        Product UX for service websites with structure, proof and measurable launch.
+                    </p>
+                </div>
+
+                <!-- Steps List -->
+                <div class="flex flex-col gap-6 mt-4 lg:mb-[25vh]">
+                    <!-- Step 1 -->
+                    <div class="group flex flex-col p-8 md:p-10 bg-vw-surface/40 backdrop-blur-md border border-vw-border rounded-xl scroll-reveal hover:border-vw-accent/30 transition-all duration-500 cursor-default overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-vw-accent/0 to-vw-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <span class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">01.</span>
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Conversion Structure</h3>
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                            CTA hierarchy, scannable sections and friction removal.
+                        </p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="group flex flex-col p-8 md:p-10 bg-vw-surface/40 backdrop-blur-md border border-vw-border rounded-xl scroll-reveal hover:border-vw-accent/30 transition-all duration-500 cursor-default overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-vw-accent/0 to-vw-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <span class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">02.</span>
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Messaging & Proof Architecture</h3>
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                            Pain &rarr; promise &rarr; proof &rarr; next step, placed where decisions happen.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="group flex flex-col p-8 md:p-10 bg-vw-surface/40 backdrop-blur-md border border-vw-border rounded-xl scroll-reveal hover:border-vw-accent/30 transition-all duration-500 cursor-default overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-vw-accent/0 to-vw-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <span class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">03.</span>
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Fast Build & Tracking</h3>
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                            Reusable components, speed basics, and GA4/GTM foundations.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right full-bleed video (Desktop) -->
+        <div class="hidden lg:block absolute top-0 bottom-0 right-0 w-[50%] 2xl:w-[55%] z-0 border-l border-vw-border">
+            <div class="sticky top-0 h-screen w-full bg-[#0a0a09] overflow-hidden flex items-center justify-center">
+                <!-- Gentle Texture and darkening Overlays -->
+                <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-vw-accent mix-blend-color opacity-50 z-10 pointer-events-none"></div>
+
+                <!-- Video with CSS Color Shift and significantly lowered opacity -->
+                <video class="relative z-0 w-full h-full object-cover opacity-40 mix-blend-screen" 
+                    style="filter: hue-rotate(-110deg) saturate(1) brightness(0.8);"
+                    src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" 
+                    crossorigin="anonymous" muted playsinline preload="auto" autoplay loop></video>
+            </div>
+        </div>
+
+        <!-- Mobile Inline Video -->
+        <div class="block lg:hidden w-full h-[500px] mt-16 relative overflow-hidden border-t border-b border-vw-border bg-[#0a0a09]">
+            <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-vw-accent mix-blend-color opacity-50 z-10 pointer-events-none"></div>
+            <video class="w-full h-full object-cover opacity-40 mix-blend-screen" 
+                style="filter: hue-rotate(-110deg) saturate(1) brightness(0.8);"
+                src="https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4" 
+                crossorigin="anonymous" muted playsinline preload="auto" loop autoplay></video>
+        </div>
+
+    </section>
+
+    <!-- Marquee Separator: Services Structure -->
+    <section class="w-full border-t border-vw-border bg-[#0a0a09] py-5 md:py-8 overflow-hidden relative z-10 flex items-center shadow-2xl">
+        <div class="absolute inset-0 bg-gradient-to-r from-vw-base via-transparent to-vw-base opacity-90 z-10 pointer-events-none w-full"></div>
+        <div class="relative flex w-max animate-marquee text-5xl md:text-7xl font-display text-vw-pri tracking-tighter opacity-80 hover:opacity-100 transition-opacity">
+            <div class="flex items-center gap-8 md:gap-16 pr-8 md:pr-16">
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+            </div>
+            <!-- Duplicated for seamless loop -->
+            <div class="flex items-center gap-8 md:gap-16 pr-8 md:pr-16" aria-hidden="true">
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+                <span>Services structure</span>
+                <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Design System Brutalist) -->
+    <section id="services" class="relative z-10 w-full bg-[#0c0b09] py-24 lg:py-32 border-t border-vw-border overflow-hidden">
+        
+        <!-- Inherit Global Grid Background -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-0"></div>
+
+        <div class="px-6 md:px-12 lg:px-16 w-full relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                
+                <!-- Left: Sticky Header -->
+                <div class="lg:col-span-4 lg:sticky top-32 flex flex-col gap-6">
+                    <div class="scroll-reveal">
+                        <!-- Eyebrow matching Design System -->
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.2em] flex items-center gap-2">
+                            [ SERVICES ARCHITECTURE ] <span class="w-1.5 h-6 bg-vw-accent ml-2"></span>
+                        </span>
+                        <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] mt-8">
+                            Choose your starting point
+                        </h2>
+                        <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6">
+                            Three distinct pathways engineered for a single outcome: predictable lead flow.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Services Cards Grid -->
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                    
+                    <!-- Card 1 -->
+                    <div class="vw-service-card scroll-reveal delay-1">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    BEST FOR: QUICK WINS
+                                </span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Conversion Audit</h3>
+                            
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                                A focused teardown and priority plan to fix what's leaking leads — ranked by impact.
+                            </p>
+                        </div>
+                        
+                        <div class="vw-card-media">
+                            <div class="vw-card-media-accent"></div>
+                            <div class="vw-card-media-gradient"></div>
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" class="vw-card-media-img" alt="Cyber abstract architecture">
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="vw-service-card scroll-reveal delay-2">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    BEST FOR: BASELINE LIFT
+                                </span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Core UI Refresh</h3>
+                            
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                                A high-octane redesign of your homepage and primary landing pages aimed exclusively at building trust and capturing intent.
+                            </p>
+                        </div>
+                        
+                        <div class="vw-card-media">
+                            <div class="vw-card-media-accent"></div>
+                            <div class="vw-card-media-gradient"></div>
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" class="vw-card-media-img" alt="Tech hardware grid">
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="vw-service-card scroll-reveal delay-1">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    BEST FOR: SCALING
+                                </span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Full Web Rebuild</h3>
+                            
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                                Complete teardown and reconstruction of your active digital footprint. We craft the technical architecture and the sales messaging from scratch.
+                            </p>
+                        </div>
+                        
+                        <div class="vw-card-media">
+                            <div class="vw-card-media-accent"></div>
+                            <div class="vw-card-media-gradient"></div>
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" class="vw-card-media-img" alt="Wireframe grid structure">
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="vw-service-card scroll-reveal delay-2">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    BEST FOR: RE-POSITIONING
+                                </span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+                            
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Brand Strategy</h3>
+                            
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                                Establishing foundational authority. We handle the strategic positioning, tone, and the complete visual design system.
+                            </p>
+                        </div>
+                        
+                        <div class="vw-card-media">
+                            <div class="vw-card-media-accent"></div>
+                            <div class="vw-card-media-gradient"></div>
+                            <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=800&q=80" class="vw-card-media-img" alt="Abstract neon paths">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- WORK / PROJECTS SECTION                      -->
+    <!-- ============================================ -->
+    <section id="work" class="relative pt-24 pb-16 border-t border-vw-border/50 overflow-hidden bg-vw-base">
+        
+        <!-- Header Row (Full Width Container) -->
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
+            <div>
+                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] mb-8 block">
+                    <span class="inline-block w-1.5 h-1.5 bg-vw-mut mr-3"></span>WORK
+                </span>
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-4">
+                    Our newest projects
+                </h2>
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-lg mb-8">
+                    A few examples of structure & proof working together to drive serious pipeline.
+                </p>
+                
+                <a href="#projects" class="btn btn--sweep min-w-[200px]">
+                    View all projects
+                </a>
+            </div>
+
+            <!-- Controls (Desktop right-aligned) -->
+            <div class="hidden md:flex items-center gap-6">
+                <button class="carousel-btn btn-prev" aria-label="Previous Project">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <button class="carousel-btn btn-next" aria-label="Next Project">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Track Wrapper (Full Screen Width / Infinite Loop) -->
+        <div class="relative w-full z-20 scroll-reveal delay-1">
+            <div id="project-track" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-6 lg:gap-10 items-center">
+                
+                <!-- ================= CLONES (Prepended) ================= -->
+                
+                <!-- Clone 3: Nexus Finance -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=800&q=80" alt="Nexus Finance" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">SaaS Architecture</span>
+                            <span class="vw-project-tag">UI</span>
+                        </div>
+                        <h3 class="vw-project-title">Nexus Finance</h3>
+                        <p class="vw-project-desc">Modular platform architecture showcasing API endpoints and compliance.</p>
+                    </div>
+                </div>
+                
+                <!-- Clone 4: Echo Systems -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Echo Systems" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Enterprise Logistics</span>
+                            <span class="vw-project-tag">Design System</span>
+                        </div>
+                        <h3 class="vw-project-title">Echo Systems</h3>
+                        <p class="vw-project-desc">Intense proof-led infrastructure landing page mapped to enterprise logic.</p>
+                    </div>
+                </div>
+
+                <!-- ================= REAL CARDS ================= -->
+
+                <!-- Real 1: Branding -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Vellumwire Identity" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Branding</span>
+                            <span class="vw-project-tag">UI/UX</span>
+                        </div>
+                        <h3 class="vw-project-title">Branding & Identity</h3>
+                        <p class="vw-project-desc">Brand direction, wordmark, and a website-ready visual system.</p>
+                    </div>
+                </div>
+
+                <!-- Real 2: Alpha Flow -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Alpha Flow" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Development</span>
+                            <span class="vw-project-tag">Conversion</span>
+                        </div>
+                        <h3 class="vw-project-title">Alpha Flow</h3>
+                        <p class="vw-project-desc">High-octane product landing page optimized for early-access captures.</p>
+                    </div>
+                </div>
+
+                <!-- Real 3: Nexus Finance -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=800&q=80" alt="Nexus Finance" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">SaaS Architecture</span>
+                            <span class="vw-project-tag">UI</span>
+                        </div>
+                        <h3 class="vw-project-title">Nexus Finance</h3>
+                        <p class="vw-project-desc">Modular platform architecture showcasing API endpoints and compliance.</p>
+                    </div>
+                </div>
+                
+                <!-- Real 4: Echo Systems -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80" alt="Echo Systems" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Enterprise Logistics</span>
+                            <span class="vw-project-tag">Design System</span>
+                        </div>
+                        <h3 class="vw-project-title">Echo Systems</h3>
+                        <p class="vw-project-desc">Intense proof-led infrastructure landing page mapped to enterprise logic.</p>
+                    </div>
+                </div>
+
+                <!-- ================= CLONES (Appended) ================= -->
+
+                <!-- Clone 1: Branding -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Vellumwire Identity" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Branding</span>
+                            <span class="vw-project-tag">UI/UX</span>
+                        </div>
+                        <h3 class="vw-project-title">Branding & Identity</h3>
+                        <p class="vw-project-desc">Brand direction, wordmark, and a website-ready visual system.</p>
+                    </div>
+                </div>
+
+                <!-- Clone 2: Alpha Flow -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80" alt="Alpha Flow" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Development</span>
+                            <span class="vw-project-tag">Conversion</span>
+                        </div>
+                        <h3 class="vw-project-title">Alpha Flow</h3>
+                        <p class="vw-project-desc">High-octane product landing page optimized for early-access captures.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Controls (Mobile dots & arrows block, Desktop dots only essentially) -->
+        <div class="container mx-auto px-6 lg:px-12 mt-12 scroll-reveal">
+            <div class="flex items-center justify-between md:justify-center border-t border-vw-border/30 pt-8" id="carousel-dots-container">
+                <button class="carousel-btn btn-prev md:hidden" aria-label="Previous Project">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                
+                <div class="flex items-center gap-4 justify-center" id="carousel-dots">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+                
+                <button class="carousel-btn btn-next md:hidden" aria-label="Next Project">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+        </div>
+
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROCESS / HOW IT WORKS SECTION              -->
+    <!-- ============================================ -->
+    <section id="process" class="relative border-t border-vw-border/50" style="background: #1c1a17;">
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:gap-24 lg:items-start">
+
+                <!-- LEFT COLUMN: STICKY CAM -->
+                <div class="lg:w-[45%] lg:sticky lg:top-4 h-fit lg:h-[calc(100vh-1rem)] flex flex-col pt-12 pb-8">
+
+                    <div class="scroll-reveal mb-6">
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3">
+                            <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>PROCESS
+                        </span>
+                    </div>
+
+                    <div class="scroll-reveal mb-6">
+                        <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92] mb-3">
+                            From first call<br>to live site.
+                        </h2>
+                        <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-sm">
+                            No long intake forms, no three-month timelines. A direct path from diagnosis to execution.
+                        </p>
+                    </div>
+
+                    <!-- Cinematic Media Window -->
+                    <div class="process-media-container scroll-reveal flex-1 min-h-0" id="process-media-window" style="aspect-ratio: unset; height: 100%;">
+                        <!-- Image 01: Teardown -->
+                        <div class="process-media-item is-active" data-media="1">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85" alt="Website teardown audit" class="process-media-img">
+                            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">01 — Teardown</span>
+                            </div>
+                        </div>
+                        <!-- Image 02: Plan -->
+                        <div class="process-media-item" data-media="2">
+                            <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=900&q=85" alt="Strategy and planning" class="process-media-img">
+                            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">02 — Plan</span>
+                            </div>
+                        </div>
+                        <!-- Image 03: Build -->
+                        <div class="process-media-item" data-media="3">
+                            <img src="https://images.unsplash.com/photo-1545670723-196ed0954986?w=900&q=85" alt="Building the site" class="process-media-img">
+                            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">03 — Build</span>
+                            </div>
+                        </div>
+                        <!-- Image 04: Launch -->
+                        <div class="process-media-item" data-media="4">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=85" alt="Launch and go live" class="process-media-img">
+                            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">04 — Launch</span>
+                            </div>
+                        </div>
+                        <!-- Corner decorations -->
+                        <div style="position:absolute;top:16px;right:16px;width:12px;height:12px;border-top:2px solid var(--color-accent);border-right:2px solid var(--color-accent);z-index:30;pointer-events:none;"></div>
+                        <div style="position:absolute;bottom:16px;left:16px;width:12px;height:12px;border-bottom:2px solid var(--color-accent);border-left:2px solid var(--color-accent);z-index:30;pointer-events:none;"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: SCROLL TRACK -->
+                <div class="lg:w-[55%] relative" id="process-steps-container">
+
+                    <!-- Vertical progress line (desktop only) -->
+                    <div class="hidden lg:block absolute left-0 top-[10%] bottom-[10%] w-px bg-white/10 pointer-events-none">
+                        <div id="process-track-fill" class="absolute top-0 left-[-0.5px] w-[2px] bg-vw-accent transition-all duration-300" style="height:0%"></div>
+                    </div>
+
+                    <div class="flex flex-col" style="gap: clamp(72px, 20vh, 180px); padding: clamp(60px, 18vh, 160px) 0;">
+
+                        <!-- STEP 01 -->
+                        <div class="process-step pl-0 lg:pl-12 is-active" data-step="1">
+                            <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">01</span>
+                            <h3 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                We read your site<br><em>like a lost lead would.</em>
+                            </h3>
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                                Before touching a pixel, we map where your current site is leaking attention—conversion blockers, buried trust signals, form friction, slow loads. You get a prioritized breakdown of what's actually hurting pipeline.
+                            </p>
+                            <div class="mt-8 flex items-center gap-3">
+                                <span class="inline-block w-8 h-px bg-vw-accent"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: 48h audit report</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 02 -->
+                        <div class="process-step pl-0 lg:pl-12" data-step="2">
+                            <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">02</span>
+                            <h3 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                You approve<br><em>a concrete plan.</em>
+                            </h3>
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                                We translate the audit into a tight scope: what gets fixed first for the fastest revenue impact, what gets restructured in depth, and what simply gets cut. One doc. No ambiguity. You sign off before a line of code is written.
+                            </p>
+                            <div class="mt-8 flex items-center gap-3">
+                                <span class="inline-block w-8 h-px bg-vw-accent"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: Action plan + timeline</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 03 -->
+                        <div class="process-step pl-0 lg:pl-12" data-step="3">
+                            <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">03</span>
+                            <h3 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                We build it<br><em>without the noise.</em>
+                            </h3>
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                                Design, copy architecture, and engineering run in parallel. You don't live in endless feedback cycles—we present when there's something real to review. Every decision is tied back to the original brief, not preference.
+                            </p>
+                            <div class="mt-8 flex items-center gap-3">
+                                <span class="inline-block w-8 h-px bg-vw-accent"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: Staging environment</span>
+                            </div>
+                        </div>
+
+                        <!-- STEP 04 -->
+                        <div class="process-step pl-0 lg:pl-12" data-step="4">
+                            <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">04</span>
+                            <h3 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                We ship—and you<br><em>can actually measure it.</em>
+                            </h3>
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                                Launch happens with tracking already configured—session heatmaps, conversion events, form completion rates. You'll know within the first week whether the site is pulling its weight.
+                            </p>
+                            <div class="mt-8 flex items-center gap-3">
+                                <span class="inline-block w-8 h-px bg-vw-accent"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: Live site + analytics setup</span>
+                            </div>
+                        </div>
+
+                        <!-- SECTION CTA -->
+                        <div class="pl-0 lg:pl-12 pb-10">
+                            <div class="border-t-2 border-vw-accent/40 pt-16">
+
+                                <!-- Big closing statement -->
+                                <p class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-4">
+                                    Most sites lose leads<br>
+                                    <em class="text-vw-accent">before they say a word.</em>
+                                </p>
+                                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm mb-12">
+                                    The teardown takes 15 minutes. You'll leave knowing exactly what's bleeding pipeline — at no cost.
+                                </p>
+
+                                <!-- CTA Buttons -->
+                                <div class="flex flex-col sm:flex-row items-start gap-4">
+                                    <a href="#contact" class="btn btn--sweep flex items-center gap-3 min-w-[260px]" style="font-size:12px; padding: 20px 36px;">
+                                        Book a 15-min teardown
+                                        <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
+                                    </a>
+                                    <a href="#work" class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
+                                        See our work first
+                                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
+
+                                <!-- Social proof line -->
+                                <div class="mt-10 flex items-center gap-3">
+                                    <span class="inline-block w-6 h-px bg-vw-accent/60"></span>
+                                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">No pitch. No retainer trap. Just a honest read of your site.</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ SECTION                                  -->
+    <!-- ============================================ -->
+    <section id="faq" class="relative border-t border-vw-border/50">
+        <div class="container mx-auto px-6 lg:px-12 py-24 lg:py-32">
+
+            <!-- Header Row -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
+                <div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3 mb-6">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>FAQ
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
+                        Common questions.
+                    </h2>
+                </div>
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">
+                    Everything you'd want to know before committing fifteen minutes of your time.
+                </p>
+            </div>
+
+            <!-- Accordion Items -->
+            <div class="faq-list" id="faq-list">
+
+                <!-- Item 1 -->
+                <div class="faq-demo scroll-reveal" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">01</span>
+                            <span class="faq-demo-text">How fast can you actually ship?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">Most projects go live in 3–5 weeks from signed brief. We don't batch projects — when you're in, you're the focus. The teardown and plan phases move fast because we're not doing discovery theater. If you have a hard deadline, tell us upfront and we'll tell you honestly whether we can hit it.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-demo scroll-reveal delay-1" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">02</span>
+                            <span class="faq-demo-text">Do you write the copy, or do we?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">We write it. Good structure with weak copy doesn't convert — we've seen that mistake too many times to leave it to chance. We interview you, pull your differentiators out, and write to a specific visitor intent. You review and adjust tone. We don't outsource this to templates or generic frameworks.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-demo scroll-reveal delay-2" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">03</span>
+                            <span class="faq-demo-text">What platform do you build on?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">It depends on what your site needs to do. We're platform-agnostic by principle — Webflow for marketing sites that need editorial control, Next.js for product-adjacent builds, custom HTML/CSS for maximum performance. We won't lock you into a stack that serves us better than it serves you.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="faq-demo scroll-reveal" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">04</span>
+                            <span class="faq-demo-text">What if I already have a site — do you start from scratch?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">Not automatically. The teardown determines that. Some sites need a full rebuild — wrong structure, bad CMS, fundamentally broken mobile. Others just need better copy, a tighter above-the-fold, and one clean CTA path. We'll tell you exactly what's warranted, not what maximizes our scope.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="faq-demo scroll-reveal delay-1" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">05</span>
+                            <span class="faq-demo-text">How is this different from hiring a freelancer or an agency?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">Freelancers tend to execute what you ask. Agencies tend to sell what they have. We start with what's actually leaking revenue and work backward from there. You get a small senior team without account management layers — and a scope written around your conversion problem, not your visual preferences.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="faq-demo scroll-reveal delay-2" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">06</span>
+                            <span class="faq-demo-text">What does the 15-minute teardown actually cover?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">We share screen, walk your site live, and flag the top conversion blockers in real time — CTA clarity, trust signal placement, form friction, load issues, mobile gaps. You'll leave with a prioritized list of what to fix first, whether you hire us or not. No pitch. No slide deck. Just a read.</p>
+                    </div>
+                </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FINAL CTA SECTION                            -->
+    <!-- ============================================ -->
+    <section id="contact" class="relative border-t border-vw-border/50">
+        <div class="container mx-auto px-6 lg:px-12 py-24 lg:py-32">
+
+            <!-- Full-bleed image box -->
+            <div class="scroll-reveal relative w-full overflow-hidden" style="min-height: clamp(480px, 70vh, 800px); border: 1px solid rgba(255,255,255,0.12);">
+
+                <img
+                    id="cta-bg-img"
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85"
+                    alt="Modern workspace"
+                    class="cta-bg-img"
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(1.1);opacity:0.55;"
+                >
+
+                <!-- Bottom gradient -->
+                <div class="cta-vignette" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,0.97) 0%, rgba(12,11,9,0.75) 35%, rgba(12,11,9,0.15) 65%, transparent 100%);z-index:2;"></div>
+
+                <!-- Top-left corner accent -->
+                <div style="position:absolute;top:24px;left:24px;width:16px;height:16px;border-top:2px solid rgba(198,241,53,0.6);border-left:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+                <!-- Bottom-right corner accent -->
+                <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+
+                <!-- Top meta label -->
+                <div style="position:absolute;top:28px;right:48px;z-index:10;">
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                </div>
+
+                <!-- Bottom-anchored content -->
+                <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
+
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="inline-block w-6 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Ready when you are</span>
+                    </div>
+
+                    <!-- Headline — large, tight, brutal (green on last line) -->
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(40px, 6vw, 88px); max-width: 14ch;">
+                        Want more calls<br><em class="text-vw-accent">and quote requests?</em>
+                    </h2>
+
+                    <!-- Sub-copy + CTA side by side on desktop -->
+                    <div class="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                            We'll read your current site live, flag what's blocking conversions, and map out what to fix first. You keep the diagnosis either way.
+                        </p>
+                        <div class="flex flex-col gap-4 flex-shrink-0">
+                            <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                                Book a 15-min teardown
+                                <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
+                            </a>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">Clear next steps within 24h. No spam.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer id="footer" style="background: #0a0908; border-top: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;">
+
+        <!-- Top footer: nav links -->
+        <div class="container mx-auto px-6 lg:px-12 pt-20 pb-16">
+            <div class="flex flex-col md:flex-row justify-between gap-16">
+
+                <!-- Col 1: Brand + blurb -->
+                <div class="max-w-xs">
+                    <div class="mb-6">
+                        <img src="assets/svg/vellumwire-icon.svg" alt="Vellumwire" class="h-8 w-auto" style="filter: invert(1);" onerror="this.style.display='none'">
+                        <span class="font-display text-vw-pri text-xl tracking-tight" style="display:block;margin-top:8px;">Vellumwire</span>
+                    </div>
+                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">
+                        We build websites that turn visitors into calls. Design, copy, and engineering — under one brief.
+                    </p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <span class="inline-block w-4 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR · Est. 2024</span>
+                    </div>
+                </div>
+
+                <!-- Col 2 + 3: Nav in two columns -->
+                <div class="flex gap-16 md:gap-24">
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
+                        <a href="/" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                        <a href="/work" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                        <a href="/services" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Services</a>
+                        <a href="/packages" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                        <a href="/studio" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                        <a href="/insights" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                        <a href="/contact" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                        <a href="mailto:hello@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">hello@vellumwire.com</a>
+                        <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
+                        <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wordmark block: full-width, fades to bg at bottom -->
+        <div class="relative w-full overflow-hidden select-none" style="padding: 0; margin-bottom: -2px;">
+            <!-- The SVG wordmark stretched edge-to-edge -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true"
+                 style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
+                        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                        padding: 0 clamp(8px, 2vw, 24px);">
+                <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"/>
+                <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+                <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"/>
+                <rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71"/>
+                <path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"/>
+                <path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"/>
+                <path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"/>
+                <rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74"/>
+                <path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"/>
+                <path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+            </svg>
+        </div>
+
+        <!-- Bottom bar: legal -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">© 2026 Vellumwire. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a href="/privacy-policy" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
+                    <a href="/terms-of-use"   class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Init Scripts -->
+
+
+    <script>
+        // Cinematic Infinite Track Carousel Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('project-track');
+            const btnsPrev = document.querySelectorAll('.btn-prev');
+            const btnsNext = document.querySelectorAll('.btn-next');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const cards = track ? Array.from(track.querySelectorAll('.vw-project-card')) : [];
+
+            if (track && cards.length === 8) { // 2 Clones + 4 Reals + 2 Clones
+                let currentIndex = 2; // Start at Real 1
+                const totalReals = 4;
+
+                const updateDots = (index) => {
+                    // Map absolute index (0-7) to real dot index (0-3)
+                    let dotIndex = (index - 2) % totalReals;
+                    if (dotIndex < 0) dotIndex += totalReals;
+                    
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === dotIndex);
+                    });
+                };
+
+                const scrollToCard = (index, smooth = true) => {
+                    currentIndex = index;
+                    const card = cards[currentIndex];
+                    if(!card) return;
+                    
+                    const trackCenter = track.clientWidth / 2;
+                    const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                    
+                    track.scrollTo({
+                        left: cardCenter - trackCenter,
+                        behavior: smooth ? 'smooth' : 'auto'
+                    });
+                    
+                    updateDots(currentIndex);
+                };
+
+                // Initial silent snap to Real 1
+                requestAnimationFrame(() => {
+                   requestAnimationFrame(() => scrollToCard(2, false));
+                });
+
+                btnsNext.forEach(btn => btn.addEventListener('click', () => scrollToCard(currentIndex + 1)));
+                btnsPrev.forEach(btn => btn.addEventListener('click', () => scrollToCard(currentIndex - 1)));
+
+                // Snap tracking and infinite teleport logic
+                let scrollTimeout;
+                track.addEventListener('scroll', () => {
+                    const viewCenter = track.scrollLeft + (track.clientWidth / 2);
+                    let closestIndex = 2;
+                    let minDistance = Infinity;
+
+                    cards.forEach((card, index) => {
+                        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                        const distance = Math.abs(viewCenter - cardCenter);
+                        
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestIndex = index;
+                        }
+                    });
+
+                    if (currentIndex !== closestIndex) {
+                        currentIndex = closestIndex;
+                        updateDots(currentIndex);
+                    }
+
+                    // Silent Teleportation Check (after native snap settles)
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        if (currentIndex <= 1) {
+                            // Snapped to Clone 3 or 4 -> Teleport to Real 3 or 4
+                            scrollToCard(currentIndex + 4, false);
+                        } else if (currentIndex >= 6) {
+                            // Snapped to Clone 1 or 2 -> Teleport to Real 1 or 2
+                            scrollToCard(currentIndex - 4, false);
+                        }
+                    }, 150);
+                }, { passive: true });
+            }
+        });
+    </script>
     <script>
         lucide.createIcons();
+
+        // Scroll reveal observer for elements below the fold
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: stop observing once revealed
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // ── Process Sticky-Scroll Sync ──
+        const processSteps = document.querySelectorAll('.process-step');
+        const processMediaItems = document.querySelectorAll('.process-media-item');
+        const processTrackFill = document.getElementById('process-track-fill');
+        const processStepsContainer = document.getElementById('process-steps-container');
+
+        if (processSteps.length > 0 && processMediaItems.length > 0) {
+
+            const activateStep = (stepNum) => {
+                // Update steps opacity
+                processSteps.forEach(step => {
+                    step.classList.toggle('is-active', step.dataset.step === String(stepNum));
+                });
+                // Crossfade images
+                processMediaItems.forEach(item => {
+                    item.classList.toggle('is-active', item.dataset.media === String(stepNum));
+                });
+                // Update progress bar
+                if (processTrackFill) {
+                    const pct = ((stepNum - 1) / (processSteps.length - 1)) * 100;
+                    processTrackFill.style.height = pct + '%';
+                }
+            };
+
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stepNum = parseInt(entry.target.dataset.step);
+                        activateStep(stepNum);
+                    }
+                });
+            }, {
+                rootMargin: '-35% 0px -55% 0px', // Triggers when step enters the upper-center zone
+                threshold: 0
+            });
+
+            processSteps.forEach(step => stepObserver.observe(step));
+        }
     </script>
+
+    <script>
+        // ── CTA Mouse Parallax ──────────────────────────────────
+        const ctaSection  = document.getElementById('contact');
+        const ctaBgImg    = document.getElementById('cta-bg-img');
+
+        if (ctaSection && ctaBgImg) {
+            ctaSection.addEventListener('mousemove', (e) => {
+                const rect   = ctaSection.getBoundingClientRect();
+                // Normalize cursor position to -1 → +1
+                const xRatio = (e.clientX - rect.left)  / rect.width  - 0.5;
+                const yRatio = (e.clientY - rect.top)   / rect.height - 0.5;
+
+                // Translate in the opposite direction (slight depth illusion)
+                const moveX  = xRatio * -18; // max ±9px
+                const moveY  = yRatio * -10; // max ±5px
+
+                ctaBgImg.style.transform = `scale(1.08) translate(${moveX}px, ${moveY}px)`;
+            });
+
+            ctaSection.addEventListener('mouseleave', () => {
+                // Smoothly return to Ken Burns baseline
+                ctaBgImg.style.transform = '';
+            });
+        }
+    </script>
+
+    <script>
+        // ── FAQ Accordion ────────────────────────────────────────
+        document.querySelectorAll('[data-faq]').forEach(item => {
+            const trigger = item.querySelector('.faq-demo-q');
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+
+                // Close all others
+                document.querySelectorAll('[data-faq].is-open').forEach(other => {
+                    other.classList.remove('is-open');
+                    other.querySelector('.faq-demo-q').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle this one
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // ── Magnetic Elements (Premium Interaction) ─────────────────
+        document.querySelectorAll('.magnetic').forEach(elem => {
+            elem.addEventListener('mousemove', (e) => {
+                const rect = elem.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = 'translate(0px, 0px)';
+            });
+        });
+    </script>
+
 </body>
+
+
 
 </html>
