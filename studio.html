@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Studio — Vellumwire</title>
+    <meta name="description" content="A small senior team in Curitiba building conversion-focused websites. No account managers. No layers. Design, copy, and engineering under one brief.">
+    <meta name="keywords" content="web design studio, about vellumwire, curitiba web agency, conversion design team">
+    <meta name="author" content="Vellumwire">
+    <meta property="og:title" content="Studio — Vellumwire">
+    <meta property="og:description" content="A small senior team building conversion-focused websites. No layers. No fluff.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vellumwire.com/studio">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="assets/svg/vellumwire-favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vw: {
+                            base: '#0c0b09',
+                            surface: '#1c1a17',
+                            accent: '#c6f135',
+                            accentHov: '#b0d82e',
+                            pri: '#ede9e2',
+                            sec: '#8a8680',
+                            mut: '#7a7875',
+                            border: 'rgba(255,255,255,0.12)'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Instrument Serif"', 'serif'],
+                        ui: ['"Syne"', 'sans-serif'],
+                        mono: ['"DM Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ══════════════════════════════════════════════
+           STUDIO PAGE — STYLES
+        ══════════════════════════════════════════════ */
+
+        /* ── Hero parallax image ── */
+        .studio-hero-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 767px) {
+            .studio-hero-img-wrap { aspect-ratio: 4 / 3; }
+        }
+
+        .studio-hero-img {
+            position: absolute;
+            inset: -10%;
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.08);
+            opacity: 0.65;
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
+        .studio-hero-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(12,11,9,0.95) 0%, rgba(12,11,9,0.3) 40%, transparent 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Accent frame corners */
+        .frame-corner {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-color: rgba(198,241,53,0.5);
+            border-style: solid;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s var(--ease-editorial);
+        }
+
+        .frame-corner.tl { top: 16px; left: 16px; border-width: 2px 0 0 2px; transform: translate(-6px, -6px); }
+        .frame-corner.tr { top: 16px; right: 16px; border-width: 2px 2px 0 0; transform: translate(6px, -6px); }
+        .frame-corner.bl { bottom: 16px; left: 16px; border-width: 0 0 2px 2px; transform: translate(-6px, 6px); }
+        .frame-corner.br { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; transform: translate(6px, 6px); }
+
+        .studio-hero-img-wrap:hover .frame-corner {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* ── Philosophy word reveal ── */
+        .word-reveal-line {
+            overflow: hidden;
+            display: block;
+        }
+
+        .word-reveal-inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .word-reveal-line.is-visible .word-reveal-inner {
+            transform: translateY(0);
+        }
+
+        /* ── Values grid cards ── */
+        .value-card {
+            position: relative;
+            padding: 40px 32px;
+            background: rgba(15,14,12,0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+            transition: all 0.5s var(--ease-editorial);
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+        }
+
+        .value-card:hover {
+            border-color: rgba(198,241,53,0.3);
+            background: rgba(198,241,53,0.03);
+        }
+
+        .value-card:hover::before { transform: scaleX(1); }
+
+        .value-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 64px;
+            line-height: 1;
+            color: rgba(198,241,53,0.08);
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            transition: color 0.5s ease;
+            pointer-events: none;
+        }
+
+        .value-card:hover .value-num {
+            color: rgba(198,241,53,0.18);
+        }
+
+        /* ── Timeline ── */
+        .timeline-container {
+            position: relative;
+            padding-left: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-container { padding-left: 80px; }
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 32px; }
+        }
+
+        .timeline-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--color-accent);
+            transition: height 0.05s linear;
+        }
+
+        .timeline-node {
+            position: relative;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .timeline-node:last-child { border-bottom: none; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -40px;
+            top: 48px;
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.12);
+            border: 2px solid var(--color-bg);
+            z-index: 2;
+            transition: all 0.5s var(--ease-editorial);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-dot { left: -56px; }
+        }
+
+        .timeline-node.is-active .timeline-dot {
+            background: var(--color-accent);
+            box-shadow: 0 0 12px rgba(198,241,53,0.3);
+        }
+
+        .timeline-year {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--color-accent);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(22px, 3vw, 32px);
+            color: var(--color-text-pri);
+            line-height: 1.15;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-node:hover .timeline-title { color: var(--color-accent); }
+
+        .timeline-desc {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            color: var(--color-text-sec);
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        /* ── Team member cards ── */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            perspective: 800px;
+        }
+
+        .team-card-inner {
+            position: relative;
+            transition: transform 0.6s var(--ease-editorial);
+            transform-style: preserve-3d;
+        }
+
+        .team-card:hover .team-card-inner {
+            transform: translateY(-4px);
+        }
+
+        .team-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: #0f0e0c;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.05);
+            opacity: 0.7;
+            transition: all 0.7s var(--ease-editorial);
+        }
+
+        .team-card:hover .team-img {
+            filter: grayscale(30%) contrast(1.05);
+            opacity: 0.9;
+            transform: scale(1.04);
+        }
+
+        .team-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(12,11,9,0.8) 0%, transparent 50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Accent bar on image */
+        .team-accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+            z-index: 10;
+        }
+
+        .team-card:hover .team-accent-bar { transform: scaleX(1); }
+
+        /* Scan line effect */
+        .team-scan {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+            z-index: 5;
+            opacity: 0;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .team-card:hover .team-scan {
+            opacity: 0.6;
+            animation: scanDown 1.2s ease-in-out;
+        }
+
+        @keyframes scanDown {
+            0% { top: 0; opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Corner brackets on hover */
+        .team-corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: var(--color-accent);
+            border-style: solid;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.4s var(--ease-editorial);
+            pointer-events: none;
+        }
+
+        .team-corner.tl { top: 10px; left: 10px; border-width: 2px 0 0 2px; transform: translate(-4px,-4px); }
+        .team-corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; transform: translate(4px,4px); }
+
+        .team-card:hover .team-corner {
+            opacity: 1;
+            transform: translate(0,0);
+        }
+
+        /* ── Horizontal scrolling text ── */
+        .scroll-text-strip {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 28px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .scroll-text-track {
+            display: inline-flex;
+            animation: scrollText 40s linear infinite;
+        }
+
+        .scroll-text-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollText {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .scroll-text-item {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(48px, 7vw, 96px);
+            color: rgba(255,255,255,0.06);
+            padding: 0 clamp(24px, 4vw, 64px);
+            line-height: 1;
+            transition: color 0.5s ease;
+            cursor: default;
+        }
+
+        .scroll-text-item:hover {
+            color: rgba(198,241,53,0.2);
+        }
+
+        .scroll-text-sep {
+            color: rgba(198,241,53,0.15);
+            font-size: clamp(20px, 3vw, 32px);
+            padding: 0 8px;
+            align-self: center;
+        }
+
+        /* ── Reduced motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .word-reveal-inner { transform: none; }
+            .scroll-text-track { animation: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Ambient Visual Layer ── -->
+    <div class="ambient-layer">
+        <div class="ambient-tint"></div>
+        <div class="ambient-blur"></div>
+        <div class="ds-ambient-grid"></div>
+
+        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
+            <div class="grid-line-v" style="left:144px">
+                <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+            </div>
+            <div class="grid-line-v" style="left:576px">
+                <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+            </div>
+            <div class="grid-line-v" style="left:1008px"></div>
+            <div class="grid-line-v" style="left:1296px"></div>
+            <div class="grid-line-h" style="top:144px"></div>
+        </div>
+    </div>
+    <div class="ambient-noise"></div>
+
+    <!-- ── Navigation ── -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between mix-blend-difference">
+        <a href="/" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+            <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
+                <polygon style="fill: inherit;" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0" />
+                <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
+            </svg>
+        </a>
+        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+        </button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- HERO                                                  -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-20 lg:pb-28">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <div class="reveal-up flex items-center gap-3 mb-12" style="animation-delay:0.1s">
+                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.2em] flex items-center gap-2">
+                    [ STUDIO ] <span class="w-1.5 h-6 bg-vw-accent ml-2 inline-block"></span>
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end mb-16 lg:mb-24">
+                <div class="lg:col-span-8">
+                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]"
+                        style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s">
+                        A small team that<br>
+                        <em class="text-vw-accent">ships fast and measures everything.</em>
+                    </h1>
+                </div>
+                <div class="lg:col-span-4 reveal-up" style="animation-delay:0.4s">
+                    <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md">
+                        No account managers. No layers. You talk to the people who design, write, and build your site — and they're the same people who read your analytics after launch.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hero Image with parallax -->
+            <div class="studio-hero-img-wrap reveal-up" style="animation-delay:0.5s" id="hero-parallax">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85"
+                     alt="Vellumwire studio workspace" class="studio-hero-img" id="hero-img">
+                <div class="frame-corner tl"></div>
+                <div class="frame-corner tr"></div>
+                <div class="frame-corner bl"></div>
+                <div class="frame-corner br"></div>
+
+                <!-- Overlay info -->
+                <div class="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-block w-6 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Curitiba, Paraná, BR</span>
+                    </div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Est. 2024</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Scrolling text strip ── -->
+    <div class="scroll-text-strip relative z-10">
+        <div class="scroll-text-track">
+            <span class="scroll-text-item">Design</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Copy</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Engineering</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Conversion</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Tracking</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item italic">Under one brief</span>
+            <span class="scroll-text-sep">●</span>
+            <!-- Duplicate -->
+            <span class="scroll-text-item">Design</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Copy</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Engineering</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Conversion</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item">Tracking</span>
+            <span class="scroll-text-sep">●</span>
+            <span class="scroll-text-item italic">Under one brief</span>
+            <span class="scroll-text-sep">●</span>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- PHILOSOPHY — Word-by-word reveal                      -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="philosophy" class="relative z-10 py-32 lg:py-44 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <div class="max-w-4xl">
+                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-12 scroll-reveal">
+                    <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Philosophy
+                </span>
+
+                <div class="font-display tracking-tight leading-[1.05]" style="font-size: clamp(32px, 5vw, 64px);">
+                    <span class="word-reveal-line" data-reveal>
+                        <span class="word-reveal-inner text-vw-pri">Most agencies sell process.</span>
+                    </span>
+                    <span class="word-reveal-line" data-reveal>
+                        <span class="word-reveal-inner text-vw-pri">We sell outcomes.</span>
+                    </span>
+                    <span class="word-reveal-line" data-reveal style="margin-top: 24px;">
+                        <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;">If a website doesn't generate qualified</span>
+                    </span>
+                    <span class="word-reveal-line" data-reveal>
+                        <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;">leads, it's a cost center — not an asset.</span>
+                    </span>
+                    <span class="word-reveal-line" data-reveal style="margin-top: 24px;">
+                        <span class="word-reveal-inner text-vw-accent italic">We fix that.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- VALUES                                                -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="values" class="relative z-10 py-24 lg:py-32 border-b border-vw-border/50" style="background: #1c1a17;">
+
+        <div class="absolute inset-0 pointer-events-none"
+             style="background: radial-gradient(ellipse 50% 60% at 20% 40%, rgba(198,241,53,0.025) 0%, transparent 60%);"></div>
+
+        <div class="px-6 md:px-12 lg:px-16 w-full relative z-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
+                <div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>How we work
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
+                        Principles,<br><em class="text-vw-accent">not slogans.</em>
+                    </h2>
+                </div>
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                    These aren't values we wrote for a website. They're the rules we've broken projects against. They stay because they've survived contact with real clients and real deadlines.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div class="value-card scroll-reveal">
+                    <span class="value-num">01</span>
+                    <div class="relative z-10">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Audit before opinion</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                            We don't have aesthetic preferences. We have conversion data. Every design decision traces back to the teardown — not to what looks "modern" or "clean."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-card scroll-reveal delay-1">
+                    <span class="value-num">02</span>
+                    <div class="relative z-10">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Ship, then iterate</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                            A live site with tracking beats a perfect mockup in Figma. We build fast, launch with analytics, and improve from real data — not from another feedback round in Slack.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-card scroll-reveal">
+                    <span class="value-num">03</span>
+                    <div class="relative z-10">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Copy is architecture</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                            We write all the messaging. Not because we don't trust your words — because headlines, CTAs, and proof placement are structural decisions that affect conversion as much as layout.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-card scroll-reveal delay-1">
+                    <span class="value-num">04</span>
+                    <div class="relative z-10">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">No retainer traps</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                            Projects are scoped, priced, and delivered. If you need ongoing work after launch, we'll scope that too — but we don't sell dependency. A good site should work without us.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TEAM                                                  -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="team" class="relative z-10 py-24 lg:py-32 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <div class="mb-16 scroll-reveal">
+                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
+                    <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>The team
+                </span>
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                    Senior people.<br><em class="text-vw-accent">No middle layer.</em>
+                </h2>
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-lg">
+                    You talk to the same people who design, write, code, and review analytics. That's the entire operating model.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
+
+                <!-- Member 1 -->
+                <div class="team-card scroll-reveal">
+                    <div class="team-card-inner">
+                        <div class="team-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                                 alt="Team member" class="team-img" loading="lazy" width="600" height="800">
+                            <div class="team-scan"></div>
+                            <div class="team-corner tl"></div>
+                            <div class="team-corner br"></div>
+                            <div class="team-accent-bar"></div>
+                        </div>
+                        <div class="pt-5 pb-2">
+                            <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Lucas Vieira</h3>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Design & Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card scroll-reveal delay-1">
+                    <div class="team-card-inner">
+                        <div class="team-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80"
+                                 alt="Team member" class="team-img" loading="lazy" width="600" height="800">
+                            <div class="team-scan"></div>
+                            <div class="team-corner tl"></div>
+                            <div class="team-corner br"></div>
+                            <div class="team-accent-bar"></div>
+                        </div>
+                        <div class="pt-5 pb-2">
+                            <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Ana Ferreira</h3>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Copy & Messaging</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card scroll-reveal delay-2">
+                    <div class="team-card-inner">
+                        <div class="team-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80"
+                                 alt="Team member" class="team-img" loading="lazy" width="600" height="800">
+                            <div class="team-scan"></div>
+                            <div class="team-corner tl"></div>
+                            <div class="team-corner br"></div>
+                            <div class="team-accent-bar"></div>
+                        </div>
+                        <div class="pt-5 pb-2">
+                            <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Rafael Costa</h3>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Frontend Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="team-card scroll-reveal delay-3">
+                    <div class="team-card-inner">
+                        <div class="team-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80"
+                                 alt="Team member" class="team-img" loading="lazy" width="600" height="800">
+                            <div class="team-scan"></div>
+                            <div class="team-corner tl"></div>
+                            <div class="team-corner br"></div>
+                            <div class="team-accent-bar"></div>
+                        </div>
+                        <div class="pt-5 pb-2">
+                            <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Mariana Santos</h3>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Analytics & Growth</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TIMELINE                                              -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="timeline" class="relative z-10 py-24 lg:py-32 border-b border-vw-border/50" style="background: #1c1a17;">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+                <!-- Left: Sticky header -->
+                <div class="lg:col-span-4 lg:sticky top-32 scroll-reveal">
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Our story
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                        How we<br><em class="text-vw-accent">got here.</em>
+                    </h2>
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm">
+                        Not a long history — but a deliberate one. Every move was about getting closer to the kind of work that actually moves numbers.
+                    </p>
+                </div>
+
+                <!-- Right: Timeline -->
+                <div class="lg:col-span-8">
+                    <div class="timeline-container" id="timeline-track">
+                        <div class="timeline-line">
+                            <div class="timeline-line-fill" id="timeline-fill"></div>
+                        </div>
+
+                        <div class="timeline-node scroll-reveal" data-timeline>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-year">2024 — Q1</span>
+                            <h3 class="timeline-title">Founded in Curitiba</h3>
+                            <p class="timeline-desc">Started as a two-person operation focused exclusively on service-business websites. No SaaS, no e-commerce — just sites that need to generate calls and quote requests.</p>
+                        </div>
+
+                        <div class="timeline-node scroll-reveal delay-1" data-timeline>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-year">2024 — Q3</span>
+                            <h3 class="timeline-title">First 10 projects shipped</h3>
+                            <p class="timeline-desc">Developed the teardown-first methodology that now drives every engagement. Learned that 80% of conversion problems come from three things: CTA clarity, proof placement, and form friction.</p>
+                        </div>
+
+                        <div class="timeline-node scroll-reveal" data-timeline>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-year">2025 — Q1</span>
+                            <h3 class="timeline-title">Team grows to four</h3>
+                            <p class="timeline-desc">Brought on a dedicated copywriter and analytics lead. Stopped outsourcing messaging entirely — copy became an in-house structural discipline, not a deliverable tacked on at the end.</p>
+                        </div>
+
+                        <div class="timeline-node scroll-reveal delay-1" data-timeline>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-year">2025 — Q4</span>
+                            <h3 class="timeline-title">47 projects, 91% client lift</h3>
+                            <p class="timeline-desc">Crossed 47 shipped projects with 91% of clients reporting measurable lead increase within 30 days of launch. Formalized the three-tier package structure that's now standard.</p>
+                        </div>
+
+                        <div class="timeline-node scroll-reveal" data-timeline>
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-year">2026 — Now</span>
+                            <h3 class="timeline-title">Expanding the framework</h3>
+                            <p class="timeline-desc">Building deeper post-launch capabilities — A/B testing, iterative optimization, and content strategy. Still the same core promise: your website should measurably generate pipeline.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FINAL CTA                                             -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="contact" class="relative z-10">
+        <div class="px-6 md:px-12 lg:px-16 py-24 lg:py-32">
+            <div class="scroll-reveal relative w-full overflow-hidden" style="min-height: clamp(420px, 62vh, 720px); border: 1px solid rgba(255,255,255,0.12);">
+
+                <img id="cta-bg-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85"
+                     alt="Modern workspace" class="cta-bg-img"
+                     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(1.1);opacity:0.55;">
+
+                <div class="cta-vignette" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,0.97) 0%, rgba(12,11,9,0.75) 35%, rgba(12,11,9,0.15) 65%, transparent 100%);z-index:2;"></div>
+
+                <div style="position:absolute;top:24px;left:24px;width:16px;height:16px;border-top:2px solid rgba(198,241,53,0.6);border-left:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+                <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+
+                <div style="position:absolute;top:28px;right:48px;z-index:10;">
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                </div>
+
+                <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="inline-block w-6 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Work with us</span>
+                    </div>
+
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">
+                        Let's talk about<br><em class="text-vw-accent">your site.</em>
+                    </h2>
+
+                    <div class="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                            15 minutes, screen-shared teardown. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.
+                        </p>
+                        <div class="flex flex-col gap-4 flex-shrink-0">
+                            <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                                Book a 15-min teardown
+                                <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
+                            </a>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">No pitch. No deck. Just a read.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <footer id="footer" style="background: #0a0908; border-top: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;">
+        <div class="container mx-auto px-6 lg:px-12 pt-20 pb-16">
+            <div class="flex flex-col md:flex-row justify-between gap-16">
+                <div class="max-w-xs">
+                    <div class="mb-6">
+                        <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" style="filter: invert(1);" onerror="this.style.display='none'">
+                        <span class="font-display text-vw-pri text-xl tracking-tight" style="display:block;margin-top:8px;">Vellumwire</span>
+                    </div>
+                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">We build websites that turn visitors into calls. Design, copy, and engineering — under one brief.</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <span class="inline-block w-4 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR · Est. 2024</span>
+                    </div>
+                </div>
+                <div class="flex gap-16 md:gap-24">
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
+                        <a href="/" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                        <a href="/work" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                        <a href="/services" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Services</a>
+                        <a href="/packages" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                        <a href="/studio" class="font-ui text-sm text-vw-accent transition-colors duration-300">Studio</a>
+                        <a href="/insights" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                        <a href="/contact" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                        <a href="mailto:hello@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">hello@vellumwire.com</a>
+                        <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
+                        <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative w-full overflow-hidden select-none" style="padding: 0; margin-bottom: -2px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); padding: 0 clamp(8px, 2vw, 24px);">
+                <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"/><path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/><rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"/><rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71"/><path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"/><path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"/><path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"/><rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74"/><path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"/><path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+            </svg>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">© 2026 Vellumwire. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a href="/privacy-policy" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
+                    <a href="/terms-of-use" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- SCRIPTS                                               -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <script>
+        lucide.createIcons();
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ══════════════════════════════════════════════════════
+        // SCROLL REVEAL
+        // ══════════════════════════════════════════════════════
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+        // ══════════════════════════════════════════════════════
+        // WORD-BY-WORD REVEAL
+        // ══════════════════════════════════════════════════════
+        const wordObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, { threshold: 0.3, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('[data-reveal]').forEach((el, i) => {
+            el.querySelector('.word-reveal-inner').style.transitionDelay = `${i * 0.12}s`;
+            wordObserver.observe(el);
+        });
+
+        // ══════════════════════════════════════════════════════
+        // HERO PARALLAX
+        // ══════════════════════════════════════════════════════
+        if (!reducedMotion) {
+            const heroWrap = document.getElementById('hero-parallax');
+            const heroImg = document.getElementById('hero-img');
+            if (heroWrap && heroImg) {
+                // Mouse parallax
+                heroWrap.addEventListener('mousemove', (e) => {
+                    const rect = heroWrap.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    heroImg.style.transform = `translate(${x * -15}px, ${y * -10}px) scale(1.02)`;
+                }, { passive: true });
+
+                heroWrap.addEventListener('mouseleave', () => {
+                    heroImg.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                    heroImg.style.transform = 'translate(0,0) scale(1)';
+                    setTimeout(() => heroImg.style.transition = 'transform 0.1s linear', 600);
+                });
+
+                // Scroll parallax
+                window.addEventListener('scroll', () => {
+                    const rect = heroWrap.getBoundingClientRect();
+                    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                        const yOffset = (progress - 0.5) * 30;
+                        heroImg.style.transform = `translateY(${yOffset}px)`;
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // ══════════════════════════════════════════════════════
+        // TIMELINE PROGRESS FILL + NODE ACTIVATION
+        // ══════════════════════════════════════════════════════
+        const timelineTrack = document.getElementById('timeline-track');
+        const timelineFill = document.getElementById('timeline-fill');
+        const timelineNodes = document.querySelectorAll('[data-timeline]');
+
+        if (timelineTrack && timelineFill && timelineNodes.length > 0) {
+            const tlObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-active');
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+            timelineNodes.forEach(node => tlObserver.observe(node));
+
+            // Scroll-driven fill
+            if (!reducedMotion) {
+                window.addEventListener('scroll', () => {
+                    const rect = timelineTrack.getBoundingClientRect();
+                    const trackH = rect.height;
+                    const viewH = window.innerHeight;
+
+                    if (rect.top < viewH && rect.bottom > 0) {
+                        const scrolled = viewH - rect.top;
+                        const pct = Math.min(Math.max(scrolled / trackH * 100, 0), 100);
+                        timelineFill.style.height = pct + '%';
+                    }
+                }, { passive: true });
+            }
+        }
+
+        // ── FAQ Accordion ──
+        document.querySelectorAll('[data-faq]').forEach(item => {
+            const trigger = item.querySelector('.faq-demo-q');
+            if (!trigger) return;
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+                document.querySelectorAll('[data-faq].is-open').forEach(other => {
+                    other.classList.remove('is-open');
+                    other.querySelector('.faq-demo-q').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ── Magnetic Buttons ──
+        document.querySelectorAll('.magnetic').forEach(elem => {
+            elem.addEventListener('mousemove', (e) => {
+                const rect = elem.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // ── CTA Parallax ──
+        const ctaSection = document.getElementById('contact');
+        const ctaBgImg = document.getElementById('cta-bg-img');
+        if (ctaSection && ctaBgImg && !reducedMotion) {
+            ctaSection.addEventListener('mousemove', (e) => {
+                const rect = ctaSection.getBoundingClientRect();
+                const xR = (e.clientX - rect.left) / rect.width - 0.5;
+                const yR = (e.clientY - rect.top) / rect.height - 0.5;
+                ctaBgImg.style.transform = `scale(1.08) translate(${xR * -18}px, ${yR * -10}px)`;
+            });
+            ctaSection.addEventListener('mouseleave', () => { ctaBgImg.style.transform = ''; });
+        }
+    </script>
+
+</body>
+</html>
