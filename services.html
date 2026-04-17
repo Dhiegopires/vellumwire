@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Services — Vellumwire</title>
+    <meta name="description" content="Three service tiers built around one outcome: turning your website into a lead-generation engine. Audit, rebuild, or full-stack — scoped to your conversion problem.">
+    <meta name="keywords" content="web design services, conversion optimization, website audit, landing page rebuild, brand strategy, vellumwire">
+    <meta name="author" content="Vellumwire">
+    <meta property="og:title" content="Services — Vellumwire">
+    <meta property="og:description" content="Three service tiers built around one outcome: turning your website into a lead-generation engine.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vellumwire.com/services">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="assets/svg/vellumwire-favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vw: {
+                            base: '#0c0b09',
+                            surface: '#1c1a17',
+                            accent: '#c6f135',
+                            accentHov: '#b0d82e',
+                            pri: '#ede9e2',
+                            sec: '#8a8680',
+                            mut: '#7a7875',
+                            border: 'rgba(255,255,255,0.12)'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Instrument Serif"', 'serif'],
+                        ui: ['"Syne"', 'sans-serif'],
+                        mono: ['"DM Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ── Services Page Specific ── */
+
+        /* Service tier card */
+        .svc-tier {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: #0f0e0c;
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden;
+            transition: all 0.5s var(--ease-editorial);
+        }
+
+        .svc-tier:hover {
+            border-color: rgba(198,241,53,0.4);
+            background: #131210;
+        }
+
+        /* Grid background layer */
+        .svc-tier-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 24px 24px;
+            transition: all 0.6s ease-out;
+        }
+
+        .svc-tier:hover .svc-tier-grid {
+            background-image: linear-gradient(rgba(198,241,53,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(198,241,53,0.06) 1px, transparent 1px);
+        }
+
+        /* Glow on hover */
+        .svc-tier-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: linear-gradient(135deg, rgba(198,241,53,0.06) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .svc-tier:hover .svc-tier-glow { opacity: 1; }
+
+        /* Bottom accent bar */
+        .svc-tier-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+            z-index: 30;
+            pointer-events: none;
+        }
+
+        .svc-tier:hover .svc-tier-bar { transform: scaleX(1); }
+
+        /* Featured (recommended) variant */
+        .svc-tier.featured {
+            border-color: rgba(198,241,53,0.3);
+        }
+
+        .svc-tier.featured .svc-tier-bar {
+            transform: scaleX(1);
+            opacity: 0.5;
+        }
+
+        .svc-tier.featured:hover .svc-tier-bar {
+            opacity: 1;
+        }
+
+        /* Deliverable list items */
+        .svc-deliverable {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .svc-deliverable:last-child {
+            border-bottom: none;
+        }
+
+        .svc-check {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--color-accent);
+        }
+
+        /* Scope row (expandable detail) */
+        .scope-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: clamp(56px, 7vw, 100px) 1fr auto;
+            align-items: center;
+            padding: 0 clamp(28px, 5vw, 88px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            cursor: pointer;
+            overflow: hidden;
+            transition: background 0.4s var(--ease-editorial);
+            min-height: 76px;
+        }
+
+        .scope-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(198,241,53,0.04);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .scope-row:hover::before { opacity: 1; }
+
+        .scope-row::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+        }
+
+        .scope-row:hover::after { transform: scaleX(1); }
+
+        .scope-num {
+            font-family: 'DM Mono', monospace;
+            font-size: clamp(11px, 1.2vw, 14px);
+            color: rgba(255,255,255,0.15);
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .scope-row:hover .scope-num { color: var(--color-accent); }
+
+        .scope-body {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-rows: auto 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scope-row:hover .scope-body,
+        .scope-row.open .scope-body {
+            grid-template-rows: auto 1fr;
+        }
+
+        .scope-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(18px, 2vw, 28px);
+            color: var(--color-text-pri);
+            line-height: 1.2;
+            padding: 24px 0;
+            transition: color 0.3s ease;
+        }
+
+        .scope-row:hover .scope-title { color: var(--color-accent); }
+
+        .scope-desc-wrap {
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .scope-desc {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            color: var(--color-text-sec);
+            line-height: 1.7;
+            max-width: 560px;
+            padding-bottom: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.08s;
+        }
+
+        .scope-row:hover .scope-desc,
+        .scope-row.open .scope-desc { opacity: 1; }
+
+        .scope-arrow {
+            position: relative;
+            z-index: 1;
+            width: 28px;
+            height: 28px;
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            transition: all 0.4s var(--ease-editorial);
+            flex-shrink: 0;
+        }
+
+        .scope-row:hover .scope-arrow {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        /* Comparison table — minimal */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            color: var(--color-text-sec);
+            vertical-align: middle;
+        }
+
+        .compare-table thead th {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .compare-table tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        .compare-table tbody tr:hover {
+            background: rgba(198,241,53,0.02);
+        }
+
+        .compare-table .feature-name {
+            font-family: 'Instrument Serif', serif;
+            font-size: 15px;
+            color: var(--color-text-pri);
+        }
+
+        .compare-check {
+            color: var(--color-accent);
+        }
+
+        .compare-dash {
+            color: rgba(255,255,255,0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Ambient Visual Layer (identical to home) ── -->
+    <div class="ambient-layer">
+        <div class="ambient-tint"></div>
+        <div class="ambient-blur"></div>
+        <div class="ds-ambient-grid"></div>
+
+        <!-- Global Grid Lines -->
+        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
+            <div class="grid-line-v" style="left:144px">
+                <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+            </div>
+            <div class="grid-line-v" style="left:576px">
+                <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+            </div>
+            <div class="grid-line-v" style="left:1008px"></div>
+            <div class="grid-line-v" style="left:1296px"></div>
+            <div class="grid-line-h" style="top:144px"></div>
+        </div>
+    </div>
+    <div class="ambient-noise"></div>
+
+    <!-- ── Navigation ── -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between mix-blend-difference">
+        <a href="/" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+            <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
+                <polygon style="fill: inherit;"
+                    points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0" />
+                <polygon style="fill: inherit;"
+                    points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
+            </svg>
+        </a>
+
+        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+        </button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- HERO                                                  -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <header class="relative z-10 w-full pt-40 pb-20 lg:pb-28 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <!-- Eyebrow -->
+            <div class="reveal-up flex items-center gap-3 mb-10" style="animation-delay:0.1s">
+                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.2em] flex items-center gap-2">
+                    [ SERVICES ] <span class="w-1.5 h-6 bg-vw-accent ml-2 inline-block"></span>
+                </span>
+            </div>
+
+            <!-- Headline + Sub in 2-col on desktop -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end">
+                <div>
+                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6"
+                        style="font-size: clamp(48px, 7.5vw, 100px); animation-delay:0.2s">
+                        Structure that<br>
+                        <em class="text-vw-accent">converts.</em>
+                    </h1>
+                </div>
+                <div class="reveal-up" style="animation-delay:0.35s">
+                    <p class="font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-lg mb-8">
+                        Every engagement starts with a teardown and ends with a measurable shift in pipeline. Three tiers — same framework, different depth. Pick the one that matches where you are.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-block w-8 h-px bg-vw-accent/60"></span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Scoped to your conversion problem. Nothing more.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- SERVICE TIERS (3 Cards)                               -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="tiers" class="relative z-10 w-full py-24 lg:py-32 border-b border-vw-border/50">
+
+        <!-- Ambient grid bg -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-0"></div>
+
+        <div class="relative z-10 px-6 md:px-12 lg:px-16 w-full">
+
+            <!-- Section Label -->
+            <div class="mb-16 scroll-reveal">
+                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3">
+                    <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Choose your starting point
+                </span>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
+
+                <!-- ── Tier 1: Conversion Audit ── -->
+                <div class="svc-tier scroll-reveal">
+                    <div class="svc-tier-grid"></div>
+                    <div class="svc-tier-glow"></div>
+                    <div class="svc-tier-bar"></div>
+
+                    <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
+                        <!-- Eyebrow -->
+                        <div class="flex justify-between items-start mb-10">
+                            <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em]">Best for: quick wins</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.12em]">01</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-4">
+                            Conversion Audit
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] mb-10 max-w-[90%]">
+                            A focused teardown and priority plan. We read your site like a lost lead would, flag every conversion blocker, and hand you a ranked list of what to fix first.
+                        </p>
+
+                        <!-- Deliverables -->
+                        <div class="flex flex-col mt-auto">
+                            <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.16em] mb-4">Deliverables</span>
+
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Full-site conversion audit report</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">CTA hierarchy analysis</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Trust signal placement map</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Mobile friction teardown</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Prioritized action plan (ranked by revenue impact)</span>
+                            </div>
+                        </div>
+
+                        <!-- Timeline + CTA -->
+                        <div class="mt-10 pt-8 border-t border-vw-border/50 flex flex-col gap-6">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block w-6 h-px bg-vw-accent/60"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: 48 hours</span>
+                            </div>
+                            <a href="mailto:hello@vellumwire.com" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size:11px; padding: 16px 24px;">
+                                Book an audit
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Tier 2: Site Rebuild (FEATURED) ── -->
+                <div class="svc-tier featured scroll-reveal delay-1">
+                    <div class="svc-tier-grid"></div>
+                    <div class="svc-tier-glow" style="opacity:0.4"></div>
+                    <div class="svc-tier-bar"></div>
+
+                    <!-- Recommended badge -->
+                    <div class="relative z-20 w-full bg-vw-accent/10 border-b border-vw-accent/20 py-2.5 px-8 lg:px-10">
+                        <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2">
+                            <span class="inline-block w-1 h-1 bg-vw-accent rounded-full"></span>
+                            Most popular
+                        </span>
+                    </div>
+
+                    <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-10">
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.16em]">Best for: real lift</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.12em]">02</span>
+                        </div>
+
+                        <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-4">
+                            Site Rebuild
+                        </h2>
+
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] mb-10 max-w-[90%]">
+                            The full package. We take your existing site — or start from zero — and rebuild the structure, copy, and frontend around one goal: predictable lead flow.
+                        </p>
+
+                        <div class="flex flex-col mt-auto">
+                            <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.16em] mb-4">Deliverables</span>
+
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Everything in Conversion Audit</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Conversion-first information architecture</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Full copy architecture (PAS/AIDA framework)</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Responsive design + build (all breakpoints)</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">GA4 + GTM tracking setup</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Speed optimization (LCP &lt; 2.5s target)</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">2 rounds of structured revision</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-8 border-t border-vw-accent/30 flex flex-col gap-6">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block w-6 h-px bg-vw-accent"></span>
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Delivery: 3–5 weeks</span>
+                            </div>
+                            <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3 w-full" style="font-size:11px; padding: 16px 24px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease;" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                                Start a rebuild
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Tier 3: Brand Strategy ── -->
+                <div class="svc-tier scroll-reveal delay-2">
+                    <div class="svc-tier-grid"></div>
+                    <div class="svc-tier-glow"></div>
+                    <div class="svc-tier-bar"></div>
+
+                    <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-10">
+                            <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em]">Best for: re-positioning</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.12em]">03</span>
+                        </div>
+
+                        <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-4">
+                            Brand Strategy
+                        </h2>
+
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] mb-10 max-w-[90%]">
+                            For businesses that need to re-position before they rebuild. We define who you're talking to, what you're actually selling, and how every touchpoint should feel.
+                        </p>
+
+                        <div class="flex flex-col mt-auto">
+                            <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.16em] mb-4">Deliverables</span>
+
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Market positioning audit</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Brand voice + messaging framework</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Visual identity system (typography, palette, rules)</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Wordmark / logo direction</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Website-ready design system handoff</span>
+                            </div>
+                            <div class="svc-deliverable">
+                                <i data-lucide="check" class="svc-check"></i>
+                                <span class="font-ui text-vw-sec text-[13px] leading-[1.6]">Competitive differentiation map</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-8 border-t border-vw-border/50 flex flex-col gap-6">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block w-6 h-px bg-vw-accent/60"></span>
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery: 2–4 weeks</span>
+                            </div>
+                            <a href="mailto:hello@vellumwire.com" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size:11px; padding: 16px 24px;">
+                                Discuss positioning
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- WHAT'S INSIDE EVERY ENGAGEMENT (Scope Accordion)      -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="scope" class="relative z-10 border-b border-vw-border/50" style="background: #1c1a17;">
+
+        <!-- Radial accent -->
+        <div class="absolute inset-0 pointer-events-none"
+             style="background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
+
+        <!-- Header -->
+        <div class="px-6 md:px-12 lg:px-16 py-20 lg:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end scroll-reveal">
+                <div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Inside every engagement
+                    </span>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
+                        style="font-size: clamp(36px, 5vw, 72px);">
+                        The framework<br><em class="text-vw-accent">underneath.</em>
+                    </h2>
+                </div>
+                <div class="flex flex-col justify-end">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                        Different scopes, same thinking. These are the principles baked into every project — whether it's a 48-hour audit or a six-week rebuild.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Rows -->
+        <div class="w-full">
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">01</span>
+                <div class="scope-body">
+                    <span class="scope-title">Conversion audit before design</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">We don't open Figma until we know what's broken. Every engagement starts with a data-informed teardown of your current state — where leads leak, where attention dies, where friction kills intent.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">02</span>
+                <div class="scope-body">
+                    <span class="scope-title">Copy architecture, not decoration</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Every headline, subhead, and CTA is written to a specific visitor intent and placed where the decision happens. We write the messaging — you review tone. No lorem ipsum, no placeholder copy that ships by accident.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">03</span>
+                <div class="scope-body">
+                    <span class="scope-title">Proof at every decision point</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Testimonials, credentials, results, and trust signals are placed where hesitation lives — not in a generic section nobody scrolls to. Proof is structural, not ornamental.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">04</span>
+                <div class="scope-body">
+                    <span class="scope-title">One CTA path per page</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Every page has a primary action. Secondary options exist but they don't compete. Hierarchy is enforced, not suggested. Visitors are guided — not asked to browse and figure it out.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">05</span>
+                <div class="scope-body">
+                    <span class="scope-title">Tracking ships with the site</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">GA4 events, session heatmaps, form completion rates, CTA click tracking. All configured before go-live so you know within the first week whether the site is pulling its weight. No guessing after launch.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">06</span>
+                <div class="scope-body">
+                    <span class="scope-title">Performance as a feature</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">LCP under 2.5 seconds. CLS under 0.1. Lazy-loaded images, critical CSS inlined, no render-blocking scripts. Speed isn't a nice-to-have — it's a conversion variable. We treat it like one.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- COMPARISON TABLE                                      -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="compare" class="relative z-10 w-full py-24 lg:py-32 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 w-full">
+
+            <!-- Header -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
+                <div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>At a glance
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
+                        What's included<br><em class="text-vw-accent">where.</em>
+                    </h2>
+                </div>
+                <div class="flex flex-col justify-end">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                        Not sure which tier fits? This breakdown shows exactly what ships with each service level.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Table (scrollable on mobile) -->
+            <div class="scroll-reveal delay-1 overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0">
+                <table class="compare-table" style="min-width: 640px;">
+                    <thead>
+                        <tr>
+                            <th style="width:40%;">Deliverable</th>
+                            <th style="width:20%; text-align:center;">Audit</th>
+                            <th style="width:20%; text-align:center;">Rebuild</th>
+                            <th style="width:20%; text-align:center;">Brand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Conversion teardown report</td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">CTA hierarchy analysis</td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Prioritized action plan</td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Information architecture</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Copy architecture + writing</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Responsive design + build</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">GA4 + GTM tracking</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Speed optimization</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Market positioning audit</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Brand voice + messaging</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Visual identity system</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Wordmark / logo direction</td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><span class="compare-dash">—</span></td>
+                            <td style="text-align:center;"><i data-lucide="check" class="w-4 h-4 compare-check inline-block"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Below-table note -->
+            <div class="mt-10 scroll-reveal delay-2">
+                <p class="font-ui text-vw-mut text-sm leading-[1.7] max-w-lg">
+                    Need a combination? Most clients pair <strong class="text-vw-pri font-medium">Brand Strategy</strong> with <strong class="text-vw-pri font-medium">Site Rebuild</strong> for a complete re-launch. We scope it as a single engagement.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FAQ (Services-Specific)                               -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="faq" class="relative z-10 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 py-24 lg:py-32">
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
+                <div>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3 mb-6">
+                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>FAQ
+                    </span>
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
+                        Before you decide.
+                    </h2>
+                </div>
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">
+                    The questions that come up most when scoping an engagement.
+                </p>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-list">
+
+                <div class="faq-demo scroll-reveal" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">01</span>
+                            <span class="faq-demo-text">Can I upgrade from an Audit to a Rebuild mid-project?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">Yes — and many clients do exactly that. The audit becomes the first phase of the rebuild. You only pay the difference, not double. We designed it that way on purpose.</p>
+                    </div>
+                </div>
+
+                <div class="faq-demo scroll-reveal delay-1" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">02</span>
+                            <span class="faq-demo-text">Do you work on specific platforms only?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">We're platform-agnostic. Webflow for marketing sites, Next.js for product-adjacent builds, custom HTML/CSS for maximum performance. The audit determines the right stack — not our preferences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-demo scroll-reveal delay-2" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">03</span>
+                            <span class="faq-demo-text">What if I need both Brand Strategy and a Rebuild?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">We scope it as a single engagement with a shared timeline. Brand runs first (positioning, voice, visual system), then feeds directly into the rebuild. No handoff gaps, no lost context. Most re-launch projects work this way.</p>
+                    </div>
+                </div>
+
+                <div class="faq-demo scroll-reveal" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">04</span>
+                            <span class="faq-demo-text">How many revision rounds are included?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">Two structured rounds for the Site Rebuild, each tied to specific milestones. We don't do open-ended revision loops — they kill momentum and blur scope. If something major shifts, we re-scope transparently rather than layering changes on top of changes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-demo scroll-reveal delay-1" data-faq>
+                    <button class="faq-demo-q w-full" aria-expanded="false">
+                        <div class="faq-demo-meta">
+                            <span class="faq-demo-num">05</span>
+                            <span class="faq-demo-text">Do you offer retainers or ongoing support?</span>
+                        </div>
+                        <div class="faq-toggle-icon">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-demo-body">
+                        <p class="faq-demo-answer">We do — but only after a project ships and you've seen results. We don't sell retainers upfront because most businesses don't know what they need monthly until the new site is live and producing data. Post-launch, we offer lightweight support packages for iteration, A/B testing, and content updates.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FINAL CTA                                             -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="contact" class="relative z-10 border-b border-vw-border/50">
+        <div class="px-6 md:px-12 lg:px-16 py-24 lg:py-32">
+            <div class="scroll-reveal relative w-full overflow-hidden" style="min-height: clamp(400px, 60vh, 700px); border: 1px solid rgba(255,255,255,0.12);">
+
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85"
+                     alt="Modern workspace"
+                     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(1.1);opacity:0.5;">
+
+                <!-- Gradient -->
+                <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,0.97) 0%, rgba(12,11,9,0.75) 35%, rgba(12,11,9,0.15) 65%, transparent 100%);z-index:2;"></div>
+
+                <!-- Corner accents -->
+                <div style="position:absolute;top:24px;left:24px;width:16px;height:16px;border-top:2px solid rgba(198,241,53,0.6);border-left:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+                <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+
+                <!-- Top label -->
+                <div style="position:absolute;top:28px;right:48px;z-index:10;">
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                </div>
+
+                <!-- Content -->
+                <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="inline-block w-6 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Not sure which tier?</span>
+                    </div>
+
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">
+                        Start with the<br><em class="text-vw-accent">teardown.</em>
+                    </h2>
+
+                    <div class="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                            15 minutes, live screen-share. We'll flag what's blocking conversions and tell you exactly which service level fits. You keep the diagnosis either way.
+                        </p>
+                        <div class="flex flex-col gap-4 flex-shrink-0">
+                            <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                                Book a 15-min teardown
+                                <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
+                            </a>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">Clear next steps within 24h. No spam.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <footer id="footer" style="background: #0a0908; border-top: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;">
+
+        <div class="container mx-auto px-6 lg:px-12 pt-20 pb-16">
+            <div class="flex flex-col md:flex-row justify-between gap-16">
+
+                <!-- Col 1: Brand -->
+                <div class="max-w-xs">
+                    <div class="mb-6">
+                        <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" style="filter: invert(1);" onerror="this.style.display='none'">
+                        <span class="font-display text-vw-pri text-xl tracking-tight" style="display:block;margin-top:8px;">Vellumwire</span>
+                    </div>
+                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">
+                        We build websites that turn visitors into calls. Design, copy, and engineering — under one brief.
+                    </p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <span class="inline-block w-4 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR · Est. 2024</span>
+                    </div>
+                </div>
+
+                <!-- Col 2 + 3: Nav -->
+                <div class="flex gap-16 md:gap-24">
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
+                        <a href="/" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                        <a href="/work" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                        <a href="/services" class="font-ui text-sm text-vw-accent transition-colors duration-300">Services</a>
+                        <a href="/packages" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                        <a href="/studio" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                        <a href="/insights" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                        <a href="/contact" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                        <a href="mailto:hello@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">hello@vellumwire.com</a>
+                        <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
+                        <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wordmark block -->
+        <div class="relative w-full overflow-hidden select-none" style="padding: 0; margin-bottom: -2px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true"
+                 style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
+                        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                        padding: 0 clamp(8px, 2vw, 24px);">
+                <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"/>
+                <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+                <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"/>
+                <rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71"/>
+                <path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"/>
+                <path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"/>
+                <path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"/>
+                <rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74"/>
+                <path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"/>
+                <path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
+            </svg>
+        </div>
+
+        <!-- Bottom bar -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">© 2026 Vellumwire. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a href="/privacy-policy" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
+                    <a href="/terms-of-use"   class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- ── Scripts ── -->
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+
+        // ── Scroll Reveal Observer ──
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+        // ── FAQ Accordion ──
+        document.querySelectorAll('[data-faq]').forEach(item => {
+            const trigger = item.querySelector('.faq-demo-q');
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+
+                // Close all others
+                document.querySelectorAll('[data-faq].is-open').forEach(other => {
+                    other.classList.remove('is-open');
+                    other.querySelector('.faq-demo-q').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle this one
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ── Magnetic Buttons ──
+        document.querySelectorAll('.magnetic').forEach(elem => {
+            elem.addEventListener('mousemove', (e) => {
+                const rect = elem.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                elem.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = 'translate(0px, 0px)';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

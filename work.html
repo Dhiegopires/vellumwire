@@ -70,18 +70,28 @@
             margin-bottom: 32px;
         }
 
-        /* Filter tabs */
+        /* Filter tabs — full-width bar */
+        #filter-bar {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            padding: 0;   /* no inset — tabs bleed edge-to-edge */
+        }
+
         .filter-tab {
-            display: inline-flex;
+            flex: 1;                     /* equal share of full width */
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
-            padding: 8px 20px;
+            padding: 14px 8px;
             font-family: 'DM Mono', monospace;
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--color-text-sec);
-            border: 1px solid transparent;
+            border: none;
+            border-right: 1px solid rgba(255,255,255,0.08); /* subtle divider */
             border-radius: 0;
             background: transparent;
             cursor: pointer;
@@ -89,9 +99,13 @@
             white-space: nowrap;
         }
 
+        .filter-tab:last-child {
+            border-right: none;
+        }
+
         .filter-tab:hover {
             color: var(--color-text-pri);
-            border-color: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.03);
         }
 
         .filter-tab.active {
@@ -109,31 +123,32 @@
             opacity: 0.7;
         }
 
-        /* Work card (list style matching wireframe) */
+        /* Work card — full-width list rows */
         .work-card {
             position: relative;
             display: grid;
             grid-template-columns: 1fr;
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 40px 0;
+            padding: 0;
             gap: 0;
             cursor: pointer;
-            transition: all 0.4s var(--ease-editorial);
+            transition: padding-left 0.4s var(--ease-editorial);
             overflow: hidden;
+            align-items: stretch;
         }
 
         @media (min-width: 768px) {
             .work-card {
-                grid-template-columns: 1fr 360px;
-                gap: 48px;
-                align-items: start;
+                /* text col fluid | image col fixed */
+                grid-template-columns: 1fr 38%;
+                gap: 0;
+                padding: 0;
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1280px) {
             .work-card {
-                grid-template-columns: 1fr 420px;
-                gap: 64px;
+                grid-template-columns: 1fr 42%;
             }
         }
 
@@ -154,14 +169,26 @@
             transform: scaleY(1);
         }
 
-        .work-card:hover {
-            padding-left: 20px;
+        /* green line ::before is at left:0 of the card.
+           The meta's left padding is the breathing room between line and text. */
+        @media (max-width: 767px) {
+            .work-card:hover {
+                padding-left: 4px; /* tiny nudge on mobile so line doesn't overlap */
+            }
         }
 
         .work-card-meta {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            /* left padding = gap between left edge/green-line and the text */
+            padding: 48px 32px 48px clamp(28px, 4vw, 64px);
+        }
+
+        @media (min-width: 768px) {
+            .work-card-meta {
+                padding: 56px 56px 56px clamp(40px, 5vw, 88px);
+            }
         }
 
         .work-card-eyebrow {
@@ -254,28 +281,35 @@
             line-height: 1.4;
         }
 
-        /* Image block */
+        /* Image block — fills full height of the card row */
         .work-card-image {
             position: relative;
             width: 100%;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/10; /* mobile keeps an aspect ratio */
             overflow: hidden;
             background: #0f0e0c;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-top: 28px;
+            border-left: 1px solid rgba(255,255,255,0.08);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 0;
             flex-shrink: 0;
-            order: -1;
+            order: 1; /* image always on the right on mobile too */
         }
 
         @media (min-width: 768px) {
             .work-card-image {
-                margin-top: 0;
-                order: 0;
-                aspect-ratio: 4/3;
+                /* Remove aspect ratio — stretch to fill the full card height */
+                aspect-ratio: unset;
+                position: relative;
+                min-height: 300px;
+                border-top: none;
+                border-left: 1px solid rgba(255,255,255,0.08);
             }
         }
 
         .work-card-image img {
+            /* Position absolute so it always fills the wrapper regardless of content height */
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -337,9 +371,89 @@
             gap: 12px;
         }
 
-        /* Hidden for filter */
-        .work-card[data-hidden="true"] {
+        /* Hidden for filter / pagination */
+        .work-card[data-hidden="true"],
+        .work-card[data-page-hidden="true"] {
             display: none;
+        }
+
+        /* ── Pagination ── */
+        .pagination-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 32px clamp(28px, 5vw, 88px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pagination-info {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-text-sec);
+        }
+
+        .pagination-info em {
+            color: var(--color-accent);
+            font-style: normal;
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: transparent;
+            color: var(--color-text-sec);
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-editorial);
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: #0c0b09;
+        }
+
+        .pagination-dots {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0 12px;
+        }
+
+        .pagination-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination-dot.active {
+            background: var(--color-accent);
+            width: 16px;
         }
 
         /* ── Consistent Section ── */
@@ -349,55 +463,157 @@
             overflow: hidden;
         }
 
-        .consistent-inner {
+        /* Header block above the rows */
+        .consistent-header {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 48px;
-            padding: 80px 0;
+            gap: 24px;
+            padding: 80px clamp(28px, 5vw, 88px) 64px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         @media (min-width: 1024px) {
-            .consistent-inner {
+            .consistent-header {
                 grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                align-items: center;
+                gap: 48px;
+                align-items: end;
             }
         }
 
-        .consistent-pillar {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 24px 0;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s var(--ease-editorial);
+        /* Pillar rows — full width, interactive */
+        .cp-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: clamp(64px, 8vw, 120px) 1fr auto;
+            align-items: center;
+            padding: 0 clamp(28px, 5vw, 88px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            cursor: pointer;
+            overflow: hidden;
+            transition: background 0.4s var(--ease-editorial);
+            min-height: 80px;
         }
 
-        .consistent-pillar:hover {
-            border-top-color: rgba(198,241,53,0.3);
-            padding-left: 12px;
+        .cp-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(198,241,53,0.04);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .consistent-pillar-num {
+        .cp-row:hover::before { opacity: 1; }
+
+        /* Accent bottom line animation */
+        .cp-row::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+        }
+
+        .cp-row:hover::after { transform: scaleX(1); }
+
+        .cp-num {
             font-family: 'DM Mono', monospace;
-            font-size: 10px;
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 400;
+            color: rgba(255,255,255,0.1);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            transition: color 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cp-row:hover .cp-num {
             color: var(--color-accent);
-            letter-spacing: 0.2em;
         }
 
-        .consistent-pillar-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
+        .cp-body {
+            position: relative;
+            z-index: 1;
+            padding: 0 clamp(24px, 3vw, 48px) 0 0;
+            /* grid-rows trick: expands to show desc without moving borders */
+            display: grid;
+            grid-template-rows: auto 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cp-row:hover .cp-body,
+        .cp-row.open .cp-body {
+            grid-template-rows: auto 1fr;
+        }
+
+        .cp-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(18px, 2.2vw, 30px);
             color: var(--color-text-pri);
-            letter-spacing: 0.01em;
+            line-height: 1.2;
+            display: block;
+            transition: color 0.3s ease;
+            padding: 28px 0 28px; /* fixed — never changes */
         }
 
-        .consistent-pillar-desc {
+        .cp-row:hover .cp-title { color: var(--color-accent); }
+
+        /* Desc wrapper: overflow hidden for the grid animation */
+        .cp-desc-wrap {
+            overflow: hidden;
+            min-height: 0; /* required for 0fr to work */
+        }
+
+        .cp-desc {
             font-family: 'Syne', sans-serif;
             font-size: 13px;
             color: var(--color-text-sec);
-            line-height: 1.65;
+            line-height: 1.7;
+            max-width: 580px;
+            padding-bottom: 28px;
+            /* no need for opacity/max-height — grid handles show/hide */
+            opacity: 0;
+            transition: opacity 0.4s ease 0.08s;
+        }
+
+        .cp-row:hover .cp-desc,
+        .cp-row.open .cp-desc {
+            opacity: 1;
+        }
+
+        .cp-arrow {
+            position: relative;
+            z-index: 1;
+            align-self: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            transition: all 0.4s var(--ease-editorial);
+            flex-shrink: 0;
+        }
+
+        .cp-row:hover .cp-arrow {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
+        /* CTAs below rows */
+        .consistent-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 40px clamp(28px, 5vw, 88px);
         }
     </style>
 </head>
@@ -447,8 +663,9 @@
     </nav>
 
     <!-- ── Hero ── -->
-    <header class="relative z-10 w-full pt-40 pb-16 px-6 md:px-12 lg:px-16 border-b border-vw-border/50">
-        <div class="max-w-screen-xl mx-auto">
+    <header class="relative z-10 w-full pt-40 pb-0 border-b border-vw-border/50">
+        <!-- No max-width — full bleed. Padding matches card meta left padding. -->
+        <div style="padding: 0 0 0 clamp(28px, 4vw, 64px);">
 
             <!-- Eyebrow -->
             <div class="reveal-up flex items-center gap-3 mb-10" style="animation-delay:0.1s">
@@ -470,30 +687,34 @@
                 Real service-business websites, rebuilt for conversion. No before/after theatre — just what changed, why, and what it produced.
             </p>
 
-            <!-- Filter Tabs -->
-            <div class="reveal-up flex flex-wrap gap-2" id="filter-bar" style="animation-delay:0.5s" role="tablist" aria-label="Filter projects by category">
-                <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
-                    All <span class="tab-count">06</span>
-                </button>
-                <button class="filter-tab" data-filter="ui" role="tab" aria-selected="false">
-                    UI/UX <span class="tab-count">03</span>
-                </button>
-                <button class="filter-tab" data-filter="development" role="tab" aria-selected="false">
-                    Development <span class="tab-count">02</span>
-                </button>
-                <button class="filter-tab" data-filter="branding" role="tab" aria-selected="false">
-                    Branding <span class="tab-count">02</span>
-                </button>
-                <button class="filter-tab" data-filter="conversion" role="tab" aria-selected="false">
-                    Conversion <span class="tab-count">04</span>
-                </button>
-            </div>
+        </div>
+
+        <!-- Filter Tabs — full-width, each tab takes equal share -->
+        <div class="reveal-up" id="filter-bar"
+             style="animation-delay:0.5s;"
+             role="tablist" aria-label="Filter projects by category">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+                All <span class="tab-count">06</span>
+            </button>
+            <button class="filter-tab" data-filter="ui" role="tab" aria-selected="false">
+                UI/UX <span class="tab-count">03</span>
+            </button>
+            <button class="filter-tab" data-filter="development" role="tab" aria-selected="false">
+                Development <span class="tab-count">02</span>
+            </button>
+            <button class="filter-tab" data-filter="branding" role="tab" aria-selected="false">
+                Branding <span class="tab-count">02</span>
+            </button>
+            <button class="filter-tab" data-filter="conversion" role="tab" aria-selected="false">
+                Conversion <span class="tab-count">04</span>
+            </button>
         </div>
     </header>
 
     <!-- ── Project List ── -->
-    <main id="projects" class="relative z-10 w-full px-6 md:px-12 lg:px-16 pb-0">
-        <div class="max-w-screen-xl mx-auto">
+    <main id="projects" class="relative z-10 w-full pb-0">
+        <!-- No outer padding — card meta has its own left padding, image bleeds right -->
+        <div id="cards-container" class="w-full">
 
             <!-- Card 1: Alpha Flow -->
             <article class="work-card scroll-reveal" data-categories="ui development conversion">
@@ -691,69 +912,111 @@
             </article>
 
         </div>
+
+        <!-- ── Pagination ── -->
+        <div class="pagination-bar" id="pagination-bar" aria-label="Project pagination">
+            <span class="pagination-info" id="pagination-info">
+                Showing <em id="pg-from">1</em>–<em id="pg-to">4</em> of <em id="pg-total">6</em>
+            </span>
+            <div class="pagination-controls">
+                <button class="pagination-btn" id="pg-prev" aria-label="Previous page" disabled>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                </button>
+                <div class="pagination-dots" id="pg-dots" role="list"></div>
+                <button class="pagination-btn" id="pg-next" aria-label="Next page">
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+        </div>
     </main>
 
     <!-- ── "What stays consistent" section ── -->
-    <section class="consistent-section relative z-10 px-6 md:px-12 lg:px-16 mt-24">
+    <section class="consistent-section relative z-10" id="consistent">
 
-        <!-- Subtle accent gradient background -->
+        <!-- Gradient accent -->
         <div class="absolute inset-0 pointer-events-none"
-             style="background: radial-gradient(ellipse 60% 40% at 80% 50%, rgba(198,241,53,0.04) 0%, transparent 70%);">
-        </div>
+             style="background: radial-gradient(ellipse 50% 60% at 100% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
 
-        <div class="max-w-screen-xl mx-auto">
-            <div class="consistent-inner">
-
-                <!-- Left: text -->
-                <div class="flex flex-col gap-8 scroll-reveal">
-                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em]">
-                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent mr-3"></span>Every project
-                    </span>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
-                        style="font-size: clamp(36px, 5vw, 64px);">
-                        What stays<br>consistent <em class="text-vw-accent">across projects.</em>
-                    </h2>
-                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
-                        Different industries, different audiences, different starting points. But the same framework underneath — because conversion problems follow the same patterns regardless of sector.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-start gap-4 mt-4">
-                        <a href="/" class="btn btn--sweep flex items-center gap-3" style="font-size:11px; padding: 18px 32px;">
-                            See our process
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <a href="mailto:hello@vellumwire.com"
-                           class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
-                            Book a teardown <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: pillars list -->
-                <div class="flex flex-col scroll-reveal delay-1">
-                    <div class="consistent-pillar">
-                        <span class="consistent-pillar-num">01</span>
-                        <span class="consistent-pillar-title">Audit before a pixel moves</span>
-                        <span class="consistent-pillar-desc">We map where leads are leaking before proposing any solution. The teardown dictates the scope, not the other way around.</span>
-                    </div>
-                    <div class="consistent-pillar">
-                        <span class="consistent-pillar-num">02</span>
-                        <span class="consistent-pillar-title">Proof placed at decision points</span>
-                        <span class="consistent-pillar-desc">Reviews, credentials and results go where hesitation lives — not in a generic footer block nobody scrolls to.</span>
-                    </div>
-                    <div class="consistent-pillar">
-                        <span class="consistent-pillar-num">03</span>
-                        <span class="consistent-pillar-title">One clear path to the CTA</span>
-                        <span class="consistent-pillar-desc">Every page has a primary action. Secondary options exist — but they don't compete. Hierarchy is enforced, not suggested.</span>
-                    </div>
-                    <div class="consistent-pillar">
-                        <span class="consistent-pillar-num">04</span>
-                        <span class="consistent-pillar-title">Tracking built into launch</span>
-                        <span class="consistent-pillar-desc">GA4 events, session heat maps, form completion rates — configured before go-live so you know within week one if it's working.</span>
-                    </div>
-                </div>
-
+        <!-- Header: eyebrow + headline + description stacked above the rows -->
+        <div class="consistent-header scroll-reveal">
+            <div>
+                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-6">
+                    <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Every project
+                </span>
+                <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
+                    style="font-size: clamp(36px, 5vw, 72px);">
+                    What stays consistent<br><em class="text-vw-accent">across projects.</em>
+                </h2>
+            </div>
+            <!-- Support text: right column, bottom-aligned -->
+            <div class="flex flex-col justify-end">
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                    Different industries, different audiences, different starting points. The framework underneath stays the same because conversion problems follow the same patterns regardless of sector.
+                </p>
             </div>
         </div>
+
+        <!-- Pillar rows: full-width interactive accordion -->
+        <div class="w-full" id="pillars">
+
+            <div class="cp-row scroll-reveal">
+                <span class="cp-num">01</span>
+                <div class="cp-body">
+                    <span class="cp-title">Audit before a pixel moves</span>
+                    <div class="cp-desc-wrap">
+                        <p class="cp-desc">We map where leads are leaking before proposing any solution. The teardown dictates the scope. Not the other way around. Every decision that follows comes from data, not instinct.</p>
+                    </div>
+                </div>
+                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
+            </div>
+
+            <div class="cp-row scroll-reveal delay-1">
+                <span class="cp-num">02</span>
+                <div class="cp-body">
+                    <span class="cp-title">Proof placed at decision points</span>
+                    <div class="cp-desc-wrap">
+                        <p class="cp-desc">Reviews, credentials and results go where hesitation lives. Not in a generic footer block nobody scrolls to. Trust is architected into the page structure.</p>
+                    </div>
+                </div>
+                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
+            </div>
+
+            <div class="cp-row scroll-reveal">
+                <span class="cp-num">03</span>
+                <div class="cp-body">
+                    <span class="cp-title">One clear path to the CTA</span>
+                    <div class="cp-desc-wrap">
+                        <p class="cp-desc">Every page has a primary action. Secondary options exist but they do not compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to choose.</p>
+                    </div>
+                </div>
+                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
+            </div>
+
+            <div class="cp-row scroll-reveal delay-1">
+                <span class="cp-num">04</span>
+                <div class="cp-body">
+                    <span class="cp-title">Tracking built into launch</span>
+                    <div class="cp-desc-wrap">
+                        <p class="cp-desc">GA4 events, session heat maps, form completion rates. All configured before go-live so you know within week one what is working. No guessing after ship.</p>
+                    </div>
+                </div>
+                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
+            </div>
+
+        </div>
+
+        <!-- CTAs -->
+        <div class="consistent-cta">
+            <a href="/" class="btn btn--sweep flex items-center gap-3" style="font-size:11px; padding: 18px 32px;">
+                See our process
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:hello@vellumwire.com"
+               class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
+                Book a teardown <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+
     </section>
 
     <!-- ── CTA Strip ── -->
@@ -899,14 +1162,70 @@
 
         document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 
-        // ── Filter Logic ──
-        const filterBar = document.getElementById('filter-bar');
-        const filterBtns = filterBar.querySelectorAll('.filter-tab');
-        const cards = document.querySelectorAll('.work-card');
+        // ── Filter + Pagination Logic ──
+        const filterBar   = document.getElementById('filter-bar');
+        const filterBtns  = filterBar.querySelectorAll('.filter-tab');
+        const allCards    = Array.from(document.querySelectorAll('.work-card'));
+        const CARDS_PER_PAGE = 4;
+
+        let currentFilter = 'all';
+        let currentPage   = 0;
+
+        function getVisibleCards() {
+            return allCards.filter(c => !c.hasAttribute('data-hidden'));
+        }
+
+        function renderPage() {
+            const visible = getVisibleCards();
+            const totalPages = Math.max(1, Math.ceil(visible.length / CARDS_PER_PAGE));
+
+            // Clamp page
+            if (currentPage >= totalPages) currentPage = totalPages - 1;
+            if (currentPage < 0) currentPage = 0;
+
+            const start = currentPage * CARDS_PER_PAGE;
+            const end   = start + CARDS_PER_PAGE;
+
+            allCards.forEach(c => c.removeAttribute('data-page-hidden'));
+            visible.forEach((c, i) => {
+                if (i < start || i >= end) {
+                    c.setAttribute('data-page-hidden', 'true');
+                }
+            });
+
+            // Pagination UI
+            const pgFrom  = document.getElementById('pg-from');
+            const pgTo    = document.getElementById('pg-to');
+            const pgTotal = document.getElementById('pg-total');
+            const pgPrev  = document.getElementById('pg-prev');
+            const pgNext  = document.getElementById('pg-next');
+            const pgDots  = document.getElementById('pg-dots');
+
+            pgFrom.textContent  = visible.length ? start + 1 : 0;
+            pgTo.textContent    = Math.min(end, visible.length);
+            pgTotal.textContent = visible.length;
+
+            pgPrev.disabled = currentPage === 0;
+            pgNext.disabled = currentPage >= totalPages - 1;
+
+            // Dots
+            pgDots.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'pagination-dot' + (i === currentPage ? ' active' : '');
+                dot.setAttribute('role', 'listitem');
+                dot.setAttribute('aria-label', `Page ${i + 1}`);
+                dot.addEventListener('click', () => { currentPage = i; renderPage(); });
+                pgDots.appendChild(dot);
+            }
+
+            // Show/hide pagination bar if only 1 page
+            document.getElementById('pagination-bar').style.display =
+                totalPages <= 1 ? 'none' : '';
+        }
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active state
                 filterBtns.forEach(b => {
                     b.classList.remove('active');
                     b.setAttribute('aria-selected', 'false');
@@ -914,25 +1233,40 @@
                 btn.classList.add('active');
                 btn.setAttribute('aria-selected', 'true');
 
-                const filter = btn.dataset.filter;
+                currentFilter = btn.dataset.filter;
+                currentPage   = 0;
 
-                cards.forEach(card => {
-                    if (filter === 'all') {
+                allCards.forEach(card => {
+                    if (currentFilter === 'all') {
                         card.removeAttribute('data-hidden');
-                        card.style.display = '';
                     } else {
                         const cats = card.dataset.categories || '';
-                        if (cats.includes(filter)) {
+                        if (cats.includes(currentFilter)) {
                             card.removeAttribute('data-hidden');
-                            card.style.display = '';
                         } else {
                             card.setAttribute('data-hidden', 'true');
-                            card.style.display = 'none';
                         }
                     }
                 });
+
+                renderPage();
             });
         });
+
+        document.getElementById('pg-prev').addEventListener('click', () => {
+            currentPage--;
+            renderPage();
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        document.getElementById('pg-next').addEventListener('click', () => {
+            currentPage++;
+            renderPage();
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Init
+        renderPage();
 
         // ── Magnetic Buttons ──
         document.querySelectorAll('.magnetic').forEach(elem => {
