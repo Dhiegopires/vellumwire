@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <title>Packages — Vellumwire</title>
-    <meta name="description" content="Transparent pricing for conversion-focused web projects. Three packages — Audit, Rebuild, Full Stack — scoped to your pipeline problem.">
+    <title>Packages | Vellumwire</title>
+    <meta name="description" content="Transparent pricing for conversion-focused web projects. Three packages: Audit, Rebuild, Full Stack, scoped to your pipeline problem.">
     <meta name="keywords" content="web design pricing, website packages, conversion audit cost, landing page rebuild, vellumwire packages">
     <meta name="author" content="Vellumwire">
-    <meta property="og:title" content="Packages — Vellumwire">
+    <meta property="og:title" content="Packages | Vellumwire">
     <meta property="og:description" content="Transparent pricing for conversion-focused web projects. Scoped to your pipeline problem.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -70,7 +70,7 @@
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.25;
         }
 
         /* ── Hero counter animation ── */
@@ -483,12 +483,12 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- HERO — Cinematic Entry                                -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden">
+    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden" style="background: linear-gradient(180deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.6) 60%, transparent 100%);">
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12" style="animation-delay:0.1s">
-                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.2em] flex items-center gap-2">
-                    [ PACKAGES ] <span class="w-1.5 h-6 bg-vw-accent ml-2 inline-block"></span>
+                <span class="eyebrow">
+                    [ PACKAGES ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
 
@@ -557,242 +557,16 @@
 
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5 items-stretch">
+            <div id="pricing-root"></div>
 
-                <!-- ═══ PACKAGE 1: AUDIT ═══ -->
-                <div class="pkg-card-scene scroll-reveal">
-                    <div class="pkg-card" data-tilt>
-                        <div class="pkg-card-grid"></div>
-                        <div class="pkg-card-glow"></div>
-                        <div class="pkg-card-shine"></div>
-                        <div class="pkg-card-bar"></div>
-
-                        <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
-                            <!-- Header -->
-                            <div class="flex justify-between items-start mb-3">
-                                <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.16em]">Tier 01</span>
-                                <div class="float-badge">
-                                    <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.14em] border border-vw-accent/30 px-3 py-1.5 inline-flex items-center gap-1.5">
-                                        <span class="w-1 h-1 bg-vw-accent rounded-full"></span>
-                                        48h delivery
-                                    </span>
-                                </div>
-                            </div>
-
-                            <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-2">
-                                Conversion<br>Audit
-                            </h2>
-                            <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-8 max-w-[95%]">
-                                A surgical teardown of your current site. We flag what's blocking leads and hand you a ranked fix list.
-                            </p>
-
-                            <!-- Price -->
-                            <div class="price-display mb-8">
-                                <span class="price-currency">R$</span>
-                                <span class="price-amount">1.200</span>
-                            </div>
-
-                            <!-- Features -->
-                            <div class="flex flex-col mt-auto mb-8">
-                                <div class="pkg-feature">
-                                    <i data-lucide="scan-search" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Full-site conversion audit</strong> with screen recording</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="mouse-pointer-click" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">CTA hierarchy + flow analysis</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="shield-check" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Trust signal placement map</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="smartphone" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Mobile friction teardown</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="list-ordered" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Prioritized action plan</strong> ranked by revenue impact</span>
-                                </div>
-                            </div>
-
-                            <!-- CTA -->
-                            <a href="mailto:hello@vellumwire.com" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size:11px; padding: 18px 24px;">
-                                Book an audit
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ═══ PACKAGE 2: REBUILD (FEATURED) ═══ -->
-                <div class="pkg-card-scene scroll-reveal delay-1">
-                    <div class="pkg-card featured" data-tilt>
-                        <div class="pkg-card-grid"></div>
-                        <div class="pkg-card-glow" style="opacity:0.3"></div>
-                        <div class="pkg-card-shine"></div>
-                        <div class="pkg-card-bar"></div>
-
-                        <!-- Recommended strip -->
-                        <div class="relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between" style="background: linear-gradient(90deg, rgba(198,241,53,0.12) 0%, rgba(198,241,53,0.04) 100%); border-bottom: 1px solid rgba(198,241,53,0.15);">
-                            <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2">
-                                <span class="inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse"></span>
-                                Most popular
-                            </span>
-                            <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.12em]">Best value</span>
-                        </div>
-
-                        <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
-                            <div class="flex justify-between items-start mb-3">
-                                <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.16em]">Tier 02</span>
-                                <div class="float-badge" style="animation-delay: 1s;">
-                                    <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.14em] border border-vw-accent/30 px-3 py-1.5 inline-flex items-center gap-1.5">
-                                        <span class="w-1 h-1 bg-vw-accent rounded-full"></span>
-                                        3–5 weeks
-                                    </span>
-                                </div>
-                            </div>
-
-                            <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-2">
-                                Site<br>Rebuild
-                            </h2>
-                            <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-8 max-w-[95%]">
-                                Full rebuild — structure, copy, design, and tracking — around one goal: predictable lead flow.
-                            </p>
-
-                            <!-- Price -->
-                            <div class="price-display mb-2">
-                                <span class="price-currency">R$</span>
-                                <span class="price-amount">6.500</span>
-                            </div>
-                            <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em] mb-8 block">Starting from · Custom scope</span>
-
-                            <!-- Features -->
-                            <div class="flex flex-col mt-auto mb-8">
-                                <div class="pkg-feature">
-                                    <i data-lucide="layers" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Everything in Audit</strong>, applied</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="pen-tool" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Full copy architecture</strong> — we write it</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="layout" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Conversion-first IA + responsive design</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="code-2" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Frontend build (all breakpoints)</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="bar-chart-3" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>GA4 + GTM</strong> tracking setup</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="zap" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Speed optimization (LCP &lt; 2.5s)</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="repeat" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">2 structured revision rounds</span>
-                                </div>
-                            </div>
-
-                            <!-- CTA (Solid accent) -->
-                            <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3 w-full" style="font-size:11px; padding: 18px 24px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
-                                Start a rebuild
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ═══ PACKAGE 3: FULL STACK ═══ -->
-                <div class="pkg-card-scene scroll-reveal delay-2">
-                    <div class="pkg-card" data-tilt>
-                        <div class="pkg-card-grid"></div>
-                        <div class="pkg-card-glow"></div>
-                        <div class="pkg-card-shine"></div>
-                        <div class="pkg-card-bar"></div>
-
-                        <div class="relative z-10 p-8 lg:p-10 flex flex-col flex-1">
-                            <div class="flex justify-between items-start mb-3">
-                                <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.16em]">Tier 03</span>
-                                <div class="float-badge" style="animation-delay: 2s;">
-                                    <span class="font-mono text-[9px] text-vw-accent uppercase tracking-[0.14em] border border-vw-accent/30 px-3 py-1.5 inline-flex items-center gap-1.5">
-                                        <span class="w-1 h-1 bg-vw-accent rounded-full"></span>
-                                        5–8 weeks
-                                    </span>
-                                </div>
-                            </div>
-
-                            <h2 class="font-display text-3xl md:text-4xl text-vw-pri tracking-tight leading-[1.05] mb-2">
-                                Full<br>Stack
-                            </h2>
-                            <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-8 max-w-[95%]">
-                                Brand strategy + site rebuild as one engagement. Re-position, redesign, relaunch — no handoff gaps.
-                            </p>
-
-                            <!-- Price -->
-                            <div class="price-display mb-2">
-                                <span class="price-currency">R$</span>
-                                <span class="price-amount">12.000</span>
-                            </div>
-                            <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em] mb-8 block">Starting from · Custom scope</span>
-
-                            <!-- Features -->
-                            <div class="flex flex-col mt-auto mb-8">
-                                <div class="pkg-feature">
-                                    <i data-lucide="layers" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Everything in Rebuild</strong>, plus:</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="target" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Market positioning</strong> audit</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="message-square" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Brand voice + messaging framework</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="palette" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text"><strong>Visual identity system</strong> (type, palette, rules)</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="figma" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Wordmark / logo direction</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="map" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Competitive differentiation map</span>
-                                </div>
-                                <div class="pkg-feature">
-                                    <i data-lucide="file-check" class="pkg-feature-icon"></i>
-                                    <span class="pkg-feature-text">Design system handoff document</span>
-                                </div>
-                            </div>
-
-                            <!-- CTA -->
-                            <a href="mailto:hello@vellumwire.com" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size:11px; padding: 18px 24px;">
-                                Discuss full stack
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Below-cards guarantee -->
+                        <!-- Below-cards guarantee -->
             <div class="guarantee-strip mt-16 pt-12 text-center scroll-reveal">
                 <div class="flex flex-col items-center gap-4">
                     <div class="w-12 h-12 border border-vw-accent/30 flex items-center justify-center float-badge">
                         <i data-lucide="shield" class="w-5 h-5 text-vw-accent"></i>
                     </div>
                     <p class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight italic max-w-md">
-                        If the audit doesn't reveal a clear path to more leads — you don't pay.
+                        If the audit doesn't reveal a clear path to more leads, you don't pay.
                     </p>
                     <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Zero-risk guarantee on all audits</span>
                 </div>
@@ -811,22 +585,24 @@
         <div class="px-6 md:px-12 lg:px-16 w-full relative z-10">
 
             <!-- Header -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-16 scroll-reveal">
                 <div>
-                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.2em] flex items-center gap-2 mb-8">
-                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>Extend any package
+                    <span class="eyebrow-sub mb-8 block">
+                        Extend any package
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
                         Add-ons.
                     </h2>
                 </div>
-                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
-                    Bolt these onto any tier. Each is scoped, priced separately, and delivered on the same timeline.
-                </p>
+                <div class="lg:pt-16 flex lg:justify-end">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">
+                        Bolt these onto any tier. Each is scoped, priced separately, and delivered on the same timeline.
+                    </p>
+                </div>
             </div>
 
             <!-- Add-on Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
                 <div class="addon-pill scroll-reveal">
                     <div class="addon-icon-box">
@@ -888,6 +664,26 @@
                     </div>
                 </div>
 
+                <div class="addon-pill scroll-reveal">
+                    <div class="addon-icon-box">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="font-ui text-vw-pri text-[14px] font-medium">Domain, DNS &amp; Deployment</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Go-live setup · $150 to $300</span>
+                    </div>
+                </div>
+
+                <div class="addon-pill scroll-reveal delay-1">
+                    <div class="addon-icon-box">
+                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="font-ui text-vw-pri text-[14px] font-medium">Heatmap &amp; Recording</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Hotjar or FullStory setup</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -900,8 +696,8 @@
 
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
                 <div>
-                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3 mb-6">
-                        <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>FAQ
+                    <span class="eyebrow-sub mb-6 block">
+                        FAQ
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
                         About pricing.
@@ -924,7 +720,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Because hourly billing incentivizes slowness. We scope the project, price it, and deliver it. If we're faster, you benefit. If we need to iterate, we absorb it. You know the cost before we start — not after.</p>
+                        <p class="faq-demo-answer">Because hourly billing incentivizes slowness. We scope the project, price it, and deliver it. If we're faster, you benefit. If we need to iterate, we absorb it. You know the cost before we start, not after.</p>
                     </div>
                 </div>
 
@@ -969,7 +765,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We tell you before we start. The teardown determines the real scope. If your project genuinely needs more pages, a custom integration, or a complex CMS — we quote it transparently as a line item, not as a surprise at the end.</p>
+                        <p class="faq-demo-answer">We tell you before we start. The diagnosis determines the real scope. If your project genuinely needs more pages, a custom integration, or a complex CMS, we quote it transparently as a line item, not as a surprise at the end.</p>
                     </div>
                 </div>
 
@@ -984,7 +780,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We don't discount — but we do scope efficiently. If you need multiple sites or landing pages under one brand, the shared positioning and design system work cuts significant time. That savings passes through in the quote naturally.</p>
+                        <p class="faq-demo-answer">We don't discount, but we do scope efficiently. If you need multiple sites or landing pages under one brand, the shared positioning and design system work cuts significant time. That savings passes through in the quote naturally.</p>
                     </div>
                 </div>
             </div>
@@ -1023,11 +819,11 @@
 
                     <div class="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
-                            Book a 15-minute teardown. We'll tell you which package fits — or if you even need us at all. You keep the diagnosis either way.
+                            Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.
                         </p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
                             <a href="mailto:hello@vellumwire.com" class="btn magnetic flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
-                                Book a 15-min teardown
+                                Get a free 15-minute diagnosis
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">Custom quote within 24h. No spam.</span>
@@ -1049,7 +845,7 @@
                         <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" style="filter: invert(1);" onerror="this.style.display='none'">
                         <span class="font-display text-vw-pri text-xl tracking-tight" style="display:block;margin-top:8px;">Vellumwire</span>
                     </div>
-                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">We build websites that turn visitors into calls. Design, copy, and engineering — under one brief.</p>
+                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">We build websites that turn visitors into calls. Design, copy, and engineering under one brief.</p>
                     <div class="mt-8 flex items-center gap-3">
                         <span class="inline-block w-4 h-px bg-vw-accent"></span>
                         <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR · Est. 2024</span>
@@ -1107,6 +903,124 @@
     <!-- SCRIPTS                                               -->
     <!-- ══════════════════════════════════════════════════════ -->
     <script>
+
+        // ══════════════════════════════════════════════════════
+        // PRICING DATA + RENDER
+        // ══════════════════════════════════════════════════════
+        const pricingData = [
+            { type: "section", label: "Start here" },
+            {
+                n: "01", t: "Website Checkup", tag: "Door opener",
+                p: "$350", pn: "flat fee", eta: "3–4 business days",
+                pitch: "A focused diagnosis of what’s not working on your site. You get a video walkthrough and a prioritized fix list. Not a generic report.",
+                del: ["15-min video walkthrough (Loom)", "Top issues ranked by impact on leads", "Quick-fix list you can act on immediately", "One competitor comparison", "Written summary with screenshots"],
+                who: ["You know your site isn’t working but not why", "You want a pro opinion before spending more", "You need clarity, not a sales pitch"],
+                hrs: "5–6 hrs", ft: false
+            },
+            { type: "section", label: "Build" },
+            {
+                n: "02", t: "Landing Page", tag: "Quick win",
+                p: "$750 – $1,200", pn: "per page, delivered live", eta: "5–10 business days",
+                pitch: "One page, one goal. Get visitors to call, book, or request a quote. Design, copy, and working code included.",
+                del: ["Custom design (desktop + mobile)", "Conversion copy included", "Built and deployed (HTML / Framer / Webflow)", "Contact form wired to your email", "Mobile-first, fast-loading"],
+                who: ["Running ads and need a proper landing page", "Launching a new service or offer", "Testing an idea before a full site"],
+                hrs: "18–28 hrs", ft: false
+            },
+            {
+                n: "03", t: "Homepage Redesign", tag: "Best value",
+                p: "$1,500 – $2,800", pn: "fixed project", eta: "2–3 weeks",
+                pitch: "Your homepage rebuilt so visitors instantly get what you do, trust you, and know what to do next. Design, copy, and code, all included.",
+                del: ["Quick audit of current homepage", "Content structure + wireframe", "Full design in Figma (desktop + mobile)", "Copy: headline, sections, proof, CTA", "Front-end development (responsive)", "Google Analytics + basic tracking"],
+                who: ["Your site gets visits but not calls", "Clients praise your work but not your website", "You want a big upgrade without a months-long project"],
+                hrs: "35–55 hrs", ft: true
+            },
+            {
+                n: "04", t: "Full Website", tag: "Complete build",
+                p: "$3,000 – $5,000", pn: "up to 6 pages", eta: "4–6 weeks",
+                pitch: "A complete professional site from scratch. Structure, design, copy, code, and analytics. Everything you need to look credible and generate inbound leads.",
+                del: ["Site structure + page planning", "Full design of all pages (Figma)", "Copywriting for every page", "Front-end build + simple CMS", "Mobile responsive, fast loading", "Basic SEO (meta, headings, speed)", "Analytics setup", "Tutorial so you can edit it yourself"],
+                who: ["Your current site was DIY and it shows", "You’re starting out and need a real presence", "You want one team to handle everything"],
+                hrs: "70–100 hrs", ft: false
+            },
+            { type: "section", label: "Brand + site" },
+            {
+                n: "05", t: "Brand + Website", tag: "Full package",
+                p: "$4,500 – $8,000", pn: "branding quoted separately", eta: "6–10 weeks",
+                pitch: "New brand, new site, one process. Our branding partner builds your identity, we design and code a site that matches. No Frankenstein result.",
+                del: ["Brand identity (logo, palette, type, guidelines)", "Seamless brand to web handoff", "Full website design + development", "Copywriting for all pages", "SEO basics + analytics", "Brand usage guide"],
+                who: ["Starting a business and need everything", "Rebranding and want it all to match", "Tired of juggling 3 separate vendors"],
+                hrs: "100–140 hrs total", ft: false
+            },
+            { type: "section", label: "Ongoing" },
+            {
+                n: "06", t: "Monthly Support", tag: "Retainer",
+                p: "$400 – $800", pn: "/month · 3-month min", eta: "Ongoing",
+                pitch: "Ongoing updates, new pages, and tweaks. Like having a designer and developer on call without the salary.",
+                del: ["8–16 hours of work per month", "Design updates + new sections", "Content changes and quick fixes", "Performance improvements", "48h response time", "Monthly summary of what was done"],
+                who: ["You need regular site updates", "You run campaigns and need pages fast", "You don’t want to deal with your own site"],
+                hrs: "8–16 hrs/mo", ft: false
+            }
+        ];
+
+        (function renderPricing() {
+            var root = document.getElementById("pricing-root");
+            if (!root) return;
+
+            // Flat list of all card items (skip section headers)
+            var cards = pricingData.filter(function(item) { return item.type !== "section"; });
+
+            // Single unified 3-col grid
+            var grid = document.createElement("div");
+            grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-5";
+            grid.style.cssText = "align-items: stretch; grid-auto-rows: 1fr;";
+            root.appendChild(grid);
+
+            cards.forEach(function(item, i) {
+                    var dc = i === 1 ? "delay-1" : i === 2 ? "delay-2" : "";
+                    var isRange = item.p.indexOf(" ") > 0;
+                    var priceHtml = isRange
+                        ? "<div class=\"mb-1\"><span class=\"font-display text-vw-pri\" style=\"font-size:clamp(26px,3vw,40px);letter-spacing:-0.03em;line-height:1;\">" + item.p + "</span></div>"
+                        : "<div class=\"price-display mb-1\"><span class=\"price-currency\">$</span><span class=\"price-amount\">" + item.p.substring(1) + "</span></div>";
+                    var dItems = item.del.map(function(d) {
+                        return "<div class=\"pkg-feature\"><i data-lucide=\"check\" class=\"pkg-feature-icon\"></i><span class=\"pkg-feature-text\">" + d + "</span></div>";
+                    }).join("");
+                    var wItems = "";
+                    var featTop = item.ft ? "<div class=\"relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between\" style=\"background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);\"><span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2\"><span class=\"inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse\"></span>Most popular</span><span class=\"font-mono text-[9px] text-vw-mut uppercase tracking-[0.12em]\">Best value</span></div>" : "";
+                    var btnS = item.ft ? "background:#c6f135;color:#0c0b09;font-weight:600;" : "";
+                    var btnC = item.ft ? "btn magnetic" : "btn btn--sweep";
+                    var numColor = item.ft ? "text-vw-accent" : "text-vw-mut";
+                    var scene = document.createElement("div");
+                    scene.className = "pkg-card-scene scroll-reveal h-full " + dc;
+                    scene.innerHTML =
+                        "<div class=\"pkg-card" + (item.ft ? " featured" : "") + "\" data-tilt style=\"height:100%;\">" +
+                            "<div class=\"pkg-card-grid\"></div>" +
+                            "<div class=\"pkg-card-glow\"" + (item.ft ? " style=\"opacity:0.3\"" : "") + "></div>" +
+                            "<div class=\"pkg-card-shine\"></div>" +
+                            "<div class=\"pkg-card-bar\"></div>" +
+                            featTop +
+                            "<div class=\"relative z-10 p-8 lg:p-10 flex flex-col flex-1\">" +
+                                "<div class=\"flex justify-between items-start mb-4\">" +
+                                    "<span class=\"font-mono text-[9px] " + numColor + " uppercase tracking-[0.16em]\">" + item.n + "</span>" +
+                                    "<span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.14em] border border-vw-accent/30 px-3 py-1.5 inline-flex items-center gap-1.5 float-badge\" style=\"animation-delay:" + (i * 0.6) + "s\">" +
+                                        "<span class=\"w-1 h-1 bg-vw-accent rounded-full\"></span>" + item.eta +
+                                    "</span>" +
+                                "</div>" +
+                                "<h2 class=\"font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2\">" + item.t + "</h2>" +
+                                "<span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.12em] border border-vw-accent/20 px-2 py-1 inline-flex self-start mb-5\">" + item.tag + "</span>" +
+                                priceHtml +
+                                "<span class=\"font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em] mb-5 block\">" + item.pn + "</span>" +
+                                "<p class=\"font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic\">" + item.pitch + "</p>" +
+                                "<div class=\"flex flex-col mt-auto mb-8\">" + dItems + "</div>" +
+                                "<a href=\"mailto:hello@vellumwire.com\" class=\"" + btnC + " flex items-center gap-3 w-full\" style=\"font-size:11px;padding:18px 24px;" + btnS + "\">" +
+                                    "Get started" +
+                                    "<i data-lucide=\"arrow-right\" class=\"w-3.5 h-3.5 flex-shrink-0\"></i>" +
+                                "</a>" +
+                            "</div>" +
+                        "</div>";
+                    grid.appendChild(scene);
+            });
+        })();
+
         // ── Init Lucide ──
         lucide.createIcons();
 
@@ -1319,6 +1233,7 @@
             });
         }
     </script>
+    <script src="assets/js/menu.js"></script>
 
 </body>
 </html>
