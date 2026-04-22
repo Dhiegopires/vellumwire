@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vellumwire — Services & Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #0c0b09;
+    --color-bg-raised: #141311;
+    --color-bg-surface: #1a1916;
+    --color-accent: #c6f135;
+    --color-text-primary: #f5f3ed;
+    --color-text-secondary: #8a8680;
+    --color-text-muted: #5c5955;
+    --color-border: rgba(245,243,237,0.08);
+    --color-border-mid: rgba(245,243,237,0.12);
+    --font-display: 'Instrument Serif', serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .page-sub {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+    margin-top: 36px;
+  }
+  .section-label:first-of-type { margin-top: 0; }
+
+  .cards { display: flex; flex-direction: column; gap: 8px; }
+
+  .card {
+    background: var(--color-bg-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+  .card:hover { border-color: var(--color-border-mid); }
+  .card.featured { border-color: var(--color-accent); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .card-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .card-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+  }
+
+  .card-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .tag-green { background: rgba(198,241,53,0.1); color: var(--color-accent); }
+  .tag-blue { background: rgba(100,160,255,0.1); color: #8ab4f8; }
+  .tag-amber { background: rgba(240,180,60,0.1); color: #f0b43c; }
+  .tag-purple { background: rgba(160,140,240,0.1); color: #a08cf0; }
+
+  .card-price {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    text-align: right;
+    min-width: 90px;
+  }
+  .card-price small {
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    display: block;
+  }
+
+  .chevron {
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-muted);
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    flex-shrink: 0;
+  }
+  .card.open .chevron { transform: rotate(180deg); }
+
+  .card-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .card.open .card-body { grid-template-rows: 1fr; }
+  .card-inner { overflow: hidden; }
+
+  .card-content {
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(198,241,53,0.12);
+    color: var(--color-accent);
+    font-size: 10px;
+    font-family: var(--font-mono);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+
+  .pitch {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-top: 8px;
+    font-style: italic;
+    max-width: 540px;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    padding-top: 16px;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+  .list li {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    padding-left: 16px;
+    position: relative;
+  }
+  .list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    font-size: 11px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 1px solid var(--color-border);
+  }
+  .meta-item {
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+  .meta-item strong {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .rate-table {
+    margin-top: 48px;
+    background: var(--color-bg-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .rate-table-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 13px;
+  }
+  .rate-row:last-of-type { border-bottom: none; }
+  .rate-label { color: var(--color-text-secondary); }
+  .rate-val {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--color-text-primary);
+    font-size: 12px;
+  }
+  .rate-note {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-top: 16px;
+    line-height: 1.7;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-note {
+    margin-top: 32px;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    padding: 16px 20px;
+    background: var(--color-bg-surface);
+    border-radius: 8px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 520px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .card-header { flex-wrap: wrap; }
+    .card-price { text-align: left; min-width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">Services & Pricing</div>
+  <h1 class="page-title">What we do and what it costs.</h1>
+  <p class="page-sub">Design, copy, and code — one team, one price. Senior quality at competitive rates. We're lean, fast, and building our name.</p>
+
+  <div id="pricing"></div>
+
+  <div class="rate-table">
+    <h2 class="rate-table-title">How we priced this</h2>
+    <div class="rate-row"><span class="rate-label">Our current rate (Brazil market)</span><span class="rate-val">$10 – $21/hr</span></div>
+    <div class="rate-row"><span class="rate-label">LATAM senior market rate</span><span class="rate-val">$30 – $55/hr</span></div>
+    <div class="rate-row"><span class="rate-label">Our target rate (building portfolio)</span><span class="rate-val">$35 – $45/hr</span></div>
+    <div class="rate-row"><span class="rate-label">US freelancer (senior)</span><span class="rate-val">$75 – $150/hr</span></div>
+    <div class="rate-row"><span class="rate-label">US agency rate</span><span class="rate-val">$100 – $200/hr</span></div>
+    <p class="rate-note">At $40/hr, a $2,800 homepage redesign = 70 hrs of work. In reais at R$ 5.80, that's R$ 16,240 — nearly 2× what we'd charge locally for the same project. As portfolio grows, target rate moves to $50–65/hr.</p>
+  </div>
+
+  <div class="footer-note">
+    All prices in USD. 50% upfront, 50% on delivery. One revision round included. Additional revisions at $45/hr. Branding is quoted separately by our brand partner based on project scope. We coordinate everything — the client deals with one team.
+  </div>
+
+  <div class="footer">Vellumwire · Services & Pricing · April 2026 · Internal document</div>
+
+</div>
+
+<script>
+const data = [
+  { type: "section", label: "Start here" },
+  {
+    n: "01", t: "Website checkup", tag: "Door opener", tc: "tag-green",
+    p: "$350", pn: "flat fee", ft: false,
+    pitch: "A focused teardown of what's not working on your site. You get a video walkthrough and a prioritized fix list — not a generic report.",
+    del: [
+      "15-min video walkthrough (Loom)",
+      "Top issues ranked by impact on leads",
+      "Quick-fix list you can act on immediately",
+      "One competitor comparison",
+      "Written summary with screenshots"
+    ],
+    who: [
+      "You know your site isn't working but not why",
+      "You want a pro opinion before spending more",
+      "You need clarity, not a sales pitch"
+    ],
+    hrs: "5–6 hrs", eta: "3–4 business days"
+  },
+  { type: "section", label: "Build" },
+  {
+    n: "02", t: "Landing page", tag: "Quick win", tc: "tag-green",
+    p: "$750 – $1,200", pn: "per page, delivered live", ft: false,
+    pitch: "One page, one goal — get visitors to call, book, or request a quote. Design, copy, and working code included.",
+    del: [
+      "Custom design (desktop + mobile)",
+      "Conversion copy included",
+      "Built and deployed (Framer / Webflow / HTML)",
+      "Contact form wired to your email",
+      "Mobile-first, fast-loading"
+    ],
+    who: [
+      "Running ads and need a proper landing page",
+      "Launching a new service or offer",
+      "Testing an idea before building a full site"
+    ],
+    hrs: "18–28 hrs", eta: "5–10 business days"
+  },
+  {
+    n: "03", t: "Homepage redesign", tag: "Best value", tc: "tag-blue",
+    p: "$1,500 – $2,800", pn: "fixed project", ft: true,
+    pitch: "Your homepage rebuilt so visitors instantly get what you do, trust you, and know what to do next. Design, copy, and code — all included.",
+    del: [
+      "Quick audit of current homepage",
+      "Content structure + wireframe",
+      "Full design in Figma (desktop + mobile)",
+      "Copy: headline, sections, proof, CTA",
+      "Front-end development (responsive)",
+      "Google Analytics + basic tracking"
+    ],
+    who: [
+      "Your site gets visits but not calls",
+      "Clients praise your work but not your website",
+      "You want a big upgrade without a months-long project"
+    ],
+    hrs: "35–55 hrs", eta: "2–3 weeks"
+  },
+  {
+    n: "04", t: "Full website", tag: "Complete build", tc: "tag-amber",
+    p: "$3,000 – $5,000", pn: "up to 6 pages", ft: false,
+    pitch: "A complete professional site from scratch. Structure, design, copy, code, and analytics — everything you need to look credible and get business online.",
+    del: [
+      "Site structure + page planning",
+      "Full design of all pages (Figma)",
+      "Copywriting for every page",
+      "Front-end build + simple CMS",
+      "Mobile responsive, fast loading",
+      "Basic SEO (meta, headings, speed)",
+      "Analytics setup",
+      "Tutorial so you can edit it yourself"
+    ],
+    who: [
+      "Your current site was DIY and it shows",
+      "You're starting out and need a real presence",
+      "You want one team to handle everything"
+    ],
+    hrs: "70–100 hrs", eta: "4–6 weeks"
+  },
+  { type: "section", label: "Brand + site" },
+  {
+    n: "05", t: "Brand + website", tag: "Full package", tc: "tag-purple",
+    p: "$4,500 – $8,000", pn: "branding quoted separately", ft: false,
+    pitch: "New brand, new site, one process. Our branding partner builds your identity, we design and code a site that matches — no Frankenstein result.",
+    del: [
+      "Brand identity (logo, palette, type, guidelines)",
+      "Seamless brand → web handoff",
+      "Full website design + development",
+      "Copywriting for all pages",
+      "SEO basics + analytics",
+      "Brand usage guide"
+    ],
+    who: [
+      "Starting a business and need everything",
+      "Rebranding and want it all to match",
+      "Tired of juggling 3 separate vendors"
+    ],
+    hrs: "100–140 hrs total", eta: "6–10 weeks"
+  },
+  { type: "section", label: "Ongoing" },
+  {
+    n: "06", t: "Monthly support", tag: "Retainer", tc: "tag-blue",
+    p: "$400 – $800", pn: "/month · 3-month min", ft: false,
+    pitch: "Ongoing updates, new pages, and tweaks. Like having a designer and developer on call without the salary.",
+    del: [
+      "8–16 hours of work per month",
+      "Design updates + new sections",
+      "Content changes and quick fixes",
+      "Performance improvements",
+      "48h response time",
+      "Monthly summary of what was done"
+    ],
+    who: [
+      "You need regular site updates",
+      "You run campaigns and need pages fast",
+      "You don't want to deal with your own site"
+    ],
+    hrs: "8–16 hrs/mo", eta: "Ongoing"
+  }
+];
+
+const root = document.getElementById('pricing');
+data.forEach(item => {
+  if (item.type === "section") {
+    const s = document.createElement('div');
+    s.className = 'section-label';
+    s.textContent = item.label;
+    root.appendChild(s);
+    const g = document.createElement('div');
+    g.className = 'cards';
+    g.id = 'group-' + item.label.replace(/\s/g, '');
+    root.appendChild(g);
+    return;
+  }
+
+  const groups = root.querySelectorAll('.cards');
+  const container = groups[groups.length - 1];
+
+  const card = document.createElement('div');
+  card.className = 'card' + (item.ft ? ' featured' : '');
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="card-left">
+        <span class="card-num">${item.n}</span>
+        <span class="card-title">${item.t}</span>
+        <span class="card-tag ${item.tc}">${item.tag}</span>
+      </div>
+      <div class="card-price">${item.p}<small>${item.pn}</small></div>
+      <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="card-body"><div class="card-inner"><div class="card-content">
+      ${item.ft ? '<span class="badge">Best value</span>' : ''}
+      <p class="pitch">"${item.pitch}"</p>
+      <div class="content-grid">
+        <div>
+          <div class="label">What you get</div>
+          <ul class="list">${item.del.map(d => `<li>${d}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="label">Best for</div>
+          <ul class="list">${item.who.map(w => `<li>${w}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="meta-item"><strong>${item.hrs}</strong> of work</div>
+        <div class="meta-item"><strong>${item.eta}</strong> delivery</div>
+      </div>
+    </div></div></div>`;
+
+  card.querySelector('.card-header').addEventListener('click', () => {
+    card.classList.toggle('open');
+  });
+
+  container.appendChild(card);
+});
+</script>
+</body>
+</html>

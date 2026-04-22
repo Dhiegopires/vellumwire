@@ -115,6 +115,28 @@ body {
     }
 }
 
+/* ── Eyebrow system ── */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c6f135;
+}
+.eyebrow-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8a8680;
+}
+
 /* Buttons Unification */
 .btn {
     display: inline-flex;
@@ -742,6 +764,13 @@ body {
     cursor: default;
 }
 
+img.marquee-logo {
+    display: block;
+    height: 48px;
+    width: auto;
+    padding: 0 32px;
+}
+
 .marquee-logo:hover {
     filter: grayscale(0%);
     opacity: 1;
@@ -1045,6 +1074,13 @@ body {
     opacity: 0.5;
     transition: all 0.4s var(--ease-editorial);
     cursor: default;
+}
+
+img.marquee-logo {
+    display: block;
+    height: 48px;
+    width: auto;
+    padding: 0 32px;
 }
 
 .marquee-logo:hover {
