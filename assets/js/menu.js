@@ -157,14 +157,24 @@
         }
     `;
 
+    var scripts = document.getElementsByTagName('script');
+    var basePath = '';
+    for (var i = 0; i < scripts.length; i++) {
+        var src = scripts[i].getAttribute('src');
+        if (src && src.indexOf('menu.js') !== -1) {
+            basePath = src.replace('assets/js/menu.js', '');
+            break;
+        }
+    }
+
     var links = [
-        { num: '01', label: 'Home',     href: '/' },
-        { num: '02', label: 'Work',     href: '/work' },
-        { num: '03', label: 'Services', href: '/services' },
-        { num: '04', label: 'Packages', href: '/packages' },
-        { num: '05', label: 'Insights', href: '/insights' },
-        { num: '06', label: 'Studio',   href: '/studio' },
-        { num: '07', label: 'Contact',  href: '/contact' },
+        { num: '01', label: 'Home',     href: basePath + 'index.html' },
+        { num: '02', label: 'Work',     href: basePath + 'work.html' },
+        { num: '03', label: 'Services', href: basePath + 'services.html' },
+        { num: '04', label: 'Packages', href: basePath + 'packages.html' },
+        { num: '05', label: 'Insights', href: basePath + 'insights.html' },
+        { num: '06', label: 'Studio',   href: basePath + 'studio.html' },
+        { num: '07', label: 'Contact',  href: basePath + 'contact.html' },
     ];
 
     function init() {

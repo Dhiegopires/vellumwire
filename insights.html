@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -186,7 +186,7 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between mix-blend-difference">
-        <a href="/" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon style="fill: inherit;" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0" />
                 <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
@@ -339,55 +339,85 @@
     </main>
 
     <!-- Footer -->
-    <footer id="footer" style="background: #0a0908; border-top: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden;">
-        <div class="container mx-auto px-6 lg:px-12 pt-20 pb-16">
-            <div class="flex flex-col md:flex-row justify-between gap-16">
-                <div class="max-w-xs">
-                    <div class="mb-6">
-                        <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" style="filter: invert(1);" onerror="this.style.display='none'">
-                        <span class="font-display text-vw-pri text-xl tracking-tight" style="display:block;margin-top:8px;">Vellumwire</span>
-                    </div>
-                    <p class="font-ui text-sm leading-[1.7]" style="color: #7a7875;">We build websites that turn visitors into calls. Design, copy, and engineering under one brief.</p>
-                    <div class="mt-8 flex items-center gap-3">
-                        <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">São Paulo, BR · Est. 2024</span>
-                    </div>
+    <footer id="footer" class="relative overflow-hidden bg-[#0a0908]" style="border-top: 1px solid rgba(255,255,255,0.08);">
+
+    <!-- Top footer: nav links -->
+    <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-8 lg:gap-x-12">
+
+            <!-- Col 1: Brand -->
+            <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
+                <div>
+                    <a href="index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                        <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
+                    </a>
                 </div>
-                <div class="flex gap-16 md:gap-24">
-                    <div class="flex flex-col gap-4">
-                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                        <a href="/" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                        <a href="/work" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                        <a href="/services" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Services</a>
-                        <a href="/packages" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
-                        <a href="/insights" class="font-ui text-sm text-vw-accent transition-colors duration-300">Insights</a>
-                        <a href="/studio" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                        <a href="/contact" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
-                        <a href="mailto:hello@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">hello@vellumwire.com</a>
-                        <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
-                        <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
-                    </div>
+                <div class="flex items-center gap-3">
+                    <span class="inline-block w-4 h-px bg-vw-accent"></span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
+
+            <!-- Col 2: Pages Part 1 -->
+            <div class="flex flex-col gap-4 lg:col-span-2">
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <a href="services.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Services</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+            </div>
+
+            <!-- Col 3: Pages Part 2 -->
+            <div class="flex flex-col gap-4 lg:col-span-2">
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+            </div>
+
+            <!-- Col 4: Contact -->
+            <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <a href="mailto:hello@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">hello@vellumwire.com</a>
+                <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
+                <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
+            </div>
+
         </div>
-        <div class="relative w-full overflow-hidden select-none" style="padding: 0; margin-bottom: -2px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); padding: 0 clamp(8px, 2vw, 24px);">
-                <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"/><path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/><rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"/><rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71"/><path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"/><path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"/><path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"/><rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74"/><path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"/><path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"/>
-            </svg>
-        </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">© 2026 Vellumwire. All rights reserved.</span>
-                <div class="flex items-center gap-6">
-                    <a href="/privacy-policy" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                    <a href="/terms-of-use" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
-                </div>
+    </div>
+
+    <!-- Wordmark block: full-width, fades to bg at bottom -->
+    <div class="relative w-full overflow-hidden select-none" style="padding: 0; margin-bottom: -2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true"
+            style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
+                    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                    padding: 0 clamp(8px, 2vw, 24px);">
+            <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0" />
+            <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z" />
+            <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71" />
+            <rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71" />
+            <path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z" />
+            <path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z" />
+            <path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z" />
+            <rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74" />
+            <path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z" />
+            <path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z" />
+        </svg>
+    </div>
+
+    <!-- Bottom bar: legal -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <div class="flex items-center gap-6">
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
             </div>
         </div>
-    </footer>
+    </div>
+
+</footer>
 
     <script>
         lucide.createIcons();
