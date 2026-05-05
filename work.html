@@ -470,7 +470,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
-            padding: 80px clamp(28px, 5vw, 88px) 64px;
+            padding-bottom: 64px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
@@ -482,140 +482,12 @@
             }
         }
 
-        /* Pillar rows — full width, interactive */
-        .cp-row {
-            position: relative;
-            display: grid;
-            grid-template-columns: clamp(64px, 8vw, 120px) 1fr auto;
-            align-items: center;
-            padding: 0 clamp(28px, 5vw, 88px);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-            cursor: pointer;
-            overflow: hidden;
-            transition: background 0.4s var(--ease-editorial);
-            min-height: 80px;
-        }
-
-        .cp-row::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(198,241,53,0.04);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .cp-row:hover::before { opacity: 1; }
-
-        /* Accent bottom line animation */
-        .cp-row::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--color-accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s var(--ease-editorial);
-        }
-
-        .cp-row:hover::after { transform: scaleX(1); }
-
-        .cp-num {
-            font-family: 'DM Mono', monospace;
-            font-size: clamp(28px, 4vw, 52px);
-            font-weight: 400;
-            color: rgba(255,255,255,0.1);
-            letter-spacing: -0.02em;
-            line-height: 1;
-            transition: color 0.4s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cp-row:hover .cp-num {
-            color: var(--color-accent);
-        }
-
-        .cp-body {
-            position: relative;
-            z-index: 1;
-            padding: 0 clamp(24px, 3vw, 48px) 0 0;
-            /* grid-rows trick: expands to show desc without moving borders */
-            display: grid;
-            grid-template-rows: auto 0fr;
-            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cp-row:hover .cp-body,
-        .cp-row.open .cp-body {
-            grid-template-rows: auto 1fr;
-        }
-
-        .cp-title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(18px, 2.2vw, 30px);
-            color: var(--color-text-pri);
-            line-height: 1.2;
-            display: block;
-            transition: color 0.3s ease;
-            padding: 28px 0 28px; /* fixed — never changes */
-        }
-
-        .cp-row:hover .cp-title { color: var(--color-accent); }
-
-        /* Desc wrapper: overflow hidden for the grid animation */
-        .cp-desc-wrap {
-            overflow: hidden;
-            min-height: 0; /* required for 0fr to work */
-        }
-
-        .cp-desc {
-            font-family: 'Syne', sans-serif;
-            font-size: 13px;
-            color: var(--color-text-sec);
-            line-height: 1.7;
-            max-width: 580px;
-            padding-bottom: 28px;
-            /* no need for opacity/max-height — grid handles show/hide */
-            opacity: 0;
-            transition: opacity 0.4s ease 0.08s;
-        }
-
-        .cp-row:hover .cp-desc,
-        .cp-row.open .cp-desc {
-            opacity: 1;
-        }
-
-        .cp-arrow {
-            position: relative;
-            z-index: 1;
-            align-self: center;
-            width: 32px;
-            height: 32px;
-            border: 1px solid rgba(255,255,255,0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.3);
-            transition: all 0.4s var(--ease-editorial);
-            flex-shrink: 0;
-        }
-
-        .cp-row:hover .cp-arrow {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
-            transform: rotate(45deg);
-        }
-
         /* CTAs below rows */
         .consistent-cta {
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
-            padding: 40px clamp(28px, 5vw, 88px);
+            padding-top: 40px;
         }
     </style>
 </head>
@@ -936,14 +808,16 @@
     </main>
 
     <!-- ── "What stays consistent" section ── -->
-    <section class="consistent-section relative z-10" id="consistent">
+    <section class="consistent-section relative z-10 border-t border-vw-border/50" id="consistent">
 
         <!-- Gradient accent -->
         <div class="absolute inset-0 pointer-events-none"
              style="background: radial-gradient(ellipse 50% 60% at 100% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
 
-        <!-- Header: eyebrow + headline + description stacked above the rows -->
-        <div class="consistent-header scroll-reveal">
+        <div class="container mx-auto px-6 lg:px-12 py-24 lg:py-32">
+
+            <!-- Header: eyebrow + headline + description stacked above the rows -->
+            <div class="consistent-header scroll-reveal">
             <div>
                 <span class="eyebrow-sub mb-6 block">
                     Every project
@@ -962,63 +836,89 @@
         </div>
 
         <!-- Pillar rows: full-width interactive accordion -->
-        <div class="w-full" id="pillars">
+        <div class="faq-list w-full" id="pillars">
 
-            <div class="cp-row scroll-reveal">
-                <span class="cp-num">01</span>
-                <div class="cp-body">
-                    <span class="cp-title">Audit before a pixel moves</span>
-                    <div class="cp-desc-wrap">
-                        <p class="cp-desc">We map where leads are leaking before proposing any solution. The diagnosis dictates the scope. Not the other way around. Every decision that follows comes from data, not instinct.</p>
+            <div class="faq-demo scroll-reveal" data-faq>
+                <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Audit before a pixel moves">
+                    <div class="faq-demo-meta">
+                        <span class="faq-demo-num">01</span>
+                        <span class="faq-demo-text">Audit before a pixel moves</span>
                     </div>
+                    <div class="faq-toggle-icon">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-demo-body">
+                    <p class="faq-demo-answer">We map where leads are leaking before proposing any solution. The diagnosis dictates the scope. Not the other way around. Every decision that follows comes from data, not instinct.</p>
                 </div>
-                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
             </div>
 
-            <div class="cp-row scroll-reveal delay-1">
-                <span class="cp-num">02</span>
-                <div class="cp-body">
-                    <span class="cp-title">Proof placed at decision points</span>
-                    <div class="cp-desc-wrap">
-                        <p class="cp-desc">Reviews, credentials and results go where hesitation lives. Not in a generic footer block nobody scrolls to. Trust is architected into the page structure.</p>
+            <div class="faq-demo scroll-reveal delay-1" data-faq>
+                <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Proof placed at decision points">
+                    <div class="faq-demo-meta">
+                        <span class="faq-demo-num">02</span>
+                        <span class="faq-demo-text">Proof placed at decision points</span>
                     </div>
+                    <div class="faq-toggle-icon">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-demo-body">
+                    <p class="faq-demo-answer">Reviews, credentials and results go where hesitation lives. Not in a generic footer block nobody scrolls to. Trust is architected into the page structure.</p>
                 </div>
-                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
             </div>
 
-            <div class="cp-row scroll-reveal">
-                <span class="cp-num">03</span>
-                <div class="cp-body">
-                    <span class="cp-title">One clear path to the CTA</span>
-                    <div class="cp-desc-wrap">
-                        <p class="cp-desc">Every page has a primary action. Secondary options exist but they do not compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to choose.</p>
+            <div class="faq-demo scroll-reveal" data-faq>
+                <button class="faq-demo-q w-full" aria-expanded="false" aria-label="One clear path to the CTA">
+                    <div class="faq-demo-meta">
+                        <span class="faq-demo-num">03</span>
+                        <span class="faq-demo-text">One clear path to the CTA</span>
                     </div>
+                    <div class="faq-toggle-icon">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-demo-body">
+                    <p class="faq-demo-answer">Every page has a primary action. Secondary options exist but they do not compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to choose.</p>
                 </div>
-                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
             </div>
 
-            <div class="cp-row scroll-reveal delay-1">
-                <span class="cp-num">04</span>
-                <div class="cp-body">
-                    <span class="cp-title">Tracking built into launch</span>
-                    <div class="cp-desc-wrap">
-                        <p class="cp-desc">GA4 events, session heat maps, form completion rates. All configured before go-live so you know within week one what is working. No guessing after ship.</p>
+            <div class="faq-demo scroll-reveal delay-1" data-faq>
+                <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Tracking built into launch">
+                    <div class="faq-demo-meta">
+                        <span class="faq-demo-num">04</span>
+                        <span class="faq-demo-text">Tracking built into launch</span>
                     </div>
+                    <div class="faq-toggle-icon">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-demo-body">
+                    <p class="faq-demo-answer">GA4 events, session heat maps, form completion rates. All configured before go-live so you know within week one what is working. No guessing after ship.</p>
                 </div>
-                <div class="cp-arrow"><i data-lucide="plus" class="w-3.5 h-3.5"></i></div>
             </div>
 
-        </div>
+            </div>
 
-        <!-- CTAs -->
-        <div class="consistent-cta">
-            <a href="index.html" class="btn btn--sweep flex items-center gap-3" style="font-size:11px; padding: 18px 32px;">
-                See our process
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <a href="contact.html" class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
-                Get a free diagnosis <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
+            <!-- CTAs -->
+            <div class="consistent-cta">
+                <a href="index.html" class="btn btn--sweep flex items-center gap-3" style="font-size:11px; padding: 18px 32px;">
+                    See our process
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="contact.html" class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
+                    Get a free diagnosis <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
         </div>
 
     </section>
@@ -1285,6 +1185,22 @@
             });
             elem.addEventListener('mouseleave', () => {
                 elem.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // ── FAQ Accordion ──
+        document.querySelectorAll('[data-faq]').forEach(item => {
+            const trigger = item.querySelector('.faq-demo-q');
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+                document.querySelectorAll('[data-faq].is-open').forEach(other => {
+                    other.classList.remove('is-open');
+                    other.querySelector('.faq-demo-q').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
             });
         });
     </script>
