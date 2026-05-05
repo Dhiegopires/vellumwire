@@ -207,8 +207,8 @@
         footer.className = 'vw-menu-footer';
 
         var email = document.createElement('a');
-        email.href = 'mailto:hello@vellumwire.com';
-        email.textContent = 'hello@vellumwire.com';
+        email.href = 'mailto:contact@vellumwire.com';
+        email.textContent = 'contact@vellumwire.com';
 
         var social = document.createElement('div');
         social.className = 'vw-menu-social';
@@ -225,7 +225,7 @@
         });
 
         var loc = document.createElement('span');
-        loc.textContent = 'São Paulo, BR';
+        loc.textContent = 'Curitiba, BR';
 
         footer.appendChild(email);
         footer.appendChild(social);
