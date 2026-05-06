@@ -109,13 +109,14 @@
         </button>
     </nav>
 
-    <main
-        class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px]">
+<main
+    id="hero-section"
+    class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px] bg-black">
 
         <!-- WebGL Background (Unicorn Studio) -->
-        <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-                    -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent);
-                    mask-image: linear-gradient(to bottom, black 82%, transparent);">
+<div id="hero-webgl-container" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+            -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent);
+            mask-image: linear-gradient(to bottom, black 82%, transparent);">
 
             <!-- Unicorn Studio canvas -->
             <div data-us-project="bKN5upvoulAmWvInmHza" style="width: 100%; height: 100%;"></div>
@@ -131,8 +132,9 @@
         </div>
 
         <!-- Unified Bottom Lockup -->
-        <div
-            class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-12 xl:gap-8">
+<div
+        id="hero-content"
+        class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-12 xl:gap-8">
 
             <!-- Left: Massive Wordmark -->
             <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0"
@@ -203,6 +205,55 @@
         </div>
     </main>
 
+    <!-- Adjust WebGL height on mobile to stay above text -->
+    <script>
+        (function () {
+            const heroSection = document.getElementById('hero-section');
+            const webglContainer = document.getElementById('hero-webgl-container');
+            const heroContent = document.getElementById('hero-content');
+
+            if (!heroSection || !webglContainer || !heroContent) return;
+
+            function adjustWebGLHeight() {
+                const isMobile = window.innerWidth < 1024;
+
+                if (isMobile) {
+                    const contentHeight = heroContent.offsetHeight;
+                    const heroPaddingBottom = parseInt(getComputedStyle(heroSection).paddingBottom) || 0;
+                    const bottomOffset = contentHeight + heroPaddingBottom + 2;
+
+                    webglContainer.style.top = '0';
+                    webglContainer.style.left = '0';
+                    webglContainer.style.right = '0';
+                    webglContainer.style.bottom = bottomOffset + 'px';
+                    webglContainer.style.webkitMaskImage = 'none';
+                    webglContainer.style.maskImage = 'none';
+                } else {
+                    webglContainer.style.top = '';
+                    webglContainer.style.left = '';
+                    webglContainer.style.right = '';
+                    webglContainer.style.bottom = '';
+                    webglContainer.style.inset = '0';
+                    webglContainer.style.webkitMaskImage = 'linear-gradient(to bottom, black 82%, transparent)';
+                    webglContainer.style.maskImage = 'linear-gradient(to bottom, black 82%, transparent)';
+                }
+            }
+
+            function scheduleAdjust() {
+                requestAnimationFrame(adjustWebGLHeight);
+            }
+
+            scheduleAdjust();
+            window.addEventListener('resize', scheduleAdjust);
+            window.addEventListener('orientationchange', scheduleAdjust);
+            setTimeout(scheduleAdjust, 300);
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', scheduleAdjust);
+            }
+        })();
+    </script>
+
     <!-- Selected Clients Section -->
     <section class="relative z-10 w-full border-t border-vw-border py-12 overflow-hidden bg-vw-base">
 
@@ -261,10 +312,10 @@
         </div>
 
         <div
-            class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+            class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-24">
 
             <!-- Header (Left Column) -->
-            <div class="flex flex-col gap-6 scroll-reveal lg:sticky lg:top-32 lg:self-start">
+            <div class="flex flex-col gap-6 scroll-reveal lg:sticky lg:top-32">
                 <span class="eyebrow-sub">
                     The Leak
                 </span>
