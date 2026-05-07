@@ -416,8 +416,9 @@
 
             <!-- Section Label -->
             <div class="mb-16 scroll-reveal">
-                <span class="eyebrow-sub">
-                    Choose your starting point
+                <span class="eyebrow typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ Choose your starting point ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
 
@@ -640,8 +641,9 @@
         <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end scroll-reveal">
                 <div>
-                    <span class="eyebrow-sub mb-8 block">
-                        Inside every engagement
+                    <span class="eyebrow mb-8 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ Inside every engagement ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
                         style="font-size: clamp(36px, 5vw, 72px);">
@@ -737,8 +739,9 @@
             <!-- Header -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
                 <div>
-                    <span class="eyebrow-sub mb-8 block">
-                        At a glance
+                    <span class="eyebrow mb-8 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ At a glance ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
                         What's included<br><em class="text-vw-accent">where.</em>
@@ -858,8 +861,9 @@
             <!-- Header -->
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
                 <div>
-                    <span class="eyebrow-sub mb-6 block">
-                        FAQ
+                    <span class="eyebrow mb-6 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ FAQ ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
                         Before you decide.
@@ -1136,6 +1140,65 @@
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+
+    <style>
+        .typewriter-text {
+            visibility: hidden;
+        }
+        .typewriter-text.typing {
+            visibility: visible;
+        }
+        .typewriter-cursor {
+            animation: blink 0.7s steps(1) infinite;
+            vertical-align: baseline;
+            margin-left: 2px;
+        }
+        .typewriter-cursor.done {
+            animation: none;
+            opacity: 0;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    <script>
+        document.querySelectorAll('.typewriter-text').forEach(el => {
+            const text = el.dataset.text;
+            el.textContent = '';
+            el.classList.add('typing');
+            let index = 0;
+            let triggered = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+                        const cursor = el.nextElementSibling;
+                        function type() {
+                            if (index < text.length) {
+                                el.textContent += text[index];
+                                index++;
+                                setTimeout(type, 30 + Math.random() * 20);
+                            } else {
+                                if (cursor) cursor.classList.add('done');
+                            }
+                        }
+                        type();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                triggered = true;
+                const cursor = el.nextElementSibling;
+                el.textContent = text;
+                if (cursor) cursor.classList.add('done');
+            }
+
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 

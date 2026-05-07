@@ -114,7 +114,7 @@
 
 <main
     id="hero-section"
-    class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px] bg-black">
+    class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[100px] lg:pt-[140px] bg-black">
 
         <!-- WebGL Background (Unicorn Studio) -->
 <div id="hero-webgl-container" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: #0c0b09;
@@ -137,7 +137,7 @@
         <!-- Unified Bottom Lockup -->
 <div
         id="hero-content"
-        class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-12 xl:gap-8">
+        class="relative z-20 w-full flex flex-col xl:flex-row items-end justify-between px-6 md:px-12 lg:px-16 mx-auto gap-6 xl:gap-8">
 
             <!-- Left: Massive Wordmark -->
             <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0"
@@ -175,25 +175,25 @@
             </div>
 
             <!-- Right Box: Info Block matching placement -->
-            <div class="w-full xl:w-[480px] shrink-0 text-left">
-                <h2 class="font-display text-vw-pri text-3xl md:text-5xl italic tracking-tight leading-[1.05] mb-5 drop-shadow-xl reveal-up"
+            <div class="w-full xl:w-[640px] shrink-0 text-center sm:text-left pb-8 lg:pb-0">
+                <h2 class="font-display text-vw-pri text-5xl md:text-7xl italic tracking-tight leading-[1.05] mb-3 md:mb-5 drop-shadow-xl reveal-up"
                     style="animation-delay: 0.1s;">
                     Pretty websites are easy. Profitable ones <span class="text-vw-accent">aren’t.</span>
                 </h2>
-                <p class="font-ui text-zinc-300 opacity-90 text-[14px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-6"
+                <p class="font-ui text-zinc-300 opacity-90 text-[15px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-4 md:mb-6 text-center sm:text-left max-w-[560px]"
                     style="animation-delay: 0.3s;">
                     We redesign service websites so the right visitors take action. Clear structure, proof where it
                     matters, and copy that sells while you're offline.
                 </p>
                 <div class="reveal-up flex flex-wrap items-center justify-center sm:justify-start gap-6" style="animation-delay: 0.5s;">
                     <div class="btn-wrapper-glow">
-                        <button class="btn btn--sweep" style="padding: 12px 24px; border: none;"
+                        <a href="contact.html" class="btn btn--sweep bg-vw-accent text-vw-base hover:!text-vw-base" style="padding: 12px 24px; border: none;"
                             aria-label="Book a Teardown">
                             See what's leaking on my site
                             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
-                        </button>
+                        </a>
                     </div>
-                    <div class="flex items-center gap-2 group cursor-pointer"
+                    <div class="flex items-center gap-2 group cursor-pointer shrink-0"
                         onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
                         <span
                             class="font-ui text-[10px] leading-none text-vw-accent uppercase tracking-[0.2em] transition-colors group-hover:text-white">
@@ -258,14 +258,15 @@
     </script>
 
     <!-- Selected Clients Section -->
-    <section class="relative z-10 w-full border-t border-vw-border py-12 overflow-hidden bg-vw-base">
+    <section class="relative z-10 w-full pt-12 pb-8 overflow-hidden bg-vw-base">
 
         <!-- Ambient subtle glow behind marquee removed due to feedback -->
 
         <div
-            class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full mb-4 border-b border-vw-border/30 pb-4 flex justify-between items-end">
-            <span class="eyebrow-sub scroll-reveal">
-                Selected clients
+            class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full mb-4 pb-4 flex justify-center">
+            <span class="eyebrow scroll-reveal typewriter-wrap">
+                <span class="typewriter-text" data-text="[ Selected clients ]"></span>
+                <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
             </span>
         </div>
 
@@ -313,8 +314,9 @@
 
             <!-- Header (Left Column) -->
             <div class="flex flex-col gap-6 scroll-reveal lg:sticky lg:top-32 pb-12 lg:py-24">
-                <span class="eyebrow-sub">
-                    The Leak
+                <span class="eyebrow typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ The Leak ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
                 <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] pr-4">
                     Where service websites lose <span class="text-vw-accent italic opacity-90">leads</span>
@@ -414,8 +416,9 @@
 
                 <!-- Heading -->
                 <div class="flex flex-col gap-6 scroll-reveal">
-                    <span class="eyebrow-sub">
-                        What We Do
+                    <span class="eyebrow typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ What We Do ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05]">
                         Three things we do. Each one generates leads.
@@ -546,8 +549,9 @@
                 <div class="lg:col-span-4 lg:sticky top-32 flex flex-col gap-6">
                     <div class="scroll-reveal">
                         <!-- Eyebrow matching Design System -->
-                        <span class="eyebrow">
-                            [ SERVICES ARCHITECTURE ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
+                        <span class="eyebrow typewriter-wrap">
+                            <span class="typewriter-text" data-text="[ SERVICES ARCHITECTURE ]"></span>
+                            <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
                         <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] mt-8">
                             Pick where to start
@@ -719,8 +723,9 @@
         <div
             class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
             <div>
-                <span class="eyebrow-sub mb-8 block">
-                    WORK
+                <span class="eyebrow mb-8 block typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ WORK ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
                 <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-4">
                     Recent work
@@ -943,8 +948,9 @@
                 <div class="lg:w-[45%] lg:sticky lg:top-4 h-fit lg:h-[calc(100vh-1rem)] flex flex-col pt-12 pb-8">
 
                     <div class="scroll-reveal mb-6">
-                        <span class="eyebrow-sub">
-                            PROCESS
+                        <span class="eyebrow typewriter-wrap">
+                            <span class="typewriter-text" data-text="[ PROCESS ]"></span>
+                            <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
                     </div>
 
@@ -1750,6 +1756,65 @@
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+
+    <style>
+        .typewriter-text {
+            visibility: hidden;
+        }
+        .typewriter-text.typing {
+            visibility: visible;
+        }
+        .typewriter-cursor {
+            animation: blink 0.7s steps(1) infinite;
+            vertical-align: baseline;
+            margin-left: 2px;
+        }
+        .typewriter-cursor.done {
+            animation: none;
+            opacity: 0;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    <script>
+        document.querySelectorAll('.typewriter-text').forEach(el => {
+            const text = el.dataset.text;
+            el.textContent = '';
+            el.classList.add('typing');
+            let index = 0;
+            let triggered = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+                        const cursor = el.nextElementSibling;
+                        function type() {
+                            if (index < text.length) {
+                                el.textContent += text[index];
+                                index++;
+                                setTimeout(type, 30 + Math.random() * 20);
+                            } else {
+                                if (cursor) cursor.classList.add('done');
+                            }
+                        }
+                        type();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                triggered = true;
+                const cursor = el.nextElementSibling;
+                el.textContent = text;
+                if (cursor) cursor.classList.add('done');
+            }
+
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 
