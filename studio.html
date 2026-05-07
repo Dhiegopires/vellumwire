@@ -572,8 +572,9 @@
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="max-w-4xl">
-                <span class="eyebrow-sub mb-12 block scroll-reveal">
-                    Philosophy
+                <span class="eyebrow mb-12 block scroll-reveal typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ Philosophy ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
 
                 <div class="font-display tracking-tight leading-[1.05]" style="font-size: clamp(32px, 5vw, 64px);">
@@ -609,8 +610,9 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
                 <div>
-                    <span class="eyebrow-sub mb-8 block">
-                        How we work
+                    <span class="eyebrow mb-8 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ How we work ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
                         Principles,<br><em class="text-vw-accent">not slogans.</em>
@@ -674,8 +676,9 @@
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="mb-16 scroll-reveal">
-                <span class="eyebrow-sub mb-8 block">
-                    The team
+                <span class="eyebrow mb-8 block typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ The team ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
                 <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
                     Senior people.<br><em class="text-vw-accent">No middle layer.</em>
@@ -755,8 +758,9 @@
 
                 <!-- Left: Sticky header -->
                 <div class="lg:col-span-4 lg:sticky top-32 scroll-reveal">
-                    <span class="eyebrow-sub mb-8 block">
-                        Our story
+                    <span class="eyebrow mb-8 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ Our story ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
                         How we<br><em class="text-vw-accent">got here.</em>
@@ -1087,6 +1091,65 @@
         }
     </script>
     <script src="assets/js/menu.min.js"></script>
+
+    <style>
+        .typewriter-text {
+            visibility: hidden;
+        }
+        .typewriter-text.typing {
+            visibility: visible;
+        }
+        .typewriter-cursor {
+            animation: blink 0.7s steps(1) infinite;
+            vertical-align: baseline;
+            margin-left: 2px;
+        }
+        .typewriter-cursor.done {
+            animation: none;
+            opacity: 0;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    <script>
+        document.querySelectorAll('.typewriter-text').forEach(el => {
+            const text = el.dataset.text;
+            el.textContent = '';
+            el.classList.add('typing');
+            let index = 0;
+            let triggered = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+                        const cursor = el.nextElementSibling;
+                        function type() {
+                            if (index < text.length) {
+                                el.textContent += text[index];
+                                index++;
+                                setTimeout(type, 30 + Math.random() * 20);
+                            } else {
+                                if (cursor) cursor.classList.add('done');
+                            }
+                        }
+                        type();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                triggered = true;
+                const cursor = el.nextElementSibling;
+                el.textContent = text;
+                if (cursor) cursor.classList.add('done');
+            }
+
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>

@@ -823,8 +823,9 @@
             <!-- Header: eyebrow + headline + description stacked above the rows -->
             <div class="consistent-header scroll-reveal">
             <div>
-                <span class="eyebrow-sub mb-6 block">
-                    Every project
+                <span class="eyebrow mb-6 block typewriter-wrap">
+                    <span class="typewriter-text" data-text="[ Every project ]"></span>
+                    <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
                 <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
                     style="font-size: clamp(36px, 5vw, 72px);">
@@ -1209,6 +1210,65 @@
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+
+    <style>
+        .typewriter-text {
+            visibility: hidden;
+        }
+        .typewriter-text.typing {
+            visibility: visible;
+        }
+        .typewriter-cursor {
+            animation: blink 0.7s steps(1) infinite;
+            vertical-align: baseline;
+            margin-left: 2px;
+        }
+        .typewriter-cursor.done {
+            animation: none;
+            opacity: 0;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    <script>
+        document.querySelectorAll('.typewriter-text').forEach(el => {
+            const text = el.dataset.text;
+            el.textContent = '';
+            el.classList.add('typing');
+            let index = 0;
+            let triggered = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+                        const cursor = el.nextElementSibling;
+                        function type() {
+                            if (index < text.length) {
+                                el.textContent += text[index];
+                                index++;
+                                setTimeout(type, 30 + Math.random() * 20);
+                            } else {
+                                if (cursor) cursor.classList.add('done');
+                            }
+                        }
+                        type();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                triggered = true;
+                const cursor = el.nextElementSibling;
+                el.textContent = text;
+                if (cursor) cursor.classList.add('done');
+            }
+
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 
