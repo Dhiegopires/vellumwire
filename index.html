@@ -117,12 +117,12 @@
     class="hero-section w-full min-h-screen relative flex items-end justify-center overflow-hidden pb-8 lg:pb-12 pt-[140px] bg-black">
 
         <!-- WebGL Background (Unicorn Studio) -->
-<div id="hero-webgl-container" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+<div id="hero-webgl-container" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: #0c0b09;
             -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent);
             mask-image: linear-gradient(to bottom, black 82%, transparent);">
 
-            <!-- Unicorn Studio canvas -->
-            <div data-us-project="bKN5upvoulAmWvInmHza" style="width: 100%; height: 100%;"></div>
+            <!-- Unicorn Studio canvas (slightly oversized to avoid 1px gap) -->
+            <div data-us-project="bKN5upvoulAmWvInmHza" style="position: absolute; top: -1px; left: -1px; width: calc(100% + 2px); height: calc(100% + 2px);"></div>
 
             <script type="text/javascript" defer>
                 !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
