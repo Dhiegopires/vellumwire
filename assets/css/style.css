@@ -17,6 +17,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+canvas {
+    outline: none;
+    border: none;
+}
+
 /* Ambient Visual Layer */
 .ambient-layer {
     position: fixed;
