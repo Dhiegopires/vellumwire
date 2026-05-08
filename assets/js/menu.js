@@ -170,11 +170,10 @@
     var links = [
         { num: '01', label: 'Home',     href: basePath + 'index.html' },
         { num: '02', label: 'Work',     href: basePath + 'work.html' },
-        { num: '03', label: 'Services', href: basePath + 'services.html' },
-        { num: '04', label: 'Packages', href: basePath + 'packages.html' },
-        { num: '05', label: 'Insights', href: basePath + 'insights.html' },
-        { num: '06', label: 'Studio',   href: basePath + 'studio.html' },
-        { num: '07', label: 'Contact',  href: basePath + 'contact.html' },
+        { num: '03', label: 'Packages', href: basePath + 'packages.html' },
+        { num: '04', label: 'Insights', href: basePath + 'insights.html' },
+        { num: '05', label: 'Studio',   href: basePath + 'studio.html' },
+        { num: '06', label: 'Contact',  href: basePath + 'contact.html' },
     ];
 
     function init() {
