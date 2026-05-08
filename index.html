@@ -757,25 +757,6 @@
 
                 <!-- ================= CLONES (Prepended) ================= -->
 
-                <!-- Clone 3: Nexus Finance -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
-                    <div class="vw-project-media">
-                        <div class="vw-project-corner vw-project-c-tl"></div>
-                        <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="assets/img/unsplash/photo-1614729939.webp" loading="lazy"
-                            alt="Nexus Finance" class="vw-project-media-img">
-                    </div>
-                    <div class="vw-project-content">
-                        <div class="vw-project-tags">
-                            <span class="vw-project-tag">SaaS Architecture</span>
-                            <span class="vw-project-tag">UI</span>
-                        </div>
-                        <h3 class="vw-project-title">Nexus Finance</h3>
-                        <p class="vw-project-desc">Modular platform architecture showcasing API endpoints and
-                            compliance.</p>
-                    </div>
-                </div>
-
                 <!-- Clone 4: Echo Systems -->
                 <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
                     <div class="vw-project-media">
@@ -792,6 +773,24 @@
                         <h3 class="vw-project-title">Echo Systems</h3>
                         <p class="vw-project-desc">Intense proof-led infrastructure landing page mapped to enterprise
                             logic.</p>
+                    </div>
+                </div>
+
+                <!-- Clone 5: Harmon & Vale -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="assets/img/harmon-and-vale/mockup-1.png" loading="lazy"
+                            alt="Harmon & Vale" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Website Checkup</span>
+                            <span class="vw-project-tag">Landing Page</span>
+                        </div>
+                        <h3 class="vw-project-title">Harmon & Vale</h3>
+                        <p class="vw-project-desc">A 40 year old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
                 </div>
 
@@ -872,6 +871,24 @@
                     </div>
                 </div>
 
+                <!-- Real 5: Harmon & Vale -->
+                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0">
+                    <div class="vw-project-media">
+                        <div class="vw-project-corner vw-project-c-tl"></div>
+                        <div class="vw-project-corner vw-project-c-br"></div>
+                        <img src="assets/img/harmon-and-vale/mockup-1.png" loading="lazy"
+                            alt="Harmon & Vale" class="vw-project-media-img">
+                    </div>
+                    <div class="vw-project-content">
+                        <div class="vw-project-tags">
+                            <span class="vw-project-tag">Website Checkup</span>
+                            <span class="vw-project-tag">Landing Page</span>
+                        </div>
+                        <h3 class="vw-project-title">Harmon & Vale</h3>
+                        <p class="vw-project-desc">A 40 year old law firm with a website that couldn't close a door, let alone a client.</p>
+                    </div>
+                </div>
+
                 <!-- ================= CLONES (Appended) ================= -->
 
                 <!-- Clone 1: Branding -->
@@ -924,6 +941,7 @@
 
                 <div class="flex items-center gap-4 justify-center" id="carousel-dots">
                     <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
                     <div class="carousel-dot"></div>
                     <div class="carousel-dot"></div>
                     <div class="carousel-dot"></div>
@@ -1559,9 +1577,9 @@
             const dots = document.querySelectorAll('.carousel-dot');
             const cards = track ? Array.from(track.querySelectorAll('.vw-project-card')) : [];
 
-            if (track && cards.length === 8) { // 2 Clones + 4 Reals + 2 Clones
+            if (track && cards.length === 9) { // 2 Clones + 5 Reals + 2 Clones
                 let currentIndex = 2; // Start at Real 1
-                const totalReals = 4;
+                const totalReals = 5;
 
                 const updateDots = (index) => {
                     // Map absolute index (0-7) to real dot index (0-3)
@@ -1623,11 +1641,11 @@
                     clearTimeout(scrollTimeout);
                     scrollTimeout = setTimeout(() => {
                         if (currentIndex <= 1) {
-                            // Snapped to Clone 3 or 4 -> Teleport to Real 3 or 4
-                            scrollToCard(currentIndex + 4, false);
-                        } else if (currentIndex >= 6) {
+                            // Snapped to Clone 4 or 5 -> Teleport to Real 4 or 5
+                            scrollToCard(currentIndex + 5, false);
+                        } else if (currentIndex >= 7) {
                             // Snapped to Clone 1 or 2 -> Teleport to Real 1 or 2
-                            scrollToCard(currentIndex - 4, false);
+                            scrollToCard(currentIndex - 5, false);
                         }
                     }, 150);
                 }, { passive: true });
