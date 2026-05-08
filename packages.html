@@ -425,6 +425,121 @@
         .pkg-card.is-revealed .pkg-feature:nth-child(7) { transition-delay: 0.4s; }
         .pkg-card.is-revealed .pkg-feature:nth-child(8) { transition-delay: 0.45s; }
 
+        /* ── Scope accordion (The framework underneath) ── */
+        .scope-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: clamp(56px, 7vw, 100px) 1fr auto;
+            align-items: center;
+            padding: 0 clamp(28px, 5vw, 88px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            cursor: pointer;
+            overflow: hidden;
+            transition: background 0.4s var(--ease-editorial);
+            min-height: 76px;
+        }
+
+        .scope-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(198,241,53,0.04);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .scope-row:hover::before { opacity: 1; }
+
+        .scope-row::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-editorial);
+        }
+
+        .scope-row:hover::after { transform: scaleX(1); }
+
+        .scope-num {
+            font-family: 'DM Mono', monospace;
+            font-size: clamp(11px, 1.2vw, 14px);
+            color: rgba(255,255,255,0.15);
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .scope-row:hover .scope-num { color: var(--color-accent); }
+
+        .scope-body {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-rows: auto 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scope-row:hover .scope-body,
+        .scope-row.open .scope-body {
+            grid-template-rows: auto 1fr;
+        }
+
+        .scope-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(18px, 2vw, 28px);
+            color: var(--color-text-pri);
+            line-height: 1.2;
+            padding: 24px 0;
+            transition: color 0.3s ease;
+        }
+
+        .scope-row:hover .scope-title { color: var(--color-accent); }
+
+        .scope-desc-wrap {
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .scope-desc {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            color: var(--color-text-sec);
+            line-height: 1.7;
+            max-width: 560px;
+            padding-bottom: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.08s;
+        }
+
+        .scope-row:hover .scope-desc,
+        .scope-row.open .scope-desc { opacity: 1; }
+
+        .scope-arrow {
+            position: relative;
+            z-index: 1;
+            width: 28px;
+            height: 28px;
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            transition: all 0.4s var(--ease-editorial);
+            flex-shrink: 0;
+        }
+
+        .scope-row:hover .scope-arrow {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: rotate(45deg);
+        }
+
         /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -693,6 +808,108 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════ -->
+    <!-- THE FRAMEWORK UNDERNEATH (Scope Accordion)             -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="scope" class="relative z-10 border-b border-vw-border/50" style="background: #1c1a17;">
+
+        <!-- Radial accent -->
+        <div class="absolute inset-0 pointer-events-none"
+             style="background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
+
+        <!-- Header -->
+        <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end scroll-reveal">
+                <div>
+                    <span class="eyebrow mb-8 block typewriter-wrap">
+                        <span class="typewriter-text" data-text="[ Inside every engagement ]"></span>
+                        <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
+                    </span>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
+                        style="font-size: clamp(36px, 5vw, 72px);">
+                        The framework<br><em class="text-vw-accent">underneath.</em>
+                    </h2>
+                </div>
+                <div class="flex flex-col justify-end">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                        Different scopes, same thinking. These are the principles baked into every project, whether it's a 48-hour audit or a six-week rebuild.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Rows -->
+        <div class="w-full">
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">01</span>
+                <div class="scope-body">
+                    <span class="scope-title">Conversion audit before design</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">We don't open Figma until we know what's broken. Every engagement starts with a data-informed diagnosis of your current state. Where leads leak, where attention dies, where friction kills intent.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">02</span>
+                <div class="scope-body">
+                    <span class="scope-title">Copy architecture, not decoration</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Every headline, subhead, and CTA is written to a specific visitor intent and placed where the decision happens. We write the messaging. You review tone. No lorem ipsum, no placeholder copy that ships by accident.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">03</span>
+                <div class="scope-body">
+                    <span class="scope-title">Proof at every decision point</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Testimonials, credentials, results, and trust signals are placed where hesitation lives, not in a generic section nobody scrolls to. Proof is structural, not ornamental.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">04</span>
+                <div class="scope-body">
+                    <span class="scope-title">One CTA path per page</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">Every page has a primary action. Secondary options exist but they don't compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to browse and figure it out.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal">
+                <span class="scope-num">05</span>
+                <div class="scope-body">
+                    <span class="scope-title">Tracking ships with the site</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">GA4 events, session heatmaps, form completion rates, CTA click tracking. All configured before go-live so you know within the first week whether the site is pulling its weight. No guessing after launch.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+            <div class="scope-row scroll-reveal delay-1">
+                <span class="scope-num">06</span>
+                <div class="scope-body">
+                    <span class="scope-title">Performance as a feature</span>
+                    <div class="scope-desc-wrap">
+                        <p class="scope-desc">LCP under 2.5 seconds. CLS under 0.1. Lazy-loaded images, critical CSS inlined, no render-blocking scripts. Speed isn't a nice-to-have. It's a conversion variable. We treat it like one.</p>
+                    </div>
+                </div>
+                <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
     <!-- FAQ — Pricing-specific                                -->
     <!-- ══════════════════════════════════════════════════════ -->
     <section id="faq" class="relative z-10 border-b border-vw-border/50">
@@ -866,7 +1083,7 @@
                 <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
                 <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
                 <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                <a href="services.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Services</a>
+
                 <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
             </div>
 
