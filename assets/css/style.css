@@ -1020,7 +1020,7 @@ img.marquee-logo {
 
 .vw-project-desc {
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--color-text-sec);
     line-height: 1.6;
     max-width: 90%;
