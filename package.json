@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "lucide": "^1.14.0"
   }
 }
