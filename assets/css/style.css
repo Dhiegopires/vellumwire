@@ -1191,7 +1191,7 @@ img.marquee-logo {
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
-    /* Strictly square — no rounding */
+    /* Strictly square no rounding */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1227,7 +1227,7 @@ img.marquee-logo {
 }
 
 /* =========================================================
-   LEAK SECTION — CARD HOVER ANIMATIONS
+   LEAK SECTION CARD HOVER ANIMATIONS
    ========================================================= */
 
 /* The icon box */

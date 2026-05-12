@@ -81,12 +81,12 @@
             margin-bottom: 32px;
         }
 
-        /* Filter tabs — full-width bar */
+        /* Filter tabs full-width bar */
         #filter-bar {
             display: flex;
             flex-wrap: nowrap;
             width: 100%;
-            padding: 0;   /* no inset — tabs bleed edge-to-edge */
+            padding: 0;   /* no inset tabs bleed edge-to-edge */
         }
 
         .filter-tab {
@@ -134,7 +134,7 @@
             opacity: 0.7;
         }
 
-        /* Work card — full-width list rows */
+        /* Work card full-width list rows */
         .work-card {
             position: relative;
             display: grid;
@@ -294,7 +294,7 @@
             line-height: 1.4;
         }
 
-        /* Image block — fills full height of the card row */
+        /* Image block fills full height of the card row */
         .work-card-image {
             position: relative;
             width: 100%;
@@ -310,7 +310,7 @@
 
         @media (min-width: 768px) {
             .work-card-image {
-                /* Remove aspect ratio — stretch to fill the full card height */
+                /* Remove aspect ratio stretch to fill the full card height */
                 aspect-ratio: unset;
                 position: relative;
                 min-height: 300px;
@@ -550,7 +550,7 @@
 
     <!-- ── Hero ── -->
     <header class="relative z-10 w-full pt-40 pb-0 border-b border-vw-border/50">
-        <!-- No max-width — full bleed. Padding matches card meta left padding. -->
+        <!-- No max-width full bleed. Padding matches card meta left padding. -->
         <div style="padding: 0 0 0 clamp(28px, 4vw, 64px);">
 
             <!-- Eyebrow -->
@@ -575,7 +575,7 @@
 
         </div>
 
-        <!-- Filter Tabs — full-width, each tab takes equal share -->
+        <!-- Filter Tabs full-width, each tab takes equal share -->
         <div class="reveal-up" id="filter-bar"
              style="animation-delay:0.5s;"
              role="tablist" aria-label="Filter projects by category">
@@ -602,7 +602,7 @@
 
     <!-- ── Project List ── -->
     <main id="projects" class="relative z-10 w-full pb-0">
-        <!-- No outer padding — card meta has its own left padding, image bleeds right -->
+        <!-- No outer padding card meta has its own left padding, image bleeds right -->
         <div id="cards-container" class="w-full">
 
             <!-- Card 1: Alpha Flow -->
