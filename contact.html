@@ -158,6 +158,63 @@
                     >
                 </div>
 
+                <!-- Service -->
+                <div>
+                    <label for="service" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">What brings you in?</label>
+                    <div class="custom-select relative">
+                        <select
+                            id="service"
+                            name="service"
+                            class="sr-only"
+                            tabindex="-1"
+                        >
+                            <option value="">Select an option</option>
+                            <option value="free-diagnosis">Free 15-min diagnosis</option>
+                            <option value="conversion-audit">Conversion Audit</option>
+                            <option value="core-ui-refresh">Core UI Refresh</option>
+                            <option value="full-web-rebuild">Full Web Rebuild</option>
+                            <option value="brand-strategy">Brand Strategy</option>
+                        </select>
+                        <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-label="Select a service"
+                            class="custom-select-trigger w-full bg-transparent border-b border-vw-border py-3 text-lg flex items-center justify-between cursor-pointer focus:outline-none focus:border-vw-accent transition-colors"
+                        >
+                            <span class="custom-select-value text-vw-mut">Select an option</span>
+                            <svg class="custom-select-arrow w-4 h-4 text-vw-sec transition-transform duration-200 flex-shrink-0" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div role="listbox" aria-label="Available services"
+                            class="custom-select-dropdown hidden absolute top-full left-0 right-0 z-50 mt-1 border border-vw-border bg-[#1c1a17] shadow-lg max-h-60 overflow-y-auto"
+                            style="display: none;"
+                        >
+                            <button type="button" role="option" aria-selected="false" data-value=""
+                                class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-[#2a2722] hover:text-vw-pri transition-colors">
+                                Select an option
+                            </button>
+                            <button type="button" role="option" aria-selected="false" data-value="free-diagnosis"
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                Free 15-min diagnosis
+                            </button>
+                            <button type="button" role="option" aria-selected="false" data-value="conversion-audit"
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                Conversion Audit
+                            </button>
+                            <button type="button" role="option" aria-selected="false" data-value="core-ui-refresh"
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                Core UI Refresh
+                            </button>
+                            <button type="button" role="option" aria-selected="false" data-value="full-web-rebuild"
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                Full Web Rebuild
+                            </button>
+                            <button type="button" role="option" aria-selected="false" data-value="brand-strategy"
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                Brand Strategy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Message -->
                 <div>
                     <label for="message" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">Message</label>
@@ -282,8 +339,115 @@
         const form = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
         const messageEl = document.getElementById('form-message');
+        const serviceSelect = document.getElementById('service');
 
         const WORKER_URL = 'https://contact-api.dhiegopiresc.workers.dev';
+
+        // ── Custom Select ──
+        (function() {
+            const wrapper = document.querySelector('.custom-select');
+            if (!wrapper) return;
+            const trigger = wrapper.querySelector('.custom-select-trigger');
+            const dropdown = wrapper.querySelector('.custom-select-dropdown');
+            const valueEl = wrapper.querySelector('.custom-select-value');
+            const arrow = wrapper.querySelector('.custom-select-arrow');
+            const options = wrapper.querySelectorAll('[role="option"]');
+            const hidden = wrapper.querySelector('select');
+
+            function setValue(val) {
+                hidden.value = val;
+                const selected = wrapper.querySelector(`[role="option"][data-value="${val}"]`);
+                options.forEach(o => o.classList.remove('text-vw-accent', 'selected'));
+                if (selected) {
+                    valueEl.textContent = selected.textContent;
+                    valueEl.style.color = '';
+                    selected.classList.add('text-vw-accent', 'selected');
+                    selected.setAttribute('aria-selected', 'true');
+                } else {
+                    const first = wrapper.querySelector('[role="option"][data-value=""]');
+                    valueEl.textContent = first ? first.textContent : 'Select an option';
+                    valueEl.style.color = '';
+                }
+                options.forEach(o => {
+                    if (o !== selected) o.setAttribute('aria-selected', 'false');
+                });
+            }
+
+            function open() {
+                dropdown.style.display = 'block';
+                trigger.setAttribute('aria-expanded', 'true');
+                arrow.classList.add('rotate-180');
+            }
+
+            function close() {
+                dropdown.style.display = 'none';
+                trigger.setAttribute('aria-expanded', 'false');
+                arrow.classList.remove('rotate-180');
+            }
+
+            function toggle() {
+                if (dropdown.style.display === 'block') close();
+                else open();
+            }
+
+            trigger.addEventListener('click', toggle);
+
+            options.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    setValue(opt.getAttribute('data-value'));
+                    close();
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) close();
+            });
+
+            trigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (dropdown.style.display !== 'block') { open(); return; }
+                    const current = wrapper.querySelector('[role="option"]:hover, [role="option"].selected');
+                    const next = current ? current.nextElementSibling : options[0];
+                    if (next && next.getAttribute('role') === 'option') { next.focus(); next.classList.add('bg-[#2a2722]'); if (current) current.classList.remove('bg-[#2a2722]'); }
+                }
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const current = wrapper.querySelector('[role="option"]:hover, [role="option"].selected');
+                    const prev = current ? current.previousElementSibling : null;
+                    if (prev && prev.getAttribute('role') === 'option') { prev.focus(); prev.classList.add('bg-[#2a2722]'); if (current) current.classList.remove('bg-[#2a2722]'); }
+                }
+            });
+
+            dropdown.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const focused = dropdown.querySelector(':focus');
+                    if (focused && focused.getAttribute('role') === 'option') {
+                        setValue(focused.getAttribute('data-value'));
+                        close();
+                        trigger.focus();
+                    }
+                }
+                if (e.key === 'Escape') { close(); trigger.focus(); }
+            });
+
+            // Pre-select from URL param
+            const params = new URLSearchParams(window.location.search);
+            const urlService = params.get('service');
+            if (urlService) {
+                if (wrapper.querySelector(`[role="option"][data-value="${urlService}"]`)) {
+                    setValue(urlService);
+                }
+            }
+
+            window.__customSelectReset = function() {
+                if (!urlService) setValue('');
+                else setValue(urlService);
+            };
+        })();
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -298,6 +462,7 @@
             const data = {
                 name: formData.get('name'),
                 email: formData.get('email'),
+                service: formData.get('service'),
                 message: formData.get('message'),
                 'cf-turnstile-response': turnstileToken
             };
@@ -318,6 +483,7 @@
                     messageEl.style.color = '#c6f135';
                     messageEl.style.display = 'block';
                     form.reset();
+                    if (typeof window.__customSelectReset === 'function') window.__customSelectReset();
                     if (window.turnstile) window.turnstile.reset();
                 } else {
                     throw new Error(result.error || 'Failed to send');
