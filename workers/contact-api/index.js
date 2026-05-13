@@ -19,7 +19,7 @@ export default {
 
     try {
       const body = await request.json();
-      const { name, email, message } = body;
+      const { name, email, service, message } = body;
 
       if (!name || !email || !message) {
         return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -77,6 +77,7 @@ export default {
             <h2>Novo formulário de contato</h2>
             <p><strong>Nome:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Serviço:</strong> ${service || "Não especificado"}</p>
             <p><strong>Mensagem:</strong></p>
             <p>${message.replace(/\n/g, "<br>")}</p>
           `,
