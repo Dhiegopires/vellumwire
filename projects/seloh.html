@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <title>Selo H Case Study · Vellumwire</title>
+    <title>Selo H | Vellumwire</title>
     <meta name="description" content="How Vellumwire rebuilt seloh.org from a performance liability into a conversion-ready certification platform. Full case study.">
     <meta name="author" content="Vellumwire">
     <meta property="og:title" content="Selo H Case Study · Vellumwire">
@@ -25,8 +25,8 @@
     <link rel="canonical" href="https://vellumwire.com/projects/seloh">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="assets/svg/vellumwire-favicon.svg">
-    <link rel="shortcut icon" href="assets/svg/vellumwire-favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="../assets/svg/vellumwire-favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
 
     <!-- Tailwind & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/js/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -63,7 +63,7 @@
     </script>
 
     <!-- Global Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
         .cnum { font-variant-numeric: tabular-nums; }
@@ -236,7 +236,7 @@
             overflow: hidden;
             text-decoration: none;
         }
-        @media(min-width: 768px) { .nc { grid-template-columns: 1fr 38%; } }
+        @media(min-width: 768px) { .nc { grid-template-columns: 1fr 45%; } }
         .nc:hover { background: rgba(198, 241, 53, 0.02); }
         .nc::before {
             content: '';
@@ -248,23 +248,102 @@
         .nc:hover::before { transform: scaleY(1); }
         .nc-img {
             position: relative; overflow: hidden;
-            background: #0f0e0c;
+            background: #141310;
             border-left: 1px solid var(--color-border);
-            min-height: 200px;
+            min-height: 280px;
         }
         .nc-img img {
             position: absolute; inset: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) contrast(1.05);
-            opacity: 0.5;
+            filter: grayscale(60%) contrast(1.05);
+            opacity: 0.6;
             transition: all 0.7s var(--ease-editorial);
         }
-        .nc:hover .nc-img img { filter: grayscale(20%); opacity: 0.85; transform: scale(1.04); }
+        .nc:hover .nc-img img { filter: grayscale(0%); opacity: 0.9; transform: scale(1.03); }
 
         @media(max-width: 640px) {
             .stat-item + .stat-item:nth-child(3)::before { display: none; }
         }
+
+        /* ── Mockup wrap ── */
+        .mockup-wrap {
+            position: relative;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            background: #141310;
+        }
+        .mockup-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s var(--ease-editorial);
+        }
+        .mockup-wrap:hover img { transform: scale(1.015); }
+
+        /* ── Before/After Slider ── */
+        .ba-slider {
+            cursor: col-resize;
+            user-select: none;
+            touch-action: none;
+        }
+        .ba-slider:hover img { transform: none !important; }
+        .ba-img-after {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .ba-img-before {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: left center;
+            clip-path: inset(0 50% 0 0);
+        }
+        .ba-div {
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--color-accent);
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: #0c0b09;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 4px rgba(198, 241, 53, 0.2);
+            transition: box-shadow 0.3s;
+            pointer-events: all;
+            cursor: col-resize;
+        }
+        .ba-slider:active .ba-handle { box-shadow: 0 0 0 8px rgba(198, 241, 53, 0.15); }
+        .ba-lbl {
+            position: absolute;
+            top: 20px;
+            z-index: 5;
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            background: rgba(12, 11, 9, 0.85);
+            padding: 5px 10px;
+            pointer-events: none;
+            border: 1px solid var(--color-border);
+            transition: opacity 0.3s;
+        }
+        .ba-lbl-b { left: 20px; color: #8a8680; }
+        .ba-lbl-a { right: 20px; color: var(--color-accent); }
     </style>
 </head>
 
@@ -289,7 +368,7 @@
 
     <!-- ── Navigation ── -->
     <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
-        <a href="index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon style="fill:inherit;" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"/>
                 <polygon style="fill:inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"/>
@@ -312,7 +391,7 @@
             <div class="px-6 md:px-12 lg:px-16 xl:pl-[144px] xl:pr-16 flex flex-col justify-center pb-16 lg:pb-24 pt-32 lg:pt-40">
 
                 <div class="reveal-up flex items-center gap-3 mb-8" style="animation-delay:0.1s">
-                    <a href="work.html" class="font-mono text-[10px] text-vw-sec tracking-[0.14em] uppercase hover:text-vw-accent transition-colors">Work</a>
+                    <a href="../work.html" class="font-mono text-[10px] text-vw-sec tracking-[0.14em] uppercase hover:text-vw-accent transition-colors">Work</a>
                     <span class="font-mono text-[10px] text-vw-mut">/</span>
                     <span class="client-tag">Selo H</span>
                 </div>
@@ -322,7 +401,7 @@
                 </h1>
 
                 <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s">
-                    Selo H is the first Brazilian workplace mental health certification with international standards. The credibility of the product was real. The website wasn't keeping up.
+                    Selo H is the first Brazilian workplace mental health certification built to international standards. The product had real credibility. The website wasn't showing it.
                 </p>
 
                 <div class="reveal-up flex flex-wrap gap-2 mb-10" style="animation-delay:0.45s">
@@ -341,7 +420,7 @@
 
             <!-- Right: hero image -->
             <div class="reveal-up w-full h-full min-h-[400px] lg:min-h-full relative lg:border-l border-vw-border overflow-hidden" style="animation-delay:0.4s">
-                <img src="assets/img/seloh/hero.png"
+                <img src="../assets/img/seloh/hero.png"
                     alt="Selo H rebuilt website"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
                     loading="eager">
@@ -388,9 +467,9 @@
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">The product had credibility.<br>The website gave it away.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">The product had credibility.<br>The website was letting it down.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
-                Selo H certifies companies on workplace mental health — a high-trust, compliance-driven market where legal credibility and scientific rigor are table stakes. The certification is grounded in NR-01, Lei 14.831/24, WHO guidelines, and ICD-11. The old website contradicted all of that.
+                Selo H certifies companies on workplace mental health. It's a high-trust market where legal credibility and scientific rigor are non-negotiable: the certification is grounded in NR-01, Lei 14.831/24, WHO guidelines, and ICD-11. The old website contradicted every bit of that.
             </p>
 
             <div class="max-w-[800px] scroll-reveal delay-2">
@@ -398,14 +477,14 @@
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 01</span>
                     <div>
                         <div class="text-[15px] font-semibold text-vw-pri mb-1">No clear primary action.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">The path from "landing" to "requesting certification" wasn't obvious. Multiple competing CTAs diluted intent — visitors had nowhere decisive to go.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">The path from "landing" to "requesting certification" wasn't obvious. Multiple competing CTAs diluted intent, and visitors had nowhere decisive to go.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 02</span>
                     <div>
                         <div class="text-[15px] font-semibold text-vw-pri mb-1">Weak information hierarchy.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">The most persuasive content — legal compliance, certified companies, the 4-step process — was buried or poorly sequenced. The site answered the wrong questions first.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">The most persuasive content (legal compliance, certified companies, the 4-step process) was buried or poorly sequenced. The site answered the wrong questions first.</div>
                     </div>
                 </div>
                 <div class="pi">
@@ -419,7 +498,7 @@
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 04</span>
                     <div>
                         <div class="text-[15px] font-semibold text-vw-pri mb-1">Performance that undermined trust.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">A compliance-focused certification product cannot afford a slow, visually unstable website. First impressions are already a judgment call — the old site was losing that call.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">A compliance-focused certification product cannot afford a slow, visually unstable website. In a market where trust is everything, first impressions matter. The old site wasn't making a good one.</div>
                     </div>
                 </div>
                 <div class="pi">
@@ -433,7 +512,7 @@
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 06</span>
                     <div>
                         <div class="text-[15px] font-semibold text-vw-pri mb-1">Social proof that was impossible to feel.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Certified companies like Alelo, Amil, and Cogna are genuine credibility signals. They were present but not featured — easy to miss, impossible to act on.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">Certified companies like Alelo, Amil, and Cogna are genuine credibility signals. They were present but not featured: easy to miss, impossible to act on.</div>
                     </div>
                 </div>
             </div>
@@ -445,10 +524,10 @@
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
                 <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic">
-                    "A gestão verdadeiramente profissional não pode mais existir sem esse nível de acompanhamento."
+                    "Truly professional management can no longer exist without this level of ongoing support."
                 </p>
                 <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
-                    — Rogério Soares, CEO · Rubel Academia
+                    Rogério Soares, CEO · Rubel Academia
                 </p>
             </div>
         </div>
@@ -467,29 +546,27 @@
 
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal">Same product. <em class="text-vw-sec not-italic" style="opacity:0.45;">Different story.</em></h2>
 
-            <div class="ba-wrap scroll-reveal delay-1">
-                <div class="ba-panel">
-                    <div class="ba-label">
-                        <span class="font-mono text-[9px] tracking-[0.18em] uppercase" style="color:#7a7875;">Before</span>
-                        <span class="font-mono text-[9px] tracking-[0.12em]" style="color:#4a4845;">Old seloh.org</span>
-                    </div>
-                    <div class="ba-screen">
-                        <i data-lucide="image" style="width:28px;height:28px;color:#2a2825;"></i>
-                        <span class="font-mono text-[10px] tracking-[0.14em] uppercase" style="color:#2a2825;">Screenshot pending</span>
-                    </div>
-                </div>
-                <div class="ba-panel">
-                    <div class="ba-label">
-                        <span class="font-mono text-[9px] tracking-[0.18em] uppercase" style="color:var(--color-accent);">After</span>
-                        <span class="font-mono text-[9px] tracking-[0.12em]" style="color:#4a4845;">New seloh.org</span>
-                    </div>
-                    <div class="ba-screen">
-                        <i data-lucide="image" style="width:28px;height:28px;color:#2a2825;"></i>
-                        <span class="font-mono text-[10px] tracking-[0.14em] uppercase" style="color:#2a2825;">Screenshot pending</span>
+            <div class="scroll-reveal delay-1">
+                <div class="mockup-wrap ba-slider mb-3" id="baSlider">
+                    <img class="ba-img-after"
+                        src="../assets/img/seloh/after.png"
+                        alt="Selo H redesigned website" loading="lazy">
+                    <img class="ba-img-before"
+                        src="../assets/img/seloh/before.png"
+                        alt="Selo H original website" loading="lazy">
+                    <span class="ba-lbl ba-lbl-b">Before</span>
+                    <span class="ba-lbl ba-lbl-a">After</span>
+                    <div class="ba-div">
+                        <div class="ba-handle">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="6,3 2,9 6,15"/>
+                                <polyline points="12,3 16,9 12,15"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02: Drag to compare · Old seloh.org vs. Vellumwire rebuild</p>
             </div>
-            <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase mt-3 scroll-reveal delay-2">Fig. 02 — Side-by-side comparison · Old site vs. Vellumwire rebuild</p>
         </div>
     </section>
 
@@ -504,9 +581,9 @@
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">Strategy before pixels. Five bets.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">The strategy behind the rebuild.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
-                The rebuild started with one question: what does a compliance-minded HR director need to believe before they request a certification? That answer shaped everything — narrative arc, section order, proof architecture, and copy tone.
+                The rebuild started with one question: what does a compliance-minded HR director need to believe before they request a certification? That answer shaped the narrative arc, the section order, the proof architecture, and the copy tone.
             </p>
 
             <div class="max-w-[800px] scroll-reveal delay-2">
@@ -515,39 +592,39 @@
                     <div>
                         <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Lead with the outcome</div>
                         <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">The hero opens with what the reader already wants.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Not features — proof that their company takes mental health seriously. The certification is the mechanism. The outcome is the lead.</p>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The hero doesn't lead with features. It leads with proof that the company takes mental health seriously. The certification is the path; the outcome is what the buyer is actually after.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
                         <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Compliance proof above the fold</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">NR-01, Lei 14.831/24, WHO — front and center.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Legal codes aren't footnotes — they're the primary buying trigger for an HR or legal decision-maker. They appear immediately beneath the headline, not in the footer.</p>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">NR-01, Lei 14.831/24, WHO: visible from the first scroll.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Legal codes aren't footnotes. For an HR or legal decision-maker, they're the primary reason to move forward. They appear immediately beneath the headline, not buried in the footer.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
                         <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Rigor as an asset</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">A 4-step process that earns trust instead of explaining it.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The certification process is genuinely rigorous — which is an asset, not a barrier. Each step is made to feel purposeful and achievable, not bureaucratic and opaque.</p>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">A 4-step process that shows what rigor actually looks like.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The certification process is genuinely rigorous. That's a strength, not a drawback. Each step is presented as purposeful and achievable, not bureaucratic and opaque.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">04</span>
                     <div>
                         <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Social proof as the closing argument</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Alelo, Amil, Arcor, Claro, Cogna — not a footer drop.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">These names appear right before the contact form. They're the strongest proof that the certification is real, selective, and worth pursuing.</p>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Alelo, Amil, Arcor, Claro, Cogna: placed where they do the most work.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">These names appear right before the contact form. They're the strongest signal that the certification is real, selective, and worth pursuing.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">05</span>
                     <div>
                         <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">One CTA, unambiguous</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Solicitar certificação" — the only ask, repeated throughout.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">No newsletter, no download, no alternative path. Every section points toward one decision. The page ends when the visitor decides.</p>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Solicitar certificação" is the only ask, and it's present throughout.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">No newsletter, no download, no alternative path. Every section points toward one decision.</p>
                     </div>
                 </div>
             </div>
@@ -574,7 +651,7 @@
                         <div class="pi scroll-reveal">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">01</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage — seloh.org</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage, seloh.org</div>
                                 <div class="text-[14px] text-vw-sec leading-[1.7]">Full rebuild of the main marketing page. New narrative structure, rewritten copy, redesigned sections for compliance, benefits, process, testimonials, certified companies, and contact form.</div>
                             </div>
                         </div>
@@ -582,48 +659,24 @@
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">02</span>
                             <div>
                                 <div class="text-[15px] font-semibold text-vw-pri mb-1">Certified Companies Page</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">A dedicated page listing all certified organizations — designed to reinforce credibility and function as a searchable social proof directory.</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">A dedicated page listing all certified organizations, designed to reinforce credibility and function as a searchable social proof directory.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">03</span>
                             <div>
                                 <div class="text-[15px] font-semibold text-vw-pri mb-1">Performance & Technical Optimization</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Clean semantic HTML, optimized asset delivery, and a lightweight codebase. No unnecessary frameworks. The site loads fast because it's built to load fast.</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">Clean semantic HTML, optimized asset delivery, and a lightweight codebase. No unnecessary frameworks. Fast load times, from the ground up.</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Browser mockups -->
-                <div class="flex flex-col gap-4 scroll-reveal delay-1">
-                    <div class="browser-frame">
-                        <div class="browser-chrome">
-                            <div class="browser-dots">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                            </div>
-                            <div class="browser-url">seloh.org</div>
-                        </div>
-                        <div style="height:300px; background:#141310; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
-                            <i data-lucide="monitor" style="width:24px;height:24px;color:#2a2825;"></i>
-                            <span class="font-mono text-[10px] tracking-[0.14em] uppercase" style="color:#2a2825;">Homepage screenshot</span>
-                        </div>
-                    </div>
-                    <div class="browser-frame">
-                        <div class="browser-chrome">
-                            <div class="browser-dots">
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                                <div class="browser-dot"></div>
-                            </div>
-                            <div class="browser-url">seloh.org/empresas-certificadas</div>
-                        </div>
-                        <div style="height:160px; background:#141310; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;">
-                            <i data-lucide="monitor" style="width:20px;height:20px;color:#2a2825;"></i>
-                            <span class="font-mono text-[10px] tracking-[0.14em] uppercase" style="color:#2a2825;">Certified companies page</span>
-                        </div>
+                <!-- Mockup image -->
+                <div class="scroll-reveal delay-1">
+                    <div class="mockup-wrap">
+                        <img src="../assets/img/seloh/mockup-2.webp"
+                             alt="Selo H rebuilt website mockup" loading="lazy">
                     </div>
                 </div>
 
@@ -642,7 +695,7 @@
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">Numbers don't lie.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">The results, 30 days after launch.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1">
                 Measured against the 30-day baseline before launch.
             </p>
@@ -693,7 +746,7 @@
                 </div>
             </div>
 
-            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* 30-day post-launch analytics — figures to be updated as data matures.</p>
+            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* 30-day post-launch analytics. Figures to be updated as data matures.</p>
         </div>
     </section>
 
@@ -701,13 +754,13 @@
     <!-- ── Key Insight ── -->
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-            <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] scroll-reveal">
+            <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] mx-auto scroll-reveal">
                 <span class="eyebrow block mb-5">Key Insight</span>
                 <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]">
                     A certification platform must be as credible as the certification itself.
                 </p>
                 <p class="text-[14px] text-vw-sec leading-[1.75] mt-4">
-                    Every compliance-market product is selling trust before it sells features. If the website doesn't feel airtight, no amount of legal references will move a risk-averse buyer. Presentation is proof.
+                    In compliance-driven markets, the website is part of the pitch. If it doesn't look and feel authoritative, legal references alone won't convince a cautious buyer. The visual experience and the product credibility are inseparable.
                 </p>
             </div>
         </div>
@@ -721,29 +774,29 @@
             <span class="eyebrow block mb-5">Your website next</span>
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Same problem?<br><em class="text-vw-accent">Let's talk.</em></h2>
             <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">
-                15-minute teardown. We tell you exactly where the leads are leaking. Nothing to fix? We'll say so.
+                15-minute teardown. We go through your site and point out exactly where visitors are dropping off. If there's nothing to fix, we'll say that too.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
-                <a href="work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
+                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
+                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
 
 
     <!-- ── Next case ── -->
-    <a href="harmon-and-vale.html" class="nc scroll-reveal block relative z-10 w-full" aria-label="Next case study: Harmon & Vale">
-        <div class="py-12 md:py-16 px-6 md:px-12 lg:px-16">
-            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-4">Next case study</span>
-            <h3 class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.1] mb-3 text-vw-pri">Harmon & Vale</h3>
-            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[440px] mb-6">A 40-year-old law firm with a website that couldn't close a door, let alone a client. We rebuilt the homepage and tripled qualified consultations.</p>
+    <a href="harmon-and-vale.html" class="nc scroll-reveal relative z-10" aria-label="Next case study: Harmon & Vale">
+        <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
+            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Next case study</span>
+            <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4 text-vw-pri">Harmon & Vale</h3>
+            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">A 40-year-old law firm whose website was losing potential clients before they ever made contact. We rebuilt the homepage and tripled qualified consultations.</p>
             <div class="flex items-center gap-3">
-                <span class="font-display italic text-[28px] text-vw-accent">+134%</span>
+                <span class="font-display italic text-[clamp(24px,2.5vw,32px)] text-vw-accent">+134%</span>
                 <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">qualified consultations</span>
             </div>
         </div>
-        <div class="nc-img hidden md:block">
-            <img src="assets/img/harmon-and-vale/mockup-2.webp" alt="Harmon & Vale website mockup" loading="lazy">
+        <div class="nc-img">
+            <img src="../assets/img/harmon-and-vale/mockup-2.webp" alt="Harmon & Vale website mockup" loading="lazy">
         </div>
     </a>
 
@@ -758,8 +811,8 @@
 
                 <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
                     <div>
-                        <a href="index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
-                            <img src="assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
+                        <a href="../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                            <img src="../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
                         </a>
                     </div>
                     <div class="flex items-center gap-3">
@@ -770,16 +823,16 @@
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Pages</span>
-                    <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                    <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                    <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                    <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                    <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                    <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Company</span>
-                    <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                    <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                    <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                    <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                    <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
@@ -817,8 +870,8 @@
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
                 <div class="flex items-center gap-6">
-                    <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
-                    <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
+                    <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
+                    <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -889,8 +942,40 @@
             });
             elem.addEventListener('mouseleave', () => { elem.style.transform = ''; });
         });
+
+        // Before/After Slider
+        (function () {
+            const slider = document.getElementById('baSlider');
+            if (!slider) return;
+            const before = slider.querySelector('.ba-img-before');
+            const div = slider.querySelector('.ba-div');
+            let dragging = false;
+
+            function setPos(pct) {
+                pct = Math.max(3, Math.min(97, pct));
+                before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+                div.style.left = pct + '%';
+            }
+
+            function clientX(e) {
+                return e.touches ? e.touches[0].clientX : e.clientX;
+            }
+
+            function onMove(e) {
+                if (!dragging) return;
+                const r = slider.getBoundingClientRect();
+                setPos(((clientX(e) - r.left) / r.width) * 100);
+            }
+
+            slider.addEventListener('mousedown', () => { dragging = true; });
+            slider.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('touchmove', onMove, { passive: true });
+            window.addEventListener('mouseup', () => { dragging = false; });
+            window.addEventListener('touchend', () => { dragging = false; });
+        })();
     </script>
-    <script src="assets/js/menu.min.js" defer></script>
+    <script src="../assets/js/menu.min.js" defer></script>
 
 </body>
 </html>
