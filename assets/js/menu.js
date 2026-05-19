@@ -161,8 +161,8 @@
     var basePath = '';
     for (var i = 0; i < scripts.length; i++) {
         var src = scripts[i].getAttribute('src');
-        if (src && src.indexOf('menu.js') !== -1) {
-            basePath = src.replace('assets/js/menu.js', '');
+        if (src && /menu(\.min)?\.js/.test(src)) {
+            basePath = src.replace(/assets\/js\/menu(\.min)?\.js.*$/, '');
             break;
         }
     }
