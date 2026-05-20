@@ -68,6 +68,49 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Vellumwire",
+        "url": "https://vellumwire.com",
+        "description": "A small senior team in Curitiba building conversion-focused websites.",
+        "member": [
+            {
+                "@type": "Person",
+                "name": "Dhiego Cristofolini",
+                "jobTitle": "Design & Strategy",
+                "sameAs": "https://www.linkedin.com/in/dhiego-pires-cristofolini-77b964150/",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Vellumwire"
+                }
+            },
+            {
+                "@type": "Person",
+                "name": "Afonso Canalle Junior",
+                "jobTitle": "Frontend Engineering",
+                "sameAs": "https://www.linkedin.com/in/afonso-canalle-junior/",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Vellumwire"
+                }
+            },
+            {
+                "@type": "Person",
+                "name": "Vinicius Poncheck",
+                "jobTitle": "Client Relations",
+                "sameAs": "https://www.linkedin.com/in/vinicius-poncheck/",
+                "affiliation": {
+                    "@type": "Organization",
+                    "name": "Vellumwire"
+                }
+            }
+        ]
+    }
+    </script>
+
     <style>
         /* ══════════════════════════════════════════════
            STUDIO PAGE STYLES
@@ -725,7 +768,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl">
 
                 <!-- Dhiego Cristofolini -->
-                <div class="team-card scroll-reveal">
+                <div id="dhiego-cristofolini" class="team-card scroll-reveal">
                     <div class="team-card-inner">
                         <div class="team-img-wrap">
                             <a href="https://www.linkedin.com/in/dhiego-pires-cristofolini-77b964150/?locale=en-US" target="_blank" rel="noopener noreferrer">
@@ -745,7 +788,7 @@
                 </div>
 
                 <!-- Afonso Canalle Junior -->
-                <div class="team-card scroll-reveal delay-1">
+                <div id="afonso-canalle-junior" class="team-card scroll-reveal delay-1">
                     <div class="team-card-inner">
                         <div class="team-img-wrap">
                             <a href="https://www.linkedin.com/in/afonso-canalle-junior/?locale=en-US" target="_blank" rel="noopener noreferrer">
@@ -765,7 +808,7 @@
                 </div>
 
                 <!-- Vinicius Poncheck -->
-                <div class="team-card scroll-reveal delay-2">
+                <div id="vinicius-poncheck" class="team-card scroll-reveal delay-2">
                     <div class="team-card-inner">
                         <div class="team-img-wrap">
                             <a href="https://www.linkedin.com/in/vinicius-poncheck/" target="_blank" rel="noopener noreferrer">
