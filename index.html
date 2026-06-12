@@ -805,7 +805,7 @@
                 <!-- ================= CLONES (Prepended) ================= -->
 
                 <!-- Clone of Real 1: Harmon & Vale -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/harmon-and-vale.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -820,10 +820,10 @@
                         <h3 class="vw-project-title">Harmon & Vale</h3>
                         <p class="vw-project-desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Clone of Real 2: Seloh H -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/seloh.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -838,10 +838,10 @@
                         <h3 class="vw-project-title">Selo H</h3>
                         <p class="vw-project-desc">A certification platform that finally earns the trust it demands.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Clone of Real 3: Fiter -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/fiter/index.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -856,7 +856,7 @@
                         <h3 class="vw-project-title">Fiter</h3>
                         <p class="vw-project-desc">The data was real. The website wasn't telling anyone.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- ================= REAL CARDS ================= -->
 
@@ -917,7 +917,7 @@
                 <!-- ================= CLONES (Appended) ================= -->
 
                 <!-- Clone of Real 1: Harmon & Vale -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/harmon-and-vale.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -932,10 +932,10 @@
                         <h3 class="vw-project-title">Harmon & Vale</h3>
                         <p class="vw-project-desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Clone of Real 2: Seloh H -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/seloh.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -950,10 +950,10 @@
                         <h3 class="vw-project-title">Selo H</h3>
                         <p class="vw-project-desc">A certification platform that finally earns the trust it demands.</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Clone of Real 3: Fiter -->
-                <div class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true">
+                <a href="projects/fiter/index.html" class="vw-project-card snap-center w-[85vw] md:w-[460px] flex-shrink-0" aria-hidden="true" tabindex="-1" style="text-decoration:none;color:inherit;">
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
@@ -968,7 +968,7 @@
                         <h3 class="vw-project-title">Fiter</h3>
                         <p class="vw-project-desc">The data was real. The website wasn't telling anyone.</p>
                     </div>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -1617,76 +1617,46 @@
             const dots = document.querySelectorAll('.carousel-dot');
             const cards = track ? Array.from(track.querySelectorAll('.vw-project-card')) : [];
 
-            if (track && cards.length === 6) { // 2 Clones + 2 Reals + 2 Clones
-                let currentIndex = 2; // Start at Real 1
-                const totalReals = 2;
+            const n = cards.length / 3; // reals count (structure: n clones + n reals + n clones)
+            if (track && cards.length > 0 && Number.isInteger(n)) {
+                let currentIndex = n;
 
                 const updateDots = (index) => {
-                    // Map absolute index to real dot index (0-1)
-                    let dotIndex = (index - 2) % totalReals;
-                    if (dotIndex < 0) dotIndex += totalReals;
-
-                    dots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === dotIndex);
-                    });
+                    let dotIndex = (index - n) % n;
+                    if (dotIndex < 0) dotIndex += n;
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
                 };
 
                 const scrollToCard = (index, smooth = true) => {
-                    currentIndex = index;
+                    currentIndex = Math.max(0, Math.min(index, cards.length - 1));
                     const card = cards[currentIndex];
                     if (!card) return;
-
-                    const trackCenter = track.clientWidth / 2;
-                    const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-
                     track.scrollTo({
-                        left: cardCenter - trackCenter,
+                        left: card.offsetLeft + card.offsetWidth / 2 - track.clientWidth / 2,
                         behavior: smooth ? 'smooth' : 'auto'
                     });
-
                     updateDots(currentIndex);
                 };
 
-                // Initial silent snap to Real 1
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => scrollToCard(2, false));
-                });
+                requestAnimationFrame(() => requestAnimationFrame(() => scrollToCard(n, false)));
 
                 btnsNext.forEach(btn => btn.addEventListener('click', () => scrollToCard(currentIndex + 1)));
                 btnsPrev.forEach(btn => btn.addEventListener('click', () => scrollToCard(currentIndex - 1)));
 
-                // Snap tracking and infinite teleport logic
                 let scrollTimeout;
                 track.addEventListener('scroll', () => {
-                    const viewCenter = track.scrollLeft + (track.clientWidth / 2);
-                    let closestIndex = 2;
-                    let minDistance = Infinity;
-
-                    cards.forEach((card, index) => {
-                        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
-                        const distance = Math.abs(viewCenter - cardCenter);
-
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            closestIndex = index;
-                        }
+                    const viewCenter = track.scrollLeft + track.clientWidth / 2;
+                    let closest = n, minDist = Infinity;
+                    cards.forEach((card, i) => {
+                        const dist = Math.abs(card.offsetLeft + card.offsetWidth / 2 - viewCenter);
+                        if (dist < minDist) { minDist = dist; closest = i; }
                     });
+                    if (currentIndex !== closest) { currentIndex = closest; updateDots(currentIndex); }
 
-                    if (currentIndex !== closestIndex) {
-                        currentIndex = closestIndex;
-                        updateDots(currentIndex);
-                    }
-
-                    // Silent Teleportation Check (after native snap settles)
                     clearTimeout(scrollTimeout);
                     scrollTimeout = setTimeout(() => {
-                        if (currentIndex <= 1) {
-                            // Snapped to prepended clone -> teleport to matching real
-                            scrollToCard(currentIndex + 2, false);
-                        } else if (currentIndex >= 4) {
-                            // Snapped to appended clone -> teleport to matching real
-                            scrollToCard(currentIndex - 2, false);
-                        }
+                        if (currentIndex < n)          scrollToCard(currentIndex + n, false);
+                        else if (currentIndex >= n * 2) scrollToCard(currentIndex - n, false);
                     }, 150);
                 }, { passive: true });
             }
