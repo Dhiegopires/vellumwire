@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYDDNFV0HL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -12,11 +13,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO -->
     <title>Fiter: Deeptech SaaS Website Strategy & Rebuild | Vellumwire</title>
-    <meta name="description" content="How Vellumwire rebuilt Fiter's web presence — positioning, architecture, copywriting, and UX for a deeptech validated by USP and the Brazilian Navy.">
+    <meta name="description" content="How Vellumwire rebuilt Fiter's website — strategy, IA, and front-end — to reach enterprise B2B buyers. Full case study with deliverables and results.">
     <meta name="author" content="Vellumwire">
     <meta property="og:title" content="Fiter: Deeptech SaaS Website Strategy & Rebuild | Vellumwire">
-    <meta property="og:description" content="A deeptech validated by USP and the Brazilian Navy, invisible on Google. We rebuilt the strategy, architecture, and copywriting from scratch.">
+    <meta property="og:description" content="Fiter's platform had measured 500k+ people. The website wasn't telling enterprise buyers any of it. We rebuilt it.">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://vellumwire.com/assets/img/og-img.jpg">
     <meta property="og:image:width" content="1200">
@@ -33,29 +35,24 @@
       "@type": "Article",
       "headline": "Fiter: Deeptech SaaS Website Strategy & Rebuild",
       "url": "https://vellumwire.com/projects/fiter",
-      "description": "How Vellumwire rebuilt Fiter's web presence for a deeptech validated by USP and the Brazilian Navy.",
-      "author": {
-        "@type": "Organization",
-        "name": "Vellumwire",
-        "url": "https://vellumwire.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Vellumwire",
-        "url": "https://vellumwire.com"
-      },
-      "datePublished": "2026-06-10",
-      "about": { "@type": "Thing", "name": "Deeptech SaaS Website Design" }
+      "description": "How Vellumwire rebuilt Fiter's website to reach enterprise B2B buyers — strategy, IA, SEO, and front-end.",
+      "author": { "@type": "Organization", "name": "Vellumwire", "url": "https://vellumwire.com" },
+      "publisher": { "@type": "Organization", "name": "Vellumwire", "url": "https://vellumwire.com" },
+      "datePublished": "2026-06-12",
+      "about": { "@type": "Thing", "name": "B2B SaaS Web Design" }
     }
     </script>
 
-    <link rel="icon" type="image/svg+xml" href="../assets/svg/vellumwire-favicon.svg">
-    <link rel="shortcut icon" href="../assets/svg/vellumwire-favicon.svg">
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="../../assets/svg/vellumwire-favicon.svg">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
+    <!-- Tailwind & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -84,7 +81,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
     <style>
         .cnum { font-variant-numeric: tabular-nums; }
@@ -187,6 +184,86 @@
             border-radius: 2px;
         }
 
+        /* ── Mockup wrap ── */
+        .mockup-wrap {
+            position: relative;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            background: #141310;
+        }
+        .mockup-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s var(--ease-editorial);
+        }
+        .mockup-wrap:hover img { transform: scale(1.015); }
+
+        /* ── Before/After Slider ── */
+        .ba-slider {
+            cursor: col-resize;
+            user-select: none;
+            touch-action: none;
+        }
+        .ba-slider:hover img { transform: none !important; }
+        .ba-img-after {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .ba-img-before {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: left top;
+            clip-path: inset(0 50% 0 0);
+        }
+        .ba-div {
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--color-accent);
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: #0c0b09;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 4px rgba(198, 241, 53, 0.2);
+            transition: box-shadow 0.3s;
+            pointer-events: all;
+            cursor: col-resize;
+        }
+        .ba-slider:active .ba-handle { box-shadow: 0 0 0 8px rgba(198, 241, 53, 0.15); }
+        .ba-lbl {
+            position: absolute;
+            top: 20px;
+            z-index: 5;
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            background: rgba(12, 11, 9, 0.85);
+            padding: 5px 10px;
+            pointer-events: none;
+            border: 1px solid var(--color-border);
+            transition: opacity 0.3s;
+        }
+        .ba-lbl-b { left: 20px; color: #8a8680; }
+        .ba-lbl-a { right: 20px; color: var(--color-accent); }
+
+        /* ── Next case ── */
         .nc {
             position: relative;
             display: grid;
@@ -226,84 +303,21 @@
         @media(max-width: 640px) {
             .stat-item + .stat-item:nth-child(3)::before { display: none; }
         }
-
-        .mockup-wrap {
-            position: relative;
-            border: 1px solid var(--color-border);
-            overflow: hidden;
-            background: #141310;
-        }
-        .mockup-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.8s var(--ease-editorial);
-        }
-        .mockup-wrap:hover img { transform: scale(1.015); }
-
-        .finding-card {
-            padding: clamp(28px, 3.5vw, 44px);
-            background: #141310;
-            position: relative;
-            overflow: hidden;
-        }
-        .finding-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--color-accent);
-            opacity: 0.35;
-        }
-
-        .ba-slider { cursor: col-resize; user-select: none; touch-action: none; }
-        .ba-slider:hover img { transform: none !important; }
-        .ba-img-after { display: block; width: 100%; height: auto; }
-        .ba-img-before {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover; object-position: left center;
-            clip-path: inset(0 50% 0 0);
-        }
-        .ba-div {
-            position: absolute; top: 0; bottom: 0; left: 50%;
-            width: 2px; background: var(--color-accent);
-            transform: translateX(-50%); z-index: 10; pointer-events: none;
-        }
-        .ba-handle {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 44px; height: 44px; border-radius: 50%;
-            background: var(--color-accent); color: #0c0b09;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 0 4px rgba(198, 241, 53, 0.2);
-            transition: box-shadow 0.3s; pointer-events: all; cursor: col-resize;
-        }
-        .ba-slider:active .ba-handle { box-shadow: 0 0 0 8px rgba(198, 241, 53, 0.15); }
-        .ba-lbl {
-            position: absolute; top: 20px; z-index: 5;
-            font-family: 'DM Mono', monospace; font-size: 9px;
-            letter-spacing: 0.14em; text-transform: uppercase;
-            background: rgba(12, 11, 9, 0.85); padding: 5px 10px;
-            pointer-events: none; border: 1px solid var(--color-border);
-            transition: opacity 0.3s;
-        }
-        .ba-lbl-b { left: 20px; color: #8a8680; }
-        .ba-lbl-a { right: 20px; color: var(--color-accent); }
     </style>
 </head>
 
 <body>
+    <!-- ── Ambient Visual Layer ── -->
     <div class="ambient-layer">
         <div class="ambient-tint"></div>
         <div class="ambient-blur"></div>
         <div class="ds-ambient-grid"></div>
         <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
             <div class="grid-line-v" style="left:144px">
-                <div class="beam-v" style="animation:beam-v 9s infinite 1.5s"></div>
+                <div class="beam-v" style="animation:beam-v 9s infinite 2s"></div>
             </div>
             <div class="grid-line-v" style="left:576px">
-                <div class="beam-v" style="animation:beam-v 11s infinite 4s"></div>
+                <div class="beam-v" style="animation:beam-v 12s infinite 5s"></div>
             </div>
             <div class="grid-line-v" style="left:1296px"></div>
             <div class="grid-line-h" style="top:144px"></div>
@@ -311,8 +325,9 @@
     </div>
     <div class="ambient-noise"></div>
 
+    <!-- ── Navigation ── -->
     <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
-        <a href="../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon style="fill:inherit;" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"/>
                 <polygon style="fill:inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"/>
@@ -335,44 +350,43 @@
             <div class="px-6 md:px-12 lg:px-16 xl:pl-[144px] xl:pr-16 flex flex-col justify-center pb-16 lg:pb-24 pt-32 lg:pt-40">
 
                 <div class="reveal-up flex items-center gap-3 mb-8" style="animation-delay:0.1s">
-                    <a href="../work.html" class="font-mono text-[10px] text-vw-sec tracking-[0.14em] uppercase hover:text-vw-accent transition-colors">Work</a>
+                    <a href="../../work.html" class="font-mono text-[10px] text-vw-sec tracking-[0.14em] uppercase hover:text-vw-accent transition-colors">Work</a>
                     <span class="font-mono text-[10px] text-vw-mut">/</span>
                     <span class="client-tag">Fiter</span>
                 </div>
 
                 <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)]" style="animation-delay:0.2s">
-                    The deeptech the Navy trusts. <em style="font-style:italic;color:var(--color-accent);">A website that finally proves it.</em>
+                    The data was real.<br><em style="font-style:italic;color:var(--color-accent);">The website wasn't telling anyone.</em>
                 </h1>
 
                 <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s">
-                    Fiter uses neuroscience and AI to predict employee turnover and student dropout before they happen. The methodology was peer-reviewed. The client list included the Brazilian Navy and USP. The website was losing every visitor in the first scroll.
+                    Fiter had built a platform HR directors were actually using. Their AI was delivering decisions no survey tool could match. The website wasn't keeping up with any of it.
                 </p>
 
                 <div class="reveal-up flex flex-wrap gap-2 mb-10" style="animation-delay:0.45s">
                     <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Strategy</span>
-                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">IA</span>
-                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Copywriting</span>
-                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">UX Direction</span>
+                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">UX / IA</span>
                     <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">SEO</span>
-                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-accent/30 text-vw-accent">Deeptech SaaS</span>
+                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Copywriting</span>
+                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Visual Design</span>
+                    <span class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Front-end</span>
                 </div>
 
                 <div class="reveal-up flex items-center gap-4" style="animation-delay:0.55s">
-                    <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none" style="color:var(--color-accent);">87%</span>
-                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">avg. check-in response rate on platform</span>
+                    <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none" style="color:var(--color-accent);">6</span>
+                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">weeks strategy to launch</span>
                 </div>
             </div>
 
             <div class="reveal-up w-full h-full min-h-[400px] lg:min-h-full relative lg:border-l border-vw-border overflow-hidden" style="animation-delay:0.4s">
-                <img src="../assets/img/fiter/hero.webp"
-                    alt="Fiter platform dashboard and website"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+                <img src="img/hero.png"
+                    alt="Fiter rebuilt website — Sua instituição parece bem. Os dados contam outra história."
+                    class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
                     loading="eager">
             </div>
 
         </div>
     </section>
-
 
     <!-- ── Stat bar ── -->
     <section class="relative z-10 w-full border-b border-vw-border bg-vw-base/80 backdrop-blur-md">
@@ -380,15 +394,15 @@
             <div class="grid grid-cols-2 md:grid-cols-4 scroll-reveal">
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Fiter</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">HR Tech · EdTech · Brazil</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Deeptech SaaS · Brazil</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
-                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">7 pages</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Rebuilt from scratch</div>
+                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">6 weeks</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Strategy to launch</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
-                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Dual track</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Corporate + Education</div>
+                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">500k+</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">People measured</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <a href="https://fiter.com.br" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 justify-center">
@@ -403,63 +417,76 @@
 
 
     <!-- ════════════════════════════════
-         01 / THE CHALLENGE
+         01 / THE SITUATION
     ════════════════════════════════ -->
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">01 / The Challenge</span>
+                <span class="eyebrow">01 / The Situation</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">A differentiated product.<br>A website that lost every lead in the first scroll.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">Where Fiter's enterprise buyers<br>were dropping off.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
-                When Fiter came to Vellumwire, the site was functionally live but strategically broken. The product was validated by USP and Mackenzie, trusted by the Brazilian Navy, and had measured over 500,000 people. None of that was landing.
+                Fiter is a deeptech employee experience platform rooted in academic research from USP. Its AI captures what traditional surveys miss and delivers decisions in under 2 minutes via WhatsApp. The product is genuinely sophisticated. The website wasn't reflecting that to enterprise buyers.
             </p>
 
             <div class="max-w-[800px] scroll-reveal delay-2">
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 01</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The value proposition wasn't landing.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">A visitor arriving from Google couldn't understand what Fiter did within the first 10 seconds, let alone why it was different from GPTW or any other HR tool. The site described the product. It didn't make the case for it.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Positioning caught between audiences.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">HR directors, academic coordinators, and enterprise procurement teams each have different entry points and different buying criteria. The old site treated all three as the same visitor — and spoke clearly to none of them.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 02</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Two businesses. One confused site.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Fiter serves two structurally different markets: corporate HR and higher education. Different buyers, different problems, different regulatory pressures, different buying triggers. The site treated both as one audience and converted neither.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The metrics that close deals were invisible.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">500k+ people measured. 87% adoption rate. 89 eNPS average. 8 clicks per survey, 2 minutes to respond. These numbers would stop a procurement manager cold. None of them appeared above the fold.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 03</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Five products. Zero indexed presence.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Pulse, Pesquisa de Clima, Agente NR1, Ouvidoria, Guia Prático, plus a dedicated Education product built around the IFE. None had their own page, their own keyword cluster, or a clear reason to choose them over alternatives.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Enterprise social proof doing no work.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">Kroton, ARCOR, Marinha do Brasil, USP, Fatec, Braspress — serious names in a market where trust is everything. They were present but not positioned to close the gap between skepticism and a demo request.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 04</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Invisible on Google.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Fiter had zero presence for any commercial keyword in their category: HR tech, employee engagement, pulse survey, turnover prediction, NR1 compliance, student dropout prevention. A deeptech validated by USP and the Brazilian Navy was generating no organic traffic.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Technology described, outcomes missing.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">"Software SaaS que utiliza IA para medição de Pesquisa de Clima" is how engineers talk. "You'll know who's about to quit before they tell you" is how buyers think. The copy described the platform instead of making the case for it.</div>
+                    </div>
+                </div>
+                <div class="pi">
+                    <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 05</span>
+                    <div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">No clear demo path.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">Enterprise SaaS lives and dies on demo conversion. The primary conversion action (booking a 30-minute call with a specialist) was buried behind competing CTAs and unnecessary friction.</div>
+                    </div>
+                </div>
+                <div class="pi">
+                    <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 06</span>
+                    <div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The USP academic origin was underused.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]">Academic validation from one of Latin America's top research universities is a rare asset in HR tech. The research lineage from USP gave Fiter a legitimacy most competitors can't match. The old site mentioned it; it didn't leverage it.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- ── Pull quote ── -->
     <div class="relative z-10 w-full py-20 md:py-28 border-y border-vw-border bg-[#141310]">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
                 <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic">
-                    "We implemented in a week. By the second week we had data that used to take us months to collect. Adoption surpassed 80% in the very first survey."
+                    "Sua instituição parece bem. Os dados contam outra história."
                 </p>
                 <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
-                    Renata Oliveira, HR Director · Braspress
+                    Fiter · Hero headline, rebuilt homepage
                 </p>
             </div>
         </div>
@@ -481,11 +508,11 @@
             <div class="scroll-reveal delay-1">
                 <div class="mockup-wrap ba-slider mb-3" id="baSlider">
                     <img class="ba-img-after"
-                        src="../assets/img/fiter/after.webp"
-                        alt="Fiter rebuilt website" loading="lazy">
+                        src="img/hero.png"
+                        alt="Fiter redesigned website — Sua instituição parece bem. Os dados contam outra história." loading="lazy">
                     <img class="ba-img-before"
-                        src="../assets/img/fiter/before.webp"
-                        alt="Fiter original website" loading="lazy">
+                        src="img/fiter-before.jpeg"
+                        alt="Fiter original website — Utilize a I.A. no RH" loading="lazy">
                     <span class="ba-lbl ba-lbl-b">Before</span>
                     <span class="ba-lbl ba-lbl-a">After</span>
                     <div class="ba-div">
@@ -497,89 +524,66 @@
                         </div>
                     </div>
                 </div>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02: Drag to compare · fiter.com.br before vs. Vellumwire rebuild</p>
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02: Drag to compare · Old fiter.com.br vs. Vellumwire rebuild</p>
             </div>
         </div>
     </section>
 
 
     <!-- ════════════════════════════════
-         03 / THE DISCOVERY
-    ════════════════════════════════ -->
-    <section class="relative z-10 w-full py-24 md:py-32">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-            <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">03 / The Discovery</span>
-                <div class="flex-1 h-[1px] bg-vw-border"></div>
-            </div>
-
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">Two findings.<br>They shaped everything.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
-                The discovery session with founder Sergio Amad surfaced two strategic insights that drove every architecture and copy decision that followed.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-vw-border border border-vw-border scroll-reveal delay-2">
-                <div class="finding-card">
-                    <div class="font-mono text-[9px] text-vw-accent tracking-[0.16em] uppercase mb-5">Finding 01 — The 8-click argument</div>
-                    <h3 class="font-display text-[clamp(22px,2.5vw,32px)] text-vw-pri leading-[1.15] mb-4">8 clicks. 2 minutes. 87% response rate.</h3>
-                    <p class="text-[14px] text-vw-sec leading-[1.75]">Employees complete their monthly check-in in 8 clicks, 2 minutes, via WhatsApp — no app, no login. That number isn't a UX convenience. It's a business argument: high adoption drives high-quality data, which drives AI predictions you can actually trust, which means a business owner retains people before the resignation letter arrives. The entire value chain collapses into one number. We made it the anchor of the site.</p>
-                </div>
-                <div class="finding-card">
-                    <div class="font-mono text-[9px] text-vw-accent tracking-[0.16em] uppercase mb-5">Finding 02 — Two buyers, one confused site</div>
-                    <h3 class="font-display text-[clamp(22px,2.5vw,32px)] text-vw-pri leading-[1.15] mb-4">Corporate HR and Education are structurally different markets.</h3>
-                    <p class="text-[14px] text-vw-sec leading-[1.75]">Corporate HR buyers worry about turnover costs (R$48k per dismissed employee), NR1 compliance deadlines, and invisible attrition. Education buyers worry about dropout rates (47% of Brazilian students don't finish), CNE 3/2025 compliance, and first-year retention. A single site selling to both was converting neither. The architecture decision was clear: two tracks, buyers self-select on the first screen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ════════════════════════════════
-         04 / THE WORK
+         03 / THE WORK
     ════════════════════════════════ -->
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">04 / The Work</span>
+                <span class="eyebrow">03 / The Work</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">Four phases. One site that finally does the selling.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">The strategy behind the rebuild.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
-                The rebuild started with positioning and ended with a fully indexed, dual-track website. Every decision was tied to one outcome: the right buyer lands, understands the value in seconds, and books a demo.
+                Before any pixel moved, four strategy documents were produced: buyer journey maps, keyword cluster research, an IA redesign, and an SEO roadmap. The rebuild started with one question: what does a skeptical enterprise buyer need to believe before they book a demo?
             </p>
 
             <div class="max-w-[800px] scroll-reveal delay-2">
                 <div class="ts">
                     <span class="ts-n">01</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Discovery & positioning</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Built the argument before writing a word.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">A structured audit and stakeholder session to identify real buying triggers, real objections, and the differentiators that weren't being communicated. The 8-click insight and the two-market finding came out of this phase and drove all subsequent decisions.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Separate the buyer tracks</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">HR and Education buyers each get their own landing page.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The HR Performance Manager and the Education Administrator have fundamentally different KPIs, different budgets, and different objections. Sending them to the same page wastes the specificity that closes deals. Each track now has its own narrative, its own metrics, its own CTA.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Information architecture</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Two tracks. Buyers self-select on the first screen.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The homepage hero gained two CTAs — "Sou uma Empresa" and "Sou uma Universidade" — routing each buyer into a dedicated track. Each of the five products received its own indexed page, its own keyword cluster, and its own conversion argument.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Metrics above the fold</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">500k+ people. 8 clicks. 2 minutes. First thing the buyer sees.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">In a market where platforms promise engagement and rarely prove it, these numbers are the argument. They appear in the hero, not buried two scrolls deep where most visitors never arrive.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Copywriting</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Written to rank first. Then to convert.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Seven pages: every H1, H2, body block, comparison table, FAQ, meta title, and meta description. The homepage headline leads with the invisible problem, not the product name. The RH page includes a direct comparison table against Pesquisa Tradicional and GPTW across 7 dimensions. The science credentials were repositioned from a footer footnote to a mid-funnel buying argument.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">USP as competitive moat</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"É deeptech com DNA na USP." — the differentiator most competitors can't claim.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Fiter's methodology is peer-reviewed and cited. That's a claim no survey-tool startup can make. The rebuilt site puts this at the top of the credibility hierarchy, not in an about-page footer.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">04</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">UX direction & visual system</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Dashboard mockups that communicate product depth without a demo.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Interface mockups for Pulse, Agente NR1, Pesquisa de Clima, Ouvidoria, and the Education IFE dashboard — showing real product states: live scores, AI-generated action plans, turnover alerts, CNE compliance status. Structured enough for enterprise buyers. Modern enough to signal a tech platform, not an HR consultancy.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Social proof sequenced to close</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Volume first. Names second. Per-client numbers third.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">500k+ establishes scale. Kroton, ARCOR, Marinha do Brasil establish category. The per-client metrics (87% adoption, 89 eNPS) establish consistency. They appear in this order, right before the demo CTA: that sequencing is what converts a skeptic into a booking.</p>
+                    </div>
+                </div>
+                <div class="ts">
+                    <span class="ts-n">05</span>
+                    <div>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">One CTA, near-zero friction</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Agende uma demonstração" — Calendly, direct, no form, no waiting.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The demo is the product. No generic contact forms, no email-and-wait. Direct booking with a specialist who knows the objections. They can make the proposal the same day, if it makes sense.</p>
                     </div>
                 </div>
             </div>
@@ -588,12 +592,12 @@
 
 
     <!-- ════════════════════════════════
-         05 / THE BUILD
+         04 / THE BUILD
     ════════════════════════════════ -->
     <section class="relative z-10 w-full pb-24 md:pb-32 border-t border-vw-border">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-24">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">05 / The Build</span>
+                <span class="eyebrow">04 / The Build</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
@@ -605,52 +609,42 @@
                         <div class="pi scroll-reveal">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">01</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Discovery & Positioning</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Structured audit and stakeholder sessions to define buyers, objections, and competitive differentiation. The strategic foundation for all copy and architecture decisions.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage, fiter.com.br</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">Full rebuild of the main marketing page. Dark visual identity, USP academic positioning, enterprise social proof architecture with Kroton, ARCOR, Marinha do Brasil, and a single Calendly-linked CTA.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-1">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">02</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Dual-Track Information Architecture</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Full IA rebuild: homepage with segmented CTAs, dedicated solution tracks for Corporate RH and Education, and individual product pages for all five Fiter products plus the Education IFE.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1">HR Track Landing Page</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">Dedicated page for People & Culture buyers. Headline: "Mantenha quem importa. Antes do pedido chegar." Focused on retention risk, eNPS, and time-to-insight: the metrics an HR director actually reports to leadership.</div>
                             </div>
                         </div>
-                        <div class="pi scroll-reveal delay-1">
+                        <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">03</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">SEO Strategy</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Keyword mapping, meta copy, and URL structure across all seven pages. Built to capture commercial intent in HR tech, NR1 compliance, pulse survey, and student dropout prevention.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Product Experience Page</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">"Do dado à decisão." — three-step flow showing Medir → Entender → Agir. Demonstrates the 8-click WhatsApp survey and the live AI diagnosis without requiring a sales call to understand the product.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">04</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Full Copywriting — 7 Pages</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Every headline, body block, comparison table, testimonial placement, FAQ, and meta description. Written to rank and to convert, with the science credentials repositioned mid-funnel as a buying argument rather than a credentials footnote.</div>
-                            </div>
-                        </div>
-                        <div class="pi scroll-reveal delay-2">
-                            <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">05</span>
-                            <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">UX Direction</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Visual system and layout direction calibrated for enterprise HR and university buyers. Section flow, proof architecture, and CTA placement designed to move both buyer types toward a demo request.</div>
-                            </div>
-                        </div>
-                        <div class="pi scroll-reveal delay-2">
-                            <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">06</span>
-                            <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Dashboard UI Design</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Interface mockups for Pulse, Agente NR1, Pesquisa de Clima, Ouvidoria, and the Education IFE dashboard — showing real product states without requiring a demo to communicate product sophistication.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1">4 Strategy Documents</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]">Buyer journey maps for HR and Education tracks, keyword cluster strategy, information architecture redesign, and SEO evolution roadmap: the strategic foundation for the rebuild and for ongoing content production.</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="scroll-reveal delay-1">
+                <div class="flex flex-col gap-4 scroll-reveal delay-1">
                     <div class="mockup-wrap">
-                        <img src="../assets/img/fiter/mockup-1.webp"
-                             alt="Fiter rebuilt website mockup" loading="lazy">
+                        <img src="img/demo.png"
+                             alt="Fiter product experience page — Do dado à decisão, Medir Entender Agir" loading="lazy">
+                    </div>
+                    <div class="mockup-wrap">
+                        <img src="img/rh-data-2.png"
+                             alt="Fiter live data dashboard — Cada resposta vira dado, ao vivo" loading="lazy">
                     </div>
                 </div>
 
@@ -660,65 +654,67 @@
 
 
     <!-- ════════════════════════════════
-         06 / THE RESULTS
+         05 / THE RESULTS
     ════════════════════════════════ -->
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">06 / The Results</span>
+                <span class="eyebrow">05 / The Results</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">Platform numbers. Proven in the field.</h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">What Fiter's clients actually get.</h2>
             <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1">
-                Sourced from fiter.com.br and client results. These are the numbers the product generates. The website now communicates all of them.
+                The rebuilt site doesn't manufacture credibility. It surfaces the product's own numbers: the metrics Fiter's enterprise clients report in practice, now visible from the first scroll.
             </p>
 
+            <!-- Primary stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-vw-border border border-vw-border scroll-reveal delay-1">
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="87" data-suffix="%">0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Avg. response rate</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Industry avg: 20–35%</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Adoption rate</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">Avg. across client orgs</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.87"></div></div>
                 </div>
                 <div class="rc">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="92" data-prefix="−" data-suffix="%">−0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Time on NR1 process</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">vs. manual · Agente NR1</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.92"></div></div>
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="89">0</span>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">eNPS average</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">Across tracked organizations</div>
+                    <div class="mb-t"><div class="mb-f" style="--p:0.89"></div></div>
                 </div>
                 <div class="rc">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="73" data-prefix="−" data-suffix="%">−0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Student dropout</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">First semester · Fatec SP</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.73"></div></div>
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="92" data-suffix="%">0%</span>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">AI accuracy</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">Validated by USP research</div>
+                    <div class="mb-t"><div class="mb-f" style="--p:0.92"></div></div>
                 </div>
             </div>
 
+            <!-- Secondary stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-vw-border border border-vw-border border-t-0 -mt-[1px] scroll-reveal delay-2">
                 <div class="rc py-6 px-5">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="500" data-suffix="k+">0k+</span>
+                    <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">500k+</span>
                     <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">People measured</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:1.0"></div></div>
+                    <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="7" data-suffix=" days">0 days</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">To first diagnosis</div>
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="8">0</span>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Clicks per survey</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.55"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
-                    <span class="font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]">8 clicks</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Per check-in · WhatsApp</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.5"></div></div>
+                    <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">2 min</span>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">To respond</div>
+                    <div class="mb-t"><div class="mb-f" style="--p:0.3;"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
-                    <span class="font-display italic text-vw-pri leading-none text-[clamp(18px,2vw,24px)] block mt-1">USP + Mackenzie</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Academic validation</div>
+                    <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">1 CTA</span>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Throughout the site</div>
                     <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
             </div>
 
-            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* Platform metrics sourced from fiter.com.br. NR1 and dropout figures from client case results.</p>
+            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* Product metrics sourced from Fiter's client base. Website GA data pending 90-day post-launch cycle.</p>
         </div>
     </section>
 
@@ -729,10 +725,10 @@
             <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] mx-auto scroll-reveal">
                 <span class="eyebrow block mb-5">Key Insight</span>
                 <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]">
-                    A deeptech product is only as credible as the site that represents it.
+                    In deeptech B2B, the complexity of the product is the credibility of the website. But only when the website translates it for the buyer.
                 </p>
                 <p class="text-[14px] text-vw-sec leading-[1.75] mt-4">
-                    The gap between product sophistication and website quality is invisible to the team building the product. It's obvious to every buyer who finds the site on Google. For Fiter, the academic rigor and the elite client list were already there. The work was making them legible before anyone picked up the phone.
+                    Enterprise buyers don't disqualify complexity. They disqualify websites that can't explain it. When the product can prove 87% adoption and USP research backing, the site's job is to show that clearly, not bury it in jargon or spread it across pages buyers never reach.
                 </p>
             </div>
         </div>
@@ -749,26 +745,26 @@
                 15-minute teardown. We go through your site and point out exactly where visitors are dropping off. If there's nothing to fix, we'll say that too.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
-                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
+                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
+                <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
 
 
     <!-- ── Next case ── -->
-    <a href="seloh.html" class="nc scroll-reveal relative z-10" aria-label="Next case study: Selo H">
+    <a href="../seloh.html" class="nc scroll-reveal relative z-10" aria-label="Next case study: Selo H">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
             <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Next case study</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4 text-vw-pri">Selo H</h3>
-            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">A government certification platform with a website that wasn't keeping up with its own credibility. Rebuilt from scratch in 4 weeks.</p>
+            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">Brazil's first international-standard workplace mental health certification. The product had credibility. The website was letting it down. We rebuilt it from the ground up.</p>
             <div class="flex items-center gap-3">
                 <span class="font-display italic text-[clamp(24px,2.5vw,32px)] text-vw-accent">+65%</span>
-                <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">form submissions</span>
+                <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">certification requests / mo.</span>
             </div>
         </div>
         <div class="nc-img">
-            <img src="../assets/img/seloh/hero.png" alt="Selo H rebuilt website" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <img src="../../assets/img/seloh/mockup-2.webp" alt="Selo H website mockup" loading="lazy">
         </div>
     </a>
 
@@ -783,8 +779,8 @@
 
                 <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
                     <div>
-                        <a href="../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
-                            <img src="../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
+                        <a href="../../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                            <img src="../../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
                         </a>
                     </div>
                     <div class="flex items-center gap-3">
@@ -795,16 +791,16 @@
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Pages</span>
-                    <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                    <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                    <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                    <a href="../../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                    <a href="../../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                    <a href="../../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Company</span>
-                    <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                    <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                    <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    <a href="../../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                    <a href="../../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                    <a href="../../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
@@ -817,6 +813,7 @@
             </div>
         </div>
 
+        <!-- Wordmark -->
         <div class="relative w-full overflow-hidden select-none" style="padding:0; margin-bottom:-2px;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true"
                 style="display:block; width:100%; height:auto; color:rgba(255,255,255,0.07);
@@ -840,8 +837,8 @@
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
                 <div class="flex items-center gap-6">
-                    <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
-                    <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
+                    <a href="../../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
+                    <a href="../../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -849,6 +846,7 @@
     </footer>
 
 
+    <!-- ── Scripts ── -->
     <script>
         lucide.createIcons();
 
@@ -900,12 +898,19 @@
 
         document.querySelectorAll('.mb-f').forEach(el => bo.observe(el));
 
-        // Before/After Slider
+        document.querySelectorAll('.magnetic').forEach(elem => {
+            elem.addEventListener('mousemove', (e) => {
+                const r = elem.getBoundingClientRect();
+                elem.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.3}px, ${(e.clientY - r.top - r.height / 2) * 0.3}px)`;
+            });
+            elem.addEventListener('mouseleave', () => { elem.style.transform = ''; });
+        });
+
         (function () {
             const slider = document.getElementById('baSlider');
             if (!slider) return;
             const before = slider.querySelector('.ba-img-before');
-            const div = slider.querySelector('.ba-div');
+            const div    = slider.querySelector('.ba-div');
             let dragging = false;
 
             function setPos(pct) {
@@ -924,15 +929,15 @@
                 setPos(((clientX(e) - r.left) / r.width) * 100);
             }
 
-            slider.addEventListener('mousedown', () => { dragging = true; });
+            slider.addEventListener('mousedown',  () => { dragging = true; });
             slider.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
-            window.addEventListener('mousemove', onMove);
-            window.addEventListener('touchmove', onMove, { passive: true });
-            window.addEventListener('mouseup', () => { dragging = false; });
-            window.addEventListener('touchend', () => { dragging = false; });
+            window.addEventListener('mousemove',  onMove);
+            window.addEventListener('touchmove',  onMove, { passive: true });
+            window.addEventListener('mouseup',    () => { dragging = false; });
+            window.addEventListener('touchend',   () => { dragging = false; });
         })();
     </script>
-    <script src="../assets/js/menu.min.js" defer></script>
+    <script src="../../assets/js/menu.min.js" defer></script>
 
 </body>
 </html>
