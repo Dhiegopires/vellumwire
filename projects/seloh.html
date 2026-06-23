@@ -61,33 +61,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <!-- Tailwind & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base:      '#0c0b09',
-                            surface:   '#1c1a17',
-                            accent:    '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri:       '#ede9e2',
-                            sec:       '#8a8680',
-                            mut:       '#7a7875',
-                            border:    'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui:      ['"Syne"', 'sans-serif'],
-                        mono:    ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Global Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -401,11 +376,15 @@
                 <polygon style="fill:inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"/>
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ════════════════════════════════
@@ -423,11 +402,11 @@
                     <span class="client-tag">Selo H</span>
                 </div>
 
-                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)]" style="animation-delay:0.2s">
+                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)]" style="animation-delay:0.2s" data-i18n-html="sh.hero.title">
                     A certification platform that <em style="font-style:italic;color:var(--color-accent);">finally</em> earns the trust it demands.
                 </h1>
 
-                <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s">
+                <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s" data-i18n="sh.hero.desc">
                     Selo H is the first Brazilian workplace mental health certification built to international standards. The product had real credibility. The website wasn't showing it.
                 </p>
 
@@ -441,13 +420,13 @@
 
                 <div class="reveal-up flex items-center gap-4" style="animation-delay:0.55s">
                     <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none" style="color:var(--color-accent);">4</span>
-                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">weeks teardown to launch</span>
+                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed" data-i18n="sh.hero.stat_label">weeks teardown to launch</span>
                 </div>
             </div>
 
             <!-- Right: hero image -->
             <div class="reveal-up w-full h-full min-h-[400px] lg:min-h-full relative lg:border-l border-vw-border overflow-hidden" style="animation-delay:0.4s">
-                <img src="../assets/img/seloh/hero.png"
+                <img src="../assets/img/seloh/hero.webp"
                     alt="Selo H rebuilt website"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
                     loading="eager">
@@ -462,22 +441,22 @@
             <div class="grid grid-cols-2 md:grid-cols-4 scroll-reveal">
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Selo H</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Workplace cert · Brazil</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n-html="sh.statbar.industry">Workplace cert · Brazil</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">4 weeks</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Teardown to launch</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="sh.statbar.teardown">Teardown to launch</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
-                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Full rebuild</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Homepage + certified cos.</div>
+                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri" data-i18n="sh.statbar.type">Full rebuild</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="sh.statbar.addon">Homepage + certified cos.</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <a href="https://seloh.org" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 justify-center">
                         <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-accent group-hover:opacity-75 transition-opacity">seloh.org</div>
                         <i data-lucide="arrow-up-right" class="w-4 h-4 shrink-0 text-vw-accent"></i>
                     </a>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Live site</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="sh.statbar.live">Live site</div>
                 </div>
             </div>
         </div>
@@ -490,12 +469,12 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">01 / The Situation</span>
+                <span class="eyebrow" data-i18n="sh.situation.eyebrow">01 / The Situation</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">The product had credibility.<br>The website was letting it down.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal" data-i18n-html="sh.situation.title">The product had credibility.<br>The website was letting it down.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="sh.situation.subtitle">
                 Selo H certifies companies on workplace mental health. It's a high-trust market where legal credibility and scientific rigor are non-negotiable: the certification is grounded in NR-01, Lei 14.831/24, WHO guidelines, and ICD-11. The old website contradicted every bit of that.
             </p>
 
@@ -503,43 +482,43 @@
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 01</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">No clear primary action.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">The path from "landing" to "requesting certification" wasn't obvious. Multiple competing CTAs diluted intent, and visitors had nowhere decisive to go.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p1.title">No clear primary action.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p1.desc">The path from "landing" to "requesting certification" wasn't obvious. Multiple competing CTAs diluted intent, and visitors had nowhere decisive to go.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 02</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Weak information hierarchy.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">The most persuasive content (legal compliance, certified companies, the 4-step process) was buried or poorly sequenced. The site answered the wrong questions first.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p2.title">Weak information hierarchy.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p2.desc">The most persuasive content (legal compliance, certified companies, the 4-step process) was buried or poorly sequenced. The site answered the wrong questions first.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 03</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Copy that described instead of persuaded.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">The original copy explained the certification. It didn't make the case for it. No urgency, no cost of inaction, no proof that any of this was real.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p3.title">Copy that described instead of persuaded.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p3.desc">The original copy explained the certification. It didn't make the case for it. No urgency, no cost of inaction, no proof that any of this was real.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 04</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Performance that undermined trust.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">A compliance-focused certification product cannot afford a slow, visually unstable website. In a market where trust is everything, first impressions matter. The old site wasn't making a good one.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p4.title">Performance that undermined trust.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p4.desc">A compliance-focused certification product cannot afford a slow, visually unstable website. In a market where trust is everything, first impressions matter. The old site wasn't making a good one.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 05</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Visual language out of sync with the brand.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Certification implies rigor. Inconsistent spacing, generic typography, and no clear brand personality made the product feel smaller than it was.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p5.title">Visual language out of sync with the brand.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p5.desc">Certification implies rigor. Inconsistent spacing, generic typography, and no clear brand personality made the product feel smaller than it was.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 06</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Social proof that was impossible to feel.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Certified companies like Alelo, Amil, and Cogna are genuine credibility signals. They were present but not featured: easy to miss, impossible to act on.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.p6.title">Social proof that was impossible to feel.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.p6.desc">Certified companies like Alelo, Amil, and Cogna are genuine credibility signals. They were present but not featured: easy to miss, impossible to act on.</div>
                     </div>
                 </div>
             </div>
@@ -550,10 +529,10 @@
     <div class="relative z-10 w-full py-20 md:py-28 border-y border-vw-border bg-[#141310]">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
-                <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic">
+                <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic" data-i18n="sh.quote1">
                     "Truly professional management can no longer exist without this level of ongoing support."
                 </p>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10" data-i18n-html="sh.quote1.attrib">
                     Rogério Soares, CEO · Rubel Academia
                 </p>
             </div>
@@ -567,19 +546,19 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">02 / Before & After</span>
+                <span class="eyebrow" data-i18n="sh.ba.eyebrow">02 / Before & After</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal">Same product. <em class="text-vw-sec not-italic" style="opacity:0.45;">Different story.</em></h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal" data-i18n-html="sh.ba.title">Same product. <em class="text-vw-sec not-italic" style="opacity:0.45;">Different story.</em></h2>
 
             <div class="scroll-reveal delay-1">
                 <div class="mockup-wrap ba-slider mb-3" id="baSlider">
                     <img class="ba-img-after"
-                        src="../assets/img/seloh/after.png"
+                        src="../assets/img/seloh/after.webp"
                         alt="Selo H redesigned website" loading="lazy">
                     <img class="ba-img-before"
-                        src="../assets/img/seloh/before.png"
+                        src="../assets/img/seloh/before.webp"
                         alt="Selo H original website" loading="lazy">
                     <span class="ba-lbl ba-lbl-b">Before</span>
                     <span class="ba-lbl ba-lbl-a">After</span>
@@ -592,7 +571,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02: Drag to compare · Old seloh.org vs. Vellumwire rebuild</p>
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase" data-i18n-html="sh.ba.caption">Fig. 02: Drag to compare · Old seloh.org vs. Vellumwire rebuild</p>
             </div>
         </div>
     </section>
@@ -604,12 +583,12 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">03 / The Work</span>
+                <span class="eyebrow" data-i18n="sh.work.eyebrow">03 / The Work</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">The strategy behind the rebuild.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal" data-i18n="sh.work.title">The strategy behind the rebuild.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="sh.work.subtitle">
                 The rebuild started with one question: what does a compliance-minded HR director need to believe before they request a certification? That answer shaped the narrative arc, the section order, the proof architecture, and the copy tone.
             </p>
 
@@ -617,41 +596,41 @@
                 <div class="ts">
                     <span class="ts-n">01</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Lead with the outcome</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">The hero opens with what the reader already wants.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The hero doesn't lead with features. It leads with proof that the company takes mental health seriously. The certification is the path; the outcome is what the buyer is actually after.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent" data-i18n="sh.ts1.label">Lead with the outcome</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="sh.ts1.title">The hero opens with what the reader already wants.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="sh.ts1.desc">The hero doesn't lead with features. It leads with proof that the company takes mental health seriously. The certification is the path; the outcome is what the buyer is actually after.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Compliance proof above the fold</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">NR-01, Lei 14.831/24, WHO: visible from the first scroll.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Legal codes aren't footnotes. For an HR or legal decision-maker, they're the primary reason to move forward. They appear immediately beneath the headline, not buried in the footer.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="sh.ts2.label">Compliance proof above the fold</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="sh.ts2.title">NR-01, Lei 14.831/24, WHO: visible from the first scroll.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="sh.ts2.desc">Legal codes aren't footnotes. For an HR or legal decision-maker, they're the primary reason to move forward. They appear immediately beneath the headline, not buried in the footer.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Rigor as an asset</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">A 4-step process that shows what rigor actually looks like.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The certification process is genuinely rigorous. That's a strength, not a drawback. Each step is presented as purposeful and achievable, not bureaucratic and opaque.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="sh.ts3.label">Rigor as an asset</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="sh.ts3.title">A 4-step process that shows what rigor actually looks like.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="sh.ts3.desc">The certification process is genuinely rigorous. That's a strength, not a drawback. Each step is presented as purposeful and achievable, not bureaucratic and opaque.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">04</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Social proof as the closing argument</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Alelo, Amil, Arcor, Claro, Cogna: placed where they do the most work.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">These names appear right before the contact form. They're the strongest signal that the certification is real, selective, and worth pursuing.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="sh.ts4.label">Social proof as the closing argument</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="sh.ts4.title">Alelo, Amil, Arcor, Claro, Cogna: placed where they do the most work.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="sh.ts4.desc">These names appear right before the contact form. They're the strongest signal that the certification is real, selective, and worth pursuing.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">05</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">One CTA, unambiguous</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Solicitar certificação" is the only ask, and it's present throughout.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">No newsletter, no download, no alternative path. Every section points toward one decision.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="sh.ts5.label">One CTA, unambiguous</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="sh.ts5.title">"Solicitar certificação" is the only ask, and it's present throughout.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="sh.ts5.desc">No newsletter, no download, no alternative path. Every section points toward one decision.</p>
                     </div>
                 </div>
             </div>
@@ -665,7 +644,7 @@
     <section class="relative z-10 w-full pb-24 md:pb-32 border-t border-vw-border">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-24">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">04 / The Build</span>
+                <span class="eyebrow" data-i18n="sh.build.eyebrow">04 / The Build</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
@@ -673,27 +652,27 @@
 
                 <!-- Deliverables -->
                 <div>
-                    <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal">What was delivered.</h2>
+                    <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal" data-i18n="sh.build.title">What was delivered.</h2>
                     <div class="max-w-[640px]">
                         <div class="pi scroll-reveal">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">01</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage, seloh.org</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Full rebuild of the main marketing page. New narrative structure, rewritten copy, redesigned sections for compliance, benefits, process, testimonials, certified companies, and contact form.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.d1.title">Homepage, seloh.org</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.d1.desc">Full rebuild of the main marketing page. New narrative structure, rewritten copy, redesigned sections for compliance, benefits, process, testimonials, certified companies, and contact form.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-1">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">02</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Certified Companies Page</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">A dedicated page listing all certified organizations, designed to reinforce credibility and function as a searchable social proof directory.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.d2.title">Certified Companies Page</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.d2.desc">A dedicated page listing all certified organizations, designed to reinforce credibility and function as a searchable social proof directory.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">03</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Performance & Technical Optimization</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Clean semantic HTML, optimized asset delivery, and a lightweight codebase. No unnecessary frameworks. Fast load times, from the ground up.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="sh.d3.title">Performance & Technical Optimization</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="sh.d3.desc">Clean semantic HTML, optimized asset delivery, and a lightweight codebase. No unnecessary frameworks. Fast load times, from the ground up.</div>
                             </div>
                         </div>
                     </div>
@@ -718,12 +697,12 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">05 / The Results</span>
+                <span class="eyebrow" data-i18n="sh.results.eyebrow">05 / The Results</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">The results, 30 days after launch.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal" data-i18n="sh.results.title">The results, 30 days after launch.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1" data-i18n="sh.results.subtitle">
                 Measured against the 30-day baseline before launch.
             </p>
 
@@ -731,20 +710,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-vw-border border border-vw-border scroll-reveal delay-1">
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="40" data-prefix="−" data-suffix="%">−0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Bounce rate</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">vs. pre-launch baseline</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc1.label">Bounce rate</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="sh.rc1.detail">vs. pre-launch baseline</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.7"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="65" data-prefix="+" data-suffix="%">+0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Form submissions / mo.</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Certification requests</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc2.label">Form submissions / mo.</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="sh.rc2.detail">Certification requests</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.65"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="1.4" data-suffix="s" data-decimals="1">0s</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Page load (LCP)</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Down from ~4.8s original</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc3.label">Page load (LCP)</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="sh.rc3.detail">Down from ~4.8s original</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.85"></div></div>
                 </div>
             </div>
@@ -753,27 +732,27 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-vw-border border border-vw-border border-t-0 -mt-[1px] scroll-reveal delay-2">
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="2.3" data-suffix="×" data-decimals="1">0×</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Time on page</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc4.label">Time on page</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.77"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">100</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Lighthouse score</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc5.label">Lighthouse score</div>
                     <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">Zero</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Ad spend</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc6.label">Ad spend</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">1 CTA</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Throughout the page</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="sh.rc7.label">Throughout the page</div>
                     <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
             </div>
 
-            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* 30-day post-launch analytics. Figures to be updated as data matures.</p>
+            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;" data-i18n="sh.results.footnote">* 30-day post-launch analytics. Figures to be updated as data matures.</p>
         </div>
     </section>
 
@@ -782,11 +761,11 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] mx-auto scroll-reveal">
-                <span class="eyebrow block mb-5">Key Insight</span>
-                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]">
+                <span class="eyebrow block mb-5" data-i18n="common.key_insight">Key Insight</span>
+                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]" data-i18n="sh.insight.title">
                     A certification platform must be as credible as the certification itself.
                 </p>
-                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4">
+                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4" data-i18n="sh.insight.body">
                     In compliance-driven markets, the website is part of the pitch. If it doesn't look and feel authoritative, legal references alone won't convince a cautious buyer. The visual experience and the product credibility are inseparable.
                 </p>
             </div>
@@ -798,14 +777,14 @@
     <section class="relative z-10 w-full py-24 md:py-32 border-t border-vw-border text-center overflow-hidden">
         <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none" style="background:radial-gradient(ellipse, rgba(198,241,53,0.04), transparent 60%)"></div>
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
-            <span class="eyebrow block mb-5">Your website next</span>
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Same problem?<br><em class="text-vw-accent">Let's talk.</em></h2>
-            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">
+            <span class="eyebrow block mb-5" data-i18n="common.your_website_next">Your website next</span>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4" data-i18n-html="hv.cta.title">Same problem?<br><em class="text-vw-accent">Let's talk.</em></h2>
+            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]" data-i18n="sh.cta.desc">
                 15-minute teardown. We go through your site and point out exactly where visitors are dropping off. If there's nothing to fix, we'll say that too.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
-                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
+                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov"><span data-i18n="common.book_teardown">Book a 15-min teardown</span> <span aria-hidden="true">→</span></a>
+                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span data-i18n="common.see_more_work">See more work</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
@@ -814,9 +793,9 @@
     <!-- ── Next case ── -->
     <a href="harmon-and-vale.html" class="nc scroll-reveal relative z-10" aria-label="Next case study: Harmon & Vale">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
-            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Next case study</span>
+            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6" data-i18n="common.next_case">Next case study</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4 text-vw-pri">Harmon & Vale</h3>
-            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">A 40-year-old law firm whose website was losing potential clients before they ever made contact. We rebuilt the homepage and tripled qualified consultations.</p>
+            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8" data-i18n="sh.next.desc">A 40-year-old law firm whose website was losing potential clients before they ever made contact. We rebuilt the homepage and tripled qualified consultations.</p>
             <div class="flex items-center gap-3">
                 <span class="font-display italic text-[clamp(24px,2.5vw,32px)] text-vw-accent">+134%</span>
                 <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">qualified consultations</span>
@@ -844,26 +823,26 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color:#7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color:#7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Pages</span>
-                    <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                    <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                    <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.pages">Pages</span>
+                    <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                    <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
+                    <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Company</span>
-                    <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                    <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                    <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.company">Company</span>
+                    <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                    <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                    <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Contact</span>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.contact_label">Contact</span>
                     <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                     <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                     <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -895,10 +874,10 @@
         <!-- Bottom bar -->
         <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
                 <div class="flex items-center gap-6">
-                    <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
-                    <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
+                    <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                    <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;" data-i18n="common.footer.terms">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -1003,6 +982,8 @@
         })();
     </script>
     <script src="../assets/js/menu.min.js" defer></script>
+    <script src="../assets/js/i18n-dict.js"></script>
+    <script src="../assets/js/i18n.js"></script>
 
 </body>
 </html>

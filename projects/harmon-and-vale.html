@@ -65,34 +65,8 @@
         rel="stylesheet">
 
     <!-- Tailwind & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -443,13 +417,17 @@
             </svg>
         </a>
 
-        <!-- Hamburger -->
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer"
-            aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <!-- Hamburger -->
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer"
+                aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ── HERO SECTION ── -->
@@ -472,23 +450,23 @@
                 </h1>
 
                 <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8"
-                    style="animation-delay:0.35s">
+                    style="animation-delay:0.35s" data-i18n="hv.hero.desc">
                     A 40 year old law firm with a website that couldn't close a door, let alone a client. Their partners
                     blamed the market. We blamed the homepage.
                 </p>
 
                 <div class="reveal-up flex flex-wrap gap-2 mb-10 max-w-[540px]" style="animation-delay:0.45s">
                     <span
-                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Conversion</span>
+                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec" data-i18n="hv.tag.conversion">Conversion</span>
                     <span
                         class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Copywriting</span>
                     <span
                         class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">UI/UX</span>
                     <span
-                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec">Landing
+                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-border text-vw-sec" data-i18n="common.tag.landing_page">Landing
                         Page</span>
                     <span
-                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-accent/30 text-vw-accent">Concept
+                        class="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1.5 border border-vw-accent/30 text-vw-accent" data-i18n="hv.tag.concept">Concept
                         Project</span>
                 </div>
 
@@ -496,7 +474,7 @@
                     <span class="cnum font-display text-[clamp(48px,5vw,72px)] italic text-vw-accent leading-none"
                         data-target="134" data-prefix="+" data-suffix="%">+0%</span>
                     <span
-                        class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">qualified
+                        class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed" data-i18n="hv.hero.stat_label">qualified
                         consultations in 60 days</span>
                 </div>
             </div>
@@ -519,23 +497,23 @@
             <div class="grid grid-cols-2 md:grid-cols-4 scroll-reveal">
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Harmon & Vale</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Business litigation ·
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n-html="hv.statbar.industry">Business litigation ·
                         Chicago</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center border-l border-vw-border md:border-l-0">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">4 weeks</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Teardown to launch
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="hv.statbar.teardown">Teardown to launch
                     </div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center border-t border-vw-border md:border-t-0">
-                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Landing page</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">+ intake flow rebuild
+                    <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri" data-i18n="hv.statbar.type">Landing page</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="hv.statbar.addon">+ intake flow rebuild
                     </div>
                 </div>
                 <div
                     class="stat-item p-8 md:p-10 text-center border-l border-vw-border md:border-l-0 border-t border-vw-border md:border-t-0">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-accent">+134%</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Qualified
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="hv.statbar.result_label">Qualified
                         consultations</div>
                 </div>
             </div>
@@ -546,14 +524,14 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">01 / The Problem</span>
+                <span class="eyebrow" data-i18n="hv.problem.eyebrow">01 / The Problem</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">A beautiful
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal" data-i18n-html="hv.problem.title">A beautiful
                 website.<br>Zero leads from it.</h2>
             <p
-                class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+                class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="hv.problem.subtitle">
                 They'd invested heavily in a site that read like it was written by a committee who'd never met a client.
                 Polished. Expensively useless.
             </p>
@@ -562,34 +540,34 @@
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">01</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The homepage was a vanity mirror.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Eight paragraphs about "legacy of
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="hv.p1.title">The homepage was a vanity mirror.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="hv.p1.desc">Eight paragraphs about "legacy of
                             excellence." Zero mention of what a client gets. Hero image: a stock gavel.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">02</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The CTA was buried on page four.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">No phone above the fold. An 11-field contact
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="hv.p2.title">The CTA was buried on page four.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="hv.p2.desc">No phone above the fold. An 11-field contact
                             form, including fax number.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">03</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">160+ case wins appeared nowhere on the
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="hv.p3.title">160+ case wins appeared nowhere on the
                             homepage.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Their "Awards" page had three items, listed
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="hv.p3.desc">Their "Awards" page had three items, listed
                             in Times New Roman.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">04</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">63% of traffic was mobile. The site had
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="hv.p4.title">63% of traffic was mobile. The site had
                             horizontal scroll.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">A hamburger menu with 14 items. Key content
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="hv.p4.desc">A hamburger menu with 14 items. Key content
                             cut off on every screen size below desktop.</div>
                     </div>
                 </div>
@@ -602,11 +580,11 @@
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
                 <p
-                    class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10">
+                    class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10" data-i18n-html="hv.quote1">
                     "We don't need a new website we need more referrals." We asked what a prospect sees when they
                     Google the firm after a referral. <em class="text-vw-accent not-italic">He went quiet.</em>
                 </p>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10" data-i18n-html="hv.quote1.attrib">
                     — From our initial teardown call
                 </p>
             </div>
@@ -617,7 +595,7 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">02 / Before & After</span>
+                <span class="eyebrow" data-i18n="hv.ba.eyebrow">02 / Before & After</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
@@ -646,7 +624,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02 — Drag to compare · Old site vs. Vellumwire redesign</p>
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase" data-i18n-html="hv.ba.caption">Fig. 02 — Drag to compare · Old site vs. Vellumwire redesign</p>
             </div>
         </div>
     </section>
@@ -655,14 +633,14 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">03 / The Work</span>
+                <span class="eyebrow" data-i18n="hv.work.eyebrow">03 / The Work</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">Four weeks. Three
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal" data-i18n="hv.work.title">Four weeks. Three
                 bets.</h2>
             <p
-                class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+                class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="hv.work.subtitle">
                 We didn't redesign the whole site. We identified the three highest-leverage changes and executed them
                 surgically.
             </p>
@@ -671,11 +649,11 @@
                 <div class="ts">
                     <span class="ts-n">01</span>
                     <div>
-                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2">Week 1 — Kill
+                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2" data-i18n-html="hv.ts1.label">Week 1 — Kill
                             the brochure</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Rewrote
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="hv.ts1.title">Rewrote
                             every word above the fold.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Replaced 340 words of
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="hv.ts1.desc">Replaced 340 words of
                             institutional copy with a 12-word headline and a proof bar. Credibility in 3 seconds not 3
                             pages.</p>
                     </div>
@@ -683,11 +661,11 @@
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
-                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2">Week 2–3 —
+                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2" data-i18n-html="hv.ts2.label">Week 2–3 —
                             Rebuild the intake</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="hv.ts2.title">
                             Replaced the 11-field form with a 2-step qualifier.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Step 1: select issue type. Step
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="hv.ts2.desc">Step 1: select issue type. Step
                             2: name + email + one sentence. Click-to-call on every page. Tripled after-hours enquiries.
                         </p>
                     </div>
@@ -695,11 +673,11 @@
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
-                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2">Week 3–4 —
+                        <div class="font-mono text-[9px] text-vw-accent tracking-[0.14em] uppercase mb-2" data-i18n-html="hv.ts3.label">Week 3–4 —
                             Prove everything</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Social
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="hv.ts3.title">Social
                             proof that doesn't look like marketing.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Case results as data. Named
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="hv.ts3.desc">Case results as data. Named
                             testimonials from CFOs. Media mentions inline, not on a page nobody visits. Every proof
                             point near a CTA.</p>
                     </div>
@@ -718,7 +696,7 @@
                     alt="Harmon & Vale website on MacBook showing city skyline hero and statistics cards" loading="lazy"
                     width="2400" height="1350">
             </div>
-            <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 03 — Hero section with
+            <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase" data-i18n-html="hv.fig3">Fig. 03 — Hero section with
                 cinematic office photography and proof bar</p>
         </div>
     </section>
@@ -727,11 +705,11 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">04 / The Results</span>
+                <span class="eyebrow" data-i18n="hv.results.eyebrow">04 / The Results</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal">The website started
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal" data-i18n="hv.results.title">The website started
                 closing.</h2>
 
             <!-- Grid 1 -->
@@ -740,9 +718,9 @@
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]"
                         data-target="134" data-prefix="+" data-suffix="%">+0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Qualified
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc1.label">Qualified
                         consultations</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">11/mo → 26/mo</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n-html="hv.rc1.detail">11/mo → 26/mo</div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:1"></div>
                     </div>
@@ -750,8 +728,8 @@
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]"
                         data-target="71" data-prefix="−" data-suffix="%">−0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Bounce rate</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">78% → 22%</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc2.label">Bounce rate</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n-html="hv.rc2.detail">78% → 22%</div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:.71"></div>
                     </div>
@@ -759,9 +737,9 @@
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]"
                         data-target="3.2" data-suffix="×" data-decimals="1">0×</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Form completion
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc3.label">Form completion
                     </div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">2-step vs. 11-field</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="hv.rc3.detail">2-step vs. 11-field</div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:.8"></div>
                     </div>
@@ -774,7 +752,7 @@
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]"
                         data-target="4.2" data-suffix="×" data-decimals="1">0×</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Mobile conversion
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc4.label">Mobile conversion
                     </div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:.84"></div>
@@ -783,7 +761,7 @@
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]"
                         data-target="47" data-suffix="s">0s</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Avg. time on page
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc5.label">Avg. time on page
                     </div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:.59"></div>
@@ -792,14 +770,14 @@
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]"
                         data-target="92" data-suffix="%">0%</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Step-1 → Step-2</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n-html="hv.rc6.label">Step-1 → Step-2</div>
                     <div class="mb-t">
                         <div class="mb-f" style="--p:.92"></div>
                     </div>
                 </div>
                 <div class="rc py-6 px-5 flex flex-col justify-center">
                     <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">$0</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Ad spend</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="hv.rc7.label">Ad spend</div>
                 </div>
             </div>
         </div>
@@ -810,11 +788,11 @@
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
                 <p
-                    class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic">
+                    class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic" data-i18n="hv.quote2">
                     "We'd worked with three different agencies over five years. Vellumwire rebuilt one page and
                     outperformed all of them in two months."
                 </p>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10" data-i18n-html="hv.quote2.attrib">
                     — Managing Partner · Harmon & Vale
                 </p>
             </div>
@@ -825,11 +803,11 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] mx-auto scroll-reveal">
-                <span class="eyebrow block mb-5">Key Insight</span>
-                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]">
+                <span class="eyebrow block mb-5" data-i18n="common.key_insight">Key Insight</span>
+                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]" data-i18n="hv.insight.title">
                     The website isn't about you. It's the last mile between a referral and a signed engagement letter.
                 </p>
-                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4">
+                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4" data-i18n="hv.insight.body">
                     Every professional services firm is sitting on decades of proof they've never used. Put it where the
                     decision is being made.
                 </p>
@@ -842,16 +820,16 @@
         <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none"
             style="background:radial-gradient(ellipse, rgba(198,241,53,0.04), transparent 60%)"></div>
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
-            <span class="eyebrow block mb-5">Your website next</span>
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Same problem?<br><em
+            <span class="eyebrow block mb-5" data-i18n="common.your_website_next">Your website next</span>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4" data-i18n-html="hv.cta.title">Same problem?<br><em
                     class="text-vw-accent">Let's talk.</em></h2>
-            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">
+            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]" data-i18n="hv.cta.desc">
                 15-minute teardown. We tell you exactly where the leads are leaking. Nothing to fix? We'll say so.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a
-                    15-min teardown <span aria-hidden="true">→</span></a>
-                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span
+                <a href="../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov"><span data-i18n="common.book_teardown">Book a
+                    15-min teardown</span> <span aria-hidden="true">→</span></a>
+                <a href="../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span data-i18n="common.see_more_work">See more work</span> <span
                         aria-hidden="true">→</span></a>
             </div>
         </div>
@@ -860,16 +838,16 @@
     <!-- ── NEXT CASE ── -->
     <a href="seloh.html" class="nc scroll-reveal relative z-10" aria-label="Next: Selo H">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
-            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Next case study</span>
+            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6" data-i18n="common.next_case">Next case study</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4">Selo H</h3>
-            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">A government certification platform drowning in bureaucratic copy. We rebuilt it from scratch — teardown to launch in 4 weeks.</p>
+            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8" data-i18n-html="hv.next.desc">A government certification platform drowning in bureaucratic copy. We rebuilt it from scratch — teardown to launch in 4 weeks.</p>
             <div class="flex items-center gap-3">
                 <span class="font-display italic text-[clamp(24px,2.5vw,32px)] text-vw-accent">+65%</span>
                 <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">form submissions</span>
             </div>
         </div>
         <div class="nc-img">
-            <img src="../assets/img/seloh/hero.png" alt="Selo H rebuilt website" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <img src="../assets/img/seloh/hero.webp" alt="Selo H rebuilt website" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
         </div>
     </a>
 
@@ -889,30 +867,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -944,10 +922,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -1043,5 +1021,7 @@
         })();
     </script>
     <script src="../assets/js/menu.min.js" defer></script>
+    <script src="../assets/js/i18n-dict.js"></script>
+    <script src="../assets/js/i18n.js"></script>
 </body>
 </html>

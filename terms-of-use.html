@@ -38,34 +38,8 @@
     </noscript>
 
     <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -156,22 +130,26 @@
                 <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <main class="min-h-screen pt-[140px] pb-20 px-6 md:px-12 lg:px-16">
 
         <!-- Page Header -->
         <div class="max-w-4xl mx-auto mb-16">
-            <span class="eyebrow mb-6 block">[ Legal ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></span>
-            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl italic text-vw-pri leading-tight mb-8">
+            <span class="eyebrow mb-6 block" data-i18n-html="terms.eyebrow">[ Legal ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></span>
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl italic text-vw-pri leading-tight mb-8" data-i18n-html="terms.title">
                 Terms of <span class="text-vw-accent">Use</span>
             </h1>
-            <p class="font-ui text-vw-sec text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p class="font-ui text-vw-sec text-lg md:text-xl max-w-2xl leading-relaxed" data-i18n="terms.updated">
                 Last updated: May 2026
             </p>
         </div>
@@ -179,47 +157,47 @@
         <!-- Content -->
         <div class="max-w-4xl mx-auto prose-policy">
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or using the Vellumwire website and services, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you must not use our website or services.</p>
+            <h2 data-i18n="terms.h1">1. Acceptance of Terms</h2>
+            <p data-i18n="terms.p1">By accessing or using the Vellumwire website and services, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you must not use our website or services.</p>
 
-            <h2>2. Services Description</h2>
-            <p>Vellumwire provides web design, development, and digital strategy services. The specifics of each engagement are outlined in a separate agreement or proposal. These Terms of Use govern your use of our website, while service-specific terms are defined in individual contracts.</p>
+            <h2 data-i18n="terms.h2">2. Services Description</h2>
+            <p data-i18n="terms.p2">Vellumwire provides web design, development, and digital strategy services. The specifics of each engagement are outlined in a separate agreement or proposal. These Terms of Use govern your use of our website, while service-specific terms are defined in individual contracts.</p>
 
-            <h2>3. Intellectual Property</h2>
-            <p>All content on this website including text, graphics, logos, code, and visual designs is the property of Vellumwire unless otherwise stated. You may not reproduce, distribute, modify, or republish any content without our prior written consent.</p>
-            <p>Upon full payment for services, clients receive the rights to the deliverables specified in their agreement. Vellumwire retains the right to display work in our portfolio unless otherwise agreed in writing.</p>
+            <h2 data-i18n="terms.h3">3. Intellectual Property</h2>
+            <p data-i18n="terms.p3a">All content on this website including text, graphics, logos, code, and visual designs is the property of Vellumwire unless otherwise stated. You may not reproduce, distribute, modify, or republish any content without our prior written consent.</p>
+            <p data-i18n="terms.p3b">Upon full payment for services, clients receive the rights to the deliverables specified in their agreement. Vellumwire retains the right to display work in our portfolio unless otherwise agreed in writing.</p>
 
-            <h2>4. User Conduct</h2>
-            <p>You agree not to:</p>
+            <h2 data-i18n="terms.h4">4. User Conduct</h2>
+            <p data-i18n="terms.p4">You agree not to:</p>
             <ul>
-                <li>Use our website for any unlawful purpose.</li>
-                <li>Attempt to gain unauthorized access to our systems.</li>
-                <li>Interfere with the proper functioning of the website.</li>
-                <li>Submit false or misleading information through our contact forms.</li>
+                <li data-i18n="terms.li4_1">Use our website for any unlawful purpose.</li>
+                <li data-i18n="terms.li4_2">Attempt to gain unauthorized access to our systems.</li>
+                <li data-i18n="terms.li4_3">Interfere with the proper functioning of the website.</li>
+                <li data-i18n="terms.li4_4">Submit false or misleading information through our contact forms.</li>
             </ul>
 
-            <h2>5. Limitation of Liability</h2>
-            <p>Vellumwire shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services. Our total liability is limited to the amount paid by you for the specific service giving rise to the claim.</p>
+            <h2 data-i18n="terms.h5">5. Limitation of Liability</h2>
+            <p data-i18n="terms.p5">Vellumwire shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services. Our total liability is limited to the amount paid by you for the specific service giving rise to the claim.</p>
 
-            <h2>6. Third-Party Tools</h2>
-            <p>Our website may integrate with third-party tools and services (e.g., analytics, hosting, payment processors). We do not control these third parties and are not responsible for their actions. Your use of such services is subject to their respective terms.</p>
+            <h2 data-i18n="terms.h6">6. Third-Party Tools</h2>
+            <p data-i18n="terms.p6">Our website may integrate with third-party tools and services (e.g., analytics, hosting, payment processors). We do not control these third parties and are not responsible for their actions. Your use of such services is subject to their respective terms.</p>
 
-            <h2>7. Confidentiality</h2>
-            <p>We treat all client information shared during the course of a project as confidential. Vellumwire will not disclose confidential information to third parties except as necessary to deliver services or as required by law.</p>
+            <h2 data-i18n="terms.h7">7. Confidentiality</h2>
+            <p data-i18n="terms.p7">We treat all client information shared during the course of a project as confidential. Vellumwire will not disclose confidential information to third parties except as necessary to deliver services or as required by law.</p>
 
-            <h2>8. Termination</h2>
-            <p>We reserve the right to refuse service, suspend access, or terminate engagements for violations of these terms or for conduct we deem harmful to our business or other clients.</p>
+            <h2 data-i18n="terms.h8">8. Termination</h2>
+            <p data-i18n="terms.p8">We reserve the right to refuse service, suspend access, or terminate engagements for violations of these terms or for conduct we deem harmful to our business or other clients.</p>
 
-            <h2>9. Governing Law</h2>
-            <p>These Terms of Use are governed by the laws of Brazil, specifically the state of Paraná. Any disputes shall be resolved in the courts of Curitiba, Paraná.</p>
+            <h2 data-i18n="terms.h9">9. Governing Law</h2>
+            <p data-i18n="terms.p9">These Terms of Use are governed by the laws of Brazil, specifically the state of Paraná. Any disputes shall be resolved in the courts of Curitiba, Paraná.</p>
 
-            <h2>10. Changes to Terms</h2>
-            <p>We may update these Terms of Use at any time. Changes are effective immediately upon posting. Continued use of our website after changes constitutes acceptance of the new terms.</p>
+            <h2 data-i18n="terms.h10">10. Changes to Terms</h2>
+            <p data-i18n="terms.p10">We may update these Terms of Use at any time. Changes are effective immediately upon posting. Continued use of our website after changes constitutes acceptance of the new terms.</p>
 
-            <h2>11. Contact</h2>
+            <h2 data-i18n="terms.h11">11. Contact</h2>
             <p>
-                <strong>Email:</strong> <a href="mailto:contact@vellumwire.com">contact@vellumwire.com</a><br>
-                <strong>Location:</strong> Curitiba, Paraná, Brazil
+                <strong data-i18n="terms.email_label">Email:</strong> <a href="mailto:contact@vellumwire.com">contact@vellumwire.com</a><br>
+                <strong data-i18n="terms.location_label">Location:</strong> <span data-i18n="terms.location_value">Curitiba, Paraná, Brazil</span>
             </p>
 
         </div>
@@ -242,29 +220,29 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -296,10 +274,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -307,6 +285,8 @@
 </footer>
 
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
 </body>
 

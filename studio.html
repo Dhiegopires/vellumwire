@@ -41,34 +41,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -533,11 +507,15 @@
                 <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ══════════════════════════════════════════════════════ -->
@@ -547,7 +525,7 @@
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12" style="animation-delay:0.1s">
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n-html="studio.hero.eyebrow">
                     [ STUDIO ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
@@ -555,13 +533,13 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end mb-16 lg:mb-24">
                 <div class="lg:col-span-8">
                     <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]"
-                        style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s">
+                        style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s" data-i18n-html="studio.hero.title">
                         A small team that<br>
                         <em class="text-vw-accent">ships fast and measures everything.</em>
                     </h1>
                 </div>
                 <div class="lg:col-span-4 reveal-up" style="animation-delay:0.4s">
-                    <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md">
+                    <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md" data-i18n="studio.hero.subtitle">
                         No account managers. No layers. You talk to the people who design, write, and build your site. They're the same people who read your analytics after launch.
                     </p>
                 </div>
@@ -580,9 +558,9 @@
                 <div class="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div class="flex items-center gap-3">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Curitiba, Paraná, BR</span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]" data-i18n="studio.hero.location">Curitiba, Paraná, BR</span>
                     </div>
-                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Est. 2024</span>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="studio.hero.est">Est. 2024</span>
                 </div>
             </div>
         </div>
@@ -595,26 +573,26 @@
             <span class="scroll-text-sep">●</span>
             <span class="scroll-text-item">Copy</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Engineering</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.engineering">Engineering</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Conversion</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.conversion">Conversion</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Tracking</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.tracking">Tracking</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item italic">Under one brief</span>
+            <span class="scroll-text-item italic" data-i18n="studio.scroll.brief">Under one brief</span>
             <span class="scroll-text-sep">●</span>
             <!-- Duplicate -->
             <span class="scroll-text-item">Design</span>
             <span class="scroll-text-sep">●</span>
             <span class="scroll-text-item">Copy</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Engineering</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.engineering">Engineering</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Conversion</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.conversion">Conversion</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item">Tracking</span>
+            <span class="scroll-text-item" data-i18n="studio.scroll.tracking">Tracking</span>
             <span class="scroll-text-sep">●</span>
-            <span class="scroll-text-item italic">Under one brief</span>
+            <span class="scroll-text-item italic" data-i18n="studio.scroll.brief">Under one brief</span>
             <span class="scroll-text-sep">●</span>
         </div>
     </div>
@@ -629,25 +607,25 @@
                 <!-- Left Column -->
                 <div class="lg:col-span-7">
                     <span class="eyebrow mb-12 block scroll-reveal typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ Philosophy ]"></span>
+                        <span class="typewriter-text" data-text="[ Philosophy ]" data-i18n="studio.philosophy.eyebrow" data-i18n-attr="data-text:studio.philosophy.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
 
                     <div class="font-display tracking-tight leading-[1.05]" style="font-size: clamp(32px, 5vw, 64px);">
                         <span class="word-reveal-line" data-reveal>
-                            <span class="word-reveal-inner text-vw-pri">Most agencies sell process.</span>
+                            <span class="word-reveal-inner text-vw-pri" data-i18n="studio.philosophy.line1">Most agencies sell process.</span>
                         </span>
                         <span class="word-reveal-line" data-reveal>
-                            <span class="word-reveal-inner text-vw-pri">We sell outcomes.</span>
+                            <span class="word-reveal-inner text-vw-pri" data-i18n="studio.philosophy.line2">We sell outcomes.</span>
                         </span>
                         <span class="word-reveal-line" data-reveal style="margin-top: 24px;">
-                            <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;">If a website doesn't generate qualified</span>
+                            <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;" data-i18n="studio.philosophy.line3">If a website doesn't generate qualified</span>
                         </span>
                         <span class="word-reveal-line" data-reveal>
-                            <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;">leads, it's a cost center, not an asset.</span>
+                            <span class="word-reveal-inner text-vw-sec" style="font-size: 0.65em;" data-i18n="studio.philosophy.line4">leads, it's a cost center, not an asset.</span>
                         </span>
                         <span class="word-reveal-line" data-reveal style="margin-top: 24px;">
-                            <span class="word-reveal-inner text-vw-accent italic">We fix that.</span>
+                            <span class="word-reveal-inner text-vw-accent italic" data-i18n="studio.philosophy.line5">We fix that.</span>
                         </span>
                     </div>
                 </div>
@@ -658,18 +636,18 @@
                         <div>
                             <div class="flex items-center gap-4 mb-6 border-b border-vw-border pb-4">
                                 <span class="font-mono text-[11px] text-vw-mut uppercase tracking-[0.14em]">01</span>
-                                <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight">The Agency Model</h3>
+                                <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight" data-i18n="studio.agency.title">The Agency Model</h3>
                             </div>
-                            <p class="font-ui text-vw-sec text-base leading-[1.7]">
+                            <p class="font-ui text-vw-sec text-base leading-[1.7]" data-i18n="studio.agency.desc">
                                 Traditional agencies sell you on a bloated process. Endless discovery phases, subjective mood boards, and account managers acting as expensive middlemen. You pay for their overhead, not your results. The website becomes a vanity project rather than a high performing business tool.
                             </p>
                         </div>
                         <div>
                             <div class="flex items-center gap-4 mb-6 border-b border-vw-accent/30 pb-4">
                                 <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.14em]">02</span>
-                                <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight">The Studio Model</h3>
+                                <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight" data-i18n="studio.studiomodel.title">The Studio Model</h3>
                             </div>
-                            <p class="font-ui text-vw-sec text-base leading-[1.7]">
+                            <p class="font-ui text-vw-sec text-base leading-[1.7]" data-i18n="studio.studiomodel.desc">
                                 We cut the fat. You work directly with the seniors building your site. We replace assumptions with analytics and subjective feedback with conversion data. The deliverable isn't just a Figma file or a codebase. It's a measurable increase in your bottom line.
                             </p>
                         </div>
@@ -692,14 +670,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end mb-16 scroll-reveal">
                 <div>
                     <span class="eyebrow mb-8 block typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ How we work ]"></span>
+                        <span class="typewriter-text" data-text="[ How we work ]" data-i18n="studio.values.eyebrow" data-i18n-attr="data-text:studio.values.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]" data-i18n-html="studio.values.title">
                         Principles,<br><em class="text-vw-accent">not slogans.</em>
                     </h2>
                 </div>
-                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md" data-i18n="studio.values.subtitle">
                     These aren't values we wrote for a website. They're the rules we've broken projects against. They stay because they've survived contact with real clients and real deadlines.
                 </p>
             </div>
@@ -709,8 +687,8 @@
                 <div class="value-card scroll-reveal">
                     <span class="value-num">01</span>
                     <div class="relative z-10">
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Audit before opinion</h3>
-                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4" data-i18n="studio.value1.title">Audit before opinion</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm" data-i18n="studio.value1.desc">
                             We don't have aesthetic preferences. We have conversion data. Every design decision traces back to the diagnosis, not to what looks "modern" or "clean."
                         </p>
                     </div>
@@ -719,8 +697,8 @@
                 <div class="value-card scroll-reveal delay-1">
                     <span class="value-num">02</span>
                     <div class="relative z-10">
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Ship, then iterate</h3>
-                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4" data-i18n="studio.value2.title">Ship, then iterate</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm" data-i18n="studio.value2.desc">
                             A live site with tracking beats a perfect mockup in Figma. We build fast, launch with analytics, and improve from real data, not from another feedback round in Slack.
                         </p>
                     </div>
@@ -729,8 +707,8 @@
                 <div class="value-card scroll-reveal">
                     <span class="value-num">03</span>
                     <div class="relative z-10">
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">Copy is architecture</h3>
-                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4" data-i18n="studio.value3.title">Copy is architecture</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm" data-i18n="studio.value3.desc">
                             We write all the messaging. Not because we don't trust your words. Headlines, CTAs, and proof placement are structural decisions that affect conversion as much as layout.
                         </p>
                     </div>
@@ -739,8 +717,8 @@
                 <div class="value-card scroll-reveal delay-1">
                     <span class="value-num">04</span>
                     <div class="relative z-10">
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4">No retainer traps</h3>
-                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm">
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight mb-4" data-i18n="studio.value4.title">No retainer traps</h3>
+                        <p class="font-ui text-vw-sec text-[14px] leading-[1.7] max-w-sm" data-i18n="studio.value4.desc">
                             Projects are scoped, priced, and delivered. If you need ongoing work after launch, we'll scope that too, but we don't sell dependency. A good site should work without us.
                         </p>
                     </div>
@@ -758,13 +736,13 @@
 
             <div class="mb-16 scroll-reveal">
                 <span class="eyebrow mb-8 block typewriter-wrap">
-                    <span class="typewriter-text" data-text="[ The team ]"></span>
+                    <span class="typewriter-text" data-text="[ The team ]" data-i18n="studio.team.eyebrow" data-i18n-attr="data-text:studio.team.eyebrow"></span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="studio.team.title">
                     Senior people.<br><em class="text-vw-accent">No middle layer.</em>
                 </h2>
-                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-lg">
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-lg" data-i18n="studio.team.subtitle">
                     You talk to the same people who design, write, code, and review analytics. That's the entire operating model.
                 </p>
             </div>
@@ -786,7 +764,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Dhiego Cristofolini</h3>
-                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Design & Strategy</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="studio.role.design">Design & Strategy</span>
                         </div>
                     </div>
                 </div>
@@ -806,7 +784,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Afonso Canalle Junior</h3>
-                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Frontend Engineering</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="studio.role.frontend">Frontend Engineering</span>
                         </div>
                     </div>
                 </div>
@@ -826,7 +804,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Vinicius Poncheck</h3>
-                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">Client Relations</span>
+                            <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="studio.role.client">Client Relations</span>
                         </div>
                     </div>
                 </div>
@@ -846,13 +824,13 @@
                 <!-- Left: Sticky header -->
                 <div class="lg:col-span-4 lg:sticky top-32 scroll-reveal">
                     <span class="eyebrow mb-8 block typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ Our story ]"></span>
+                        <span class="typewriter-text" data-text="[ Our story ]" data-i18n="studio.timeline.eyebrow" data-i18n-attr="data-text:studio.timeline.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="studio.timeline.title">
                         How we<br><em class="text-vw-accent">got here.</em>
                     </h2>
-                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm" data-i18n="studio.timeline.subtitle">
                         Not a long history. A deliberate one. Every move was about getting closer to the kind of work that actually moves numbers.
                     </p>
                 </div>
@@ -867,36 +845,36 @@
                         <div class="timeline-node scroll-reveal" data-timeline>
                             <div class="timeline-dot"></div>
                             <span class="timeline-year">2024, Q1</span>
-                            <h3 class="timeline-title">Founded in Curitiba</h3>
-                            <p class="timeline-desc">Started as a two-person operation focused exclusively on service-business websites. No SaaS, no e-commerce. Just sites that need to generate calls and quote requests.</p>
+                            <h3 class="timeline-title" data-i18n="studio.node1.title">Founded in Curitiba</h3>
+                            <p class="timeline-desc" data-i18n="studio.node1.desc">Started as a two-person operation focused exclusively on service-business websites. No SaaS, no e-commerce. Just sites that need to generate calls and quote requests.</p>
                         </div>
 
                         <div class="timeline-node scroll-reveal delay-1" data-timeline>
                             <div class="timeline-dot"></div>
                             <span class="timeline-year">2024, Q3</span>
-                            <h3 class="timeline-title">First 10 projects shipped</h3>
-                            <p class="timeline-desc">Developed the diagnosis-first methodology that now drives every engagement. Learned that 80% of conversion problems come from three things: CTA clarity, proof placement, and form friction.</p>
+                            <h3 class="timeline-title" data-i18n="studio.node2.title">First 10 projects shipped</h3>
+                            <p class="timeline-desc" data-i18n="studio.node2.desc">Developed the diagnosis-first methodology that now drives every engagement. Learned that 80% of conversion problems come from three things: CTA clarity, proof placement, and form friction.</p>
                         </div>
 
                         <div class="timeline-node scroll-reveal" data-timeline>
                             <div class="timeline-dot"></div>
                             <span class="timeline-year">2025, Q1</span>
-                             <h3 class="timeline-title">Team grows to four</h3>
-                             <p class="timeline-desc">Brought on a dedicated copywriter and analytics lead, ended outsourced messaging entirely, and expanded internationally, delivering projects for clients across Brazil, the US, and worldwide.</p>
+                             <h3 class="timeline-title" data-i18n="studio.node3.title">Team grows to four</h3>
+                             <p class="timeline-desc" data-i18n="studio.node3.desc">Brought on a dedicated copywriter and analytics lead, ended outsourced messaging entirely, and expanded internationally, delivering projects for clients across Brazil, the US, and worldwide.</p>
                         </div>
 
                         <div class="timeline-node scroll-reveal delay-1" data-timeline>
                             <div class="timeline-dot"></div>
                             <span class="timeline-year">2025, Q4</span>
-                            <h3 class="timeline-title">47 projects, 91% client lift</h3>
-                            <p class="timeline-desc">Crossed 47 shipped projects with 91% of clients reporting measurable lead increase within 30 days of launch. Formalized the three-tier package structure that's now standard.</p>
+                            <h3 class="timeline-title" data-i18n="studio.node4.title">47 projects, 91% client lift</h3>
+                            <p class="timeline-desc" data-i18n="studio.node4.desc">Crossed 47 shipped projects with 91% of clients reporting measurable lead increase within 30 days of launch. Formalized the three-tier package structure that's now standard.</p>
                         </div>
 
                         <div class="timeline-node scroll-reveal" data-timeline>
                             <div class="timeline-dot"></div>
                             <span class="timeline-year">2026, Now</span>
-                            <h3 class="timeline-title">Expanding the framework</h3>
-                            <p class="timeline-desc">Building deeper post-launch capabilities: A/B testing, iterative optimization, and content strategy. Still the same core promise: your website should measurably generate pipeline.</p>
+                            <h3 class="timeline-title" data-i18n="studio.node5.title">Expanding the framework</h3>
+                            <p class="timeline-desc" data-i18n="studio.node5.desc">Building deeper post-launch capabilities: A/B testing, iterative optimization, and content strategy. Still the same core promise: your website should measurably generate pipeline.</p>
                         </div>
 
                     </div>
@@ -922,29 +900,29 @@
                 <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
 
                 <div style="position:absolute;top:28px;right:48px;z-index:10;">
-                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]" data-i18n-html="home.cta.badge">Free · No commitment · 15 min</span>
                 </div>
 
                 <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Work with us</span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]" data-i18n="studio.cta.eyebrow">Work with us</span>
                     </div>
 
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;" data-i18n-html="studio.cta.title">
                         Let's talk about<br><em class="text-vw-accent">your site.</em>
                     </h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;" data-i18n="studio.cta.desc">
                             15 minutes, screen-shared diagnosis. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.
                         </p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
                             <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
-                                Get a free 15-minute diagnosis
+                                <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
-                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">No pitch. No deck. Just a read.</span>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;" data-i18n="studio.cta.note">No pitch. No deck. Just a read.</span>
                         </div>
                     </div>
                 </div>
@@ -970,30 +948,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -1025,10 +1003,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -1178,6 +1156,8 @@
         }
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <style>
         .typewriter-text {
@@ -1202,7 +1182,6 @@
     </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
-            const text = el.dataset.text;
             el.textContent = '';
             el.classList.add('typing');
             let index = 0;
@@ -1212,6 +1191,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !triggered) {
                         triggered = true;
+                        const text = el.dataset.text;
                         const cursor = el.nextElementSibling;
                         function type() {
                             if (index < text.length) {
@@ -1230,7 +1210,7 @@
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 triggered = true;
                 const cursor = el.nextElementSibling;
-                el.textContent = text;
+                el.textContent = el.dataset.text;
                 if (cursor) cursor.classList.add('done');
             }
 

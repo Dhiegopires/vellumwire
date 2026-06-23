@@ -53,33 +53,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <!-- Tailwind & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base:      '#0c0b09',
-                            surface:   '#1c1a17',
-                            accent:    '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri:       '#ede9e2',
-                            sec:       '#8a8680',
-                            mut:       '#7a7875',
-                            border:    'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui:      ['"Syne"', 'sans-serif'],
-                        mono:    ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <link rel="stylesheet" href="../../assets/css/style.css">
 
@@ -333,11 +308,15 @@
                 <polygon style="fill:inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"/>
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
 
@@ -355,11 +334,11 @@
                     <span class="client-tag">Fiter</span>
                 </div>
 
-                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)]" style="animation-delay:0.2s">
+                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)]" style="animation-delay:0.2s" data-i18n-html="ft.hero.title">
                     The data was real.<br><em style="font-style:italic;color:var(--color-accent);">The website wasn't telling anyone.</em>
                 </h1>
 
-                <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s">
+                <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8" style="animation-delay:0.35s" data-i18n="ft.hero.desc">
                     Fiter had built a platform HR directors were actually using. Their AI was delivering decisions no survey tool could match. The website wasn't keeping up with any of it.
                 </p>
 
@@ -374,12 +353,12 @@
 
                 <div class="reveal-up flex items-center gap-4" style="animation-delay:0.55s">
                     <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none" style="color:var(--color-accent);">6</span>
-                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">weeks strategy to launch</span>
+                    <span class="font-mono text-[10px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed" data-i18n="ft.hero.stat_label">weeks strategy to launch</span>
                 </div>
             </div>
 
             <div class="reveal-up w-full h-full min-h-[400px] lg:min-h-full relative lg:border-l border-vw-border overflow-hidden" style="animation-delay:0.4s">
-                <img src="img/hero.png"
+                <img src="img/hero.webp"
                     alt="Fiter rebuilt website — Sua instituição parece bem. Os dados contam outra história."
                     class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
                     loading="eager">
@@ -394,22 +373,22 @@
             <div class="grid grid-cols-2 md:grid-cols-4 scroll-reveal">
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">Fiter</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Deeptech SaaS · Brazil</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n-html="ft.statbar.industry">Deeptech SaaS · Brazil</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">6 weeks</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Strategy to launch</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="ft.statbar.strategy">Strategy to launch</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-pri">500k+</div>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">People measured</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="ft.statbar.measured">People measured</div>
                 </div>
                 <div class="stat-item p-8 md:p-10 text-center">
                     <a href="https://fiter.com.br" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 justify-center">
                         <div class="font-display text-[clamp(18px,2vw,24px)] text-vw-accent group-hover:opacity-75 transition-opacity">fiter.com.br</div>
                         <i data-lucide="arrow-up-right" class="w-4 h-4 shrink-0 text-vw-accent"></i>
                     </a>
-                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1">Live site</div>
+                    <div class="font-mono text-[9px] tracking-[0.14em] uppercase text-vw-mut mt-1" data-i18n="ft.statbar.live">Live site</div>
                 </div>
             </div>
         </div>
@@ -422,12 +401,12 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">01 / The Situation</span>
+                <span class="eyebrow" data-i18n="ft.situation.eyebrow">01 / The Situation</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal">Where Fiter's enterprise buyers<br>were dropping off.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-6 scroll-reveal" data-i18n-html="ft.situation.title">Where Fiter's enterprise buyers<br>were dropping off.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="ft.situation.subtitle">
                 Fiter is a deeptech employee experience platform rooted in academic research from USP. Its AI captures what traditional surveys miss and delivers decisions in under 2 minutes via WhatsApp. The product is genuinely sophisticated. The website wasn't reflecting that to enterprise buyers.
             </p>
 
@@ -435,43 +414,43 @@
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 01</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Positioning caught between audiences.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">HR directors, academic coordinators, and enterprise procurement teams each have different entry points and different buying criteria. The old site treated all three as the same visitor — and spoke clearly to none of them.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p1.title">Positioning caught between audiences.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p1.desc">HR directors, academic coordinators, and enterprise procurement teams each have different entry points and different buying criteria. The old site treated all three as the same visitor — and spoke clearly to none of them.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 02</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The metrics that close deals were invisible.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">500k+ people measured. 87% adoption rate. 89 eNPS average. 8 clicks per survey, 2 minutes to respond. These numbers would stop a procurement manager cold. None of them appeared above the fold.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p2.title">The metrics that close deals were invisible.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p2.desc">500k+ people measured. 87% adoption rate. 89 eNPS average. 8 clicks per survey, 2 minutes to respond. These numbers would stop a procurement manager cold. None of them appeared above the fold.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 03</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Enterprise social proof doing no work.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Kroton, ARCOR, Marinha do Brasil, USP, Fatec, Braspress — serious names in a market where trust is everything. They were present but not positioned to close the gap between skepticism and a demo request.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p3.title">Enterprise social proof doing no work.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p3.desc">Kroton, ARCOR, Marinha do Brasil, USP, Fatec, Braspress — serious names in a market where trust is everything. They were present but not positioned to close the gap between skepticism and a demo request.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 04</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">Technology described, outcomes missing.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">"Software SaaS que utiliza IA para medição de Pesquisa de Clima" is how engineers talk. "You'll know who's about to quit before they tell you" is how buyers think. The copy described the platform instead of making the case for it.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p4.title">Technology described, outcomes missing.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p4.desc">"Software SaaS que utiliza IA para medição de Pesquisa de Clima" is how engineers talk. "You'll know who's about to quit before they tell you" is how buyers think. The copy described the platform instead of making the case for it.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 05</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">No clear demo path.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Enterprise SaaS lives and dies on demo conversion. The primary conversion action (booking a 30-minute call with a specialist) was buried behind competing CTAs and unnecessary friction.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p5.title">No clear demo path.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p5.desc">Enterprise SaaS lives and dies on demo conversion. The primary conversion action (booking a 30-minute call with a specialist) was buried behind competing CTAs and unnecessary friction.</div>
                     </div>
                 </div>
                 <div class="pi">
                     <span class="font-mono text-[10px] text-vw-mut tracking-[0.12em] shrink-0 pt-1">P 06</span>
                     <div>
-                        <div class="text-[15px] font-semibold text-vw-pri mb-1">The USP academic origin was underused.</div>
-                        <div class="text-[14px] text-vw-sec leading-[1.7]">Academic validation from one of Latin America's top research universities is a rare asset in HR tech. The research lineage from USP gave Fiter a legitimacy most competitors can't match. The old site mentioned it; it didn't leverage it.</div>
+                        <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.p6.title">The USP academic origin was underused.</div>
+                        <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.p6.desc">Academic validation from one of Latin America's top research universities is a rare asset in HR tech. The research lineage from USP gave Fiter a legitimacy most competitors can't match. The old site mentioned it; it didn't leverage it.</div>
                     </div>
                 </div>
             </div>
@@ -482,10 +461,10 @@
     <div class="relative z-10 w-full py-20 md:py-28 border-y border-vw-border bg-[#141310]">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
             <div class="pullquote relative z-10 pl-4 md:pl-8">
-                <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic">
+                <p class="font-display text-[clamp(24px,3.5vw,40px)] leading-[1.2] tracking-[-0.01em] max-w-[820px] relative z-10 italic" data-i18n="ft.quote1">
                     "Sua instituição parece bem. Os dados contam outra história."
                 </p>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10">
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.14em] uppercase mt-8 relative z-10" data-i18n-html="ft.quote1.attrib">
                     Fiter · Hero headline, rebuilt homepage
                 </p>
             </div>
@@ -499,19 +478,19 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">02 / Before & After</span>
+                <span class="eyebrow" data-i18n="ft.ba.eyebrow">02 / Before & After</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal">Same product. <em class="text-vw-sec not-italic" style="opacity:0.45;">Different story.</em></h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal" data-i18n-html="sh.ba.title">Same product. <em class="text-vw-sec not-italic" style="opacity:0.45;">Different story.</em></h2>
 
             <div class="scroll-reveal delay-1">
                 <div class="mockup-wrap ba-slider mb-3" id="baSlider">
                     <img class="ba-img-after"
-                        src="img/hero.png"
+                        src="img/hero.webp"
                         alt="Fiter redesigned website — Sua instituição parece bem. Os dados contam outra história." loading="lazy">
                     <img class="ba-img-before"
-                        src="img/fiter-before.jpeg"
+                        src="img/fiter-before.webp"
                         alt="Fiter original website — Utilize a I.A. no RH" loading="lazy">
                     <span class="ba-lbl ba-lbl-b">Before</span>
                     <span class="ba-lbl ba-lbl-a">After</span>
@@ -524,7 +503,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase">Fig. 02: Drag to compare · Old fiter.com.br vs. Vellumwire rebuild</p>
+                <p class="font-mono text-[10px] text-vw-mut tracking-[0.12em] uppercase" data-i18n-html="ft.ba.caption">Fig. 02: Drag to compare · Old fiter.com.br vs. Vellumwire rebuild</p>
             </div>
         </div>
     </section>
@@ -536,12 +515,12 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">03 / The Work</span>
+                <span class="eyebrow" data-i18n="ft.work.eyebrow">03 / The Work</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal">The strategy behind the rebuild.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-4 scroll-reveal" data-i18n="sh.work.title">The strategy behind the rebuild.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,18px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1" data-i18n="ft.work.subtitle">
                 Before any pixel moved, four strategy documents were produced: buyer journey maps, keyword cluster research, an IA redesign, and an SEO roadmap. The rebuild started with one question: what does a skeptical enterprise buyer need to believe before they book a demo?
             </p>
 
@@ -549,41 +528,41 @@
                 <div class="ts">
                     <span class="ts-n">01</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent">Separate the buyer tracks</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">HR and Education buyers each get their own landing page.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The HR Performance Manager and the Education Administrator have fundamentally different KPIs, different budgets, and different objections. Sending them to the same page wastes the specificity that closes deals. Each track now has its own narrative, its own metrics, its own CTA.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2 text-vw-accent" data-i18n="ft.ts1.label">Separate the buyer tracks</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="ft.ts1.title">HR and Education buyers each get their own landing page.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="ft.ts1.desc">The HR Performance Manager and the Education Administrator have fundamentally different KPIs, different budgets, and different objections. Sending them to the same page wastes the specificity that closes deals. Each track now has its own narrative, its own metrics, its own CTA.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Metrics above the fold</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">500k+ people. 8 clicks. 2 minutes. First thing the buyer sees.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">In a market where platforms promise engagement and rarely prove it, these numbers are the argument. They appear in the hero, not buried two scrolls deep where most visitors never arrive.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="ft.ts2.label">Metrics above the fold</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="ft.ts2.title">500k+ people. 8 clicks. 2 minutes. First thing the buyer sees.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="ft.ts2.desc">In a market where platforms promise engagement and rarely prove it, these numbers are the argument. They appear in the hero, not buried two scrolls deep where most visitors never arrive.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">USP as competitive moat</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"É deeptech com DNA na USP." — the differentiator most competitors can't claim.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Fiter's methodology is peer-reviewed and cited. That's a claim no survey-tool startup can make. The rebuilt site puts this at the top of the credibility hierarchy, not in an about-page footer.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="ft.ts3.label">USP as competitive moat</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="ft.ts3.title">"É deeptech com DNA na USP." — the differentiator most competitors can't claim.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="ft.ts3.desc">Fiter's methodology is peer-reviewed and cited. That's a claim no survey-tool startup can make. The rebuilt site puts this at the top of the credibility hierarchy, not in an about-page footer.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">04</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Social proof sequenced to close</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Volume first. Names second. Per-client numbers third.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">500k+ establishes scale. Kroton, ARCOR, Marinha do Brasil establish category. The per-client metrics (87% adoption, 89 eNPS) establish consistency. They appear in this order, right before the demo CTA: that sequencing is what converts a skeptic into a booking.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="ft.ts4.label">Social proof sequenced to close</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="ft.ts4.title">Volume first. Names second. Per-client numbers third.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="ft.ts4.desc">500k+ establishes scale. Kroton, ARCOR, Marinha do Brasil establish category. The per-client metrics (87% adoption, 89 eNPS) establish consistency. They appear in this order, right before the demo CTA: that sequencing is what converts a skeptic into a booking.</p>
                     </div>
                 </div>
                 <div class="ts">
                     <span class="ts-n">05</span>
                     <div>
-                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">One CTA, near-zero friction</div>
-                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Agende uma demonstração" — Calendly, direct, no form, no waiting.</h3>
-                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">The demo is the product. No generic contact forms, no email-and-wait. Direct booking with a specialist who knows the objections. They can make the proposal the same day, if it makes sense.</p>
+                        <div class="font-mono text-[9px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);" data-i18n="ft.ts5.label">One CTA, near-zero friction</div>
+                        <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5" data-i18n="ft.ts5.title">"Agende uma demonstração" — Calendly, direct, no form, no waiting.</h3>
+                        <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]" data-i18n="ft.ts5.desc">The demo is the product. No generic contact forms, no email-and-wait. Direct booking with a specialist who knows the objections. They can make the proposal the same day, if it makes sense.</p>
                     </div>
                 </div>
             </div>
@@ -597,41 +576,41 @@
     <section class="relative z-10 w-full pb-24 md:pb-32 border-t border-vw-border">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-24">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">04 / The Build</span>
+                <span class="eyebrow" data-i18n="ft.build.eyebrow">04 / The Build</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
 
                 <div>
-                    <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal">What was delivered.</h2>
+                    <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal" data-i18n="sh.build.title">What was delivered.</h2>
                     <div class="max-w-[640px]">
                         <div class="pi scroll-reveal">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">01</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage, fiter.com.br</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Full rebuild of the main marketing page. Dark visual identity, USP academic positioning, enterprise social proof architecture with Kroton, ARCOR, Marinha do Brasil, and a single Calendly-linked CTA.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.d1.title">Homepage, fiter.com.br</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.d1.desc">Full rebuild of the main marketing page. Dark visual identity, USP academic positioning, enterprise social proof architecture with Kroton, ARCOR, Marinha do Brasil, and a single Calendly-linked CTA.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-1">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">02</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">HR Track Landing Page</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Dedicated page for People & Culture buyers. Headline: "Mantenha quem importa. Antes do pedido chegar." Focused on retention risk, eNPS, and time-to-insight: the metrics an HR director actually reports to leadership.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.d2.title">HR Track Landing Page</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n-html="ft.d2.desc">Dedicated page for People & Culture buyers. Headline: "Mantenha quem importa. Antes do pedido chegar." Focused on retention risk, eNPS, and time-to-insight: the metrics an HR director actually reports to leadership.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">03</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">Product Experience Page</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">"Do dado à decisão." — three-step flow showing Medir → Entender → Agir. Demonstrates the 8-click WhatsApp survey and the live AI diagnosis without requiring a sales call to understand the product.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.d3.title">Product Experience Page</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n-html="ft.d3.desc">"Do dado à decisão." — three-step flow showing Medir → Entender → Agir. Demonstrates the 8-click WhatsApp survey and the live AI diagnosis without requiring a sales call to understand the product.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
                             <span class="font-mono text-[10px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">04</span>
                             <div>
-                                <div class="text-[15px] font-semibold text-vw-pri mb-1">4 Strategy Documents</div>
-                                <div class="text-[14px] text-vw-sec leading-[1.7]">Buyer journey maps for HR and Education tracks, keyword cluster strategy, information architecture redesign, and SEO evolution roadmap: the strategic foundation for the rebuild and for ongoing content production.</div>
+                                <div class="text-[15px] font-semibold text-vw-pri mb-1" data-i18n="ft.d4.title">4 Strategy Documents</div>
+                                <div class="text-[14px] text-vw-sec leading-[1.7]" data-i18n="ft.d4.desc">Buyer journey maps for HR and Education tracks, keyword cluster strategy, information architecture redesign, and SEO evolution roadmap: the strategic foundation for the rebuild and for ongoing content production.</div>
                             </div>
                         </div>
                     </div>
@@ -639,11 +618,11 @@
 
                 <div class="flex flex-col gap-4 scroll-reveal delay-1">
                     <div class="mockup-wrap">
-                        <img src="img/demo.png"
+                        <img src="img/demo.webp"
                              alt="Fiter product experience page — Do dado à decisão, Medir Entender Agir" loading="lazy">
                     </div>
                     <div class="mockup-wrap">
-                        <img src="img/rh-data-2.png"
+                        <img src="img/rh-data-2.webp"
                              alt="Fiter live data dashboard — Cada resposta vira dado, ao vivo" loading="lazy">
                     </div>
                 </div>
@@ -659,12 +638,12 @@
     <section class="relative z-10 w-full pb-24 md:pb-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">05 / The Results</span>
+                <span class="eyebrow" data-i18n="ft.results.eyebrow">05 / The Results</span>
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal">What Fiter's clients actually get.</h2>
-            <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1">
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-3 scroll-reveal" data-i18n="ft.results.title">What Fiter's clients actually get.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[540px] mb-12 scroll-reveal delay-1" data-i18n="ft.results.subtitle">
                 The rebuilt site doesn't manufacture credibility. It surfaces the product's own numbers: the metrics Fiter's enterprise clients report in practice, now visible from the first scroll.
             </p>
 
@@ -672,20 +651,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-vw-border border border-vw-border scroll-reveal delay-1">
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="87" data-suffix="%">0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">Adoption rate</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Avg. across client orgs</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc1.label">Adoption rate</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="ft.rc1.detail">Avg. across client orgs</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.87"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="89">0</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">eNPS average</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Across tracked organizations</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc2.label">eNPS average</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="ft.rc2.detail">Across tracked organizations</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.89"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="92" data-suffix="%">0%</span>
-                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3">AI accuracy</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">Validated by USP research</div>
+                    <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc3.label">AI accuracy</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5" data-i18n="ft.rc3.detail">Validated by USP research</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.92"></div></div>
                 </div>
             </div>
@@ -694,27 +673,27 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-vw-border border border-vw-border border-t-0 -mt-[1px] scroll-reveal delay-2">
                 <div class="rc py-6 px-5">
                     <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">500k+</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">People measured</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc4.label">People measured</div>
                     <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="8">0</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Clicks per survey</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc5.label">Clicks per survey</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.55"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">2 min</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">To respond</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc6.label">To respond</div>
                     <div class="mb-t"><div class="mb-f" style="--p:0.3;"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">1 CTA</span>
-                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3">Throughout the site</div>
+                    <div class="font-mono text-[9px] tracking-[0.12em] uppercase text-vw-sec mt-3" data-i18n="ft.rc7.label">Throughout the site</div>
                     <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
                 </div>
             </div>
 
-            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;">* Product metrics sourced from Fiter's client base. Website GA data pending 90-day post-launch cycle.</p>
+            <p class="font-mono text-[9px] tracking-[0.14em] uppercase mt-3 scroll-reveal delay-2" style="color:#4a4845;" data-i18n="ft.results.footnote">* Product metrics sourced from Fiter's client base. Website GA data pending 90-day post-launch cycle.</p>
         </div>
     </section>
 
@@ -723,11 +702,11 @@
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
             <div class="bg-[#141310] border border-vw-accent/15 p-8 md:p-14 max-w-[680px] mx-auto scroll-reveal">
-                <span class="eyebrow block mb-5">Key Insight</span>
-                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]">
+                <span class="eyebrow block mb-5" data-i18n="common.key_insight">Key Insight</span>
+                <p class="font-display text-[clamp(20px,2.5vw,28px)] text-vw-accent leading-[1.25] tracking-[-0.01em]" data-i18n="ft.insight.title">
                     In deeptech B2B, the complexity of the product is the credibility of the website. But only when the website translates it for the buyer.
                 </p>
-                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4">
+                <p class="text-[14px] text-vw-sec leading-[1.75] mt-4" data-i18n="ft.insight.body">
                     Enterprise buyers don't disqualify complexity. They disqualify websites that can't explain it. When the product can prove 87% adoption and USP research backing, the site's job is to show that clearly, not bury it in jargon or spread it across pages buyers never reach.
                 </p>
             </div>
@@ -739,14 +718,14 @@
     <section class="relative z-10 w-full py-24 md:py-32 border-t border-vw-border text-center overflow-hidden">
         <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none" style="background:radial-gradient(ellipse, rgba(198,241,53,0.04), transparent 60%)"></div>
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
-            <span class="eyebrow block mb-5">Your website next</span>
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Same problem?<br><em class="text-vw-accent">Let's talk.</em></h2>
-            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">
+            <span class="eyebrow block mb-5" data-i18n="common.your_website_next">Your website next</span>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4" data-i18n-html="hv.cta.title">Same problem?<br><em class="text-vw-accent">Let's talk.</em></h2>
+            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]" data-i18n="sh.cta.desc">
                 15-minute teardown. We go through your site and point out exactly where visitors are dropping off. If there's nothing to fix, we'll say that too.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov">Book a 15-min teardown <span aria-hidden="true">→</span></a>
-                <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent">See more work <span aria-hidden="true">→</span></a>
+                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov"><span data-i18n="common.book_teardown">Book a 15-min teardown</span> <span aria-hidden="true">→</span></a>
+                <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span data-i18n="common.see_more_work">See more work</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
@@ -755,9 +734,9 @@
     <!-- ── Next case ── -->
     <a href="../seloh.html" class="nc scroll-reveal relative z-10" aria-label="Next case study: Selo H">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
-            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Next case study</span>
+            <span class="font-mono text-[9px] text-vw-mut tracking-[0.16em] uppercase block mb-6" data-i18n="common.next_case">Next case study</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4 text-vw-pri">Selo H</h3>
-            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8">Brazil's first international-standard workplace mental health certification. The product had credibility. The website was letting it down. We rebuilt it from the ground up.</p>
+            <p class="text-[14px] text-vw-sec leading-[1.7] max-w-[420px] mb-8" data-i18n="ft.next.desc">Brazil's first international-standard workplace mental health certification. The product had credibility. The website was letting it down. We rebuilt it from the ground up.</p>
             <div class="flex items-center gap-3">
                 <span class="font-display italic text-[clamp(24px,2.5vw,32px)] text-vw-accent">+65%</span>
                 <span class="font-mono text-[10px] text-vw-sec tracking-[0.1em] uppercase">certification requests / mo.</span>
@@ -785,26 +764,26 @@
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color:#7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                        <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color:#7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Pages</span>
-                    <a href="../../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                    <a href="../../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
-                    <a href="../../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.pages">Pages</span>
+                    <a href="../../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                    <a href="../../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
+                    <a href="../../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-2">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Company</span>
-                    <a href="../../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                    <a href="../../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                    <a href="../../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.company">Company</span>
+                    <a href="../../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                    <a href="../../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                    <a href="../../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
                 </div>
 
                 <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;">Contact</span>
+                    <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color:#555250;" data-i18n="common.footer.contact_label">Contact</span>
                     <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                     <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                     <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -835,10 +814,10 @@
 
         <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color:#555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
                 <div class="flex items-center gap-6">
-                    <a href="../../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Privacy Policy</a>
-                    <a href="../../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;">Terms of Use</a>
+                    <a href="../../privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                    <a href="../../terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color:#555250;" data-i18n="common.footer.terms">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -938,6 +917,8 @@
         })();
     </script>
     <script src="../../assets/js/menu.min.js" defer></script>
+    <script src="../../assets/js/i18n-dict.js"></script>
+    <script src="../../assets/js/i18n.js"></script>
 
 </body>
 </html>

@@ -59,35 +59,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -621,11 +595,15 @@
             </svg>
         </a>
 
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ══════════════════════════════════════════════════════ -->
@@ -635,7 +613,7 @@
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12" style="animation-delay:0.1s">
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n-html="packages.hero.eyebrow">
                     [ PACKAGES ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
@@ -644,7 +622,7 @@
                 <!-- Headline: spans 7 cols -->
                 <div class="lg:col-span-7">
                     <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]"
-                        style="font-size: clamp(48px, 8vw, 112px); animation-delay:0.2s">
+                        style="font-size: clamp(48px, 8vw, 112px); animation-delay:0.2s" data-i18n-html="packages.hero.title">
                         Clear scope.<br>
                         <em class="text-vw-accent">Honest pricing.</em>
                     </h1>
@@ -652,7 +630,7 @@
 
                 <!-- Right column: description + social proof -->
                 <div class="lg:col-span-5 reveal-up" style="animation-delay:0.4s">
-                    <p class="font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-md mb-8">
+                    <p class="font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-md mb-8" data-i18n="packages.hero.subtitle">
                         No hourly billing. No scope creep. Every package is scoped to your specific conversion problem and priced before we start.
                     </p>
                     <div class="flex items-center gap-6">
@@ -667,7 +645,7 @@
                                 <span class="font-mono text-[8px] text-vw-accent">NF</span>
                             </div>
                         </div>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.12em]">47 projects shipped in 2025</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.12em]" data-i18n="packages.hero.social">47 projects shipped in 2025</span>
                     </div>
                 </div>
             </div>
@@ -679,19 +657,19 @@
                 <div class="stat-ticker reveal-up" style="animation-delay:0.6s">
                     <div class="stat-item">
                         <span class="stat-number">91%</span>
-                        <span class="stat-label">of clients see lift in 30 days</span>
+                        <span class="stat-label" data-i18n="packages.stat1.label">of clients see lift in 30 days</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">3.2×</span>
-                        <span class="stat-label">avg. lead increase</span>
+                        <span class="stat-label" data-i18n="packages.stat2.label">avg. lead increase</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">21</span>
-                        <span class="stat-label">days avg. delivery</span>
+                        <span class="stat-label" data-i18n="packages.stat3.label">days avg. delivery</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">0</span>
-                        <span class="stat-label">hidden fees, always</span>
+                        <span class="stat-label" data-i18n="packages.stat4.label">hidden fees, always</span>
                     </div>
                 </div>
             </div>
@@ -713,10 +691,10 @@
                     <div class="w-12 h-12 border border-vw-accent/30 flex items-center justify-center float-badge">
                         <i data-lucide="shield" class="w-5 h-5 text-vw-accent"></i>
                     </div>
-                    <p class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight italic max-w-md">
+                    <p class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight italic max-w-md" data-i18n="packages.guarantee.text">
                         If the audit doesn't reveal a clear path to more leads, you don't pay.
                     </p>
-                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Zero-risk guarantee on all audits</span>
+                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="packages.guarantee.label">Zero-risk guarantee on all audits</span>
                 </div>
             </div>
         </div>
@@ -736,15 +714,15 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start mb-16 scroll-reveal">
                 <div>
                     <span class="eyebrow mb-8 block typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ Extend any package ]"></span>
+                        <span class="typewriter-text" data-text="[ Extend any package ]" data-i18n="packages.addons.eyebrow" data-i18n-attr="data-text:packages.addons.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]" data-i18n="packages.addons.title">
                         Add-ons.
                     </h2>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
-                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs" data-i18n="packages.addons.subtitle">
                         Bolt these onto any tier. Each is scoped, priced separately, and delivered on the same timeline.
                     </p>
                 </div>
@@ -758,8 +736,8 @@
                         <i data-lucide="mail" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Email Sequence</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">3-email nurture flow</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon1.title">Email Sequence</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon1.desc">3-email nurture flow</span>
                     </div>
                 </div>
 
@@ -768,8 +746,8 @@
                         <i data-lucide="search" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">SEO Foundation</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Technical + on-page setup</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon2.title">SEO Foundation</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon2.desc">Technical + on-page setup</span>
                     </div>
                 </div>
 
@@ -778,8 +756,8 @@
                         <i data-lucide="a-large-small" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Additional Pages</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Per extra landing or inner page</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon3.title">Additional Pages</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon3.desc">Per extra landing or inner page</span>
                     </div>
                 </div>
 
@@ -788,8 +766,8 @@
                         <i data-lucide="video" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Motion & Video</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Hero animations, scroll effects</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon4.title">Motion & Video</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon4.desc">Hero animations, scroll effects</span>
                     </div>
                 </div>
 
@@ -798,8 +776,8 @@
                         <i data-lucide="calendar" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Monthly Retainer</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Post-launch iteration + A/B</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon5.title">Monthly Retainer</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon5.desc">Post-launch iteration + A/B</span>
                     </div>
                 </div>
 
@@ -808,8 +786,8 @@
                         <i data-lucide="database" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">CMS Setup</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Blog or content management layer</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n="packages.addon6.title">CMS Setup</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon6.desc">Blog or content management layer</span>
                     </div>
                 </div>
 
@@ -818,8 +796,8 @@
                         <i data-lucide="globe" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Domain, DNS &amp; Deployment</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Go-live setup · $150 to $300</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n-html="packages.addon7.title">Domain, DNS &amp; Deployment</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n-html="packages.addon7.desc">Go-live setup · $150 to $300</span>
                     </div>
                 </div>
 
@@ -828,8 +806,8 @@
                         <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="font-ui text-vw-pri text-[14px] font-medium">Heatmap &amp; Recording</span>
-                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]">Hotjar or FullStory setup</span>
+                        <span class="font-ui text-vw-pri text-[14px] font-medium" data-i18n-html="packages.addon8.title">Heatmap &amp; Recording</span>
+                        <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em]" data-i18n="packages.addon8.desc">Hotjar or FullStory setup</span>
                     </div>
                 </div>
 
@@ -851,16 +829,16 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end scroll-reveal">
                 <div>
                     <span class="eyebrow mb-8 block typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ Inside every engagement ]"></span>
+                        <span class="typewriter-text" data-text="[ Inside every engagement ]" data-i18n="packages.scope.eyebrow" data-i18n-attr="data-text:packages.scope.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
-                        style="font-size: clamp(36px, 5vw, 72px);">
+                        style="font-size: clamp(36px, 5vw, 72px);" data-i18n-html="packages.scope.title">
                         The framework<br><em class="text-vw-accent">underneath.</em>
                     </h2>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
-                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">
+                    <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs" data-i18n="packages.scope.subtitle">
                         Different scopes, same thinking. These are the principles baked into every project, whether it's a 48-hour audit or a six-week rebuild.
                     </p>
                 </div>
@@ -873,9 +851,9 @@
             <div class="scope-row scroll-reveal">
                 <span class="scope-num">01</span>
                 <div class="scope-body">
-                    <span class="scope-title">Conversion audit before design</span>
+                    <span class="scope-title" data-i18n="packages.scope1.title">Conversion audit before design</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">We don't open Figma until we know what's broken. Every engagement starts with a data-informed diagnosis of your current state. Where leads leak, where attention dies, where friction kills intent.</p>
+                        <p class="scope-desc" data-i18n="packages.scope1.desc">We don't open Figma until we know what's broken. Every engagement starts with a data-informed diagnosis of your current state. Where leads leak, where attention dies, where friction kills intent.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -884,9 +862,9 @@
             <div class="scope-row scroll-reveal delay-1">
                 <span class="scope-num">02</span>
                 <div class="scope-body">
-                    <span class="scope-title">Copy architecture, not decoration</span>
+                    <span class="scope-title" data-i18n="packages.scope2.title">Copy architecture, not decoration</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">Every headline, subhead, and CTA is written to a specific visitor intent and placed where the decision happens. We write the messaging. You review tone. No lorem ipsum, no placeholder copy that ships by accident.</p>
+                        <p class="scope-desc" data-i18n="packages.scope2.desc">Every headline, subhead, and CTA is written to a specific visitor intent and placed where the decision happens. We write the messaging. You review tone. No lorem ipsum, no placeholder copy that ships by accident.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -895,9 +873,9 @@
             <div class="scope-row scroll-reveal">
                 <span class="scope-num">03</span>
                 <div class="scope-body">
-                    <span class="scope-title">Proof at every decision point</span>
+                    <span class="scope-title" data-i18n="packages.scope3.title">Proof at every decision point</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">Testimonials, credentials, results, and trust signals are placed where hesitation lives, not in a generic section nobody scrolls to. Proof is structural, not ornamental.</p>
+                        <p class="scope-desc" data-i18n="packages.scope3.desc">Testimonials, credentials, results, and trust signals are placed where hesitation lives, not in a generic section nobody scrolls to. Proof is structural, not ornamental.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -906,9 +884,9 @@
             <div class="scope-row scroll-reveal delay-1">
                 <span class="scope-num">04</span>
                 <div class="scope-body">
-                    <span class="scope-title">One CTA path per page</span>
+                    <span class="scope-title" data-i18n="packages.scope4.title">One CTA path per page</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">Every page has a primary action. Secondary options exist but they don't compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to browse and figure it out.</p>
+                        <p class="scope-desc" data-i18n="packages.scope4.desc">Every page has a primary action. Secondary options exist but they don't compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to browse and figure it out.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -917,9 +895,9 @@
             <div class="scope-row scroll-reveal">
                 <span class="scope-num">05</span>
                 <div class="scope-body">
-                    <span class="scope-title">Tracking ships with the site</span>
+                    <span class="scope-title" data-i18n="packages.scope5.title">Tracking ships with the site</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">GA4 events, session heatmaps, form completion rates, CTA click tracking. All configured before go-live so you know within the first week whether the site is pulling its weight. No guessing after launch.</p>
+                        <p class="scope-desc" data-i18n="packages.scope5.desc">GA4 events, session heatmaps, form completion rates, CTA click tracking. All configured before go-live so you know within the first week whether the site is pulling its weight. No guessing after launch.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -928,9 +906,9 @@
             <div class="scope-row scroll-reveal delay-1">
                 <span class="scope-num">06</span>
                 <div class="scope-body">
-                    <span class="scope-title">Performance as a feature</span>
+                    <span class="scope-title" data-i18n="packages.scope6.title">Performance as a feature</span>
                     <div class="scope-desc-wrap">
-                        <p class="scope-desc">LCP under 2.5 seconds. CLS under 0.1. Lazy-loaded images, critical CSS inlined, no render-blocking scripts. Speed isn't a nice-to-have. It's a conversion variable. We treat it like one.</p>
+                        <p class="scope-desc" data-i18n="packages.scope6.desc">LCP under 2.5 seconds. CLS under 0.1. Lazy-loaded images, critical CSS inlined, no render-blocking scripts. Speed isn't a nice-to-have. It's a conversion variable. We treat it like one.</p>
                     </div>
                 </div>
                 <div class="scope-arrow"><i data-lucide="plus" class="w-3 h-3"></i></div>
@@ -951,11 +929,11 @@
                         <span class="typewriter-text" data-text="[ FAQ ]"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]" data-i18n="packages.faq.title">
                         About pricing.
                     </h2>
                 </div>
-                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm" data-i18n="packages.faq.subtitle">
                     No one likes surprises on an invoice. Here's how we price.
                 </p>
             </div>
@@ -965,14 +943,14 @@
                     <button class="faq-demo-q w-full" aria-expanded="false">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">01</span>
-                            <span class="faq-demo-text">Why project pricing instead of hourly?</span>
+                            <span class="faq-demo-text" data-i18n="packages.faq.q1">Why project pricing instead of hourly?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Because hourly billing incentivizes slowness. We scope the project, price it, and deliver it. If we're faster, you benefit. If we need to iterate, we absorb it. You know the cost before we start, not after.</p>
+                        <p class="faq-demo-answer" data-i18n="packages.faq.a1">Because hourly billing incentivizes slowness. We scope the project, price it, and deliver it. If we're faster, you benefit. If we need to iterate, we absorb it. You know the cost before we start, not after.</p>
                     </div>
                 </div>
 
@@ -980,14 +958,14 @@
                     <button class="faq-demo-q w-full" aria-expanded="false">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">02</span>
-                            <span class="faq-demo-text">What's the payment structure?</span>
+                            <span class="faq-demo-text" data-i18n="packages.faq.q2">What's the payment structure?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Audits: 100% upfront. Rebuilds and Full Stack: 50% to start, 50% on staging approval (before final launch). Simple, predictable, and you never pay the final balance until you've reviewed everything.</p>
+                        <p class="faq-demo-answer" data-i18n="packages.faq.a2">Audits: 100% upfront. Rebuilds and Full Stack: 50% to start, 50% on staging approval (before final launch). Simple, predictable, and you never pay the final balance until you've reviewed everything.</p>
                     </div>
                 </div>
 
@@ -995,14 +973,14 @@
                     <button class="faq-demo-q w-full" aria-expanded="false">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">03</span>
-                            <span class="faq-demo-text">Can the Audit credit apply toward a Rebuild?</span>
+                            <span class="faq-demo-text" data-i18n="packages.faq.q3">Can the Audit credit apply toward a Rebuild?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Yes. If you start with an Audit and then move to a Rebuild within 30 days, the audit fee is deducted from the rebuild price. You only pay the difference. We designed it that way because most people want to test the water first.</p>
+                        <p class="faq-demo-answer" data-i18n="packages.faq.a3">Yes. If you start with an Audit and then move to a Rebuild within 30 days, the audit fee is deducted from the rebuild price. You only pay the difference. We designed it that way because most people want to test the water first.</p>
                     </div>
                 </div>
 
@@ -1010,14 +988,14 @@
                     <button class="faq-demo-q w-full" aria-expanded="false">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">04</span>
-                            <span class="faq-demo-text">What happens if my project needs more than the standard scope?</span>
+                            <span class="faq-demo-text" data-i18n="packages.faq.q4">What happens if my project needs more than the standard scope?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We tell you before we start. The diagnosis determines the real scope. If your project genuinely needs more pages, a custom integration, or a complex CMS, we quote it transparently as a line item, not as a surprise at the end.</p>
+                        <p class="faq-demo-answer" data-i18n="packages.faq.a4">We tell you before we start. The diagnosis determines the real scope. If your project genuinely needs more pages, a custom integration, or a complex CMS, we quote it transparently as a line item, not as a surprise at the end.</p>
                     </div>
                 </div>
 
@@ -1025,14 +1003,14 @@
                     <button class="faq-demo-q w-full" aria-expanded="false">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">05</span>
-                            <span class="faq-demo-text">Do you offer discounts for multiple projects?</span>
+                            <span class="faq-demo-text" data-i18n="packages.faq.q5">Do you offer discounts for multiple projects?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V10M2 6H10" stroke="currentColor" stroke-width="1.5"/></svg>
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We don't discount, but we do scope efficiently. If you need multiple sites or landing pages under one brand, the shared positioning and design system work cuts significant time. That savings passes through in the quote naturally.</p>
+                        <p class="faq-demo-answer" data-i18n="packages.faq.a5">We don't discount, but we do scope efficiently. If you need multiple sites or landing pages under one brand, the shared positioning and design system work cuts significant time. That savings passes through in the quote naturally.</p>
                     </div>
                 </div>
             </div>
@@ -1056,29 +1034,29 @@
                 <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
 
                 <div style="position:absolute;top:28px;right:48px;z-index:10;">
-                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]" data-i18n-html="home.cta.badge">Free · No commitment · 15 min</span>
                 </div>
 
                 <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Still comparing?</span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]" data-i18n="packages.cta.eyebrow">Still comparing?</span>
                     </div>
 
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;" data-i18n-html="packages.cta.title">
                         Let's scope it<br><em class="text-vw-accent">together.</em>
                     </h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;" data-i18n="packages.cta.desc">
                             Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.
                         </p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
                             <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
-                                Get a free 15-minute diagnosis
+                                <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
-                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;">Custom quote within 24h. No spam.</span>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color: #7a7875;" data-i18n="packages.cta.note">Custom quote within 24h. No spam.</span>
                         </div>
                     </div>
                 </div>
@@ -1104,30 +1082,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -1159,10 +1137,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -1175,94 +1153,129 @@
     <script>
 
         // ══════════════════════════════════════════════════════
-        // PRICING DATA + RENDER
+        // PRICING DATA + RENDER (bilingual)
         // ══════════════════════════════════════════════════════
         const pricingData = [
-            { type: "section", label: "Start here" },
             {
-                n: "01", t: "Website Checkup", tag: "Door opener",
-                p: "$350", pn: "flat fee", eta: "3–4 business days",
-                pitch: "A focused diagnosis of what’s not working on your site. You get a video walkthrough and a prioritized fix list. Not a generic report.",
-                del: ["15-min video walkthrough (Loom)", "Top issues ranked by impact on leads", "Quick-fix list you can act on immediately", "One competitor comparison", "Written summary with screenshots"],
-                who: ["You know your site isn’t working but not why", "You want a pro opinion before spending more", "You need clarity, not a sales pitch"],
-                hrs: "5–6 hrs", ft: false
-            },
-            { type: "section", label: "Build" },
-            {
-                n: "02", t: "Landing Page", tag: "Quick win",
-                p: "$750 – $1,200", pn: "per page, delivered live", eta: "5–10 business days",
-                pitch: "One page, one goal. Get visitors to call, book, or request a quote. Design, copy, and working code included.",
-                del: ["Custom design (desktop + mobile)", "Conversion copy included", "Built and deployed (HTML / Framer / Webflow)", "Contact form wired to your email", "Mobile-first, fast-loading"],
-                who: ["Running ads and need a proper landing page", "Launching a new service or offer", "Testing an idea before a full site"],
-                hrs: "18–28 hrs", ft: false
+                n: "01", t: { en: "Website Checkup", pt: "Diagnóstico de Site" }, tag: { en: "Door opener", pt: "Porta de entrada" },
+                p: "$350", pn: { en: "flat fee", pt: "taxa fixa" }, eta: { en: "3–4 business days", pt: "3–4 dias úteis" },
+                pitch: { en: "A focused diagnosis of what's not working on your site. You get a video walkthrough and a prioritized fix list. Not a generic report.", pt: "Um diagnóstico focado no que não está funcionando no seu site. Você recebe um vídeo explicativo e uma lista de correções priorizada. Não é um relatório genérico." },
+                del: [
+                    { en: "15-min video walkthrough (Loom)", pt: "Vídeo explicativo de 15 min (Loom)" },
+                    { en: "Top issues ranked by impact on leads", pt: "Principais problemas ranqueados por impacto em leads" },
+                    { en: "Quick-fix list you can act on immediately", pt: "Lista de correções rápidas para agir imediatamente" },
+                    { en: "One competitor comparison", pt: "Uma comparação com concorrente" },
+                    { en: "Written summary with screenshots", pt: "Resumo escrito com capturas de tela" }
+                ],
+                ft: false
             },
             {
-                n: "03", t: "Homepage Redesign", tag: "Best value",
-                p: "$1,500 – $2,800", pn: "fixed project", eta: "2–3 weeks",
-                pitch: "Your homepage rebuilt so visitors instantly get what you do, trust you, and know what to do next. Design, copy, and code, all included.",
-                del: ["Quick audit of current homepage", "Content structure + wireframe", "Full design in Figma (desktop + mobile)", "Copy: headline, sections, proof, CTA", "Front-end development (responsive)", "Google Analytics + basic tracking"],
-                who: ["Your site gets visits but not calls", "Clients praise your work but not your website", "You want a big upgrade without a months-long project"],
-                hrs: "35–55 hrs", ft: true
+                n: "02", t: { en: "Landing Page", pt: "Landing Page" }, tag: { en: "Quick win", pt: "Vitória rápida" },
+                p: "$750 – $1,200", pn: { en: "per page, delivered live", pt: "por página, entregue no ar" }, eta: { en: "5–10 business days", pt: "5–10 dias úteis" },
+                pitch: { en: "One page, one goal. Get visitors to call, book, or request a quote. Design, copy, and working code included.", pt: "Uma página, um objetivo. Faça visitantes ligarem, agendarem ou pedirem uma cotação. Design, copy e código funcional incluídos." },
+                del: [
+                    { en: "Custom design (desktop + mobile)", pt: "Design personalizado (desktop + mobile)" },
+                    { en: "Conversion copy included", pt: "Copy de conversão incluído" },
+                    { en: "Built and deployed (HTML / Framer / Webflow)", pt: "Construído e publicado (HTML / Framer / Webflow)" },
+                    { en: "Contact form wired to your email", pt: "Formulário de contato conectado ao seu e-mail" },
+                    { en: "Mobile-first, fast-loading", pt: "Mobile-first, carregamento rápido" }
+                ],
+                ft: false
             },
             {
-                n: "04", t: "Full Website", tag: "Complete build",
-                p: "$3,000 – $5,000", pn: "up to 6 pages", eta: "4–6 weeks",
-                pitch: "A complete professional site from scratch. Structure, design, copy, code, and analytics. Everything you need to look credible and generate inbound leads.",
-                del: ["Site structure + page planning", "Full design of all pages (Figma)", "Copywriting for every page", "Front-end build + simple CMS", "Mobile responsive, fast loading", "Basic SEO (meta, headings, speed)", "Analytics setup", "Tutorial so you can edit it yourself"],
-                who: ["Your current site was DIY and it shows", "You’re starting out and need a real presence", "You want one team to handle everything"],
-                hrs: "70–100 hrs", ft: false
+                n: "03", t: { en: "Homepage Redesign", pt: "Reforma de Homepage" }, tag: { en: "Best value", pt: "Melhor custo-benefício" },
+                p: "$1,500 – $2,800", pn: { en: "fixed project", pt: "projeto fechado" }, eta: { en: "2–3 weeks", pt: "2–3 semanas" },
+                pitch: { en: "Your homepage rebuilt so visitors instantly get what you do, trust you, and know what to do next. Design, copy, and code, all included.", pt: "Sua homepage reconstruída para que visitantes entendam instantaneamente o que você faz, confiem em você e saibam o que fazer a seguir. Design, copy e código, tudo incluído." },
+                del: [
+                    { en: "Quick audit of current homepage", pt: "Auditoria rápida da homepage atual" },
+                    { en: "Content structure + wireframe", pt: "Estrutura de conteúdo + wireframe" },
+                    { en: "Full design in Figma (desktop + mobile)", pt: "Design completo no Figma (desktop + mobile)" },
+                    { en: "Copy: headline, sections, proof, CTA", pt: "Copy: título, seções, prova, CTA" },
+                    { en: "Front-end development (responsive)", pt: "Desenvolvimento front-end (responsivo)" },
+                    { en: "Google Analytics + basic tracking", pt: "Google Analytics + rastreamento básico" }
+                ],
+                ft: true
             },
-            { type: "section", label: "Brand + site" },
             {
-                n: "05", t: "Brand + Website", tag: "Full package",
-                p: "$4,500 – $8,000", pn: "branding quoted separately", eta: "6–10 weeks",
-                pitch: "New brand, new site, one process. Our branding partner builds your identity, we design and code a site that matches. No Frankenstein result.",
-                del: ["Brand identity (logo, palette, type, guidelines)", "Seamless brand to web handoff", "Full website design + development", "Copywriting for all pages", "SEO basics + analytics", "Brand usage guide"],
-                who: ["Starting a business and need everything", "Rebranding and want it all to match", "Tired of juggling 3 separate vendors"],
-                hrs: "100–140 hrs total", ft: false
+                n: "04", t: { en: "Full Website", pt: "Site Completo" }, tag: { en: "Complete build", pt: "Construção completa" },
+                p: "$3,000 – $5,000", pn: { en: "up to 6 pages", pt: "até 6 páginas" }, eta: { en: "4–6 weeks", pt: "4–6 semanas" },
+                pitch: { en: "A complete professional site from scratch. Structure, design, copy, code, and analytics. Everything you need to look credible and generate inbound leads.", pt: "Um site profissional completo do zero. Estrutura, design, copy, código e analytics. Tudo que você precisa para parecer credível e gerar leads inbound." },
+                del: [
+                    { en: "Site structure + page planning", pt: "Estrutura do site + planejamento de páginas" },
+                    { en: "Full design of all pages (Figma)", pt: "Design completo de todas as páginas (Figma)" },
+                    { en: "Copywriting for every page", pt: "Copywriting para cada página" },
+                    { en: "Front-end build + simple CMS", pt: "Construção front-end + CMS simples" },
+                    { en: "Mobile responsive, fast loading", pt: "Responsivo para mobile, carregamento rápido" },
+                    { en: "Basic SEO (meta, headings, speed)", pt: "SEO básico (meta, headings, velocidade)" },
+                    { en: "Analytics setup", pt: "Configuração de analytics" },
+                    { en: "Tutorial so you can edit it yourself", pt: "Tutorial para você editar por conta própria" }
+                ],
+                ft: false
             },
-            { type: "section", label: "Ongoing" },
             {
-                n: "06", t: "Monthly Support", tag: "Retainer",
-                p: "$400 – $800", pn: "/month · 3-month min", eta: "Ongoing",
-                pitch: "Ongoing updates, new pages, and tweaks. Like having a designer and developer on call without the salary.",
-                del: ["8–16 hours of work per month", "Design updates + new sections", "Content changes and quick fixes", "Performance improvements", "48h response time", "Monthly summary of what was done"],
-                who: ["You need regular site updates", "You run campaigns and need pages fast", "You don’t want to deal with your own site"],
-                hrs: "8–16 hrs/mo", ft: false
+                n: "05", t: { en: "Brand + Website", pt: "Marca + Site" }, tag: { en: "Full package", pt: "Pacote completo" },
+                p: "$4,500 – $8,000", pn: { en: "branding quoted separately", pt: "branding cotado separadamente" }, eta: { en: "6–10 weeks", pt: "6–10 semanas" },
+                pitch: { en: "New brand, new site, one process. Our branding partner builds your identity, we design and code a site that matches. No Frankenstein result.", pt: "Marca nova, site novo, um processo só. Nosso parceiro de branding constrói sua identidade, nós desenhamos e codificamos um site à altura. Sem resultado Frankenstein." },
+                del: [
+                    { en: "Brand identity (logo, palette, type, guidelines)", pt: "Identidade de marca (logo, paleta, tipografia, guidelines)" },
+                    { en: "Seamless brand to web handoff", pt: "Transição perfeita da marca para o site" },
+                    { en: "Full website design + development", pt: "Design e desenvolvimento completo do site" },
+                    { en: "Copywriting for all pages", pt: "Copywriting para todas as páginas" },
+                    { en: "SEO basics + analytics", pt: "SEO básico + analytics" },
+                    { en: "Brand usage guide", pt: "Guia de uso da marca" }
+                ],
+                ft: false
+            },
+            {
+                n: "06", t: { en: "Monthly Support", pt: "Suporte Mensal" }, tag: { en: "Retainer", pt: "Contrato fixo" },
+                p: "$400 – $800", pn: { en: "/month · 3-month min", pt: "/mês · mínimo de 3 meses" }, eta: { en: "Ongoing", pt: "Contínuo" },
+                pitch: { en: "Ongoing updates, new pages, and tweaks. Like having a designer and developer on call without the salary.", pt: "Atualizações contínuas, novas páginas e ajustes. Como ter um designer e desenvolvedor de prontidão sem a folha de pagamento." },
+                del: [
+                    { en: "8–16 hours of work per month", pt: "8–16 horas de trabalho por mês" },
+                    { en: "Design updates + new sections", pt: "Atualizações de design + novas seções" },
+                    { en: "Content changes and quick fixes", pt: "Mudanças de conteúdo e correções rápidas" },
+                    { en: "Performance improvements", pt: "Melhorias de performance" },
+                    { en: "48h response time", pt: "Tempo de resposta de 48h" },
+                    { en: "Monthly summary of what was done", pt: "Resumo mensal do que foi feito" }
+                ],
+                ft: false
             }
         ];
 
-        (function renderPricing() {
+        const pricingStrings = {
+            mostPopular: { en: "Most popular", pt: "Mais popular" },
+            bestValue: { en: "Best value", pt: "Melhor custo-benefício" },
+            getStarted: { en: "Get started", pt: "Começar agora" }
+        };
+
+        function renderPricing(lang) {
+            lang = lang || 'en';
             var root = document.getElementById("pricing-root");
             if (!root) return;
+            root.innerHTML = "";
 
-            // Flat list of all card items (skip section headers)
-            var cards = pricingData.filter(function(item) { return item.type !== "section"; });
-
-            // Single unified 3-col grid
             var grid = document.createElement("div");
             grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-5";
             grid.style.cssText = "align-items: stretch; grid-auto-rows: 1fr;";
             root.appendChild(grid);
 
-            cards.forEach(function(item, i) {
+            pricingData.forEach(function(item, i) {
                     var dc = i === 1 ? "delay-1" : i === 2 ? "delay-2" : "";
                     var isRange = item.p.indexOf(" ") > 0;
                     var priceHtml = isRange
                         ? "<div class=\"mb-1\"><span class=\"font-display text-vw-pri\" style=\"font-size:clamp(26px,3vw,40px);letter-spacing:-0.03em;line-height:1;\">" + item.p + "</span></div>"
                         : "<div class=\"price-display mb-1\"><span class=\"price-currency\">$</span><span class=\"price-amount\">" + item.p.substring(1) + "</span></div>";
                     var dItems = item.del.map(function(d) {
-                        return "<div class=\"pkg-feature\"><i data-lucide=\"check\" class=\"pkg-feature-icon\"></i><span class=\"pkg-feature-text\">" + d + "</span></div>";
+                        return "<div class=\"pkg-feature\"><i data-lucide=\"check\" class=\"pkg-feature-icon\"></i><span class=\"pkg-feature-text\">" + d[lang] + "</span></div>";
                     }).join("");
-                    var wItems = "";
-                    var featTop = item.ft ? "<div class=\"relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between\" style=\"background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);\"><span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2\"><span class=\"inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse\"></span>Most popular</span><span class=\"font-mono text-[9px] text-vw-mut uppercase tracking-[0.12em]\">Best value</span></div>" : "";
+                    var featTop = item.ft ? "<div class=\"relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between\" style=\"background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);\"><span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2\"><span class=\"inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse\"></span>" + pricingStrings.mostPopular[lang] + "</span><span class=\"font-mono text-[9px] text-vw-mut uppercase tracking-[0.12em]\">" + pricingStrings.bestValue[lang] + "</span></div>" : "";
                     var btnS = item.ft ? "background:#c6f135;color:#0c0b09;font-weight:600;" : "";
                     var btnC = item.ft ? "btn magnetic" : "btn btn--sweep";
                     var numColor = item.ft ? "text-vw-accent" : "text-vw-mut";
                     var scene = document.createElement("div");
-                    scene.className = "pkg-card-scene scroll-reveal h-full " + dc;
+                    scene.className = "pkg-card-scene scroll-reveal is-visible h-full " + dc;
                     scene.innerHTML =
-                        "<div class=\"pkg-card" + (item.ft ? " featured" : "") + "\" data-tilt style=\"height:100%;\">" +
+                        "<div class=\"pkg-card is-revealed" + (item.ft ? " featured" : "") + "\" data-tilt style=\"height:100%;\">" +
                             "<div class=\"pkg-card-grid\"></div>" +
                             "<div class=\"pkg-card-glow\"" + (item.ft ? " style=\"opacity:0.3\"" : "") + "></div>" +
                             "<div class=\"pkg-card-shine\"></div>" +
@@ -1272,24 +1285,30 @@
                                 "<div class=\"flex justify-between items-start mb-4\">" +
                                     "<span class=\"font-mono text-[9px] " + numColor + " uppercase tracking-[0.16em]\">" + item.n + "</span>" +
                                     "<span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.14em] border border-vw-accent/30 px-3 py-1.5 inline-flex items-center gap-1.5 float-badge\" style=\"animation-delay:" + (i * 0.6) + "s\">" +
-                                        "<span class=\"w-1 h-1 bg-vw-accent rounded-full\"></span>" + item.eta +
+                                        "<span class=\"w-1 h-1 bg-vw-accent rounded-full\"></span>" + item.eta[lang] +
                                     "</span>" +
                                 "</div>" +
-                                "<h2 class=\"font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2\">" + item.t + "</h2>" +
-                                "<span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.12em] border border-vw-accent/20 px-2 py-1 inline-flex self-start mb-5\">" + item.tag + "</span>" +
+                                "<h2 class=\"font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2\">" + item.t[lang] + "</h2>" +
+                                "<span class=\"font-mono text-[9px] text-vw-accent uppercase tracking-[0.12em] border border-vw-accent/20 px-2 py-1 inline-flex self-start mb-5\">" + item.tag[lang] + "</span>" +
                                 priceHtml +
-                                "<span class=\"font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em] mb-5 block\">" + item.pn + "</span>" +
-                                "<p class=\"font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic\">" + item.pitch + "</p>" +
+                                "<span class=\"font-mono text-[10px] text-vw-mut uppercase tracking-[0.1em] mb-5 block\">" + item.pn[lang] + "</span>" +
+                                "<p class=\"font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic\">" + item.pitch[lang] + "</p>" +
                                 "<div class=\"flex flex-col mt-auto mb-8\">" + dItems + "</div>" +
                                 "<a href=\"contact.html\" class=\"" + btnC + " flex items-center gap-3 w-full\" style=\"font-size:11px;padding:18px 24px;" + btnS + "\">" +
-                                    "Get started" +
+                                    pricingStrings.getStarted[lang] +
                                     "<i data-lucide=\"arrow-right\" class=\"w-3.5 h-3.5 flex-shrink-0\"></i>" +
                                 "</a>" +
                             "</div>" +
                         "</div>";
                     grid.appendChild(scene);
             });
-        })();
+
+            lucide.createIcons();
+            attachCardTilt();
+        }
+
+        window.VW_RERENDER_PRICING = renderPricing;
+        renderPricing((window.VW_I18N_LANG && window.VW_I18N_LANG()) || 'en');
 
         // ── Init Lucide ──
         lucide.createIcons();
@@ -1389,54 +1408,59 @@
         })();
 
         // ══════════════════════════════════════════════════════
-        // 3D CARD TILT EFFECT
+        // 3D CARD TILT EFFECT (reattached after pricing re-render)
         // ══════════════════════════════════════════════════════
-        document.querySelectorAll('[data-tilt]').forEach(card => {
-            const scene = card.closest('.pkg-card-scene');
-            if (!scene) return;
+        function attachCardTilt() {
+            document.querySelectorAll('[data-tilt]').forEach(card => {
+                if (card.dataset.tiltBound) return;
+                const scene = card.closest('.pkg-card-scene');
+                if (!scene) return;
 
-            // Only on desktop
-            if (window.innerWidth < 1024) return;
+                // Only on desktop
+                if (window.innerWidth < 1024) return;
+                card.dataset.tiltBound = '1';
 
-            scene.addEventListener('mousemove', (e) => {
-                const rect = scene.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                scene.addEventListener('mousemove', (e) => {
+                    const rect = scene.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-                card.style.transform = `
-                    perspective(1200px)
-                    rotateY(${x * 8}deg)
-                    rotateX(${-y * 6}deg)
-                    scale3d(1.02, 1.02, 1.02)
-                `;
-
-                // Move shine based on mouse
-                const shine = card.querySelector('.pkg-card-shine');
-                if (shine) {
-                    shine.style.background = `
-                        radial-gradient(
-                            circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%,
-                            rgba(198,241,53,0.15) 0%,
-                            transparent 50%
-                        )
+                    card.style.transform = `
+                        perspective(1200px)
+                        rotateY(${x * 8}deg)
+                        rotateX(${-y * 6}deg)
+                        scale3d(1.02, 1.02, 1.02)
                     `;
-                    shine.style.opacity = '1';
-                }
-            });
 
-            scene.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1200px) rotateY(0) rotateX(0) scale3d(1,1,1)';
-                card.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
-                const shine = card.querySelector('.pkg-card-shine');
-                if (shine) shine.style.opacity = '0';
+                    // Move shine based on mouse
+                    const shine = card.querySelector('.pkg-card-shine');
+                    if (shine) {
+                        shine.style.background = `
+                            radial-gradient(
+                                circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%,
+                                rgba(198,241,53,0.15) 0%,
+                                transparent 50%
+                            )
+                        `;
+                        shine.style.opacity = '1';
+                    }
+                });
 
-                setTimeout(() => { card.style.transition = ''; }, 600);
-            });
+                scene.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1200px) rotateY(0) rotateX(0) scale3d(1,1,1)';
+                    card.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                    const shine = card.querySelector('.pkg-card-shine');
+                    if (shine) shine.style.opacity = '0';
 
-            scene.addEventListener('mouseenter', () => {
-                card.style.transition = 'transform 0.1s ease-out';
+                    setTimeout(() => { card.style.transition = ''; }, 600);
+                });
+
+                scene.addEventListener('mouseenter', () => {
+                    card.style.transition = 'transform 0.1s ease-out';
+                });
             });
-        });
+        }
+        attachCardTilt();
 
         // ══════════════════════════════════════════════════════
         // SCROLL REVEAL + FEATURE STAGGER
@@ -1504,6 +1528,8 @@
         }
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <style>
         .typewriter-text {
@@ -1528,7 +1554,6 @@
     </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
-            const text = el.dataset.text;
             el.textContent = '';
             el.classList.add('typing');
             let index = 0;
@@ -1538,6 +1563,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !triggered) {
                         triggered = true;
+                        const text = el.dataset.text;
                         const cursor = el.nextElementSibling;
                         function type() {
                             if (index < text.length) {
@@ -1556,7 +1582,7 @@
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 triggered = true;
                 const cursor = el.nextElementSibling;
-                el.textContent = text;
+                el.textContent = el.dataset.text;
                 if (cursor) cursor.classList.add('done');
             }
 

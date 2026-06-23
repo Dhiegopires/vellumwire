@@ -1,3 +1,5 @@
+node_modules
+
 # wrangler files
 .wrangler
 .dev.vars*
@@ -6,3 +8,4 @@
 !.env.example
 .agents
 .claude
+.methodology

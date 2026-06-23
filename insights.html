@@ -54,35 +54,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -223,11 +197,15 @@
                 <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ══════════════════════════════════════════════════════ -->
@@ -237,7 +215,7 @@
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12" style="animation-delay:0.1s">
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n-html="insights.hero.eyebrow">
                     [ INSIGHTS ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
@@ -245,13 +223,13 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
                 <div class="lg:col-span-8">
                     <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]"
-                        style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s">
+                        style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s" data-i18n-html="insights.hero.title">
                         Writing that<br>
                         <em class="text-vw-sec">earns the scroll.</em>
                     </h1>
                 </div>
                 <div class="lg:col-span-4 reveal-up" style="animation-delay:0.4s">
-                    <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md">
+                    <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md" data-i18n="insights.hero.subtitle">
                         Design, conversion, and the quiet decisions that make websites work. No fluff, only pieces that change how you build.
                     </p>
                 </div>
@@ -267,11 +245,11 @@
 
         <div class="border-b border-vw-border/50 py-6 flex items-center justify-between scroll-reveal">
             <span class="eyebrow typewriter-wrap">
-    <span class="typewriter-text" data-text="[ Upcoming ]"></span>
+    <span class="typewriter-text" data-text="[ Upcoming ]" data-i18n="insights.upcoming.eyebrow" data-i18n-attr="data-text:insights.upcoming.eyebrow"></span>
     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
 </span>
             <span class="eyebrow typewriter-wrap">
-    <span class="typewriter-text" data-text="[ 4 articles in draft ]"></span>
+    <span class="typewriter-text" data-text="[ 4 articles in draft ]" data-i18n="insights.draft.eyebrow" data-i18n-attr="data-text:insights.draft.eyebrow"></span>
     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
 </span>
         </div>
@@ -280,11 +258,11 @@
         <div class="insight-row scroll-reveal">
             <span class="row-index">01</span>
             <div class="row-main">
-                <div class="row-tag">Conversion</div>
-                <h2>Why your hero section is losing customers before they scroll</h2>
+                <div class="row-tag" data-i18n="insights.row1.tag">Conversion</div>
+                <h2 data-i18n="insights.row1.title">Why your hero section is losing customers before they scroll</h2>
             </div>
             <div class="row-soon">
-                <span class="soon-badge">Coming soon</span>
+                <span class="soon-badge" data-i18n="insights.soon">Coming soon</span>
                 <span class="read-time">~5 min</span>
             </div>
         </div>
@@ -294,10 +272,10 @@
             <span class="row-index">02</span>
             <div class="row-main">
                 <div class="row-tag">Copy</div>
-                <h2>One rewrite, +40% leads. What actually changed on the page</h2>
+                <h2 data-i18n="insights.row2.title">One rewrite, +40% leads. What actually changed on the page</h2>
             </div>
             <div class="row-soon">
-                <span class="soon-badge">Coming soon</span>
+                <span class="soon-badge" data-i18n="insights.soon">Coming soon</span>
                 <span class="read-time">~7 min</span>
             </div>
         </div>
@@ -306,11 +284,11 @@
         <div class="insight-row scroll-reveal">
             <span class="row-index">03</span>
             <div class="row-main">
-                <div class="row-tag">Performance</div>
-                <h2>Speed is a design decision: 95+ Lighthouse without sacrificing visuals</h2>
+                <div class="row-tag" data-i18n="insights.row3.tag">Performance</div>
+                <h2 data-i18n="insights.row3.title">Speed is a design decision: 95+ Lighthouse without sacrificing visuals</h2>
             </div>
             <div class="row-soon">
-                <span class="soon-badge">Coming soon</span>
+                <span class="soon-badge" data-i18n="insights.soon">Coming soon</span>
                 <span class="read-time">~6 min</span>
             </div>
         </div>
@@ -319,11 +297,11 @@
         <div class="insight-row scroll-reveal" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
             <span class="row-index">04</span>
             <div class="row-main">
-                <div class="row-tag">Strategy</div>
-                <h2>When to redesign and when to just fix what's broken</h2>
+                <div class="row-tag" data-i18n="insights.row4.tag">Strategy</div>
+                <h2 data-i18n="insights.row4.title">When to redesign and when to just fix what's broken</h2>
             </div>
             <div class="row-soon">
-                <span class="soon-badge">Coming soon</span>
+                <span class="soon-badge" data-i18n="insights.soon">Coming soon</span>
                 <span class="read-time">~8 min</span>
             </div>
         </div>
@@ -332,7 +310,7 @@
         <div class="flex items-center justify-between py-10 border-b border-white/10">
             <span class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em]" style="color:#3d3b38;">
                 <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-                Previous
+                <span data-i18n="insights.prev">Previous</span>
             </span>
             <div class="flex items-center gap-2">
                 <span class="w-7 h-7 flex items-center justify-center font-mono text-[10px]" style="border:1px solid #c6f135; color:#c6f135;">1</span>
@@ -340,7 +318,7 @@
                 <span class="w-7 h-7 flex items-center justify-center font-mono text-[10px]" style="border:1px solid #2a2825; color:#3d3b38;">3</span>
             </div>
             <span class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em]" style="color:#3d3b38;">
-                Next
+                <span data-i18n="insights.next">Next</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
         </div>
@@ -349,23 +327,23 @@
         <div class="email-capture scroll-reveal mt-16 mb-32 p-10 lg:p-16">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div>
-                    <p class="eyebrow mb-5">[ Get notified ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></p>
+                    <p class="eyebrow mb-5" data-i18n-html="insights.email.eyebrow">[ Get notified ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></p>
                     <h2 class="font-display text-vw-pri leading-[1.05] tracking-tight mb-4"
-                        style="font-size: clamp(1.75rem, 3.5vw, 3rem);">
+                        style="font-size: clamp(1.75rem, 3.5vw, 3rem);" data-i18n-html="insights.email.title">
                         First to read,<br><em>when it's ready.</em>
                     </h2>
-                    <p class="font-ui text-vw-sec text-sm leading-relaxed max-w-sm">
+                    <p class="font-ui text-vw-sec text-sm leading-relaxed max-w-sm" data-i18n="insights.email.desc">
                         No digest emails. No filler. One article, when it's done.
                     </p>
                 </div>
                 <div>
                     <form class="flex flex-col gap-6" onsubmit="return false;">
                         <div>
-                            <input type="email" placeholder="your@email.com" autocomplete="email">
+                            <input type="email" placeholder="your@email.com" autocomplete="email" data-i18n-attr="placeholder:insights.email.placeholder">
                         </div>
                         <button type="submit"
                             class="self-center lg:self-start inline-flex items-center gap-3 bg-vw-accent hover:bg-vw-accentHov text-vw-base font-ui font-semibold text-sm px-8 py-4 transition-colors">
-                            Notify me
+                            <span data-i18n="insights.email.submit">Notify me</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </form>
@@ -391,30 +369,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -446,10 +424,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -540,6 +518,8 @@
         document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <style>
         .typewriter-text {
@@ -564,7 +544,6 @@
     </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
-            const text = el.dataset.text;
             el.textContent = '';
             el.classList.add('typing');
             let index = 0;
@@ -574,6 +553,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !triggered) {
                         triggered = true;
+                        const text = el.dataset.text;
                         const cursor = el.nextElementSibling;
                         function type() {
                             if (index < text.length) {
@@ -592,7 +572,7 @@
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 triggered = true;
                 const cursor = el.nextElementSibling;
-                el.textContent = text;
+                el.textContent = el.dataset.text;
                 if (cursor) cursor.classList.add('done');
             }
 

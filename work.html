@@ -57,34 +57,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -560,12 +534,16 @@
             </svg>
         </a>
 
-        <!-- Hamburger -->
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <!-- Hamburger -->
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- ── Hero ── -->
@@ -575,21 +553,21 @@
 
             <!-- Eyebrow -->
             <div class="reveal-up flex items-center gap-3 mb-10" style="animation-delay:0.1s">
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n-html="work.hero.eyebrow">
                     [ WORK ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
             </div>
 
             <!-- Headline -->
             <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6"
-                style="font-size: clamp(48px, 8vw, 108px); animation-delay:0.2s">
+                style="font-size: clamp(48px, 8vw, 108px); animation-delay:0.2s" data-i18n-html="work.hero.title">
                 Case studies<br>
                 <em class="text-vw-accent">and diagnoses.</em>
             </h1>
 
             <!-- Sub -->
             <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-xl mb-12"
-               style="animation-delay:0.35s">
+               style="animation-delay:0.35s" data-i18n="work.hero.subtitle">
                 Real service-business websites, rebuilt for conversion. No before/after theatre. Just what changed, why, and what it produced.
             </p>
 
@@ -600,16 +578,16 @@
              style="animation-delay:0.5s;"
              role="tablist" aria-label="Filter projects by category">
             <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
-                All <span class="tab-count">03</span>
+                <span data-i18n="work.filter.all">All</span> <span class="tab-count">03</span>
             </button>
             <button class="filter-tab" data-filter="website-checkup" role="tab" aria-selected="false">
-                Website Checkup <span class="tab-count">02</span>
+                <span data-i18n="common.tag.website_checkup">Website Checkup</span> <span class="tab-count">02</span>
             </button>
             <button class="filter-tab" data-filter="landing-page" role="tab" aria-selected="false">
-                Landing Page <span class="tab-count">01</span>
+                <span data-i18n="common.tag.landing_page">Landing Page</span> <span class="tab-count">01</span>
             </button>
             <button class="filter-tab" data-filter="full-website" role="tab" aria-selected="false">
-                Full Website <span class="tab-count">02</span>
+                <span data-i18n="common.tag.full_website">Full Website</span> <span class="tab-count">02</span>
             </button>
         </div>
     </header>
@@ -624,22 +602,22 @@
                 <div class="work-card-meta">
                     <div class="work-card-eyebrow">
                         <span class="work-card-num">01</span>
-                        <span class="work-card-type">Landing Page</span>
+                        <span class="work-card-type" data-i18n="common.tag.landing_page">Landing Page</span>
                     </div>
                     <h2 class="work-card-title">Harmon & Vale</h2>
-                    <p class="work-card-desc">
+                    <p class="work-card-desc" data-i18n="work.card1.desc">
                         A 40-year-old law firm with a website that couldn't close a door, let alone a client. Their partners blamed the market. We blamed the homepage.
                     </p>
                     <div class="work-card-tags">
-                        <span class="work-tag">Website Checkup</span>
-                        <span class="work-tag">Landing Page</span>
+                        <span class="work-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                        <span class="work-tag" data-i18n="common.tag.landing_page">Landing Page</span>
                     </div>
                     <div class="work-card-result">
                         <span class="work-card-result-num">+134%</span>
-                        <span class="work-card-result-label">qualified consultations in 60 days</span>
+                        <span class="work-card-result-label" data-i18n="work.card1.result_label">qualified consultations in 60 days</span>
                     </div>
                     <span class="work-card-link">
-                        Read case study <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        <span data-i18n="common.read_case_study">Read case study</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </span>
                 </div>
                 <div class="work-card-image">
@@ -656,28 +634,28 @@
                 <div class="work-card-meta">
                     <div class="work-card-eyebrow">
                         <span class="work-card-num">02</span>
-                        <span class="work-card-type">Full Website</span>
+                        <span class="work-card-type" data-i18n="common.tag.full_website">Full Website</span>
                     </div>
                     <h2 class="work-card-title">Selo H</h2>
-                    <p class="work-card-desc">
+                    <p class="work-card-desc" data-i18n="work.card2.desc">
                         The first Brazilian workplace mental health certification with international standards. The credibility was real. The website wasn't keeping up.
                     </p>
                     <div class="work-card-tags">
-                        <span class="work-tag">Website Checkup</span>
-                        <span class="work-tag">Full Website</span>
+                        <span class="work-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                        <span class="work-tag" data-i18n="common.tag.full_website">Full Website</span>
                     </div>
                     <div class="work-card-result">
                         <span class="work-card-result-num">+65%</span>
-                        <span class="work-card-result-label">form submissions · 4 weeks teardown to launch</span>
+                        <span class="work-card-result-label" data-i18n-html="work.card2.result_label">form submissions · 4 weeks teardown to launch</span>
                     </div>
                     <span class="work-card-link">
-                        Read case study <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        <span data-i18n="common.read_case_study">Read case study</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </span>
                 </div>
                 <div class="work-card-image">
                     <span class="work-card-image-corner tl"></span>
                     <span class="work-card-image-corner br"></span>
-                    <img src="assets/img/seloh/hero.png"
+                    <img src="assets/img/seloh/hero.webp"
                          alt="Selo H rebuilt website"
                          loading="lazy" width="800" height="600">
                 </div>
@@ -688,28 +666,28 @@
                 <div class="work-card-meta">
                     <div class="work-card-eyebrow">
                         <span class="work-card-num">03</span>
-                        <span class="work-card-type">Full Website</span>
+                        <span class="work-card-type" data-i18n="common.tag.full_website">Full Website</span>
                     </div>
                     <h2 class="work-card-title">Fiter</h2>
-                    <p class="work-card-desc">
+                    <p class="work-card-desc" data-i18n="work.card3.desc">
                         A deeptech HR platform that had measured 500k+ people. The website wasn't telling enterprise buyers any of it.
                     </p>
                     <div class="work-card-tags">
-                        <span class="work-tag">Strategy</span>
-                        <span class="work-tag">Full Website</span>
+                        <span class="work-tag" data-i18n="common.tag.strategy">Strategy</span>
+                        <span class="work-tag" data-i18n="common.tag.full_website">Full Website</span>
                     </div>
                     <div class="work-card-result">
                         <span class="work-card-result-num">87%</span>
-                        <span class="work-card-result-label">avg. adoption · 6 weeks strategy to launch</span>
+                        <span class="work-card-result-label" data-i18n-html="work.card3.result_label">avg. adoption · 6 weeks strategy to launch</span>
                     </div>
                     <span class="work-card-link">
-                        Read case study <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        <span data-i18n="common.read_case_study">Read case study</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </span>
                 </div>
                 <div class="work-card-image">
                     <span class="work-card-image-corner tl"></span>
                     <span class="work-card-image-corner br"></span>
-                    <img src="projects/fiter/img/hero.png"
+                    <img src="projects/fiter/img/hero.webp"
                          alt="Fiter rebuilt website"
                          loading="lazy" width="800" height="600">
                 </div>
@@ -720,7 +698,7 @@
         <!-- ── Pagination ── -->
         <div class="pagination-bar" id="pagination-bar" aria-label="Project pagination">
             <span class="pagination-info" id="pagination-info">
-                Showing <em id="pg-from">1</em>–<em id="pg-to">4</em> of <em id="pg-total">6</em>
+                <span data-i18n="work.pagination.showing">Showing</span> <em id="pg-from">1</em>–<em id="pg-to">4</em> <span data-i18n="work.pagination.of">of</span> <em id="pg-total">6</em>
             </span>
             <div class="pagination-controls">
                 <button class="pagination-btn" id="pg-prev" aria-label="Previous page" disabled>
@@ -747,17 +725,17 @@
             <div class="consistent-header scroll-reveal">
             <div>
                 <span class="eyebrow mb-6 block typewriter-wrap">
-                    <span class="typewriter-text" data-text="[ Every project ]"></span>
+                    <span class="typewriter-text" data-text="[ Every project ]" data-i18n="work.consistent.eyebrow" data-i18n-attr="data-text:work.consistent.eyebrow"></span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
                 <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]"
-                    style="font-size: clamp(36px, 5vw, 72px);">
+                    style="font-size: clamp(36px, 5vw, 72px);" data-i18n-html="work.consistent.title">
                     What stays consistent<br><em class="text-vw-accent">across projects.</em>
                 </h2>
             </div>
             <!-- Support text: right column, bottom-aligned -->
             <div class="flex flex-col justify-end">
-                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">
+                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md" data-i18n="work.consistent.subtitle">
                     Different industries, different audiences, different starting points. The framework underneath stays the same because conversion problems follow the same patterns regardless of sector.
                 </p>
             </div>
@@ -770,7 +748,7 @@
                 <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Audit before a pixel moves">
                     <div class="faq-demo-meta">
                         <span class="faq-demo-num">01</span>
-                        <span class="faq-demo-text">Audit before a pixel moves</span>
+                        <span class="faq-demo-text" data-i18n="work.pillar1.title">Audit before a pixel moves</span>
                     </div>
                     <div class="faq-toggle-icon">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -779,7 +757,7 @@
                     </div>
                 </button>
                 <div class="faq-demo-body">
-                    <p class="faq-demo-answer">We map where leads are leaking before proposing any solution. The diagnosis dictates the scope. Not the other way around. Every decision that follows comes from data, not instinct.</p>
+                    <p class="faq-demo-answer" data-i18n="work.pillar1.desc">We map where leads are leaking before proposing any solution. The diagnosis dictates the scope. Not the other way around. Every decision that follows comes from data, not instinct.</p>
                 </div>
             </div>
 
@@ -787,7 +765,7 @@
                 <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Proof placed at decision points">
                     <div class="faq-demo-meta">
                         <span class="faq-demo-num">02</span>
-                        <span class="faq-demo-text">Proof placed at decision points</span>
+                        <span class="faq-demo-text" data-i18n="work.pillar2.title">Proof placed at decision points</span>
                     </div>
                     <div class="faq-toggle-icon">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -796,7 +774,7 @@
                     </div>
                 </button>
                 <div class="faq-demo-body">
-                    <p class="faq-demo-answer">Reviews, credentials and results go where hesitation lives. Not in a generic footer block nobody scrolls to. Trust is architected into the page structure.</p>
+                    <p class="faq-demo-answer" data-i18n="work.pillar2.desc">Reviews, credentials and results go where hesitation lives. Not in a generic footer block nobody scrolls to. Trust is architected into the page structure.</p>
                 </div>
             </div>
 
@@ -804,7 +782,7 @@
                 <button class="faq-demo-q w-full" aria-expanded="false" aria-label="One clear path to the CTA">
                     <div class="faq-demo-meta">
                         <span class="faq-demo-num">03</span>
-                        <span class="faq-demo-text">One clear path to the CTA</span>
+                        <span class="faq-demo-text" data-i18n="work.pillar3.title">One clear path to the CTA</span>
                     </div>
                     <div class="faq-toggle-icon">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -813,7 +791,7 @@
                     </div>
                 </button>
                 <div class="faq-demo-body">
-                    <p class="faq-demo-answer">Every page has a primary action. Secondary options exist but they do not compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to choose.</p>
+                    <p class="faq-demo-answer" data-i18n="work.pillar3.desc">Every page has a primary action. Secondary options exist but they do not compete. Hierarchy is enforced, not suggested. Visitors are guided, not asked to choose.</p>
                 </div>
             </div>
 
@@ -821,7 +799,7 @@
                 <button class="faq-demo-q w-full" aria-expanded="false" aria-label="Tracking built into launch">
                     <div class="faq-demo-meta">
                         <span class="faq-demo-num">04</span>
-                        <span class="faq-demo-text">Tracking built into launch</span>
+                        <span class="faq-demo-text" data-i18n="work.pillar4.title">Tracking built into launch</span>
                     </div>
                     <div class="faq-toggle-icon">
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -830,7 +808,7 @@
                     </div>
                 </button>
                 <div class="faq-demo-body">
-                    <p class="faq-demo-answer">GA4 events, session heat maps, form completion rates. All configured before go-live so you know within week one what is working. No guessing after ship.</p>
+                    <p class="faq-demo-answer" data-i18n="work.pillar4.desc">GA4 events, session heat maps, form completion rates. All configured before go-live so you know within week one what is working. No guessing after ship.</p>
                 </div>
             </div>
 
@@ -839,11 +817,11 @@
             <!-- CTAs -->
             <div class="consistent-cta">
                 <a href="index.html" class="btn btn--sweep flex items-center gap-3" style="font-size:11px; padding: 18px 32px;">
-                    See our process
+                    <span data-i18n="work.consistent.cta1">See our process</span>
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
                 <a href="contact.html" class="btn btn--ghost flex items-center gap-2" style="font-size:11px;">
-                    Get a free diagnosis <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    <span data-i18n="work.consistent.cta2">Get a free diagnosis</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
 
@@ -869,30 +847,30 @@
 
                 <!-- Top label -->
                 <div style="position:absolute;top:24px;right:40px;z-index:10;">
-                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]" data-i18n-html="home.cta.badge">Free · No commitment · 15 min</span>
                 </div>
 
                 <!-- Content -->
                 <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(28px,5vw,56px) clamp(24px,5vw,56px) clamp(36px,6vw,64px);">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Ready when you are</span>
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]" data-i18n="home.cta.eyebrow">Ready when you are</span>
                     </div>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;" data-i18n-html="work.ctastrip.title">
                         Want results<br><em class="text-vw-accent">like these?</em>
                     </h2>
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(13px, 1.1vw, 15px); color: #b0aca6;">
+                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(13px, 1.1vw, 15px); color: #b0aca6;" data-i18n="work.ctastrip.desc">
                             We'll read your current site live, flag what's blocking conversions, and map out what to fix first. You keep the diagnosis either way.
                         </p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
                             <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3"
                                style="font-size:12px; padding: 20px 40px; min-width: 240px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease;"
                                onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
-                                Get a free 15-minute diagnosis
+                                <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
-                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color:#7a7875;">Clear next steps within 24h. No spam.</span>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size:10px; color:#7a7875;" data-i18n="work.ctastrip.note">Clear next steps within 24h. No spam.</span>
                         </div>
                     </div>
                 </div>
@@ -916,30 +894,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -971,10 +949,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -1133,6 +1111,8 @@
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <style>
         .typewriter-text {
@@ -1157,7 +1137,6 @@
     </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
-            const text = el.dataset.text;
             el.textContent = '';
             el.classList.add('typing');
             let index = 0;
@@ -1167,6 +1146,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !triggered) {
                         triggered = true;
+                        const text = el.dataset.text;
                         const cursor = el.nextElementSibling;
                         function type() {
                             if (index < text.length) {
@@ -1185,7 +1165,7 @@
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 triggered = true;
                 const cursor = el.nextElementSibling;
-                el.textContent = text;
+                el.textContent = el.dataset.text;
                 if (cursor) cursor.classList.add('done');
             }
 

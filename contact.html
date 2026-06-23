@@ -63,34 +63,8 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -135,22 +109,26 @@
                 <polygon style="fill: inherit;" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0" />
             </svg>
         </a>
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
     <main class="min-h-screen pt-[140px] pb-20 px-6 md:px-12 lg:px-16">
 
         <!-- Page Header -->
         <div class="max-w-4xl mx-auto mb-16">
-            <span class="eyebrow mb-6 block">[ Contact ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></span>
-            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl italic text-vw-pri leading-tight mb-8">
+            <span class="eyebrow mb-6 block" data-i18n-html="contact.eyebrow">[ Contact ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></span>
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl italic text-vw-pri leading-tight mb-8" data-i18n-html="contact.title">
                 Let's build something <span class="text-vw-accent">extraordinary.</span>
             </h1>
-            <p class="font-ui text-vw-sec text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p class="font-ui text-vw-sec text-lg md:text-xl max-w-2xl leading-relaxed" data-i18n="contact.subtitle">
                 Tell us about your project. We'll get back to you within 24 hours.
             </p>
         </div>
@@ -162,24 +140,25 @@
                 
                 <!-- Name -->
                 <div>
-                    <label for="name" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">Name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
+                    <label for="name" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3" data-i18n="contact.form.name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
                         required
                         placeholder="Your name"
+                        data-i18n-attr="placeholder:contact.form.name_placeholder"
                         class="w-full bg-transparent border-b border-vw-border py-3 text-vw-pri placeholder-vw-mut focus:border-vw-accent focus:outline-none transition-colors text-lg"
                     >
                 </div>
 
                 <!-- Email -->
                 <div>
-                    <label for="email" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
+                    <label for="email" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3" data-i18n="contact.form.email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
                         required
                         placeholder="you@company.com"
                         class="w-full bg-transparent border-b border-vw-border py-3 text-vw-pri placeholder-vw-mut focus:border-vw-accent focus:outline-none transition-colors text-lg"
@@ -188,7 +167,7 @@
 
                 <!-- Service -->
                 <div>
-                    <label for="service" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">What brings you in?</label>
+                    <label for="service" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3" data-i18n="contact.form.service">What brings you in?</label>
                     <div class="custom-select relative">
                         <select
                             id="service"
@@ -196,17 +175,17 @@
                             class="sr-only"
                             tabindex="-1"
                         >
-                            <option value="">Select an option</option>
-                            <option value="free-diagnosis">Free 15-min diagnosis</option>
-                            <option value="conversion-audit">Conversion Audit</option>
-                            <option value="core-ui-refresh">Core UI Refresh</option>
-                            <option value="full-web-rebuild">Full Web Rebuild</option>
-                            <option value="brand-strategy">Brand Strategy</option>
+                            <option value="" data-i18n="contact.form.select_option">Select an option</option>
+                            <option value="free-diagnosis" data-i18n="contact.form.opt_free">Free 15-min diagnosis</option>
+                            <option value="conversion-audit" data-i18n="contact.form.opt_audit">Conversion Audit</option>
+                            <option value="core-ui-refresh" data-i18n="contact.form.opt_refresh">Core UI Refresh</option>
+                            <option value="full-web-rebuild" data-i18n="contact.form.opt_rebuild">Full Web Rebuild</option>
+                            <option value="brand-strategy" data-i18n="contact.form.opt_brand">Brand Strategy</option>
                         </select>
                         <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-label="Select a service"
                             class="custom-select-trigger w-full bg-transparent border-b border-vw-border py-3 text-lg flex items-center justify-between cursor-pointer focus:outline-none focus:border-vw-accent transition-colors"
                         >
-                            <span class="custom-select-value text-vw-mut">Select an option</span>
+                            <span class="custom-select-value text-vw-mut" data-i18n="contact.form.select_option">Select an option</span>
                             <svg class="custom-select-arrow w-4 h-4 text-vw-sec transition-transform duration-200 flex-shrink-0" viewBox="0 0 12 12" fill="none">
                                 <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -216,27 +195,27 @@
                             style="display: none;"
                         >
                             <button type="button" role="option" aria-selected="false" data-value=""
-                                class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-[#2a2722] hover:text-vw-pri transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-[#2a2722] hover:text-vw-pri transition-colors" data-i18n="contact.form.select_option">
                                 Select an option
                             </button>
                             <button type="button" role="option" aria-selected="false" data-value="free-diagnosis"
-                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors" data-i18n="contact.form.opt_free">
                                 Free 15-min diagnosis
                             </button>
                             <button type="button" role="option" aria-selected="false" data-value="conversion-audit"
-                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors" data-i18n="contact.form.opt_audit">
                                 Conversion Audit
                             </button>
                             <button type="button" role="option" aria-selected="false" data-value="core-ui-refresh"
-                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors" data-i18n="contact.form.opt_refresh">
                                 Core UI Refresh
                             </button>
                             <button type="button" role="option" aria-selected="false" data-value="full-web-rebuild"
-                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors" data-i18n="contact.form.opt_rebuild">
                                 Full Web Rebuild
                             </button>
                             <button type="button" role="option" aria-selected="false" data-value="brand-strategy"
-                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">
+                                class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors" data-i18n="contact.form.opt_brand">
                                 Brand Strategy
                             </button>
                         </div>
@@ -245,13 +224,14 @@
 
                 <!-- Message -->
                 <div>
-                    <label for="message" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3">Message</label>
-                    <textarea 
-                        id="message" 
-                        name="message" 
+                    <label for="message" class="font-mono text-[10px] uppercase tracking-[0.2em] text-vw-mut block mb-3" data-i18n="contact.form.message">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
                         required
                         rows="5"
                         placeholder="Tell us about your project..."
+                        data-i18n-attr="placeholder:contact.form.message_placeholder"
                         class="w-full bg-transparent border-b border-vw-border py-3 text-vw-pri placeholder-vw-mut focus:border-vw-accent focus:outline-none transition-colors text-lg resize-none"
                     ></textarea>
                 </div>
@@ -269,6 +249,7 @@
                     type="submit" 
                     id="submit-btn"
                     class="w-full bg-vw-accent text-vw-base font-ui font-semibold py-4 px-8 hover:bg-vw-accentHov transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    data-i18n="contact.form.submit"
                 >
                     Send message
                 </button>
@@ -298,30 +279,30 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-block w-4 h-px bg-vw-accent"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.16em]" style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span>
                 </div>
             </div>
 
             <!-- Col 2: Pages Part 1 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Pages</span>
-                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
-                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
+                <a href="index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
+                <a href="work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
 
-                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                <a href="packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
             </div>
 
             <!-- Col 3: Pages Part 2 -->
             <div class="flex flex-col gap-4 lg:col-span-2">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Company</span>
-                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
-                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
-                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.company">Company</span>
+                <a href="studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
+                <a href="insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
+                <a href="contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
             </div>
 
             <!-- Col 4: Contact -->
             <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
-                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;">Contact</span>
+                <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2" style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                 <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                 <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Instagram</a>
                 <a href="https://linkedin.com/company/vellumwire" target="_blank" rel="noopener" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">LinkedIn</a>
@@ -353,10 +334,10 @@
     <!-- Bottom bar: legal -->
     <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026 Vellumwire. All rights reserved.</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026 Vellumwire. All rights reserved.</span>
             <div class="flex items-center gap-6">
-                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Privacy Policy</a>
-                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;">Terms of Use</a>
+                <a href="privacy-policy.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
+                <a href="terms-of-use.html" class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent" style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
             </div>
         </div>
     </div>
@@ -388,12 +369,14 @@
                 options.forEach(o => o.classList.remove('text-vw-accent', 'selected'));
                 if (selected) {
                     valueEl.textContent = selected.textContent;
+                    valueEl.removeAttribute('data-i18n');
                     valueEl.style.color = '';
                     selected.classList.add('text-vw-accent', 'selected');
                     selected.setAttribute('aria-selected', 'true');
                 } else {
                     const first = wrapper.querySelector('[role="option"][data-value=""]');
                     valueEl.textContent = first ? first.textContent : 'Select an option';
+                    valueEl.setAttribute('data-i18n', 'contact.form.select_option');
                     valueEl.style.color = '';
                 }
                 options.forEach(o => {
@@ -477,11 +460,18 @@
             };
         })();
 
+        function t(key, fallback) {
+            const lang = (window.VW_I18N_LANG && window.VW_I18N_LANG()) || 'en';
+            const entry = window.VW_I18N && window.VW_I18N[key];
+            return (entry && entry[lang]) || fallback;
+        }
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.removeAttribute('data-i18n');
+            submitBtn.textContent = t('contact.form.sending', 'Sending...');
             messageEl.style.display = 'none';
             
             const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
@@ -507,7 +497,7 @@
                 console.log('Response:', result);
                 
                 if (res.ok && result.success) {
-                    messageEl.textContent = "Message sent! We'll get back to you soon.";
+                    messageEl.textContent = t('contact.form.success', "Message sent! We'll get back to you soon.");
                     messageEl.style.color = '#c6f135';
                     messageEl.style.display = 'block';
                     form.reset();
@@ -517,16 +507,19 @@
                     throw new Error(result.error || 'Failed to send');
                 }
             } catch (err) {
-                messageEl.textContent = 'Error sending message. Please try again.';
+                messageEl.textContent = t('contact.form.error', 'Error sending message. Please try again.');
                 messageEl.style.color = '#ff6b6b';
                 messageEl.style.display = 'block';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Send message';
+                submitBtn.setAttribute('data-i18n', 'contact.form.submit');
+                submitBtn.textContent = t('contact.form.submit', 'Send message');
             }
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
 </body>
 

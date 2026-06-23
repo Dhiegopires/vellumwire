@@ -167,25 +167,54 @@
         }
     }
 
+    var labelDict = {
+        en: { home: 'Home', work: 'Work', packages: 'Packages', insights: 'Insights', studio: 'Studio', contact: 'Contact', nav: 'Navigation menu', open: 'Open menu', close: 'Close menu' },
+        pt: { home: 'Início', work: 'Projetos', packages: 'Planos', insights: 'Insights', studio: 'Estúdio', contact: 'Contato', nav: 'Menu de navegação', open: 'Abrir menu', close: 'Fechar menu' }
+    };
+
+    function getLang() {
+        try { return localStorage.getItem('vw-lang') || 'en'; } catch (e) { return 'en'; }
+    }
+
     var links = [
-        { num: '01', label: 'Home',     href: basePath + 'index.html' },
-        { num: '02', label: 'Work',     href: basePath + 'work.html' },
-        { num: '03', label: 'Packages', href: basePath + 'packages.html' },
-        { num: '04', label: 'Insights', href: basePath + 'insights.html' },
-        { num: '05', label: 'Studio',   href: basePath + 'studio.html' },
-        { num: '06', label: 'Contact',  href: basePath + 'contact.html' },
+        { num: '01', key: 'home',     href: basePath + 'index.html' },
+        { num: '02', key: 'work',     href: basePath + 'work.html' },
+        { num: '03', key: 'packages', href: basePath + 'packages.html' },
+        { num: '04', key: 'insights', href: basePath + 'insights.html' },
+        { num: '05', key: 'studio',   href: basePath + 'studio.html' },
+        { num: '06', key: 'contact',  href: basePath + 'contact.html' },
     ];
+
+    function setLang(lang) {
+        var d = labelDict[lang] || labelDict.en;
+        document.querySelectorAll('#vw-menu-overlay .vw-menu-links a').forEach(function (a) {
+            var key = a.getAttribute('data-menu-key');
+            var numSpan = a.querySelector('.link-num');
+            a.innerHTML = (numSpan ? numSpan.outerHTML : '') + (d[key] || key);
+        });
+        var overlay = document.getElementById('vw-menu-overlay');
+        if (overlay) overlay.setAttribute('aria-label', d.nav);
+        var btn = document.querySelector('nav button.vw-menu-btn');
+        if (btn) {
+            var isOpen = document.body.classList.contains('menu-open');
+            btn.setAttribute('aria-label', isOpen ? d.close : d.open);
+        }
+    }
+    window.VW_MENU_SET_LANG = setLang;
 
     function init() {
         var style = document.createElement('style');
         style.textContent = CSS;
         document.head.appendChild(style);
 
+        var lang = getLang();
+        var d = labelDict[lang] || labelDict.en;
+
         var overlay = document.createElement('div');
         overlay.id = 'vw-menu-overlay';
         overlay.setAttribute('aria-hidden', 'true');
         overlay.setAttribute('role', 'dialog');
-        overlay.setAttribute('aria-label', 'Navigation menu');
+        overlay.setAttribute('aria-label', d.nav);
 
         var inner = document.createElement('div');
         inner.className = 'vw-menu-inner';
@@ -196,7 +225,8 @@
             var li = document.createElement('li');
             var a = document.createElement('a');
             a.href = item.href;
-            a.innerHTML = '<span class="link-num">' + item.num + '</span>' + item.label;
+            a.setAttribute('data-menu-key', item.key);
+            a.innerHTML = '<span class="link-num">' + item.num + '</span>' + d[item.key];
             a.addEventListener('click', closeMenu);
             li.appendChild(a);
             ul.appendChild(li);
@@ -255,7 +285,7 @@
         document.getElementById('vw-menu-overlay').setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         var btn = document.querySelector('nav button.vw-menu-btn');
-        if (btn) btn.setAttribute('aria-label', 'Close menu');
+        if (btn) btn.setAttribute('aria-label', (labelDict[getLang()] || labelDict.en).close);
     }
 
     function closeMenu() {
@@ -263,7 +293,7 @@
         document.getElementById('vw-menu-overlay').setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         var btn = document.querySelector('nav button.vw-menu-btn');
-        if (btn) btn.setAttribute('aria-label', 'Open menu');
+        if (btn) btn.setAttribute('aria-label', (labelDict[getLang()] || labelDict.en).open);
     }
 
     if (document.readyState === 'loading') {

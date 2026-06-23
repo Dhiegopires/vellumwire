@@ -77,34 +77,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        vw: {
-                            base: '#0c0b09',
-                            surface: '#1c1a17',
-                            accent: '#c6f135',
-                            accentHov: '#b0d82e',
-                            pri: '#ede9e2',
-                            sec: '#8a8680',
-                            mut: '#7a7875',
-                            border: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['"Instrument Serif"', 'serif'],
-                        ui: ['"Syne"', 'sans-serif'],
-                        mono: ['"DM Mono"', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -146,13 +120,17 @@
             </svg>
         </a>
 
-        <!-- Hamburger Menu -->
-        <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer"
-            aria-label="Open menu">
-            <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-            <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
-        </button>
+        <div class="flex items-center gap-4">
+            <button data-lang-toggle class="font-mono text-[11px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm hover:cursor-pointer" aria-label="Switch to Portuguese">PT</button>
+
+            <!-- Hamburger Menu -->
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer"
+                aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
     </nav>
 
 <main
@@ -220,11 +198,11 @@
             <!-- Right Box: Info Block matching placement -->
             <div class="w-full xl:w-[640px] shrink-0 text-center sm:text-left pb-8 lg:pb-0">
                 <h1 class="font-display text-vw-pri text-5xl md:text-7xl italic tracking-tight leading-[1.05] mb-3 md:mb-5 drop-shadow-xl reveal-up"
-                    style="animation-delay: 0.1s;">
+                    style="animation-delay: 0.1s;" data-i18n-html="home.hero.title">
                     Pretty websites are easy. Profitable ones <span class="text-vw-accent">aren’t.</span>
                 </h1>
                 <p class="font-ui text-zinc-300 opacity-90 text-[15px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-4 md:mb-6 text-center sm:text-left max-w-[560px]"
-                    style="animation-delay: 0.3s;">
+                    style="animation-delay: 0.3s;" data-i18n="home.hero.subtitle">
                     We redesign service websites so the right visitors take action. Clear structure, proof where it
                     matters, and copy that sells while you're offline.
                 </p>
@@ -232,14 +210,14 @@
                     <div class="btn-wrapper-glow">
                         <a href="contact.html" class="btn btn--sweep bg-vw-accent text-vw-base hover:!text-vw-base" style="padding: 12px 24px; border: none;"
                             aria-label="Book a Teardown">
-                            See what's leaking on my site
+                            <span data-i18n="home.hero.cta1">See what's leaking on my site</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
                     <div class="flex items-center gap-2 group cursor-pointer shrink-0"
                         onclick="window.scrollBy({top: 500, behavior: 'smooth'})">
                         <span
-                            class="font-ui text-[10px] leading-none text-vw-accent uppercase tracking-[0.2em] transition-colors group-hover:text-white">
+                            class="font-ui text-[10px] leading-none text-vw-accent uppercase tracking-[0.2em] transition-colors group-hover:text-white" data-i18n="home.hero.scroll">
                             or keep scrolling
                         </span>
                         <i data-lucide="arrow-down"
@@ -308,7 +286,7 @@
         <div
             class="relative z-10 px-6 md:px-12 lg:px-16 mx-auto w-full mb-4 pb-4 flex justify-center">
             <span class="eyebrow scroll-reveal typewriter-wrap">
-                <span class="typewriter-text" data-text="[ Selected clients ]"></span>
+                <span class="typewriter-text" data-text="[ Selected clients ]" data-i18n="home.clients.eyebrow" data-i18n-attr="data-text:home.clients.eyebrow"></span>
                 <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
             </span>
         </div>
@@ -358,19 +336,19 @@
             <!-- Header (Left Column) -->
             <div class="flex flex-col gap-6 scroll-reveal lg:sticky lg:top-32 pb-12 lg:py-24">
                 <span class="eyebrow typewriter-wrap">
-                    <span class="typewriter-text" data-text="[ The Leak ]"></span>
+                    <span class="typewriter-text" data-text="[ The Leak ]" data-i18n="home.leak.eyebrow" data-i18n-attr="data-text:home.leak.eyebrow"></span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] pr-4">
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] pr-4" data-i18n-html="home.leak.title">
                     Where service websites lose <span class="text-vw-accent italic opacity-90">leads</span>
                 </h2>
-                <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">
+                <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md" data-i18n="home.leak.subtitle">
                     8 out of 10 service sites lose leads because of three problems that have nothing to do with how the
                     site looks.
                 </p>
                 <div class="mt-8 hidden lg:block">
                     <a href="contact.html?service=free-diagnosis" class="btn-glow" aria-label="Book a 15-min teardown">
-                        Get a free 15-minute diagnosis
+                        <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -389,9 +367,9 @@
                     </div>
                     <div class="flex flex-col gap-1.5 z-10 relative">
                         <h3
-                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">
+                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300" data-i18n="home.leak.card1.title">
                             Unclear CTA path</h3>
-                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm" data-i18n="home.leak.card1.desc">
                             Visitors land, scan for 5 seconds, can't figure out the next step, and leave. Most of them
                             call someone else.
                         </p>
@@ -408,9 +386,9 @@
                     </div>
                     <div class="flex flex-col gap-1.5 z-10 relative">
                         <h3
-                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">
+                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300" data-i18n="home.leak.card2.title">
                             Trust signals in the wrong place</h3>
-                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm" data-i18n="home.leak.card2.desc">
                             Your reviews and credentials exist, but they're buried below the fold. They need to sit next
                             to the button, not three scrolls away.
                         </p>
@@ -427,9 +405,9 @@
                     </div>
                     <div class="flex flex-col gap-1.5 z-10 relative">
                         <h3
-                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300">
+                            class="leak-text-title font-ui text-vw-pri font-medium text-base tracking-wide transition-colors duration-300" data-i18n="home.leak.card3.title">
                             Friction in the request flow</h3>
-                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm">
+                        <p class="font-ui text-vw-sec text-sm leading-[1.6] max-w-sm" data-i18n="home.leak.card3.desc">
                             A 12-field form, a buried phone number, or a page that takes 6 seconds to load. Any one of
                             these kills the lead before they finish.
                         </p>
@@ -439,7 +417,7 @@
                 <!-- Bottom CTA (Mobile Only) -->
                 <div class="flex lg:hidden flex-col items-center gap-4 mt-12 scroll-reveal delay-2">
                     <a href="contact.html?service=free-diagnosis" class="btn-glow" aria-label="Book a 15-min teardown">
-                        Get a free 15-minute diagnosis
+                        <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -460,13 +438,13 @@
                 <!-- Heading -->
                 <div class="flex flex-col gap-6 scroll-reveal">
                     <span class="eyebrow typewriter-wrap">
-                        <span class="typewriter-text" data-text="[ What We Do ]"></span>
+                        <span class="typewriter-text" data-text="[ What We Do ]" data-i18n="home.wwd.eyebrow" data-i18n-attr="data-text:home.wwd.eyebrow"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05]">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05]" data-i18n="home.wwd.title">
                         Three things we do. Each one generates leads.
                     </h2>
-                    <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">
+                    <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md" data-i18n="home.wwd.subtitle">
                         Design, copy, and engineering under one brief. Built for service businesses that depend on
                         inbound leads.
                     </p>
@@ -482,9 +460,9 @@
                         </div>
                         <span
                             class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">01.</span>
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Structure that
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10" data-i18n="home.wwd.step1.title">Structure that
                             guides the click</h3>
-                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10" data-i18n="home.wwd.step1.desc">
                             We map the page so every section pushes toward one action. CTA hierarchy, scannable layout,
                             friction cut at every step.
                         </p>
@@ -498,9 +476,9 @@
                         </div>
                         <span
                             class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">02.</span>
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Copy that proves
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10" data-i18n="home.wwd.step2.title">Copy that proves
                             before it asks</h3>
-                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10" data-i18n="home.wwd.step2.desc">
                             We write every heading, subhead, and CTA. Pain first, then proof, then the ask. Placed
                             exactly where your visitor is making the decision.
                         </p>
@@ -514,9 +492,9 @@
                         </div>
                         <span
                             class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">03.</span>
-                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Fast site, tracking
+                        <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10" data-i18n="home.wwd.step3.title">Fast site, tracking
                             from day one</h3>
-                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10" data-i18n="home.wwd.step3.desc">
                             Lightweight code, fast load times, and GA4 + event tracking configured before launch. You
                             see real numbers from week one.
                         </p>
@@ -552,24 +530,24 @@
         <div
             class="relative flex w-max animate-marquee text-5xl md:text-7xl font-display text-vw-pri tracking-tighter opacity-80 hover:opacity-100 transition-opacity">
             <div class="flex items-center gap-8 md:gap-16 pr-8 md:pr-16">
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
             </div>
             <!-- Duplicated for seamless loop -->
             <div class="flex items-center gap-8 md:gap-16 pr-8 md:pr-16" aria-hidden="true">
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
-                <span>Services structure</span>
+                <span data-i18n="home.marquee.services">Services structure</span>
                 <span class="text-vw-accent opacity-30 text-2xl md:text-3xl mt-1">●</span>
             </div>
         </div>
@@ -593,13 +571,13 @@
                     <div class="scroll-reveal">
                         <!-- Eyebrow matching Design System -->
                         <span class="eyebrow typewriter-wrap">
-                            <span class="typewriter-text" data-text="[ SERVICES ARCHITECTURE ]"></span>
+                            <span class="typewriter-text" data-text="[ SERVICES ARCHITECTURE ]" data-i18n="home.services.eyebrow" data-i18n-attr="data-text:home.services.eyebrow"></span>
                             <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
-                        <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] mt-8">
+                        <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] mt-8" data-i18n="home.services.title">
                             Pick where to start
                         </h2>
-                        <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6">
+                        <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6" data-i18n="home.services.subtitle">
                             Three tiers, one goal: a site that brings you calls every week.
                         </p>
                     </div>
@@ -618,7 +596,7 @@
                         <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
                             <div class="flex justify-between items-start mb-8">
                                 <span
-                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4" data-i18n="home.services.card1.label">
                                     YOU KNOW SOMETHING'S OFF. NOT WHAT.
                                 </span>
                                 <div class="vw-card-arrow border-vw-border/50">
@@ -627,10 +605,10 @@
                             </div>
 
                             <h3
-                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">
+                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4" data-i18n="home.services.card1.title">
                                 Conversion Audit</h3>
 
-                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]" data-i18n="home.services.card1.desc">
                                 We tear your site apart, find what's losing leads, and hand you a ranked fix list. You
                                 keep the report whether you hire us or not.
                             </p>
@@ -655,7 +633,7 @@
                         <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
                             <div class="flex justify-between items-start mb-8">
                                 <span
-                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4" data-i18n="home.services.card2.label">
                                     YOUR SITE EXISTS BUT DOESN'T CONVERT
                                 </span>
                                 <div class="vw-card-arrow border-vw-border/50">
@@ -664,10 +642,10 @@
                             </div>
 
                             <h3
-                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">
+                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4" data-i18n="home.services.card2.title">
                                 Core UI Refresh</h3>
 
-                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]" data-i18n="home.services.card2.desc">
                                 We redesign your homepage and key landing pages with one focus: build trust fast and
                                 capture the lead before they leave.
                             </p>
@@ -692,7 +670,7 @@
                         <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
                             <div class="flex justify-between items-start mb-8">
                                 <span
-                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4" data-i18n="home.services.card3.label">
                                     YOUR SITE NEEDS TO START OVER
                                 </span>
                                 <div class="vw-card-arrow border-vw-border/50">
@@ -701,10 +679,10 @@
                             </div>
 
                             <h3
-                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">
+                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4" data-i18n="home.services.card3.title">
                                 Full Web Rebuild</h3>
 
-                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]" data-i18n="home.services.card3.desc">
                                 Complete teardown and reconstruction of your active digital footprint. We craft the
                                 technical architecture and the sales messaging from scratch.
                             </p>
@@ -729,7 +707,7 @@
                         <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
                             <div class="flex justify-between items-start mb-8">
                                 <span
-                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">
+                                    class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4" data-i18n="home.services.card4.label">
                                     BEST FOR: RE-POSITIONING
                                 </span>
                                 <div class="vw-card-arrow border-vw-border/50">
@@ -738,10 +716,10 @@
                             </div>
 
                             <h3
-                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">
+                                class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4" data-i18n="home.services.card4.title">
                                 Brand Strategy</h3>
 
-                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]" data-i18n="home.services.card4.desc">
                                 Establishing foundational authority. We handle the strategic positioning, tone, and the
                                 complete visual design system.
                             </p>
@@ -771,17 +749,17 @@
             class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 scroll-reveal">
             <div>
                 <span class="eyebrow mb-8 block typewriter-wrap">
-                    <span class="typewriter-text" data-text="[ WORK ]"></span>
+                    <span class="typewriter-text" data-text="[ WORK ]" data-i18n="home.work.eyebrow" data-i18n-attr="data-text:home.work.eyebrow"></span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-4">
+                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-4" data-i18n="home.work.title">
                     Recent work
                 </h2>
-                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-lg mb-8">
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-lg mb-8" data-i18n="home.work.subtitle">
                     Structure and proof working together. Here's what that looks like in practice.
                 </p>
 
-                <a href="work.html" class="btn btn--sweep min-w-[200px]">
+                <a href="work.html" class="btn btn--sweep min-w-[200px]" data-i18n="home.work.cta">
                     View all projects
                 </a>
             </div>
@@ -814,11 +792,11 @@
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Landing Page</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.landing_page">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon & Vale</h3>
-                        <p class="vw-project-desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.hv.desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
                 </a>
 
@@ -827,16 +805,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="assets/img/seloh/hero.png" loading="lazy"
+                        <img src="assets/img/seloh/hero.webp" loading="lazy"
                             alt="Selo H" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Selo H</h3>
-                        <p class="vw-project-desc">A certification platform that finally earns the trust it demands.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.sh.desc">A certification platform that finally earns the trust it demands.</p>
                     </div>
                 </a>
 
@@ -845,16 +823,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="projects/fiter/img/hero.png" loading="lazy"
+                        <img src="projects/fiter/img/hero.webp" loading="lazy"
                             alt="Fiter" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Strategy</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.strategy">Strategy</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Fiter</h3>
-                        <p class="vw-project-desc">The data was real. The website wasn't telling anyone.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.fiter.desc">The data was real. The website wasn't telling anyone.</p>
                     </div>
                 </a>
 
@@ -870,11 +848,11 @@
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Landing Page</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.landing_page">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon & Vale</h3>
-                        <p class="vw-project-desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.hv.desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
                 </a>
 
@@ -883,16 +861,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="assets/img/seloh/hero.png" loading="lazy"
+                        <img src="assets/img/seloh/hero.webp" loading="lazy"
                             alt="Selo H" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Selo H</h3>
-                        <p class="vw-project-desc">A certification platform that finally earns the trust it demands.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.sh.desc">A certification platform that finally earns the trust it demands.</p>
                     </div>
                 </a>
 
@@ -901,16 +879,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="projects/fiter/img/hero.png" loading="lazy"
+                        <img src="projects/fiter/img/hero.webp" loading="lazy"
                             alt="Fiter" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Strategy</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.strategy">Strategy</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Fiter</h3>
-                        <p class="vw-project-desc">The data was real. The website wasn't telling anyone.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.fiter.desc">The data was real. The website wasn't telling anyone.</p>
                     </div>
                 </a>
 
@@ -926,11 +904,11 @@
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Landing Page</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.landing_page">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon & Vale</h3>
-                        <p class="vw-project-desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.hv.desc">A 40-year-old law firm with a website that couldn't close a door, let alone a client.</p>
                     </div>
                 </a>
 
@@ -939,16 +917,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="assets/img/seloh/hero.png" loading="lazy"
+                        <img src="assets/img/seloh/hero.webp" loading="lazy"
                             alt="Selo H" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Website Checkup</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.website_checkup">Website Checkup</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Selo H</h3>
-                        <p class="vw-project-desc">A certification platform that finally earns the trust it demands.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.sh.desc">A certification platform that finally earns the trust it demands.</p>
                     </div>
                 </a>
 
@@ -957,16 +935,16 @@
                     <div class="vw-project-media">
                         <div class="vw-project-corner vw-project-c-tl"></div>
                         <div class="vw-project-corner vw-project-c-br"></div>
-                        <img src="projects/fiter/img/hero.png" loading="lazy"
+                        <img src="projects/fiter/img/hero.webp" loading="lazy"
                             alt="Fiter" class="vw-project-media-img">
                     </div>
                     <div class="vw-project-content">
                         <div class="vw-project-tags">
-                            <span class="vw-project-tag">Strategy</span>
-                            <span class="vw-project-tag">Full Website</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.strategy">Strategy</span>
+                            <span class="vw-project-tag" data-i18n="common.tag.full_website">Full Website</span>
                         </div>
                         <h3 class="vw-project-title">Fiter</h3>
-                        <p class="vw-project-desc">The data was real. The website wasn't telling anyone.</p>
+                        <p class="vw-project-desc" data-i18n="home.card.fiter.desc">The data was real. The website wasn't telling anyone.</p>
                     </div>
                 </a>
 
@@ -1007,16 +985,16 @@
 
                     <div class="scroll-reveal mb-6">
                         <span class="eyebrow typewriter-wrap">
-                            <span class="typewriter-text" data-text="[ PROCESS ]"></span>
+                            <span class="typewriter-text" data-text="[ PROCESS ]" data-i18n="home.process.eyebrow" data-i18n-attr="data-text:home.process.eyebrow"></span>
                             <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
                     </div>
 
                     <div class="scroll-reveal mb-6">
-                        <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92] mb-3">
+                        <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92] mb-3" data-i18n-html="home.process.title">
                             From first call<br>to live site.
                         </h2>
-                        <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-sm">
+                        <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-sm" data-i18n="home.process.subtitle">
                             No intake forms. No three-month timelines. Diagnosis to live site in weeks, not quarters.
                         </p>
                     </div>
@@ -1030,7 +1008,7 @@
                                 alt="Website teardown audit" class="process-media-img">
                             <div
                                 style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
-                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">01 /
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="home.process.media1">01 /
                                     Diagnosis</span>
                             </div>
                         </div>
@@ -1040,7 +1018,7 @@
                                 alt="Strategy and planning" class="process-media-img">
                             <div
                                 style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
-                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">02 /
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="home.process.media2">02 /
                                     Plan</span>
                             </div>
                         </div>
@@ -1050,7 +1028,7 @@
                                 alt="Building the site" class="process-media-img">
                             <div
                                 style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
-                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">03 /
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="home.process.media3">03 /
                                     Build</span>
                             </div>
                         </div>
@@ -1060,7 +1038,7 @@
                                 alt="Launch and go live" class="process-media-img">
                             <div
                                 style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(12,11,9,0.9),transparent);z-index:30;">
-                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]">04 /
+                                <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.14em]" data-i18n="home.process.media4">04 /
                                     Launch</span>
                             </div>
                         </div>
@@ -1093,17 +1071,17 @@
                             <span
                                 class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">01</span>
                             <h3
-                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="home.process.step1.title">
                                 We read your site<br><em>like a lost lead would.</em>
                             </h3>
-                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md" data-i18n="home.process.step1.desc">
                                 Before we touch a pixel, we map where your site loses attention. Conversion blockers,
                                 buried trust signals, form friction, slow loads. You get a prioritized list of what's
                                 actually costing you leads.
                             </p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery:
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="home.process.step1.delivery">Delivery:
                                     48h audit report</span>
                             </div>
                         </div>
@@ -1113,17 +1091,17 @@
                             <span
                                 class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">02</span>
                             <h3
-                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="home.process.step2.title">
                                 You approve<br><em>a concrete plan.</em>
                             </h3>
-                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md" data-i18n="home.process.step2.desc">
                                 We turn the audit into a tight scope. What gets fixed first for the fastest impact, what
                                 gets restructured, and what gets cut. One document, no ambiguity. You sign off before we
                                 write a line of code.
                             </p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery:
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="home.process.step2.delivery">Delivery:
                                     Action plan + timeline, within 3 days</span>
                             </div>
                         </div>
@@ -1133,17 +1111,17 @@
                             <span
                                 class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">03</span>
                             <h3
-                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="home.process.step3.title">
                                 We build it<br><em>without the noise.</em>
                             </h3>
-                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md" data-i18n="home.process.step3.desc">
                                 Design, copy, and engineering run in parallel. We don't drag you into endless feedback
                                 loops. We show you work when there's something real to review. Every decision ties back
                                 to the brief, not personal taste.
                             </p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery:
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="home.process.step3.delivery">Delivery:
                                     Staging environment, week 2 to 3</span>
                             </div>
                         </div>
@@ -1153,16 +1131,16 @@
                             <span
                                 class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.2em] mb-5 block">04</span>
                             <h3
-                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">
+                                class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6" data-i18n-html="home.process.step4.title">
                                 We ship, and you<br><em>can actually measure it.</em>
                             </h3>
-                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">
+                            <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md" data-i18n="home.process.step4.desc">
                                 Launch comes with tracking already configured. Session heatmaps, conversion events, form
                                 completion rates. You'll know within the first week if the site is pulling its weight.
                             </p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">Delivery:
+                                <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="home.process.step4.delivery">Delivery:
                                     Live site + analytics setup, week 4 to 5</span>
                             </div>
                         </div>
@@ -1173,11 +1151,11 @@
 
                                 <!-- Big closing statement -->
                                 <p
-                                    class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-4">
+                                    class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-4" data-i18n-html="home.process.cta.title">
                                     Most sites lose the lead<br>
                                     <em class="text-vw-accent">before a single word gets read.</em>
                                 </p>
-                                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm mb-12">
+                                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm mb-12" data-i18n="home.process.cta.desc">
                                     The diagnosis takes 15 minutes. You'll leave knowing exactly what's costing you
                                     leads. No charge.
                                 </p>
@@ -1186,12 +1164,12 @@
                                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
                                     <a href="contact.html?service=free-diagnosis" class="btn btn--sweep flex items-center gap-3 min-w-[260px]"
                                         style="font-size:12px; padding: 20px 36px;">
-                                        Get a free 15-minute diagnosis
+                                        <span data-i18n="home.leak.cta">Get a free 15-minute diagnosis</span>
                                         <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                                     </a>
                                     <a href="#work" class="btn btn--ghost flex items-center gap-2"
                                         style="font-size:11px;">
-                                        See our work first
+                                        <span data-i18n="home.process.cta.btn2">See our work first</span>
                                         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                                     </a>
                                 </div>
@@ -1199,7 +1177,7 @@
                                 <!-- Social proof line -->
                                 <div class="mt-10 flex items-center gap-3">
                                     <span class="inline-block w-6 h-px bg-vw-accent/60"></span>
-                                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]">No
+                                    <span class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.14em]" data-i18n="home.process.cta.proof">No
                                         pitch. No retainer trap. Just an honest read of your site.</span>
                                 </div>
 
@@ -1226,11 +1204,11 @@
                         class="font-mono text-[10px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3 mb-6">
                         <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>FAQ
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">
+                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]" data-i18n="home.faq.title">
                         Common questions.
                     </h2>
                 </div>
-                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm" data-i18n="home.faq.subtitle">
                     Everything you'd want to know before giving us fifteen minutes of your time.
                 </p>
             </div>
@@ -1244,7 +1222,7 @@
                         aria-label="How fast can you actually ship?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">01</span>
-                            <span class="faq-demo-text">How fast can you actually ship?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q1">How fast can you actually ship?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1253,7 +1231,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Most projects go live in 3 to 5 weeks from signed brief. We don't
+                        <p class="faq-demo-answer" data-i18n="home.faq.a1">Most projects go live in 3 to 5 weeks from signed brief. We don't
                             batch work. When you're in, you're the focus. The diagnosis and planning phases move fast
                             because we skip discovery theater. If you have a hard deadline, tell us upfront and we'll
                             tell you honestly whether we can hit it.</p>
@@ -1266,7 +1244,7 @@
                         aria-label="Do you write the copy, or do we?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">02</span>
-                            <span class="faq-demo-text">Do you write the copy, or do we?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q2">Do you write the copy, or do we?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1275,7 +1253,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We write it. Good structure with weak copy doesn't convert, and we've
+                        <p class="faq-demo-answer" data-i18n="home.faq.a2">We write it. Good structure with weak copy doesn't convert, and we've
                             seen that mistake too many times to leave it to chance. We interview you, pull out what
                             makes you different, and write to a specific visitor intent. You review and adjust tone. We
                             don't outsource this to templates or generic frameworks.</p>
@@ -1287,7 +1265,7 @@
                     <button class="faq-demo-q w-full" aria-expanded="false" aria-label="What platform do you build on?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">03</span>
-                            <span class="faq-demo-text">What platform do you build on?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q3">What platform do you build on?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1296,7 +1274,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Depends on what your site needs to do. Webflow for marketing sites
+                        <p class="faq-demo-answer" data-i18n="home.faq.a3">Depends on what your site needs to do. Webflow for marketing sites
                             that need editorial control. Next.js for product-adjacent builds. Custom HTML/CSS for
                             maximum performance. We won't lock you into a stack that serves us better than it serves
                             you.</p>
@@ -1308,7 +1286,7 @@
                     <button class="faq-demo-q w-full" aria-expanded="false" aria-label="What if I already have a site?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">04</span>
-                            <span class="faq-demo-text">What if I already have a site? Do you start from scratch?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q4">What if I already have a site? Do you start from scratch?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1317,7 +1295,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Not automatically. The diagnosis determines that. Some sites need a
+                        <p class="faq-demo-answer" data-i18n="home.faq.a4">Not automatically. The diagnosis determines that. Some sites need a
                             full rebuild: wrong structure, bad CMS, broken mobile. Others just need better copy, a
                             tighter above-the-fold, and one clean CTA path. We'll tell you what's actually warranted,
                             not what maximizes our invoice.</p>
@@ -1330,7 +1308,7 @@
                         aria-label="How is this different from hiring a freelancer or an agency?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">05</span>
-                            <span class="faq-demo-text">How is this different from hiring a freelancer or an
+                            <span class="faq-demo-text" data-i18n="home.faq.q5">How is this different from hiring a freelancer or an
                                 agency?</span>
                         </div>
                         <div class="faq-toggle-icon">
@@ -1340,7 +1318,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Freelancers execute what you ask for. Agencies sell what they already
+                        <p class="faq-demo-answer" data-i18n="home.faq.a5">Freelancers execute what you ask for. Agencies sell what they already
                             have. We start with what's actually costing you revenue and work backward. You get a small
                             senior team with no account management layers, and a scope written around your conversion
                             problem, not your visual preferences.</p>
@@ -1353,7 +1331,7 @@
                         aria-label="What does the 15-minute teardown actually cover?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">06</span>
-                            <span class="faq-demo-text">What does the 15-minute teardown actually cover?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q6">What does the 15-minute teardown actually cover?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1362,7 +1340,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">We share screen, walk your site live, and flag the top conversion
+                        <p class="faq-demo-answer" data-i18n="home.faq.a6">We share screen, walk your site live, and flag the top conversion
                             blockers in real time. CTA clarity, trust signal placement, form friction, load issues,
                             mobile gaps. You leave with a prioritized fix list, whether you hire us or not. No pitch. No
                             slide deck. Just a straight read.</p>
@@ -1374,7 +1352,7 @@
                     <button class="faq-demo-q w-full" aria-expanded="false" aria-label="How much does this cost?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">07</span>
-                            <span class="faq-demo-text">How much does this cost?</span>
+                            <span class="faq-demo-text" data-i18n="home.faq.q7">How much does this cost?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1383,7 +1361,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">A site checkup is $350. A single landing page runs $750 to $1,200. A
+                        <p class="faq-demo-answer" data-i18n="home.faq.a7">A site checkup is $350. A single landing page runs $750 to $1,200. A
                             homepage redesign is $1,500 to $2,800. A full website with up to 6 pages runs $3,000 to
                             $5,000. If you also need branding, the full package is $4,500 to $8,000. We publish our
                             prices because we don't want to waste your time or ours. You get an exact number before any
@@ -1397,7 +1375,7 @@
                         aria-label="I just paid someone to redo my site. Do I really need another rebuild?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">08</span>
-                            <span class="faq-demo-text">I just paid someone to redo my site. Do I really need another
+                            <span class="faq-demo-text" data-i18n="home.faq.q8">I just paid someone to redo my site. Do I really need another
                                 rebuild?</span>
                         </div>
                         <div class="faq-toggle-icon">
@@ -1407,7 +1385,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Maybe not. A lot of recent redesigns look fine but weren't built for
+                        <p class="faq-demo-answer" data-i18n="home.faq.a8">Maybe not. A lot of recent redesigns look fine but weren't built for
                             conversion. If the structure is solid, we can often fix the copy, CTA flow, and trust
                             placement without starting from scratch. The diagnosis will tell you exactly what's worth
                             keeping and what isn't.</p>
@@ -1447,7 +1425,7 @@
 
                 <!-- Top meta label -->
                 <div style="position:absolute;top:28px;right:48px;z-index:10;">
-                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15
+                    <span class="font-mono text-[9px] text-vw-mut uppercase tracking-[0.18em]" data-i18n-html="home.cta.badge">Free · No commitment · 15
                         min</span>
                 </div>
 
@@ -1458,20 +1436,20 @@
                     <!-- Eyebrow -->
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
-                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]">Ready when you
+                        <span class="font-mono text-[10px] text-vw-accent uppercase tracking-[0.18em]" data-i18n="home.cta.eyebrow">Ready when you
                             are</span>
                     </div>
 
                     <!-- Headline large, tight, brutal (green on last line) -->
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10"
-                        style="font-size: clamp(40px, 6vw, 88px); max-width: 14ch;">
+                        style="font-size: clamp(40px, 6vw, 88px); max-width: 14ch;" data-i18n-html="home.cta.title">
                         Your next client is on your site right now.<br><em class="text-vw-accent">What do they see?</em>
                     </h2>
 
                     <!-- Sub-copy + CTA side by side on desktop -->
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm"
-                            style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">
+                            style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;" data-i18n="home.cta.desc">
                             In 15 minutes we'll show you exactly where your site is losing that lead. No cost, no
                             commitment. You keep the diagnosis either way.
                         </p>
@@ -1480,11 +1458,11 @@
                                 style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);"
                                 onmouseover="this.style.background='#b0d82e'"
                                 onmouseout="this.style.background='#c6f135'">
-                                Get my free diagnosis
+                                <span data-i18n="home.cta.btn">Get my free diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center"
-                                style="font-size:10px; color: #7a7875;">You get a fix list within 24h. Hire us or
+                                style="font-size:10px; color: #7a7875;" data-i18n="home.cta.note">You get a fix list within 24h. Hire us or
                                 don't.</span>
                         </div>
                     </div>
@@ -1517,38 +1495,38 @@
                     <div class="flex items-center gap-3">
                         <span class="inline-block w-4 h-px bg-vw-accent"></span>
                         <span class="font-mono text-[10px] uppercase tracking-[0.16em]"
-                            style="color: #7a7875;">Curitiba, BR &middot; Est. 2024</span><!-- synced -->
+                            style="color: #7a7875;" data-i18n-html="common.footer.location">Curitiba, BR &middot; Est. 2024</span><!-- synced -->
                     </div>
                 </div>
 
                 <!-- Col 2: Pages Part 1 -->
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2"
-                        style="color: #555250;">Pages</span>
+                        style="color: #555250;" data-i18n="common.footer.pages">Pages</span>
                     <a href="index.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.home">Home</a>
                     <a href="work.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.work">Work</a>
                     <a href="packages.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.packages">Packages</a>
                 </div>
 
                 <!-- Col 3: Pages Part 2 -->
                 <div class="flex flex-col gap-4 lg:col-span-2">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2"
-                        style="color: #555250;">Company</span>
+                        style="color: #555250;" data-i18n="common.footer.company">Company</span>
                     <a href="studio.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.studio">Studio</a>
                     <a href="insights.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.insights">Insights</a>
                     <a href="contact.html"
-                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                        class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300" data-i18n="common.footer.contact_label">Contact</a>
                 </div>
 
                 <!-- Col 4: Contact -->
                 <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
                     <span class="font-mono text-[9px] uppercase tracking-[0.2em] mb-2"
-                        style="color: #555250;">Contact</span>
+                        style="color: #555250;" data-i18n="common.footer.contact_label">Contact</span>
                     <a href="mailto:contact@vellumwire.com"
                         class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
                     <a href="https://instagram.com/vellumwire" target="_blank" rel="noopener"
@@ -1590,15 +1568,15 @@
         <!-- Bottom bar: legal -->
         <div style="border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px);">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;">&copy; 2026
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em]" style="color: #555250;" data-i18n-html="common.footer.copyright">&copy; 2026
                     Vellumwire. All rights reserved.</span>
                 <div class="flex items-center gap-6">
                     <a href="privacy-policy.html"
                         class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent"
-                        style="color: #555250;">Privacy Policy</a>
+                        style="color: #555250;" data-i18n="common.footer.privacy">Privacy Policy</a>
                     <a href="terms-of-use.html"
                         class="font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent"
-                        style="color: #555250;">Terms of Use</a>
+                        style="color: #555250;" data-i18n="common.footer.terms">Terms of Use</a>
                 </div>
             </div>
         </div>
@@ -1782,6 +1760,8 @@
         });
     </script>
     <script src="assets/js/menu.min.js"></script>
+    <script src="assets/js/i18n-dict.js"></script>
+    <script src="assets/js/i18n.js"></script>
 
     <style>
         .typewriter-text {
@@ -1806,7 +1786,6 @@
     </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
-            const text = el.dataset.text;
             el.textContent = '';
             el.classList.add('typing');
             let index = 0;
@@ -1816,6 +1795,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !triggered) {
                         triggered = true;
+                        const text = el.dataset.text;
                         const cursor = el.nextElementSibling;
                         function type() {
                             if (index < text.length) {
@@ -1834,7 +1814,7 @@
             if (el.getBoundingClientRect().top < window.innerHeight) {
                 triggered = true;
                 const cursor = el.nextElementSibling;
-                el.textContent = text;
+                el.textContent = el.dataset.text;
                 if (cursor) cursor.classList.add('done');
             }
 
