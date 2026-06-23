@@ -157,13 +157,18 @@
         }
     `;
 
-    var scripts = document.getElementsByTagName('script');
-    var basePath = '';
-    for (var i = 0; i < scripts.length; i++) {
-        var src = scripts[i].getAttribute('src');
-        if (src && /menu(\.min)?\.js/.test(src)) {
-            basePath = src.replace(/assets\/js\/menu(\.min)?\.js.*$/, '');
-            break;
+    // basePath: path from this page back to the root of its own language tree.
+    // Declared explicitly per page via window.VW_BASE_PATH (see each page's <head>),
+    // since it must NOT be inferred from this script's own (possibly deeper, shared-asset) src path.
+    var basePath = typeof window.VW_BASE_PATH === 'string' ? window.VW_BASE_PATH : '';
+    if (basePath === '') {
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var src = scripts[i].getAttribute('src');
+            if (src && /menu(\.min)?\.js/.test(src)) {
+                basePath = src.replace(/assets\/js\/menu(\.min)?\.js.*$/, '');
+                break;
+            }
         }
     }
 
@@ -173,7 +178,7 @@
     };
 
     function getLang() {
-        try { return localStorage.getItem('vw-lang') || 'en'; } catch (e) { return 'en'; }
+        return (document.documentElement.lang || 'en').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
     }
 
     var links = [
@@ -184,23 +189,6 @@
         { num: '05', key: 'studio',   href: basePath + 'studio.html' },
         { num: '06', key: 'contact',  href: basePath + 'contact.html' },
     ];
-
-    function setLang(lang) {
-        var d = labelDict[lang] || labelDict.en;
-        document.querySelectorAll('#vw-menu-overlay .vw-menu-links a').forEach(function (a) {
-            var key = a.getAttribute('data-menu-key');
-            var numSpan = a.querySelector('.link-num');
-            a.innerHTML = (numSpan ? numSpan.outerHTML : '') + (d[key] || key);
-        });
-        var overlay = document.getElementById('vw-menu-overlay');
-        if (overlay) overlay.setAttribute('aria-label', d.nav);
-        var btn = document.querySelector('nav button.vw-menu-btn');
-        if (btn) {
-            var isOpen = document.body.classList.contains('menu-open');
-            btn.setAttribute('aria-label', isOpen ? d.close : d.open);
-        }
-    }
-    window.VW_MENU_SET_LANG = setLang;
 
     function init() {
         var style = document.createElement('style');
