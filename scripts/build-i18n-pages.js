@@ -1,10 +1,10 @@
 // ONE-TIME migration script: converted the old JS-toggle (data-i18n attributes,
 // single page per URL) architecture into two genuinely separate static page
-// trees (EN at root, PT-BR mirrored under /pt/) for correct hreflang/SEO.
+// trees (EN at root, PT-BR mirrored under /pt-br/) for correct hreflang/SEO.
 //
 // It already ran. The EN root pages were overwritten in place (data-i18n
 // attributes stripped, real <a> language link, hreflang tags) and are now
-// the live source of truth; /pt/ pages are independent static files.
+// the live source of truth; /pt-br/ pages are independent static files.
 //
 // Do NOT re-run this against the current root pages: they no longer carry
 // data-i18n markup, so nothing would translate, and it would inject a
@@ -104,7 +104,7 @@ function cleanUrl(rel) {
 // relative path from an EN file to its PT counterpart
 function enToPtHref(rel) {
     const depth = depthOf(rel);
-    return upPath(depth) + "pt/" + rel;
+    return upPath(depth) + "pt-br/" + rel;
 }
 
 // relative path from a PT file to its EN counterpart
@@ -147,8 +147,8 @@ function applyTranslations($, lang) {
 
 // Every relative reference that is NOT a link to one of these known pages
 // points to a shared, non-mirrored resource (CSS/JS/SVG/images) living only
-// outside the /pt/ tree, and needs one extra "../" in the PT build.
-// Page links stay untouched because the whole site is mirrored 1:1 under /pt/.
+// outside the /pt-br/ tree, and needs one extra "../" in the PT build.
+// Page links stay untouched because the whole site is mirrored 1:1 under /pt-br/.
 const PAGE_NAMES = new Set([
     "index.html", "work.html", "packages.html", "contact.html", "studio.html",
     "insights.html", "terms-of-use.html", "privacy-policy.html",
@@ -166,7 +166,7 @@ function isPageLink(href) {
 // Real relative-path resolution: resolves `href` against the directory the
 // EN page lives in, then re-expresses that same absolute (site-root-relative)
 // target as a path relative to the PT page's directory (one level deeper,
-// under /pt/). A naive "prepend one ../" only works when the original
+// under /pt-br/). A naive "prepend one ../" only works when the original
 // reference is itself anchored at the site root (e.g. assets/...); local
 // per-page resource folders (e.g. fiter's own img/) are anchored at the
 // page's own directory instead, so the adjustment must be computed properly.
@@ -196,7 +196,7 @@ function relativePathBetween(fromDirParts, toPartsAbsolute) {
 
 function fixAssetPaths($, rel) {
     const enDirParts = dirPartsOf(rel);
-    const ptDirParts = ["pt"].concat(enDirParts);
+    const ptDirParts = ["pt-br"].concat(enDirParts);
 
     $("[href], [src]").each((_, el) => {
         const $el = $(el);
@@ -235,7 +235,7 @@ function setLangSwitcher($, lang, href) {
 function setHreflangAndCanonical($, rel, lang) {
     const clean = cleanUrl(rel);
     const enUrl = "https://vellumwire.com/" + clean;
-    const ptUrl = "https://vellumwire.com/pt/" + clean;
+    const ptUrl = "https://vellumwire.com/pt-br/" + clean;
 
     $('link[rel="canonical"]').attr("href", lang === "en" ? enUrl : ptUrl);
 
@@ -336,7 +336,7 @@ function fixAssetPaths_forLang($, lang, rel) {
 const OUT_ROOT = process.env.VW_DRY_RUN ? path.join(ROOT, "scratch-build-output") : ROOT;
 
 function writeOut(rel, lang, html) {
-    const outRel = lang === "en" ? rel : path.join("pt", rel);
+    const outRel = lang === "en" ? rel : path.join("pt-br", rel);
     const outPath = path.join(OUT_ROOT, outRel);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, html, "utf8");
