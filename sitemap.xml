@@ -2,178 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vellumwire.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/" />
+    <loc>https://www.vellumwire.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/" />
+    <loc>https://www.vellumwire.com/pt-br/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/work</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/work" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/work" />
+    <loc>https://www.vellumwire.com/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/work" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/work" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/work</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/work" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/work" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/work" />
+    <loc>https://www.vellumwire.com/pt-br/work</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/work" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/work" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/work" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/packages</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/packages" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/packages" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/packages" />
+    <loc>https://www.vellumwire.com/packages</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/packages" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/packages" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/packages" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/packages</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/packages" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/packages" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/packages" />
+    <loc>https://www.vellumwire.com/pt-br/packages</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/packages" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/packages" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/packages" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/contact" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/contact" />
+    <loc>https://www.vellumwire.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/contact" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/contact" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/contact" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/contact" />
+    <loc>https://www.vellumwire.com/pt-br/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/contact" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/contact" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/studio</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/studio" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/studio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/studio" />
+    <loc>https://www.vellumwire.com/studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/studio" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/studio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/studio" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/studio</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/studio" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/studio" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/studio" />
+    <loc>https://www.vellumwire.com/pt-br/studio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/studio" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/studio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/studio" />
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/insights</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/insights" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/insights" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/insights" />
+    <loc>https://www.vellumwire.com/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/insights" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/insights" />
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/insights</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/insights" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/insights" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/insights" />
+    <loc>https://www.vellumwire.com/pt-br/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/insights" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/insights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/insights" />
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/projects/harmon-and-vale</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/harmon-and-vale" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/harmon-and-vale" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/harmon-and-vale" />
+    <loc>https://www.vellumwire.com/projects/harmon-and-vale/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/harmon-and-vale/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/harmon-and-vale/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/harmon-and-vale/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/projects/harmon-and-vale</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/harmon-and-vale" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/harmon-and-vale" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/harmon-and-vale" />
+    <loc>https://www.vellumwire.com/pt-br/projects/harmon-and-vale/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/harmon-and-vale/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/harmon-and-vale/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/harmon-and-vale/" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/projects/seloh</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/seloh" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/seloh" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/seloh" />
+    <loc>https://www.vellumwire.com/projects/seloh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/seloh/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/seloh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/seloh/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/projects/seloh</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/seloh" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/seloh" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/seloh" />
+    <loc>https://www.vellumwire.com/pt-br/projects/seloh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/seloh/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/seloh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/seloh/" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/projects/fiter</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/fiter" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/fiter" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/fiter" />
+    <loc>https://www.vellumwire.com/projects/fiter/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/fiter/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/fiter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/fiter/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/projects/fiter</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/projects/fiter" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/projects/fiter" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/projects/fiter" />
+    <loc>https://www.vellumwire.com/pt-br/projects/fiter/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/fiter/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/fiter/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/projects/fiter/" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/privacy-policy" />
+    <loc>https://www.vellumwire.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/privacy-policy" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/privacy-policy" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/privacy-policy" />
+    <loc>https://www.vellumwire.com/pt-br/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/privacy-policy" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/terms-of-use</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/terms-of-use" />
+    <loc>https://www.vellumwire.com/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/terms-of-use" />
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://vellumwire.com/pt-br/terms-of-use</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vellumwire.com/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vellumwire.com/pt-br/terms-of-use" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vellumwire.com/terms-of-use" />
+    <loc>https://www.vellumwire.com/pt-br/terms-of-use</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/terms-of-use" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/terms-of-use" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
