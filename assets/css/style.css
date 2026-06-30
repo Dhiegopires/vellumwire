@@ -17,9 +17,41 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Utility classes replacing the highest-frequency repeated inline styles
+   (color: var(--color-text-sec) on its own was inlined 158 times sitewide). */
+.text-muted-inline { color: var(--color-text-sec); }
+.fill-inherit { fill: inherit; }
+.link-reset { text-decoration: none; color: inherit; }
+.footer-top-border { border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-legal-border { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px); }
+.wordmark-block { padding: 0; margin-bottom: -2px; }
+
+/* Scroll-reveal stagger timing (animation-delay). Distinct from .delay-1..4
+   above, which set transition-delay for a different effect. */
+.adelay-100 { animation-delay: 0.1s; }
+.adelay-200 { animation-delay: 0.2s; }
+.adelay-350 { animation-delay: 0.35s; }
+.adelay-400 { animation-delay: 0.4s; }
+.adelay-450 { animation-delay: 0.45s; }
+.adelay-500 { animation-delay: 0.5s; }
+.adelay-550 { animation-delay: 0.55s; }
+.adelay-600 { animation-delay: 0.6s; }
+
 canvas {
     outline: none;
     border: none;
+}
+
+/* Visible keyboard focus on every interactive element (WCAG 2.1 AA 2.4.7).
+   `:focus-visible` only triggers for keyboard nav, so mouse-click UX is unchanged. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
 }
 
 /* Ambient Visual Layer */
@@ -143,7 +175,7 @@ canvas {
     align-items: center;
     gap: 0.5rem;
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #c6f135;
@@ -153,7 +185,7 @@ canvas {
     align-items: center;
     gap: 0.5rem;
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #8a8680;
@@ -167,7 +199,7 @@ canvas {
     gap: 8px;
     font-family: 'DM Mono', monospace;
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 16px 32px;
@@ -988,7 +1020,7 @@ img.marquee-logo {
     /* Outlined green base */
     color: var(--color-accent);
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     padding: 6px 10px;
     border-radius: 0;
@@ -1169,7 +1201,7 @@ img.marquee-logo {
 
 .faq-demo-num {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 12px;
     color: var(--color-accent);
     letter-spacing: 0.12em;
     flex-shrink: 0;

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditoria de Copy · Vellumwire · Step 4.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #111118; --surface2: #18181f; --border: #2a2a35;
+    --accent: #c6f135; --accent-dim: rgba(198,241,53,0.15); --accent-border: rgba(198,241,53,0.35);
+    --text: #e8e8f0; --muted: #888899; --danger: #ff4d6d; --warn: #ffb703; --ok: #43e97b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; }
+
+  .header { background: linear-gradient(135deg, #0d0d0a 0%, #111309 50%, #0a0f08 100%); border-bottom: 1px solid var(--border); padding: 56px 48px 48px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(198,241,53,0.08) 0%, transparent 70%); pointer-events: none; }
+  .badge { display: inline-block; background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
+  .header h1 { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 12px; position: relative; z-index: 1; }
+  .header h1 span { color: var(--accent); }
+  .header p { color: var(--muted); max-width: 660px; font-size: 15px; position: relative; z-index: 1; }
+  .header-meta { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .meta-value { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 15px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 48px; }
+  .section { margin-bottom: 64px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .section-num { width: 36px; height: 36px; background: var(--accent); color: #0c0b09; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; }
+  .section-sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 48px; }
+  .toc h3 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
+  .toc ol { list-style: decimal; padding-left: 20px; columns: 2; column-gap: 24px; }
+  .toc li { font-size: 13px; padding: 3px 0; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .warn-bar { background: rgba(255,183,3,0.08); border: 1px solid rgba(255,183,3,0.25); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; }
+  .warn-bar .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .warn-bar p { font-size: 13.5px; color: #fcd34d; line-height: 1.6; }
+  .warn-bar strong { color: var(--warn); }
+  .danger-bar { background: rgba(255,77,109,0.07); border: 1px solid rgba(255,77,109,0.28); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; }
+  .danger-bar .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .danger-bar p { font-size: 13.5px; color: #fca5a5; line-height: 1.6; }
+  .danger-bar strong { color: var(--danger); }
+  .ok-bar { background: rgba(67,233,123,0.07); border: 1px solid rgba(67,233,123,0.22); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; }
+  .ok-bar .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .ok-bar p { font-size: 13.5px; color: #a7f3d0; line-height: 1.6; }
+  .ok-bar strong { color: var(--ok); }
+
+  .group-label { font-family:'Syne',sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 28px 0 12px; }
+  .group-label:first-child { margin-top: 0; }
+
+  .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: var(--surface2); }
+  th { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 12px 16px; border-bottom: 1px solid rgba(42,42,53,0.6); vertical-align: top; line-height: 1.5; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  code { font-family: 'DM Mono', monospace; font-size: 11.5px; background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 4px; color: #c4c4d4; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+  .pill.ok   { background: rgba(67,233,123,0.15); color: #6ee7b7; }
+  .pill.warn { background: rgba(249,168,37,0.15);  color: #fcd34d; }
+  .pill.fail { background: rgba(255,77,109,0.12);  color: #fca5a5; }
+  .pill.info { background: rgba(99,179,237,0.15);  color: #93c5fd; }
+  .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; }
+  .tag.ok   { background: rgba(67,233,123,0.15); color: #6ee7b7; }
+  .tag.warn { background: rgba(255,183,3,0.15);  color: #fcd34d; }
+  .tag.bad  { background: rgba(255,77,109,0.15); color: #fca5a5; }
+  .tag.info { background: rgba(99,179,237,0.15); color: #93c5fd; }
+  .tag.lime { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+
+  .finding-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 16px; }
+  .finding-card.sev-high { border-left: 3px solid var(--danger); }
+  .finding-card.sev-med { border-left: 3px solid var(--warn); }
+  .finding-card.sev-low { border-left: 3px solid var(--ok); }
+  .finding-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .finding-head h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; }
+  .finding-card .quote { font-size: 13.5px; color: var(--text); background: rgba(255,255,255,0.03); border-left: 2px solid var(--border); padding: 8px 14px; margin: 10px 0; font-style: italic; }
+  .finding-card .where { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 6px; }
+  .finding-card p.body { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  .page-audit { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 20px; }
+  .page-audit-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .page-audit-head h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; }
+  .page-audit-head .urls { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  .findings { font-size: 12.5px; color: var(--muted); list-style: none; padding: 0; }
+  .findings li { padding: 4px 0 4px 18px; position: relative; }
+  .findings li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  .findings li.bad-finding::before { content: '✕'; color: var(--danger); }
+  .findings li.warn-finding::before { content: '!'; color: var(--warn); }
+  .findings li.ok-finding::before { content: '✓'; color: var(--ok); }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 0; }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 48px; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer .accent { color: var(--accent); }
+
+  @media(max-width: 768px) {
+    .container { padding: 24px; }
+    .header { padding: 32px 24px; }
+    .toc ol { columns: 1; }
+    footer { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">Page Copy · Vellumwire · Step 4.2</div>
+  <h1>O copy real, lido frase por frase<br><span>contra as regras de tom do método</span></h1>
+  <p>A copy do site já está publicada, escrita por quem entende o negócio — não é um rascunho. Este documento audita a copy real (hero, CTAs, prova social, FAQ, claims numéricos) contra as 5 regras de tom do Step 4.2: zero clichê de "linguagem de IA", zero abertura de "limpar a garganta", todo CTA com ação específica, toda alegação numérica com fonte real ou flag, todo testemunho com nome e empresa reais. A maior parte do site passa. As violações reais encontradas estão listadas com citação literal de arquivo e linha.</p>
+  <div class="header-meta">
+    <div class="meta-item"><span class="meta-label">Páginas auditadas</span><span class="meta-value">5 pares (EN+PT)</span></div>
+    <div class="meta-item"><span class="meta-label">Clichês banidos encontrados</span><span class="meta-value" style="color:var(--danger)">3</span></div>
+    <div class="meta-item"><span class="meta-label">CTAs genéricos encontrados</span><span class="meta-value" style="color:var(--ok)">0</span></div>
+    <div class="meta-item"><span class="meta-label">Claims sem fonte rastreável</span><span class="meta-value" style="color:var(--danger)">3</span></div>
+    <div class="meta-item"><span class="meta-label">Gap de divulgação</span><span class="meta-value" style="color:var(--warn)">1</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h3>Índice</h3>
+    <ol>
+      <li><a href="#metodo">00. Nota de método</a></li>
+      <li><a href="#prioritarios">01. Achados prioritários</a></li>
+      <li><a href="#paginas">02. Auditoria por página</a></li>
+      <li><a href="#faq">03. Consistência de FAQ e claims</a></li>
+      <li><a href="#linguagem">04. Linguagem banida</a></li>
+      <li><a href="#ctas">05. Inventário de CTAs</a></li>
+      <li><a href="#prioridade">06. Prioridade de correção</a></li>
+    </ol>
+  </div>
+
+  <!-- ── MÉTODO ── -->
+  <div class="section" id="metodo">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div>
+        <h2>Nota de método</h2>
+        <div class="section-sub">O que foi auditado, e como os achados foram verificados antes de entrar neste documento</div>
+      </div>
+    </div>
+    <div class="ok-bar">
+      <div class="icon">✓</div>
+      <p><strong>Escopo:</strong> Home, Contact, Packages, Work e Studio (EN + pt-BR) foram lidos linha a linha — hero, CTAs, seções intermediárias, prova social, FAQ e CTA final. Insights, as 3 páginas de case study e as páginas legais foram cobertas estruturalmente no Step 4.1; aqui elas aparecem apenas onde uma claim cruza para uma das 5 páginas principais (ex: o resultado do case Harmon &amp; Vale aparece no card de Work).</p>
+    </div>
+    <div class="ok-bar">
+      <div class="icon">✓</div>
+      <p><strong>Busca de clichês:</strong> a lista de palavras banidas do método ("seamless", "unlock", "elevate", "leverage", "robust", "cutting-edge", "revolutionize", "game-changer", "supercharge", "unleash", "empower", "in today's...", "dive into", "delve into", "state-of-the-art", "best-in-class", "world-class", "synergy") foi buscada literalmente em todo o HTML do site, não só nas 5 páginas principais. Comentários de desenvolvedor (não visíveis ao usuário) foram descartados dos achados.</p>
+    </div>
+    <div class="ok-bar">
+      <div class="icon">✓</div>
+      <p><strong>Busca de CTA genérico:</strong> "Learn More", "Click Here", "Submit", "Get Started" (sem qualificador) foram buscados literalmente em todo o site. Zero ocorrências — todos os CTAs encontrados declaram a ação exata.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── TOP FINDINGS ── -->
+  <div class="section" id="prioritarios">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <h2>Achados prioritários</h2>
+        <div class="section-sub">Os 5 achados que mais importam, do mais para o menos severo</div>
+      </div>
+    </div>
+
+    <div class="finding-card sev-high">
+      <div class="finding-head"><h3>1. As métricas agregadas do hero de Packages não têm fonte rastreável no site</h3><span class="pill fail">[DADO NECESSÁRIO]</span></div>
+      <div class="where">packages.html:638, 649–663 · pt-br/packages.html (mesmas linhas) · repetido em studio.html:824–825</div>
+      <div class="quote">"47 projects shipped in 2025" · "91% of clients see lift in 30 days" · "3.2× avg. lead increase" · "21 days avg. delivery" · "0 hidden fees, always"</div>
+      <p class="body">Essas 5 estatísticas aparecem na faixa de stats logo abaixo do hero de <code>packages.html</code>, e o par "47 projects, 91% client lift" se repete de forma <strong>consistente</strong> na timeline de <code>studio.html</code> (linha 824–825) — não é uma contradição interna. O problema é outro: não existe, em nenhuma página do site, uma fonte visível e verificável para esses números. O site mostra publicamente apenas <strong>3 case studies</strong>, e um deles (Harmon &amp; Vale) é explicitamente rotulado "Concept Project" — ou seja, no máximo 2 projetos reais documentados sustentam uma alegação de "47 projetos" e "91% dos clientes". Isso não significa que os números sejam falsos — a Vellumwire pode ter, de fato, 47 projetos e esse histórico de resultado — mas o método exige que toda alegação numérica seja rastreável a um dado real visível ou marcada. Hoje ela não é nenhum dos dois.</p>
+    </div>
+
+    <div class="finding-card sev-high">
+      <div class="finding-head"><h3>2. O card de Work mostra um resultado quantificado sem a divulgação "Concept Project" que existe na página de detalhe</h3><span class="pill fail">Gap de divulgação</span></div>
+      <div class="where">work.html:600–603 (e pt-br/work.html, mesma estrutura) vs. projects/harmon-and-vale.html:449, 483–484</div>
+      <div class="quote">work.html: "+134% · qualified consultations in 60 days" (sem qualificador)<br>projects/harmon-and-vale.html: tag visível "Concept Project" ao lado do mesmo número +134%</div>
+      <p class="body">A página de detalhe do case Harmon &amp; Vale já faz a coisa certa: tem uma tag visível "Concept Project" bem ao lado do número +134%, e a meta description chama o projeto de "a concept project" — então não é uma alegação escondida. O problema é só de superfície: o card de listagem em <code>work.html</code>, que é onde o visitante vê o +134% pela primeira vez, antes de clicar, não carrega esse mesmo qualificador. Um visitante que só passa o olho pelo grid de Work pode ler "+134% qualified consultations" como resultado de cliente real, igual aos outros 2 cards ao lado (Selo H e Fiter, que são reais).</p>
+    </div>
+
+    <div class="finding-card sev-med">
+      <div class="finding-head"><h3>3. Duas promessas de prazo diferentes para a mesma entrega, na mesma página</h3><span class="pill warn">Inconsistência</span></div>
+      <div class="where">index.html:896 vs. index.html:1183 (e pt-br/index.html, mesma estrutura)</div>
+      <div class="quote">Seção Process, Step 01: "Delivery: <strong>48h</strong> audit report"<br>Seção CTA final: "You get a fix list within <strong>24h</strong>. Hire us or don't."</div>
+      <p class="body">As duas frases descrevem a mesma entrega (o relatório/lista de correções da primeira ligação), mas prometem prazos diferentes — 48 horas na seção de processo, 24 horas na seção de CTA final, a poucas rolagens de distância uma da outra. Não é uma alegação inventada, é uma divergência real entre dois pontos do mesmo texto que precisa de uma resposta sua: qual prazo é o real.</p>
+    </div>
+
+    <div class="finding-card sev-med">
+      <div class="finding-head"><h3>4. Três usos literais de palavra banida pelo método em copy visível</h3><span class="pill warn">Linguagem de IA</span></div>
+      <div class="where">packages.html:1335 + pt-br/packages.html:1335 · projects/harmon-and-vale.html:585 · projects/fiter/index.html:445</div>
+      <div class="quote">"Seamless brand to web handoff" (delivery do tier Brand + Website)<br>"...the three highest-<strong>leverage</strong> changes..." (Harmon &amp; Vale)<br>"...it didn't <strong>leverage</strong> it." (Fiter)</div>
+      <p class="body">Ver tabela completa na seção 04. São achados pequenos e fáceis de corrigir — trocar 3 palavras — mas reais, porque "seamless" e "leverage" estão na lista de termos banidos do método.</p>
+    </div>
+
+    <div class="finding-card sev-low">
+      <div class="finding-head"><h3>5. Duas afirmações estatísticas soltas, sem citação, fora da faixa de stats principal</h3><span class="pill warn">[DADO NECESSÁRIO]</span></div>
+      <div class="where">index.html:305 (e pt-br/index.html) · studio.html:811</div>
+      <div class="quote">"8 out of 10 service sites lose leads because of three problems..." (seção The Leak)<br>"...80% of conversion problems come from three things..." (timeline do Studio)</div>
+      <p class="body">Ambas soam plausíveis e estão fora do tom de exagero, mas nenhuma das duas tem fonte (nem "segundo nossa análise de X projetos", nem link, nem nota de rodapé). São o tipo de frase que fica forte como afirmação de autoridade e fraca como dado verificável.</p>
+    </div>
+
+    <div class="ok-bar">
+      <div class="icon">✓</div>
+      <p><strong>O que já está correto e vale registrar:</strong> a tabela de preços citada no FAQ da Home ("A site checkup is $350. A single landing page runs $750 to $1,200...") bate <strong>exatamente</strong> com os 5 valores reais em <code>pricingData</code> de <code>packages.html</code> — nenhuma divergência. Zero CTA genérico em todo o site. Zero abertura de "limpar a garganta" ("Are you tired of...", "In today's digital landscape..."). O case study de Selo H já modela a prática correta: métricas reais com nota de rodapé honesta ("* 30-day post-launch analytics. Figures to be updated as data matures.").</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── PER PAGE ── -->
+  <div class="section" id="paginas">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <h2>Auditoria por página</h2>
+        <div class="section-sub">O que cada página promete, e se a promessa está limpa</div>
+      </div>
+    </div>
+
+    <div class="page-audit">
+      <div class="page-audit-head">
+        <h3>Home</h3>
+        <span class="urls">index.html · pt-br/index.html</span>
+      </div>
+      <ul class="findings">
+        <li class="warn-finding">CTA primário do hero ("See what's leaking on my site", linha 181) aponta para <code>contact.html</code> sem <code>?service=</code> — único CTA do site inteiro que quebra a convenção documentada no <code>DESIGN_SYSTEM.md</code> §17. Todos os outros CTAs da própria Home (4 cards de serviço, "Get a free 15-minute diagnosis" ×3, CTA final) usam o parâmetro corretamente.</li>
+        <li class="bad-finding">Inconsistência de prazo 48h vs. 24h (achado prioritário #3).</li>
+        <li class="warn-finding">Claim "8 out of 10 service sites lose leads..." sem fonte (achado prioritário #5).</li>
+        <li class="ok-finding">FAQ com 8 perguntas reais, respostas específicas, sem enrolação. Item 7 (preço) confere exatamente com packages.html.</li>
+        <li class="ok-finding">12 logos de cliente reais na marquee (ABGI, CEBRAC, Ensight, Facto, Instivo, Lovefit, Meaple, MedMe, Nineblocks, Play9, Selo H, Vega I.T.) — prova social real, sem placeholder.</li>
+        <li class="ok-finding">Os 4 cards de serviço mantiveram o copy de marketing original (títulos como "Conversion Audit", "Core UI Refresh") enquanto os hrefs já apontam para os slugs reais de packages.html — consistente com a decisão tomada no Step 3.</li>
+      </ul>
+    </div>
+
+    <div class="page-audit">
+      <div class="page-audit-head">
+        <h3>Contact</h3>
+        <span class="urls">contact.html · pt-br/contact.html</span>
+      </div>
+      <ul class="findings">
+        <li class="ok-finding">Página é só formulário + H1 + subtítulo, sem alegação nenhuma para auditar. Subtítulo: "Tell us about your project. We'll get back to you within 24 hours." — promessa de prazo específica e isolada (não conflita com nenhuma outra, porque é sobre tempo de resposta ao formulário, não sobre entrega de diagnóstico).</li>
+        <li class="ok-finding">Botão de envio diz "Send message", não "Submit" — específico.</li>
+        <li class="ok-finding">Dropdown de serviço já cobre as 9 opções reais (free-diagnosis, website-checkup, landing-page, homepage-redesign, full-website, brand-website, hold, build, not-sure) — consistente com a correção feita no Step 3.</li>
+      </ul>
+    </div>
+
+    <div class="page-audit">
+      <div class="page-audit-head">
+        <h3>Packages</h3>
+        <span class="urls">packages.html · pt-br/packages.html</span>
+      </div>
+      <ul class="findings">
+        <li class="bad-finding">Faixa de stats do hero sem fonte rastreável (achado prioritário #1) — é a página com a densidade mais alta de números não verificáveis do site.</li>
+        <li class="bad-finding">"Seamless brand to web handoff" — palavra banida (achado prioritário #4).</li>
+        <li class="ok-finding">As 5 descrições de tier (Website Checkup, Landing Page, Homepage Redesign, Full Website, Brand + Website) são específicas, sem enchimento, com prazo e preço declarados antes de qualquer CTA.</li>
+        <li class="ok-finding">"If the audit doesn't reveal a clear path to more leads, you don't pay." — garantia específica e acionável, não um slogan vago.</li>
+        <li class="ok-finding">Hold ($400/mês) e Build ($800/mês) têm escopo de entrega detalhado item por item, sem linguagem de "ilimitado" ou promessas vagas.</li>
+      </ul>
+    </div>
+
+    <div class="page-audit">
+      <div class="page-audit-head">
+        <h3>Work</h3>
+        <span class="urls">work.html · pt-br/work.html</span>
+      </div>
+      <ul class="findings">
+        <li class="bad-finding">Card de Harmon &amp; Vale mostra "+134%" sem o qualificador "Concept Project" que existe na página de detalhe (achado prioritário #2).</li>
+        <li class="ok-finding">Os outros 2 cards (Selo H "+65%", Fiter sem número de resultado no card) não têm esse problema — Selo H é um cliente real e o número bate com a página de detalhe.</li>
+        <li class="ok-finding">Subtítulo do hero é uma promessa de tom específica e cumprida: "No before/after theatre. Just what changed, why, and what it produced." — e o restante da página realmente entrega isso.</li>
+      </ul>
+    </div>
+
+    <div class="page-audit">
+      <div class="page-audit-head">
+        <h3>Studio</h3>
+        <span class="urls">studio.html · pt-br/studio.html</span>
+      </div>
+      <ul class="findings">
+        <li class="bad-finding">Repete "47 projects, 91% client lift" na timeline (achado prioritário #1) — consistente com packages.html, mas com o mesmo problema de fonte.</li>
+        <li class="warn-finding">"80% of conversion problems come from three things" — claim solta sem fonte (achado prioritário #5).</li>
+        <li class="ok-finding">JSON-LD <code>member</code> com 3 pessoas reais da equipe (já confirmado no Step 4.1) — a página de Studio é, no geral, a mais bem fundamentada do site em "quem realmente faz o trabalho".</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── FAQ / CLAIMS CONSISTENCY ── -->
+  <div class="section" id="faq">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <h2>Consistência de FAQ e claims numéricos</h2>
+        <div class="section-sub">Cruzando cada número citado contra onde ele deveria bater</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Claim</th><th>Onde aparece</th><th>Bate com outra página?</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Preços por tier ($350 / $750–1,200 / $1,500–2,800 / $3,000–5,000 / $4,500–8,000)</td><td>index.html FAQ #7</td><td>packages.html <code>pricingData</code> — idêntico</td><td><span class="pill ok">Confere</span></td></tr>
+          <tr><td>"47 projects shipped in 2025" / "91% client lift"</td><td>packages.html, studio.html</td><td>Consistente entre as duas, mas sem fonte primária em nenhuma</td><td><span class="pill fail">Sem fonte</span></td></tr>
+          <tr><td>Prazo de entrega do diagnóstico inicial</td><td>index.html (48h vs. 24h)</td><td>Diverge dentro da própria Home</td><td><span class="pill fail">Inconsistente</span></td></tr>
+          <tr><td>"+134% qualified consultations" (Harmon &amp; Vale)</td><td>work.html, projects/harmon-and-vale.html</td><td>Mesmo número, divulgação "Concept" só na página de detalhe</td><td><span class="pill warn">Gap de divulgação</span></td></tr>
+          <tr><td>"+65% form submissions" (Selo H)</td><td>work.html, projects/seloh.html</td><td>Mesmo número, cliente real, sem flag necessário</td><td><span class="pill ok">Confere</span></td></tr>
+          <tr><td>"3 to 5 weeks" timeline de projeto</td><td>index.html FAQ #1, meta description, JSON-LD Offer</td><td>Consistente em todas as 3 ocorrências</td><td><span class="pill ok">Confere</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── BANNED LANGUAGE ── -->
+  <div class="section" id="linguagem">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <h2>Linguagem banida</h2>
+        <div class="section-sub">Busca literal pela lista de clichês do método em todo o HTML do site</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Termo</th><th>Onde</th><th>Trecho real</th><th>Visível ao usuário?</th></tr></thead>
+        <tbody>
+          <tr><td><code>seamless</code></td><td>packages.html:1335 / pt-br/packages.html:1335</td><td>"Seamless brand to web handoff"</td><td><span class="pill fail">Sim</span></td></tr>
+          <tr><td><code>leverage</code></td><td>projects/harmon-and-vale.html:585</td><td>"...the three highest-leverage changes..."</td><td><span class="pill fail">Sim</span></td></tr>
+          <tr><td><code>leverage</code></td><td>projects/fiter/index.html:445</td><td>"...it didn't leverage it."</td><td><span class="pill fail">Sim</span></td></tr>
+          <tr><td><code>seamless</code></td><td>index.html:275, 445 / pt-br/index.html</td><td>"&lt;!-- duplicate for seamless loop --&gt;"</td><td><span class="pill ok">Não (comentário)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--muted);">Nenhuma outra palavra da lista banida (unlock, elevate, robust, cutting-edge, revolutionize, game-changer, supercharge, unleash, empower, in today's, dive into, delve into, state-of-the-art, best-in-class, world-class, synergy) foi encontrada em copy visível em nenhuma página do site, EN ou pt-BR.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── CTA INVENTORY ── -->
+  <div class="section" id="ctas">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <h2>Inventário de CTAs</h2>
+        <div class="section-sub">Todo CTA das 5 páginas auditadas — texto, destino, especificidade</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Texto do CTA</th><th>Página</th><th>Destino</th><th>Específico?</th></tr></thead>
+        <tbody>
+          <tr><td>"See what's leaking on my site"</td><td>Home (hero)</td><td><code>contact.html</code></td><td><span class="pill warn">Específico, mas sem ?service=</span></td></tr>
+          <tr><td>"Get a free 15-minute diagnosis"</td><td>Home (×3 ocorrências)</td><td><code>contact.html?service=free-diagnosis</code></td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"View all projects"</td><td>Home</td><td><code>work.html</code></td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"See our work first"</td><td>Home</td><td><code>#work</code> (âncora)</td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"Get my free diagnosis"</td><td>Home (CTA final)</td><td><code>contact.html?service=free-diagnosis</code></td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>4× título de card de serviço (ex: "Conversion Audit")</td><td>Home (#services)</td><td><code>contact.html?service=website-checkup</code> etc., 1 por card</td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"Send message"</td><td>Contact</td><td>Submit do formulário</td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"Start with Hold" / "Start with Build"</td><td>Packages</td><td><code>contact.html?service=hold</code> / <code>?service=build</code></td><td><span class="pill ok">Sim</span></td></tr>
+          <tr><td>"Read case study" (×3 cards)</td><td>Work</td><td>cada case study individual</td><td><span class="pill ok">Sim</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ok-bar">
+      <div class="icon">✓</div>
+      <p>Nenhum CTA genérico ("Learn More", "Click Here", "Submit" sozinho, "Get Started" sem complemento) encontrado em nenhuma das 22 páginas do site, EN ou pt-BR — confirmado por busca literal, não amostral.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── PRIORITY ── -->
+  <div class="section" id="prioridade">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <h2>Prioridade de correção</h2>
+        <div class="section-sub">O que decidir e o que só editar</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Item</th><th>Tipo</th><th>Esforço</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Decidir a fonte real das stats de packages.html/studio.html (47 projetos, 91%, 3.2×, 21 dias) — confirmar e documentar a fonte, ou trocar por uma claim menor que o site já consegue provar hoje</td><td><span class="pill fail">Decisão sua</span></td><td><span class="pill warn">Médio</span></td></tr>
+          <tr><td>2</td><td>Decidir o prazo real do diagnóstico inicial: 24h ou 48h, e corrigir o outro</td><td><span class="pill fail">Decisão sua</span></td><td><span class="pill ok">Baixo</span></td></tr>
+          <tr><td>3</td><td>Adicionar tag "Concept" ao card de Harmon &amp; Vale em work.html, igual à que já existe na página de detalhe</td><td><span class="pill info">Edição direta</span></td><td><span class="pill ok">Baixo</span></td></tr>
+          <tr><td>4</td><td>Trocar "Seamless" (packages.html) e os 2 usos de "leverage" (Harmon &amp; Vale, Fiter) por linguagem direta</td><td><span class="pill info">Edição direta</span></td><td><span class="pill ok">Baixo</span></td></tr>
+          <tr><td>5</td><td>Adicionar <code>?service=free-diagnosis</code> ao CTA do hero da Home, único CTA do site fora da convenção</td><td><span class="pill info">Edição direta</span></td><td><span class="pill ok">Baixo</span></td></tr>
+          <tr><td>6</td><td>Decidir se "8 out of 10 service sites" e "80% of conversion problems" ficam como afirmação de autoridade (sem fonte, aceitável como opinião do estúdio) ou precisam de nota/fonte</td><td><span class="pill fail">Decisão sua</span></td><td><span class="pill ok">Baixo</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px; color:var(--muted);">Itens 3–5 são edição mecânica, sem necessidade de decisão de produto. Itens 1, 2 e 6 dependem de uma resposta sua porque envolvem dado real do negócio que não está em nenhum arquivo do repositório — não são bugs de código, são lacunas de dado.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span>Page Copy Audit · <span class="accent">Vellumwire</span> · Step 4.2 · Junho 2026</span>
+  <span style="color:var(--muted);">5 pares de página lidos linha a linha · companion de vellumwire-seo-structure-2026.html</span>
+</footer>
+
+</body>
+</html>

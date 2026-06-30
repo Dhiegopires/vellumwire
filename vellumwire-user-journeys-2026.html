@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornadas de Usuário · Vellumwire</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #111118; --surface2: #18181f; --border: #2a2a35;
+    --accent: #c6f135; --accent-dim: rgba(198,241,53,0.15); --accent-border: rgba(198,241,53,0.35);
+    --text: #e8e8f0; --muted: #888899; --danger: #ff4d6d; --warn: #ffb703; --ok: #43e97b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; }
+
+  .header { background: linear-gradient(135deg, #0d0d0a 0%, #111309 50%, #0a0f08 100%); border-bottom: 1px solid var(--border); padding: 56px 48px 48px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(198,241,53,0.08) 0%, transparent 70%); pointer-events: none; }
+  .badge { display: inline-block; background: var(--accent-dim); border: 1px solid var(--accent-border); color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
+  .header h1 { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 12px; position: relative; z-index: 1; }
+  .header h1 span { color: var(--accent); }
+  .header p { color: var(--muted); max-width: 660px; font-size: 15px; position: relative; z-index: 1; }
+  .header-meta { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .meta-value { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 15px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 48px; }
+  .section { margin-bottom: 72px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .section-num { width: 36px; height: 36px; background: var(--accent); color: #0c0b09; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; }
+  .section-sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 48px; }
+  .toc h3 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
+  .toc ol { list-style: decimal; padding-left: 20px; columns: 2; column-gap: 24px; }
+  .toc li { font-size: 13px; padding: 3px 0; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .warn-bar { background: rgba(255,183,3,0.08); border: 1px solid rgba(255,183,3,0.25); border-radius: 12px; padding: 16px 20px; margin-bottom: 28px; display: flex; align-items: flex-start; gap: 12px; }
+  .warn-bar .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .warn-bar p { font-size: 13.5px; color: #fcd34d; line-height: 1.6; }
+  .warn-bar strong { color: var(--warn); }
+
+  .persona-head { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .persona-head.real::before { content: 'BASEADO EM CLIENTE REAL'; position:absolute; top:14px; right:-38px; transform: rotate(35deg); background: var(--ok); color:#06210f; font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.08em; padding: 3px 50px; }
+  .persona-head.concept::before { content: 'PROJETO CONCEITUAL — NÃO É CLIENTE REAL'; position:absolute; top:14px; right:-68px; transform: rotate(35deg); background: var(--warn); color:#241a00; font-family:'Syne',sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.05em; padding: 3px 80px; white-space:nowrap; }
+  .persona-name { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+  .persona-name span { color: var(--accent); }
+  .persona-tagline { color: var(--muted); font-size: 14px; margin-bottom: 18px; max-width: 680px; }
+  .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; margin-top: 16px; }
+  .pcallout { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .pcallout h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; }
+  .pcallout p { font-size: 13.5px; color: var(--text); }
+  .pcallout.first5 { border-color: var(--accent-border); background: var(--accent-dim); }
+  .pcallout.mistake { border-color: rgba(255,77,109,0.3); background: rgba(255,77,109,0.06); }
+  .pcallout.mistake h4 { color: var(--danger); }
+  .source-tag { font-family:'DM Mono',monospace; font-size: 11px; color: var(--muted); margin-top: 14px; display:block; }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+  .stage { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--border); position: relative; }
+  .stage:last-child { border-bottom: none; }
+  .stage-label { display: flex; flex-direction: column; gap: 6px; }
+  .stage-num { font-family:'Syne',sans-serif; font-weight:800; font-size: 13px; color: var(--accent); }
+  .stage-name { font-family:'Syne',sans-serif; font-weight:700; font-size: 15px; }
+  .stage-body p { font-size: 13.5px; margin-bottom: 8px; }
+  .stage-body strong { color: var(--text); }
+  .stage-body .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 6px; }
+  .stage-body code { font-family:'DM Mono',monospace; font-size: 12px; background: rgba(255,255,255,0.06); padding: 1px 6px; border-radius: 4px; color: #c4c4d4; }
+  .stage.objection { background: rgba(255,183,3,0.04); }
+  .stage.objection .stage-num { color: var(--warn); }
+  .stage.conversion { background: rgba(67,233,123,0.05); }
+  .stage.conversion .stage-num { color: var(--ok); }
+
+  .risk-callout { border-radius: 12px; padding: 18px 22px; margin-top: 8px; display:flex; gap: 14px; align-items:flex-start; }
+  .risk-callout.drop { background: rgba(255,77,109,0.07); border: 1px solid rgba(255,77,109,0.25); }
+  .risk-callout.win { background: rgba(67,233,123,0.07); border: 1px solid rgba(67,233,123,0.25); }
+  .risk-callout h4 { font-family:'Syne',sans-serif; font-size: 13px; margin-bottom:6px; }
+  .risk-callout.drop h4 { color: var(--danger); }
+  .risk-callout.win h4 { color: var(--ok); }
+  .risk-callout p { font-size: 13px; color: var(--text); }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--surface2); text-align: left; padding: 12px 16px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  .divider { height: 1px; background: var(--border); margin: 56px 0; }
+  footer { text-align: center; padding: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  footer .accent { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">Step 2.2 · Arquitetura</span>
+  <h1>Jornadas de <span>Usuário</span></h1>
+  <p>3 personas derivadas dos clientes e do formulário de intake da Vellumwire, mapeadas estágio a estágio sobre o sitemap validado em <code>vellumwire-sitemap-ia-2026.html</code>. Nenhuma página, CTA ou objeção foi inventada fora do que já existe no site ou no Discovery.</p>
+  <div class="header-meta">
+    <div class="meta-item"><span class="meta-label">Personas</span><span class="meta-value">3</span></div>
+    <div class="meta-item"><span class="meta-label">Baseadas em cliente real</span><span class="meta-value">2 de 3</span></div>
+    <div class="meta-item"><span class="meta-label">Páginas-fonte</span><span class="meta-value">11 (sitemap aprovado)</span></div>
+    <div class="meta-item"><span class="meta-label">Companion de</span><span class="meta-value">2.1 Sitemap & IA</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h3>Índice</h3>
+    <ol>
+      <li><a href="#persona-1">Persona 1 — Founder de SaaS B2B early-stage (Fiter)</a></li>
+      <li><a href="#persona-2">Persona 2 — Sócio de serviço profissional (conceitual, tipo Harmon & Vale)</a></li>
+      <li><a href="#persona-3">Persona 3 — Gestor de plataforma técnica B2B (Selo H)</a></li>
+      <li><a href="#summary">Leitura cruzada e gaps comuns</a></li>
+    </ol>
+  </div>
+
+  <div class="warn-bar">
+    <span class="icon">⚠️</span>
+    <p><strong>Nota de fonte:</strong> Persona 1 (Fiter) e Persona 3 (Selo H) são baseadas em clientes reais, sem disclaimer de "concept project" em suas páginas de case. Persona 2 é explicitamente baseada em <code>projects/harmon-and-vale.html</code>, cuja meta description afirma textualmente "a concept project" — ou seja, não é um cliente real da Vellumwire. Ela é mantida aqui apenas como arquétipo de mercado (serviço profissional / advocacia), já que esse segmento aparece no cluster de keywords "brand strategy for service business" e é o tipo de projeto que a Vellumwire usa para se posicionar. As objeções centrais das três jornadas (conversão de design/copy e custo vs. resultado) vêm do rascunho do Discovery Form (Step 1), não foram inventadas para este documento.</p>
+  </div>
+
+  <!-- ════════ PERSONA 1 — FITER ════════ -->
+  <div class="section" id="persona-1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <h2>Founder de SaaS B2B early-stage</h2>
+        <div class="section-sub">Modelado no cliente real Fiter (EdTech/HR deeptech)</div>
+      </div>
+    </div>
+
+    <div class="persona-head real">
+      <div class="persona-name">"Eu sei que o produto é bom. O site não está deixando isso óbvio."</div>
+      <p class="persona-tagline">Founder ou Head de Growth de uma SaaS B2B em estágio inicial, técnico, sem orçamento de marketing dedicado, decidindo sozinho sobre o redesign porque é quem sente a dor de não ter pipeline orgânico.</p>
+      <div class="persona-grid">
+        <div class="pcallout first5">
+          <h4>Primeiros 5 segundos</h4>
+          <p>Precisa entender, antes de rolar a página, que a Vellumwire conserta sites que "parecem prontos" mas não geram lead — não que é mais uma agência de "sites bonitos".</p>
+        </div>
+        <div class="pcallout">
+          <h4>Decisor</h4>
+          <p>Único decisor. Sem comitê, sem procurement. Decisão é rápida se a confiança for estabelecida nas primeiras páginas.</p>
+        </div>
+        <div class="pcallout mistake">
+          <h4>Maior erro que perde essa persona</h4>
+          <p>Mostrar portfólio "bonito" sem número de resultado. Esse founder já foi a 3 agências que mostraram só visual — ele procura prova de que o redesign muda o funil, não a estética.</p>
+        </div>
+      </div>
+      <span class="source-tag">Fonte: projects/fiter/index.html (case real) + rascunho do Discovery Form, Step 1</span>
+    </div>
+
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">01</span><span class="stage-name">Trigger</span></div>
+        <div class="stage-body">
+          <p><span class="label">Gatilho</span>Site atual não gera nenhum lead orgânico há meses; founder percebe que o problema não é tráfego, é conversão do que já chega.</p>
+          <p><span class="label">Busca</span>Termo plausível do mapa de keywords (Step 1): <code>website redesign for B2B SaaS</code> ou <code>conversion rate optimization web design</code>.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">02</span><span class="stage-name">Primeiro contato</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/index.html</code> — lê o H2 "Where service websites lose leads" e a lista dos 3 problemas reais.</p>
+          <p><span class="label">Reação</span>Reconhece a própria situação na descrição do problema antes de qualquer menção à Vellumwire.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">03</span><span class="stage-name">Exploração</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/work.html</code> → abre <code>/projects/fiter/index.html</code> por ser o case mais próximo do próprio segmento (B2B, técnico, sem marca forte ainda).</p>
+          <p><span class="label">O que procura</span>Número de resultado mensurável, não citação de cliente.</p>
+        </div>
+      </div>
+      <div class="stage objection">
+        <div class="stage-label"><span class="stage-num">04</span><span class="stage-name">Objeção</span></div>
+        <div class="stage-body">
+          <p><span class="label">Objeção 1</span>"Será que design/copy realmente converte, ou é só estética?" — objeção central do Discovery Form.</p>
+          <p><span class="label">Objeção 2</span>"Quanto custa vs. resultado?" — vai para <code>/packages.html</code> e avalia o tier de projeto único mais próximo do escopo (Homepage Redesign $1.500-$2.800 ou Full Website $3.000-$5.000). Sem orçamento de marketing dedicado, esse valor de entrada único ainda pesa, mesmo sendo claro e sem surpresa.</p>
+        </div>
+      </div>
+      <div class="stage conversion">
+        <div class="stage-label"><span class="stage-num">05</span><span class="stage-name">Conversão</span></div>
+        <div class="stage-body">
+          <p><span class="label">Caminho</span>Volta para a home ou para o case Fiter e clica em "See what's leaking on my site" → <code>contact.html?service=free-diagnosis</code>.</p>
+          <p><span class="label">Por quê esse CTA</span>É a única oferta sem risco percebido (sem custo, sem compromisso) — compatível com o perfil técnico que quer validar antes de comprometer orçamento.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">06</span><span class="stage-name">Risco de abandono</span></div>
+        <div class="stage-body">
+          <p><span class="label">Ponto de fuga</span>Entre Exploração e Objeção — se não encontrar nenhum número quantificado na home (problema já identificado no Site Audit, Step 1.2: "zero número de prova na home"), assume que a Vellumwire é mais uma agência de estética e abandona antes de chegar ao case Fiter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-callout drop">
+      <span style="font-size:20px;">⤵</span>
+      <div><h4>Maior risco de abandono</h4><p>Sem o número Fiter (~150% de entradas orgânicas, ~5 pedidos de call em 2 semanas vindo de zero) visível antes do scroll até Work, essa persona não tem motivo para acreditar que "design que converte" é mais do que um slogan.</p></div>
+    </div>
+    <div class="risk-callout win">
+      <span style="font-size:20px;">✓</span>
+      <div><h4>Gatilho de conversão</h4><p>Ver, no próprio case Fiter, um número de funil (não um depoimento) que espelha exatamente o problema que essa persona tem hoje: zero pipeline orgânico.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════ PERSONA 2 — HARMON & VALE (CONCEITUAL) ════════ -->
+  <div class="section" id="persona-2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <h2>Sócio de escritório de serviço profissional</h2>
+        <div class="section-sub">Arquétipo de mercado — modelado no case conceitual Harmon & Vale, não um cliente real</div>
+      </div>
+    </div>
+
+    <div class="persona-head concept">
+      <div class="persona-name">"Minha firma é boa. O site não passa isso."</div>
+      <p class="persona-tagline">Sócio ou responsável por marketing de um escritório de advocacia ou consultoria de médio porte, decisão compartilhada com 1-2 outros sócios, mais cético com agências porque já contratou uma e não viu retorno.</p>
+      <div class="persona-grid">
+        <div class="pcallout first5">
+          <h4>Primeiros 5 segundos</h4>
+          <p>Precisa ver que a Vellumwire já trabalhou com o tipo de negócio dele — não com SaaS, com serviço profissional — antes de continuar lendo.</p>
+        </div>
+        <div class="pcallout">
+          <h4>Decisor</h4>
+          <p>Decisão compartilhada. Vai levar o link para outro sócio antes de marcar a call — precisa de uma página que "se explica" sem o founder por perto.</p>
+        </div>
+        <div class="pcallout mistake">
+          <h4>Maior erro que perde essa persona</h4>
+          <p>Linguagem de growth/SaaS ("funil", "conversion audit") sem tradução para o vocabulário de serviço profissional. Essa persona desconfia de jargão de marketing digital.</p>
+        </div>
+      </div>
+      <span class="source-tag">Fonte: projects/harmon-and-vale.html (meta description: "a concept project") + rascunho do Discovery Form, Step 1. Persona ilustrativa, não validada por engajamento real.</span>
+    </div>
+
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">01</span><span class="stage-name">Trigger</span></div>
+        <div class="stage-body">
+          <p><span class="label">Gatilho</span>Site institucional desatualizado, comparado mentalmente ao site de um concorrente direto que parece "mais sério".</p>
+          <p><span class="label">Busca</span><code>criação de sites profissionais</code> ou <code>site institucional que converte</code> (cluster Brasil/local, Step 1).</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">02</span><span class="stage-name">Primeiro contato</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/index.html</code> — passa direto pelo H2 de "lost leads" (linguagem de growth) e vai procurar prova visual no carrossel de clientes.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">03</span><span class="stage-name">Exploração</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/work.html</code> → abre <code>/projects/harmon-and-vale.html</code> por reconhecer o segmento (escritório de advocacia).</p>
+          <p><span class="label">[DATA NEEDED]</span>O case não traz disclaimer visível de "projeto conceitual" no corpo da página, só na meta description (invisível ao visitante comum). Risco real: essa persona pode interpretar o case como cliente real e cobrar prova de contato direto na call — recomendação para Step 3/4 é decidir se o case continua no site sem rótulo, ou se passa a ser identificado como projeto de portfólio/conceito também na página em si.</p>
+        </div>
+      </div>
+      <div class="stage objection">
+        <div class="stage-label"><span class="stage-num">04</span><span class="stage-name">Objeção</span></div>
+        <div class="stage-body">
+          <p><span class="label">Objeção 1</span>"Já contratei agência antes e não converteu nada" — variação direta da objeção do Discovery Form ("será que design/copy realmente converte?"), agravada por experiência ruim anterior.</p>
+          <p><span class="label">Objeção 2</span>"Quanto custa vs. resultado?" — em <code>/packages.html</code>, encontra o tier de projeto fechado certo para o caso (Homepage Redesign ou Brand + Website), com entrega única e prazo definido, o que combina com a expectativa do mercado jurídico. O atrito real não é o modelo, é o valor absoluto: parece alto comparado ao freelancer ou à agência tradicional que ela já contratou antes.</p>
+        </div>
+      </div>
+      <div class="stage conversion">
+        <div class="stage-label"><span class="stage-num">05</span><span class="stage-name">Conversão</span></div>
+        <div class="stage-body">
+          <p><span class="label">Caminho</span>A partir do case Harmon & Vale, clica em "See what's leaking on my site" → <code>contact.html?service=free-diagnosis</code>, ou, se já decidiu o escopo, em um dos 4 cards de serviço da home → <code>?service=brand-strategy</code> (mais alinhado a reposicionamento de marca do que a um audit técnico).</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">06</span><span class="stage-name">Risco de abandono</span></div>
+        <div class="stage-body">
+          <p><span class="label">Ponto de fuga</span>Em Packages — se o valor do tier certo (projeto fechado) ainda parecer alto frente à experiência anterior com freelancer ou agência tradicional, essa persona sai para comparar mais opções antes de marcar call, sem necessariamente voltar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-callout drop">
+      <span style="font-size:20px;">⤵</span>
+      <div><h4>Maior risco de abandono</h4><p>Não encontrar nenhum case de serviço profissional rotulado como real — a falta de clareza entre "case real" e "case conceitual" pode gerar desconfiança geral sobre todos os 3 cases do site, não só sobre o Harmon & Vale.</p></div>
+    </div>
+    <div class="risk-callout win">
+      <span style="font-size:20px;">✓</span>
+      <div><h4>Gatilho de conversão</h4><p>Ver linguagem que reconhece o vocabulário do próprio setor (não growth/SaaS) em pelo menos uma seção da home ou do case.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════ PERSONA 3 — SELO H ════════ -->
+  <div class="section" id="persona-3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <h2>Gestor de plataforma técnica B2B</h2>
+        <div class="section-sub">Modelado no cliente real Selo H (rebuild de plataforma de certificação)</div>
+      </div>
+    </div>
+
+    <div class="persona-head real">
+      <div class="persona-name">"O site técnico que temos hoje é um passivo, não um ativo."</div>
+      <p class="persona-tagline">Gestor de produto ou operações de uma plataforma B2B já estabelecida (não é uma startup early-stage), com site legado lento e difícil de manter, decisão validada por um diretor mas conduzida operacionalmente por essa persona.</p>
+      <div class="persona-grid">
+        <div class="pcallout first5">
+          <h4>Primeiros 5 segundos</h4>
+          <p>Precisa ver evidência de que a Vellumwire lida com complexidade técnica real (performance, rebuild completo), não só com landing pages de marketing.</p>
+        </div>
+        <div class="pcallout">
+          <h4>Decisor</h4>
+          <p>Recomenda internamente, mas precisa de material para "vender" a decisão para um diretor — depende de página que se sustente sozinha quando reenviada por e-mail.</p>
+        </div>
+        <div class="pcallout mistake">
+          <h4>Maior erro que perde essa persona</h4>
+          <p>Tratar o pedido como "redesign visual" quando o problema real é técnico (performance, arquitetura). Linguagem só de "conversão de leads" sem menção a rebuild/performance technical debt não conecta com a dor real.</p>
+        </div>
+      </div>
+      <span class="source-tag">Fonte: projects/seloh.html (case real, meta description: "rebuilt seloh.org from a performance liability into a conversion-ready platform") + rascunho do Discovery Form, Step 1</span>
+    </div>
+
+    <div class="timeline">
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">01</span><span class="stage-name">Trigger</span></div>
+        <div class="stage-body">
+          <p><span class="label">Gatilho</span>Plataforma lenta, stack legado, reclamações recorrentes de usuários sobre performance — não é um problema de estética.</p>
+          <p><span class="label">Busca</span><code>full website rebuild cost</code> ou <code>website redesign for B2B SaaS</code> (cluster Preço/Adjacente, Step 1).</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">02</span><span class="stage-name">Primeiro contato</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/index.html</code> — pula a seção de growth/leads, procura diretamente o card de serviço "full-web-rebuild" entre os 4 cards.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">03</span><span class="stage-name">Exploração</span></div>
+        <div class="stage-body">
+          <p><span class="label">Página</span><code>/work.html</code> → abre <code>/projects/seloh.html</code> por ser o único case que descreve explicitamente um problema de performance/arquitetura, não só visual.</p>
+          <p><span class="label">O que procura</span>Evidência de que a Vellumwire entende stack técnico, não só copy e layout.</p>
+        </div>
+      </div>
+      <div class="stage objection">
+        <div class="stage-label"><span class="stage-num">04</span><span class="stage-name">Objeção</span></div>
+        <div class="stage-body">
+          <p><span class="label">Objeção 1</span>"Será que essa agência entende a complexidade técnica, ou só faz site bonito?" — variação técnica da objeção central do Discovery Form.</p>
+          <p><span class="label">Objeção 2</span>"Quanto custa vs. resultado?" — os 5 tiers de projeto em <code>/packages.html</code> vão até "Full Website" (até 6 páginas, $3.000-$5.000) e "Brand + Website" ($4.500-$8.000), ambos com cara de site de marketing, não de rebuild de plataforma. A resposta correta já existe na própria página (FAQ item 04: escopo customizado é cotado como item de linha), mas está abaixo da rolagem, depois dos tiers e do Hold/Build — essa persona pode não chegar lá.</p>
+        </div>
+      </div>
+      <div class="stage conversion">
+        <div class="stage-label"><span class="stage-num">05</span><span class="stage-name">Conversão</span></div>
+        <div class="stage-body">
+          <p><span class="label">Caminho</span>A partir do case Selo H, clica em "See what's leaking on my site" → <code>contact.html?service=free-diagnosis</code>, tratando o diagnóstico gratuito como forma de validar escopo técnico antes de comprometer orçamento internamente.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span class="stage-num">06</span><span class="stage-name">Risco de abandono</span></div>
+        <div class="stage-body">
+          <p><span class="label">Ponto de fuga</span>Em Packages — se essa persona não rolar até o FAQ item 04 ("o que acontece se meu projeto precisa de mais que o escopo padrão"), ela conclui pelos 5 tiers visíveis que a Vellumwire só atende sites de marketing pequenos e sai sem pedir orçamento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-callout drop">
+      <span style="font-size:20px;">⤵</span>
+      <div><h4>Maior risco de abandono</h4><p>O escopo de rebuild de plataforma técnica não aparece refletido em nenhum dos 5 tiers visíveis de Packages — a resposta certa (escopo customizado cotado como item de linha) está no FAQ, fora do caminho natural de leitura dessa persona.</p></div>
+    </div>
+    <div class="risk-callout win">
+      <span style="font-size:20px;">✓</span>
+      <div><h4>Gatilho de conversão</h4><p>Ler, no case Selo H, a descrição explícita de "performance liability" resolvida — linguagem técnica que sinaliza capacidade de lidar com rebuild real, não só visual.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="summary">
+    <div class="section-header">
+      <div class="section-num">✦</div>
+      <div>
+        <h2>Leitura cruzada e gaps comuns</h2>
+        <div class="section-sub">O que as 3 jornadas têm em comum, independente do segmento</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Atrito comum</th><th>Afeta</th><th>Já identificado em</th></tr></thead>
+        <tbody>
+          <tr><td>Zero número de prova quantificado visível na home antes do scroll até Work</td><td>Personas 1 e 3 (decisão rápida, orientada a dado)</td><td>Site Audit, Step 1.2</td></tr>
+          <tr><td>Tiers de projeto em Packages não cobrem visivelmente escopo de rebuild de plataforma técnica complexa; a resposta certa está no FAQ, abaixo da rolagem</td><td>Persona 3 principalmente</td><td>Levantado neste documento</td></tr>
+          <tr><td>Cases (Fiter, Harmon &amp; Vale, Selo H) não diferenciam visualmente cliente real de projeto conceitual na própria página, só na meta description</td><td>Persona 2 principalmente, mas gera dúvida geral sobre os 3 cases</td><td>Levantado neste documento — decisão do cliente: manter sem rótulo visível por agora</td></tr>
+          <tr><td>Linguagem da home é uniformemente "growth/funil", sem variação por segmento (SaaS vs. serviço profissional vs. plataforma técnica)</td><td>Personas 2 e 3</td><td>Levantado neste documento</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Jornadas de Usuário · <span class="accent">Vellumwire</span> · Junho 2026</span>
+  <span style="color:var(--muted);">Step 2.2 · companion de vellumwire-sitemap-ia-2026.html</span>
+</footer>
+
+</body>
+</html>
