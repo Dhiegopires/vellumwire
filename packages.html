@@ -563,6 +563,7 @@
     <meta property="og:locale" content="en_US"></head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- Three.js Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
@@ -573,16 +574,16 @@
         <div class="ambient-blur"></div>
         <div class="ds-ambient-grid"></div>
 
-        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
-            <div class="grid-line-v" style="left:144px">
-                <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+        <div class="il-1">
+            <div class="grid-line-v il-2">
+                <div class="beam-v il-3"></div>
             </div>
-            <div class="grid-line-v" style="left:576px">
-                <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+            <div class="grid-line-v il-4">
+                <div class="beam-v il-5"></div>
             </div>
-            <div class="grid-line-v" style="left:1008px"></div>
-            <div class="grid-line-v" style="left:1296px"></div>
-            <div class="grid-line-h" style="top:144px"></div>
+            <div class="grid-line-v il-6"></div>
+            <div class="grid-line-v il-7"></div>
+            <div class="grid-line-h il-8"></div>
         </div>
     </div>
     <div class="ambient-noise"></div>
@@ -607,10 +608,12 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
+
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- HERO Cinematic Entry                                -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden" style="background: linear-gradient(180deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.6) 60%, transparent 100%);">
+    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden il-58">
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12 adelay-100">
@@ -620,7 +623,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end pb-20 lg:pb-28">
                 <!-- Headline: spans 7 cols -->
                 <div class="lg:col-span-7">
-                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]" style="font-size: clamp(48px, 8vw, 112px); animation-delay:0.2s">Clear scope.<br><em class="text-vw-accent">Honest pricing.</em></h1>
+                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92] il-59">Clear scope.<br><em class="text-vw-accent">Honest pricing.</em></h1>
                 </div>
 
                 <!-- Right column: description + social proof -->
@@ -705,7 +708,7 @@
                         <span class="typewriter-text" data-text="[ After launch ]">[ After launch ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]" style="font-size: clamp(36px, 5vw, 72px);">After launch.</h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95] il-45">After launch.</h2>
                     <p class="font-ui text-vw-sec text-lg leading-[1.5] mt-4 max-w-md">Most sites plateau in month two. Ours don't.</p>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
@@ -714,11 +717,11 @@
             </div>
 
             <!-- Hold / Build Cards -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5" style="align-items: stretch;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5 il-60">
 
                 <!-- Hold -->
                 <div class="pkg-card-scene scroll-reveal">
-                    <div class="pkg-card" data-tilt style="height:100%;">
+                    <div class="pkg-card il-61" data-tilt>
                         <div class="pkg-card-grid"></div>
                         <div class="pkg-card-glow"></div>
                         <div class="pkg-card-shine"></div>
@@ -727,7 +730,7 @@
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.16em] mb-4">Tier Hold</span>
                             <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2">Hold</h3>
                             <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic">The site stays up, accurate, and healthy, without you managing it.</p>
-                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount" style="font-size:clamp(36px,4vw,52px);">400</span></div>
+                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount il-62">400</span></div>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.1em] mb-5 block">Per month · Cancel anytime · 30 days notice</span>
                             <div class="flex flex-col mt-auto mb-8">
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Uptime monitoring, instant alert if anything breaks</span></div>
@@ -736,7 +739,7 @@
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Form and CTA check, are submissions arriving?</span></div>
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">1-page monthly report: traffic, sources, conversions</span></div>
                             </div>
-                            <a href="contact.html?service=hold" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size: 12px;padding:18px 24px;">
+                            <a href="contact.html?service=hold" class="btn btn--sweep flex items-center gap-3 w-full il-63">
                                 Start with Hold
                                 <i data-lucide="arrow-right" class="w-3.5 h-3.5 flex-shrink-0"></i>
                             </a>
@@ -746,12 +749,12 @@
 
                 <!-- Build -->
                 <div class="pkg-card-scene scroll-reveal delay-1">
-                    <div class="pkg-card featured" data-tilt style="height:100%;">
+                    <div class="pkg-card featured il-61" data-tilt>
                         <div class="pkg-card-grid"></div>
-                        <div class="pkg-card-glow" style="opacity:0.3"></div>
+                        <div class="pkg-card-glow il-64"></div>
                         <div class="pkg-card-shine"></div>
                         <div class="pkg-card-bar"></div>
-                        <div class="relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between" style="background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);">
+                        <div class="relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between il-65">
                             <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2"><span class="inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse"></span>Most clients start here</span>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.12em]">after seeing results</span>
                         </div>
@@ -759,7 +762,7 @@
                             <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.16em] mb-4">Tier Build</span>
                             <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2">Build</h3>
                             <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic">One delivery per month. One A/B test. One clear recommendation. Your site gets better every cycle.</p>
-                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount" style="font-size:clamp(36px,4vw,52px);">800</span></div>
+                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount il-62">800</span></div>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.1em] mb-5 block">Per month · Cancel anytime · 30 days notice</span>
                             <div class="flex flex-col mt-auto mb-8">
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Everything in Hold, plus:</span></div>
@@ -769,7 +772,7 @@
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Monthly 30-min alignment call</span></div>
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Data-backed recommendation: one action, one reason</span></div>
                             </div>
-                            <a href="contact.html?service=build" class="btn magnetic flex items-center gap-3 w-full" style="font-size: 12px;padding:18px 24px;background:#c6f135;color:#0c0b09;font-weight:600;">
+                            <a href="contact.html?service=build" class="btn magnetic flex items-center gap-3 w-full il-66">
                                 Start with Build
                                 <i data-lucide="arrow-right" class="w-3.5 h-3.5 flex-shrink-0"></i>
                             </a>
@@ -784,9 +787,9 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- ADD-ONS                                               -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <section id="addons" class="relative z-10 border-t border-vw-border/50 py-12 lg:py-24" style="background: #1c1a17;">
+    <section id="addons" class="relative z-10 border-t border-vw-border/50 py-12 lg:py-24 il-20">
 
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 80% 20%, rgba(198,241,53,0.03) 0%, transparent 60%);"></div>
+        <div class="absolute inset-0 pointer-events-none il-67"></div>
 
         <div class="px-6 md:px-12 lg:px-16 w-full relative z-10">
 
@@ -894,10 +897,10 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- THE FRAMEWORK UNDERNEATH (Scope Accordion)             -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <section id="scope" class="relative z-10 border-b border-vw-border/50" style="background: #1c1a17;">
+    <section id="scope" class="relative z-10 border-b border-vw-border/50 il-20">
 
         <!-- Radial accent -->
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
+        <div class="absolute inset-0 pointer-events-none il-68"></div>
 
         <!-- Header -->
         <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
@@ -907,7 +910,7 @@
                         <span class="typewriter-text" data-text="[ Inside every engagement ]">[ Inside every engagement ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]" style="font-size: clamp(36px, 5vw, 72px);">The framework<br><em class="text-vw-accent">underneath.</em></h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95] il-45">The framework<br><em class="text-vw-accent">underneath.</em></h2>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
                     <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">Different scopes, same thinking. These are the principles baked into every project, whether it's a 48-hour audit or a six-week rebuild.</p>
@@ -1148,41 +1151,43 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <section id="contact" class="relative z-10">
         <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
-            <div class="scroll-reveal relative w-full overflow-hidden" style="min-height: clamp(420px, 62vh, 720px); border: 1px solid rgba(255,255,255,0.12);">
+            <div class="scroll-reveal relative w-full overflow-hidden il-69">
 
-                <img id="cta-bg-img" src="assets/img/unsplash/photo-1497366216.webp" width="1600" height="1068" loading="lazy" alt="Modern workspace" class="cta-bg-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(1.1);opacity:0.55;">
+                <img id="cta-bg-img" src="assets/img/unsplash/photo-1497366216.webp" width="1600" height="1068" loading="lazy" alt="Modern workspace" class="cta-bg-img il-30">
 
-                <div class="cta-vignette" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,0.97) 0%, rgba(12,11,9,0.75) 35%, rgba(12,11,9,0.15) 65%, transparent 100%);z-index:2;"></div>
+                <div class="cta-vignette il-31"></div>
 
-                <div style="position:absolute;top:24px;left:24px;width:16px;height:16px;border-top:2px solid rgba(198,241,53,0.6);border-left:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
-                <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+                <div class="il-32"></div>
+                <div class="il-33"></div>
 
-                <div style="position:absolute;top:28px;right:48px;z-index:10;">
+                <div class="il-34">
                     <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
                 </div>
 
-                <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
+                <div class="il-35">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
                         <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.18em]">Still comparing?</span>
                     </div>
 
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">Let's scope it<br><em class="text-vw-accent">together.</em></h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-54">Let's scope it<br><em class="text-vw-accent">together.</em></h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3 il-38" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
                                 <span>Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
-                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size: 12px; color: #8a8680;">Custom quote within 24h. No spam.</span>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center il-39">Custom quote within 24h. No spam.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- FOOTER                                                -->
@@ -1234,10 +1239,7 @@
 
     <!-- Wordmark block: full-width, fades to bg at bottom -->
     <div class="relative w-full overflow-hidden select-none wordmark-block">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
-                    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    padding: 0 clamp(8px, 2vw, 24px);">
+        <svg class="il-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
             <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
             <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
             <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>

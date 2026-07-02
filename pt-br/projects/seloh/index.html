@@ -354,27 +354,28 @@
     <meta property="og:locale" content="pt_BR"></head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
     <!-- ── Ambient Visual Layer ── -->
     <div class="ambient-layer">
         <div class="ambient-tint"></div>
         <div class="ambient-blur"></div>
         <div class="ds-ambient-grid"></div>
-        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
-            <div class="grid-line-v" style="left:144px">
-                <div class="beam-v" style="animation:beam-v 9s infinite 2s"></div>
+        <div class="il-1">
+            <div class="grid-line-v il-2">
+                <div class="beam-v il-87"></div>
             </div>
-            <div class="grid-line-v" style="left:576px">
-                <div class="beam-v" style="animation:beam-v 12s infinite 5s"></div>
+            <div class="grid-line-v il-4">
+                <div class="beam-v il-88"></div>
             </div>
-            <div class="grid-line-v" style="left:1296px"></div>
-            <div class="grid-line-h" style="top:144px"></div>
+            <div class="grid-line-v il-7"></div>
+            <div class="grid-line-h il-8"></div>
         </div>
     </div>
     <div class="ambient-noise"></div>
 
     <!-- ── Navigation ── -->
     <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
-        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Página Inicial da Vellumwire">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon class="fill-inherit" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"></polygon>
                 <polygon class="fill-inherit" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"></polygon>
@@ -383,13 +384,15 @@
         <div class="flex items-center gap-4">
             <a href="../../../projects/seloh/" class="font-mono text-[12px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm" aria-label="Switch to English">EN</a>
 
-            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Abrir menu">
                 <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
             </button>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- ════════════════════════════════
          HERO
@@ -406,7 +409,7 @@
                     <span class="client-tag">Selo H</span>
                 </div>
 
-                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)] adelay-200">Uma plataforma de certificação que <em style="font-style:italic;color:var(--color-accent);">finalmente</em> conquista a confiança que exige.</h1>
+                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.95] mb-6 text-[clamp(44px,6.5vw,84px)] adelay-200">Uma plataforma de certificação que <em class="il-89">finalmente</em> conquista a confiança que exige.</h1>
 
                 <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] max-w-[540px] mb-8 adelay-350">A Selo H é a primeira certificação brasileira de saúde mental no trabalho construída com padrões internacionais. O produto tinha credibilidade real. O site não mostrava isso.</p>
 
@@ -419,7 +422,7 @@
                 </div>
 
                 <div class="reveal-up flex items-center gap-4 adelay-550">
-                    <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none" style="color:var(--color-accent);">4</span>
+                    <span class="font-display text-[clamp(48px,5vw,72px)] italic leading-none il-90">4</span>
                     <span class="font-mono text-[12px] text-vw-sec tracking-[0.12em] uppercase max-w-[130px] leading-relaxed">semanas do diagnóstico ao lançamento</span>
                 </div>
             </div>
@@ -541,7 +544,7 @@
                 <div class="flex-1 h-[1px] bg-vw-border"></div>
             </div>
 
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal">Mesma certificação. <em class="text-vw-sec not-italic" style="opacity:0.45;">Um site que finalmente prova isso.</em></h2>
+            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-10 scroll-reveal">Mesma certificação. <em class="text-vw-sec not-italic il-91">Um site que finalmente prova isso.</em></h2>
 
             <div class="scroll-reveal delay-1">
                 <div class="mockup-wrap ba-slider mb-3" id="baSlider">
@@ -589,7 +592,7 @@
                 <div class="ts">
                     <span class="ts-n">02</span>
                     <div>
-                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Prova de conformidade acima da primeira tela</div>
+                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2 il-90">Prova de conformidade acima da primeira tela</div>
                         <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">NR-01, Lei 14.831/24, OMS: visíveis desde a primeira rolagem.</h3>
                         <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Códigos legais não são notas de rodapé. Para um tomador de decisão de RH ou jurídico, eles são o principal motivo para avançar. Aparecem imediatamente abaixo do título, não enterrados no rodapé.</p>
                     </div>
@@ -597,7 +600,7 @@
                 <div class="ts">
                     <span class="ts-n">03</span>
                     <div>
-                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Rigor como vantagem</div>
+                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2 il-90">Rigor como vantagem</div>
                         <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Um processo de 4 passos que mostra como o rigor realmente se parece.</h3>
                         <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">O processo de certificação é genuinamente rigoroso. Isso é uma força, não uma desvantagem. Cada passo é apresentado como propositivo e alcançável, não burocrático e opaco.</p>
                     </div>
@@ -605,7 +608,7 @@
                 <div class="ts">
                     <span class="ts-n">04</span>
                     <div>
-                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Prova social como argumento final</div>
+                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2 il-90">Prova social como argumento final</div>
                         <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">Alelo, Amil, Arcor, Claro, Cogna: posicionadas onde têm mais impacto.</h3>
                         <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Esses nomes aparecem logo antes do formulário de contato. São o sinal mais forte de que a certificação é real, seletiva e vale a pena buscar.</p>
                     </div>
@@ -613,7 +616,7 @@
                 <div class="ts">
                     <span class="ts-n">05</span>
                     <div>
-                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2" style="color:var(--color-accent);">Um CTA, sem ambiguidade</div>
+                        <div class="font-mono text-[12px] tracking-[0.14em] uppercase mb-2 il-90">Um CTA, sem ambiguidade</div>
                         <h3 class="font-display text-[clamp(20px,2.2vw,28px)] text-vw-pri leading-[1.15] mb-2.5">"Solicitar certificação" é o único pedido, e está presente em toda a página.</h3>
                         <p class="text-[14px] text-vw-sec leading-[1.75] max-w-[560px]">Sem newsletter, sem download, sem caminho alternativo. Cada seção aponta para uma única decisão.</p>
                     </div>
@@ -640,21 +643,21 @@
                     <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal">O que foi entregue.</h2>
                     <div class="max-w-[640px]">
                         <div class="pi scroll-reveal">
-                            <span class="font-mono text-[12px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">01</span>
+                            <span class="font-mono text-[12px] shrink-0 pt-1 il-92">01</span>
                             <div>
                                 <div class="text-[15px] font-semibold text-vw-pri mb-1">Homepage, seloh.org</div>
                                 <div class="text-[14px] text-vw-sec leading-[1.7]">Reconstrução completa da página principal de marketing. Nova estrutura narrativa, texto reescrito, seções redesenhadas para conformidade, benefícios, processo, depoimentos, empresas certificadas e formulário de contato.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-1">
-                            <span class="font-mono text-[12px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">02</span>
+                            <span class="font-mono text-[12px] shrink-0 pt-1 il-92">02</span>
                             <div>
                                 <div class="text-[15px] font-semibold text-vw-pri mb-1">Página de Empresas Certificadas</div>
                                 <div class="text-[14px] text-vw-sec leading-[1.7]">Uma página dedicada listando todas as organizações certificadas, desenhada para reforçar a credibilidade e funcionar como um diretório de prova social pesquisável.</div>
                             </div>
                         </div>
                         <div class="pi scroll-reveal delay-2">
-                            <span class="font-mono text-[12px] shrink-0 pt-1" style="color:var(--color-accent);letter-spacing:0.18em;">03</span>
+                            <span class="font-mono text-[12px] shrink-0 pt-1 il-92">03</span>
                             <div>
                                 <div class="text-[15px] font-semibold text-vw-pri mb-1">Performance e Otimização Técnica</div>
                                 <div class="text-[14px] text-vw-sec leading-[1.7]">HTML semântico limpo, entrega de assets otimizada e um código leve. Sem frameworks desnecessários. Carregamento rápido, construído do zero.</div>
@@ -694,19 +697,19 @@
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="40" data-prefix="−" data-suffix="%">−0%</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Taxa de rejeição</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">vs. referência pré-lançamento</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.7"></div></div>
+                    <div class="mb-t"><div class="mb-f il-108"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="65" data-prefix="+" data-suffix="%">+0%</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Envios de formulário / mês</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">Solicitações de certificação</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.65"></div></div>
+                    <div class="mb-t"><div class="mb-f il-109"></div></div>
                 </div>
                 <div class="rc">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="1.4" data-suffix="s" data-decimals="1">0s</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Carregamento (LCP)</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">Reduzido de ~4,8s original</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.85"></div></div>
+                    <div class="mb-t"><div class="mb-f il-110"></div></div>
                 </div>
             </div>
 
@@ -715,22 +718,22 @@
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="2.3" data-suffix="×" data-decimals="1">0×</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Tempo na página</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0.77"></div></div>
+                    <div class="mb-t"><div class="mb-f il-111"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
-                    <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)]" style="color:var(--color-accent);">100</span>
+                    <span class="font-display italic leading-none text-[clamp(24px,3vw,36px)] il-90">100</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Pontuação Lighthouse</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
+                    <div class="mb-t"><div class="mb-f il-96"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">Zero</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Gasto com anúncios</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:0"></div></div>
+                    <div class="mb-t"><div class="mb-f il-112"></div></div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">1 CTA</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Em toda a página</div>
-                    <div class="mb-t"><div class="mb-f" style="--p:1;"></div></div>
+                    <div class="mb-t"><div class="mb-f il-96"></div></div>
                 </div>
             </div>
 
@@ -739,7 +742,7 @@
             <!-- Atualização do cliente — qualitativo, de reunião, não medição de analytics -->
             <div class="mt-8 border border-vw-border bg-vw-surface/30 p-6 scroll-reveal delay-2 max-w-[760px]">
                 <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em] block mb-3">Atualização do cliente · Julho 2026</span>
-                <p class="font-ui text-base text-vw-pri leading-[1.65]">"Estamos recebendo de 3x a 5x mais leads esse mês do que antes da reconstrução." <span class="text-vw-mut font-mono text-[12px] tracking-[0.06em]">— Relatado pelo time do Selo H, mês 1 pós-lançamento. Ainda não confirmado em analytics.</span></p>
+                <p class="font-ui text-base text-vw-pri leading-[1.65]">"Estamos recebendo de 3x a 5x mais leads esse mês do que antes da reconstrução." <span class="text-vw-mut font-mono text-[12px] tracking-[0.06em]">Relatado pelo time do Selo H, mês 1 pós-lançamento. Ainda não confirmado em analytics.</span></p>
             </div>
         </div>
     </section>
@@ -759,13 +762,13 @@
 
     <!-- ── CTA Band ── -->
     <section class="relative z-10 w-full py-24 md:py-32 border-t border-vw-border text-center overflow-hidden">
-        <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none" style="background:radial-gradient(ellipse, rgba(198,241,53,0.04), transparent 60%)"></div>
+        <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none il-99"></div>
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
             <span class="eyebrow block mb-5">Seu site é o próximo</span>
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Reconhece isso?<br><em class="text-vw-accent">Vamos conversar.</em></h2>
             <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">Análise de 15 minutos. Vamos pelo seu site e apontamos exatamente onde os visitantes estão desistindo. Se não houver nada para corrigir, diremos isso também.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
+                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
                 <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span>Ver mais projetos</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
@@ -773,7 +776,7 @@
 
 
     <!-- ── Next case ── -->
-    <a href="../harmon-and-vale/" class="nc scroll-reveal relative z-10" aria-label="Next case study: Harmon &amp; Vale">
+    <a href="../harmon-and-vale/" class="nc scroll-reveal relative z-10" aria-label="Próximo case: Harmon &amp; Vale">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
             <span class="font-mono text-[12px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Próximo case</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4 text-vw-pri">Harmon &amp; Vale</h3>
@@ -789,6 +792,8 @@
     </a>
 
 
+    </main>
+
     <!-- ════════════════════════════════
          FOOTER
     ════════════════════════════════ -->
@@ -799,7 +804,7 @@
 
                 <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
                     <div>
-                        <a href="../../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                        <a href="../../index.html" aria-label="Página Inicial da Vellumwire" class="inline-block hover:opacity-80 transition-opacity">
                             <img src="../../../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
                         </a>
                     </div>
@@ -833,10 +838,7 @@
 
         <!-- Wordmark -->
         <div class="relative w-full overflow-hidden select-none wordmark-block">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color:rgba(255,255,255,0.07);
-                       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                       padding: 0 clamp(8px, 2vw, 24px);">
+            <svg class="il-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
                 <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
                 <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
                 <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>

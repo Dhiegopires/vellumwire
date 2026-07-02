@@ -383,6 +383,7 @@
     <meta property="og:locale" content="pt_BR"></head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
     <!-- ── Ambient Visual Layer (identical to home/work) ── -->
     <div class="ambient-layer">
         <div class="ambient-tint"></div>
@@ -390,16 +391,16 @@
         <div class="ds-ambient-grid"></div>
 
         <!-- Global Grid Lines -->
-        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
-            <div class="grid-line-v" style="left:144px">
-                <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+        <div class="il-1">
+            <div class="grid-line-v il-2">
+                <div class="beam-v il-3"></div>
             </div>
-            <div class="grid-line-v" style="left:576px">
-                <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+            <div class="grid-line-v il-4">
+                <div class="beam-v il-5"></div>
             </div>
-            <div class="grid-line-v" style="left:1008px"></div>
-            <div class="grid-line-v" style="left:1296px"></div>
-            <div class="grid-line-h" style="top:144px"></div>
+            <div class="grid-line-v il-6"></div>
+            <div class="grid-line-v il-7"></div>
+            <div class="grid-line-h il-8"></div>
         </div>
     </div>
     <div class="ambient-noise"></div>
@@ -407,7 +408,7 @@
     <!-- ── Navigation ── -->
     <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
         <!-- Logo -->
-        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Página Inicial da Vellumwire">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon class="fill-inherit" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"></polygon>
                 <polygon class="fill-inherit" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"></polygon>
@@ -418,13 +419,15 @@
             <a href="../../../projects/harmon-and-vale/" class="font-mono text-[12px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm" aria-label="Switch to English">EN</a>
 
             <!-- Hamburger -->
-            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Abrir menu">
                 <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
             </button>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- ── HERO SECTION ── -->
     <section class="relative z-10 w-full pb-0 border-b border-vw-border overflow-hidden">
@@ -645,7 +648,7 @@
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Consultas qualificadas</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">11/mês → 26/mês</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:1"></div>
+                        <div class="mb-f il-101"></div>
                     </div>
                 </div>
                 <div class="rc">
@@ -653,7 +656,7 @@
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Taxa de rejeição</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">78% → 22%</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:.71"></div>
+                        <div class="mb-f il-102"></div>
                     </div>
                 </div>
                 <div class="rc">
@@ -661,7 +664,7 @@
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conclusão do formulário</div>
                     <div class="text-[13px] text-vw-mut mt-1.5">2 passos vs. 11 campos</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:.8"></div>
+                        <div class="mb-f il-103"></div>
                     </div>
                 </div>
             </div>
@@ -672,21 +675,21 @@
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="4.2" data-suffix="×" data-decimals="1">0×</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conversão mobile</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:.84"></div>
+                        <div class="mb-f il-104"></div>
                     </div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="47" data-suffix="s">0s</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Tempo médio na página</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:.59"></div>
+                        <div class="mb-f il-105"></div>
                     </div>
                 </div>
                 <div class="rc py-6 px-5">
                     <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="92" data-suffix="%">0%</span>
                     <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Passo-1 → Passo-2</div>
                     <div class="mb-t">
-                        <div class="mb-f" style="--p:.92"></div>
+                        <div class="mb-f il-106"></div>
                     </div>
                 </div>
                 <div class="rc py-6 px-5 flex flex-col justify-center">
@@ -720,20 +723,20 @@
 
     <!-- ── CTA BAND ── -->
     <section class="relative z-10 w-full py-24 md:py-32 border-t border-vw-border text-center overflow-hidden">
-        <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none" style="background:radial-gradient(ellipse, rgba(198,241,53,0.04), transparent 60%)"></div>
+        <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none il-99"></div>
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
             <span class="eyebrow block mb-5">Seu site é o próximo</span>
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Familiar?<br><em class="text-vw-accent">Vamos conversar.</em></h2>
             <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">Análise de 15 minutos. Te dizemos exatamente onde os leads estão vazando. Nada para corrigir? Diremos isso também.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep !bg-vw-accent !text-vw-base !border-transparent hover:!bg-vw-accentHov"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
+                <a href="../../contact.html?service=free-diagnosis" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
                 <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span>Ver mais projetos</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
 
     <!-- ── NEXT CASE ── -->
-    <a href="../seloh/" class="nc scroll-reveal relative z-10" aria-label="Next: Selo H">
+    <a href="../seloh/" class="nc scroll-reveal relative z-10" aria-label="Próximo: Selo H">
         <div class="py-16 md:py-20 px-6 md:px-12 lg:px-16 xl:pl-[144px] flex flex-col justify-center">
             <span class="font-mono text-[12px] text-vw-mut tracking-[0.16em] uppercase block mb-6">Próximo case</span>
             <h3 class="font-display text-[clamp(28px,3.5vw,48px)] leading-[1.05] mb-4">Selo H</h3>
@@ -744,9 +747,11 @@
             </div>
         </div>
         <div class="nc-img">
-            <img src="../../../assets/img/seloh/hero.webp" width="906" height="816" alt="Selo H rebuilt website" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+            <img class="il-107" src="../../../assets/img/seloh/hero.webp" width="906" height="816" alt="Selo H rebuilt website" loading="lazy">
         </div>
     </a>
+
+    </main>
 
     <!-- ── FOOTER ── -->
     <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
@@ -758,7 +763,7 @@
             <!-- Col 1: Brand -->
             <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
                 <div>
-                    <a href="../../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                    <a href="../../index.html" aria-label="Página Inicial da Vellumwire" class="inline-block hover:opacity-80 transition-opacity">
                         <img src="../../../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
                     </a>
                 </div>
@@ -796,10 +801,7 @@
 
     <!-- Wordmark block: full-width, fades to bg at bottom -->
     <div class="relative w-full overflow-hidden select-none wordmark-block">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
-                    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    padding: 0 clamp(8px, 2vw, 24px);">
+        <svg class="il-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
             <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
             <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
             <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>

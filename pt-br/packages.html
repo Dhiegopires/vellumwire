@@ -563,6 +563,7 @@
     <meta property="og:locale" content="pt_BR"></head>
 
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
     <!-- Three.js Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
@@ -573,23 +574,23 @@
         <div class="ambient-blur"></div>
         <div class="ds-ambient-grid"></div>
 
-        <div style="position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden">
-            <div class="grid-line-v" style="left:144px">
-                <div class="beam-v" style="animation:beam-v 8s infinite 1s"></div>
+        <div class="il-1">
+            <div class="grid-line-v il-2">
+                <div class="beam-v il-3"></div>
             </div>
-            <div class="grid-line-v" style="left:576px">
-                <div class="beam-v" style="animation:beam-v 10s infinite 4s"></div>
+            <div class="grid-line-v il-4">
+                <div class="beam-v il-5"></div>
             </div>
-            <div class="grid-line-v" style="left:1008px"></div>
-            <div class="grid-line-v" style="left:1296px"></div>
-            <div class="grid-line-h" style="top:144px"></div>
+            <div class="grid-line-v il-6"></div>
+            <div class="grid-line-v il-7"></div>
+            <div class="grid-line-h il-8"></div>
         </div>
     </div>
     <div class="ambient-noise"></div>
 
     <!-- ── Navigation ── -->
     <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
-        <a href="index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+        <a href="index.html" class="flex items-center group outline-none" aria-label="Página Inicial da Vellumwire">
             <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
                 <polygon class="fill-inherit" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"></polygon>
                 <polygon class="fill-inherit" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"></polygon>
@@ -599,7 +600,7 @@
         <div class="flex items-center gap-4">
             <a href="../packages.html" class="font-mono text-[12px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm" aria-label="Switch to English">EN</a>
 
-            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Abrir menu">
                 <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
                 <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
@@ -607,10 +608,12 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
+
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- HERO Cinematic Entry                                -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden" style="background: linear-gradient(180deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.6) 60%, transparent 100%);">
+    <header class="relative z-10 w-full pt-40 lg:pt-48 pb-0 overflow-hidden il-58">
         <div class="px-6 md:px-12 lg:px-16 w-full">
 
             <div class="reveal-up flex items-center gap-3 mb-12 adelay-100">
@@ -620,7 +623,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end pb-20 lg:pb-28">
                 <!-- Headline: spans 7 cols -->
                 <div class="lg:col-span-7">
-                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]" style="font-size: clamp(48px, 8vw, 112px); animation-delay:0.2s">Escopo claro.<br><em class="text-vw-accent">Preço honesto.</em></h1>
+                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92] il-59">Escopo claro.<br><em class="text-vw-accent">Preço honesto.</em></h1>
                 </div>
 
                 <!-- Right column: description + social proof -->
@@ -705,7 +708,7 @@
                         <span class="typewriter-text" data-text="[ Depois do lançamento ]">[ Depois do lançamento ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]" style="font-size: clamp(36px, 5vw, 72px);">Depois do lançamento.</h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95] il-45">Depois do lançamento.</h2>
                     <p class="font-ui text-vw-sec text-lg leading-[1.5] mt-4 max-w-md">A maioria dos sites estagna no segundo mês. Os nossos não.</p>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
@@ -714,11 +717,11 @@
             </div>
 
             <!-- Hold / Build Cards -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5" style="align-items: stretch;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5 il-60">
 
                 <!-- Hold -->
                 <div class="pkg-card-scene scroll-reveal">
-                    <div class="pkg-card" data-tilt style="height:100%;">
+                    <div class="pkg-card il-61" data-tilt>
                         <div class="pkg-card-grid"></div>
                         <div class="pkg-card-glow"></div>
                         <div class="pkg-card-shine"></div>
@@ -727,7 +730,7 @@
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.16em] mb-4">Plano Hold</span>
                             <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2">Hold</h3>
                             <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic">O site continua no ar, atualizado e saudável, sem você precisar gerenciar.</p>
-                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount" style="font-size:clamp(36px,4vw,52px);">400</span></div>
+                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount il-62">400</span></div>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.1em] mb-5 block">Por mês · Cancele quando quiser · Aviso de 30 dias</span>
                             <div class="flex flex-col mt-auto mb-8">
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Monitoramento de uptime, alerta instantâneo se algo quebrar</span></div>
@@ -736,7 +739,7 @@
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Checagem de formulário e CTA, as submissões estão chegando?</span></div>
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Relatório mensal de 1 página: tráfego, fontes, conversões</span></div>
                             </div>
-                            <a href="contact.html?service=hold" class="btn btn--sweep flex items-center gap-3 w-full" style="font-size: 12px;padding:18px 24px;">
+                            <a href="contact.html?service=hold" class="btn btn--sweep flex items-center gap-3 w-full il-63">
                                 Começar com Hold
                                 <i data-lucide="arrow-right" class="w-3.5 h-3.5 flex-shrink-0"></i>
                             </a>
@@ -746,12 +749,12 @@
 
                 <!-- Build -->
                 <div class="pkg-card-scene scroll-reveal delay-1">
-                    <div class="pkg-card featured" data-tilt style="height:100%;">
+                    <div class="pkg-card featured il-61" data-tilt>
                         <div class="pkg-card-grid"></div>
-                        <div class="pkg-card-glow" style="opacity:0.3"></div>
+                        <div class="pkg-card-glow il-64"></div>
                         <div class="pkg-card-shine"></div>
                         <div class="pkg-card-bar"></div>
-                        <div class="relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between" style="background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);">
+                        <div class="relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between il-65">
                             <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2"><span class="inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse"></span>Maioria dos clientes começa aqui</span>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.12em]">depois de ver resultados</span>
                         </div>
@@ -759,7 +762,7 @@
                             <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.16em] mb-4">Plano Build</span>
                             <h3 class="font-display text-2xl md:text-3xl text-vw-pri tracking-tight leading-[1.1] mb-2">Build</h3>
                             <p class="font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic">Uma entrega por mês. Um teste A/B. Uma recomendação clara. Seu site melhora a cada ciclo.</p>
-                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount" style="font-size:clamp(36px,4vw,52px);">800</span></div>
+                            <div class="price-display mb-1"><span class="price-currency">$</span><span class="price-amount il-62">800</span></div>
                             <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.1em] mb-5 block">Por mês · Cancele quando quiser · Aviso de 30 dias</span>
                             <div class="flex flex-col mt-auto mb-8">
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Tudo do Hold, mais:</span></div>
@@ -769,7 +772,7 @@
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Reunião mensal de alinhamento de 30 min</span></div>
                                 <div class="pkg-feature"><i data-lucide="check" class="pkg-feature-icon"></i><span class="pkg-feature-text">Recomendação baseada em dados: uma ação, um motivo</span></div>
                             </div>
-                            <a href="contact.html?service=build" class="btn magnetic flex items-center gap-3 w-full" style="font-size: 12px;padding:18px 24px;background:#c6f135;color:#0c0b09;font-weight:600;">
+                            <a href="contact.html?service=build" class="btn magnetic flex items-center gap-3 w-full il-66">
                                 Começar com Build
                                 <i data-lucide="arrow-right" class="w-3.5 h-3.5 flex-shrink-0"></i>
                             </a>
@@ -784,9 +787,9 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- ADD-ONS                                               -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <section id="addons" class="relative z-10 border-t border-vw-border/50 py-12 lg:py-24" style="background: #1c1a17;">
+    <section id="addons" class="relative z-10 border-t border-vw-border/50 py-12 lg:py-24 il-20">
 
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 80% 20%, rgba(198,241,53,0.03) 0%, transparent 60%);"></div>
+        <div class="absolute inset-0 pointer-events-none il-67"></div>
 
         <div class="px-6 md:px-12 lg:px-16 w-full relative z-10">
 
@@ -894,10 +897,10 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- THE FRAMEWORK UNDERNEATH (Scope Accordion)             -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <section id="scope" class="relative z-10 border-b border-vw-border/50" style="background: #1c1a17;">
+    <section id="scope" class="relative z-10 border-b border-vw-border/50 il-20">
 
         <!-- Radial accent -->
-        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(198,241,53,0.03) 0%, transparent 65%);"></div>
+        <div class="absolute inset-0 pointer-events-none il-68"></div>
 
         <!-- Header -->
         <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
@@ -907,7 +910,7 @@
                         <span class="typewriter-text" data-text="[ Dentro de cada projeto ]">[ Dentro de cada projeto ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95]" style="font-size: clamp(36px, 5vw, 72px);">O framework<br><em class="text-vw-accent">por trás.</em></h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.95] il-45">O framework<br><em class="text-vw-accent">por trás.</em></h2>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
                     <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">Escopos diferentes, mesmo raciocínio. Estes são os princípios embutidos em todo projeto, seja uma auditoria de 48 horas ou uma reconstrução de seis semanas.</p>
@@ -1148,41 +1151,43 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <section id="contact" class="relative z-10">
         <div class="px-6 md:px-12 lg:px-16 py-12 lg:py-24">
-            <div class="scroll-reveal relative w-full overflow-hidden" style="min-height: clamp(420px, 62vh, 720px); border: 1px solid rgba(255,255,255,0.12);">
+            <div class="scroll-reveal relative w-full overflow-hidden il-69">
 
-                <img id="cta-bg-img" src="../assets/img/unsplash/photo-1497366216.webp" width="1600" height="1068" loading="lazy" alt="Modern workspace" class="cta-bg-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(80%) contrast(1.1);opacity:0.55;">
+                <img id="cta-bg-img" src="../assets/img/unsplash/photo-1497366216.webp" width="1600" height="1068" loading="lazy" alt="Modern workspace" class="cta-bg-img il-30">
 
-                <div class="cta-vignette" style="position:absolute;inset:0;background:linear-gradient(to top, rgba(12,11,9,0.97) 0%, rgba(12,11,9,0.75) 35%, rgba(12,11,9,0.15) 65%, transparent 100%);z-index:2;"></div>
+                <div class="cta-vignette il-31"></div>
 
-                <div style="position:absolute;top:24px;left:24px;width:16px;height:16px;border-top:2px solid rgba(198,241,53,0.6);border-left:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
-                <div style="position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none;"></div>
+                <div class="il-32"></div>
+                <div class="il-33"></div>
 
-                <div style="position:absolute;top:28px;right:48px;z-index:10;">
+                <div class="il-34">
                     <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Gratuito · Sem compromisso · 15 min</span>
                 </div>
 
-                <div style="position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px);">
+                <div class="il-35">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="inline-block w-6 h-px bg-vw-accent"></span>
                         <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.18em]">Ainda comparando?</span>
                     </div>
 
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10" style="font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch;">Vamos escopar<br><em class="text-vw-accent">juntos.</em></h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-54">Vamos escopar<br><em class="text-vw-accent">juntos.</em></h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm" style="font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6;">Peça um diagnóstico gratuito de 15 minutos. Vamos te dizer qual pacote encaixa, ou se você realmente precisa de nós. Você fica com o diagnóstico de qualquer jeito.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">Peça um diagnóstico gratuito de 15 minutos. Vamos te dizer qual pacote encaixa, ou se você realmente precisa de nós. Você fica com o diagnóstico de qualquer jeito.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3" style="font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3 il-38" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
                                 <span>Peça um diagnóstico gratuito de 15 minutos</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
-                            <span class="font-mono uppercase tracking-[0.12em] text-center" style="font-size: 12px; color: #8a8680;">Cotação personalizada em até 24h. Sem spam.</span>
+                            <span class="font-mono uppercase tracking-[0.12em] text-center il-39">Cotação personalizada em até 24h. Sem spam.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- FOOTER                                                -->
@@ -1196,7 +1201,7 @@
             <!-- Col 1: Brand -->
             <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
                 <div>
-                    <a href="index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                    <a href="index.html" aria-label="Página Inicial da Vellumwire" class="inline-block hover:opacity-80 transition-opacity">
                         <img src="../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
                     </a>
                 </div>
@@ -1234,10 +1239,7 @@
 
     <!-- Wordmark block: full-width, fades to bg at bottom -->
     <div class="relative w-full overflow-hidden select-none wordmark-block">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
-                    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    padding: 0 clamp(8px, 2vw, 24px);">
+        <svg class="il-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
             <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
             <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
             <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>

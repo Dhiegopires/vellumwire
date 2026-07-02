@@ -178,6 +178,7 @@
     <meta property="og:locale" content="en_US"></head>
 
 <body class="bg-vw-base text-vw-pri font-ui antialiased overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- Three.js Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
@@ -185,10 +186,10 @@
     <!-- Grid Lines -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="relative w-full h-full">
-            <div class="grid-line-v" style="left:0px"></div>
-            <div class="grid-line-v" style="left:calc(100% - 1px)"></div>
-            <div class="grid-line-v" style="left:50%"></div>
-            <div class="grid-line-h" style="top:144px"></div>
+            <div class="grid-line-v il-79"></div>
+            <div class="grid-line-v il-80"></div>
+            <div class="grid-line-v il-81"></div>
+            <div class="grid-line-h il-8"></div>
         </div>
     </div>
     <div class="ambient-noise"></div>
@@ -224,7 +225,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-end">
                 <div class="lg:col-span-8">
-                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92]" style="font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s">Writing that<br><em class="text-vw-sec">earns the scroll.</em></h1>
+                    <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.92] il-70">Writing that<br><em class="text-vw-sec">earns the scroll.</em></h1>
                 </div>
                 <div class="lg:col-span-4 reveal-up adelay-400">
                     <p class="font-ui text-vw-sec text-base leading-[1.65] max-w-md">Design, conversion, and the quiet decisions that make websites work. No fluff, only pieces that change how you build.</p>
@@ -237,7 +238,7 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- ARTICLE LIST                                          -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <main class="relative z-10 px-6 md:px-12 lg:px-16">
+    <main id="main-content" tabindex="-1" class="relative z-10 px-6 md:px-12 lg:px-16">
 
         <div class="border-b border-vw-border/50 py-6 flex items-center justify-between scroll-reveal">
             <span class="eyebrow typewriter-wrap">
@@ -290,7 +291,7 @@
         </div>
 
         <!-- Row 4 -->
-        <div class="insight-row scroll-reveal" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <div class="insight-row scroll-reveal il-82">
             <span class="row-index">04</span>
             <div class="row-main">
                 <div class="row-tag">Strategy</div>
@@ -304,16 +305,16 @@
 
         <!-- Pagination -->
         <div class="flex items-center justify-between py-10 border-b border-white/10">
-            <span class="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em]" style="color:#3d3b38;">
+            <span class="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] il-83">
                 <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                 <span>Previous</span>
             </span>
             <div class="flex items-center gap-2">
-                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px]" style="border:1px solid #c6f135; color:#c6f135;">1</span>
-                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px]" style="border:1px solid #2a2825; color:#3d3b38;">2</span>
-                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px]" style="border:1px solid #2a2825; color:#3d3b38;">3</span>
+                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px] il-84">1</span>
+                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px] il-85">2</span>
+                <span class="w-7 h-7 flex items-center justify-center font-mono text-[12px] il-85">3</span>
             </div>
-            <span class="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em]" style="color:#3d3b38;">
+            <span class="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] il-83">
                 <span>Next</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -324,7 +325,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div>
                     <p class="eyebrow mb-5">[ Get notified ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></p>
-                    <h2 class="font-display text-vw-pri leading-[1.05] tracking-tight mb-4" style="font-size: clamp(1.75rem, 3.5vw, 3rem);">First to read,<br><em>when it's ready.</em></h2>
+                    <h2 class="font-display text-vw-pri leading-[1.05] tracking-tight mb-4 il-86">First to read,<br><em>when it's ready.</em></h2>
                     <p class="font-ui text-vw-sec text-sm leading-relaxed max-w-sm">No digest emails. No filler. One article, when it's done.</p>
                 </div>
                 <div>
@@ -391,10 +392,7 @@
 
     <!-- Wordmark block: full-width, fades to bg at bottom -->
     <div class="relative w-full overflow-hidden select-none wordmark-block">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true" style="display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
-                    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
-                    padding: 0 clamp(8px, 2vw, 24px);">
+        <svg class="il-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
             <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
             <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
             <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>
