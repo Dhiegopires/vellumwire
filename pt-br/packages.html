@@ -1174,7 +1174,7 @@
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm il-37">Peça um diagnóstico gratuito de 15 minutos. Vamos te dizer qual pacote encaixa, ou se você realmente precisa de nós. Você fica com o diagnóstico de qualquer jeito.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3 il-38" onmouseover="this.style.background='#b0d82e'" onmouseout="this.style.background='#c6f135'">
+                            <a href="contact.html?service=free-diagnosis" class="btn flex items-center gap-3 il-38">
                                 <span>Peça um diagnóstico gratuito de 15 minutos</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
@@ -1374,8 +1374,7 @@
                         return "<div class=\"pkg-feature\"><i data-lucide=\"check\" class=\"pkg-feature-icon\"></i><span class=\"pkg-feature-text\">" + d[lang] + "</span></div>";
                     }).join("");
                     var featTop = item.ft ? "<div class=\"relative z-20 w-full py-3 px-8 lg:px-10 flex items-center justify-between\" style=\"background:linear-gradient(90deg,rgba(198,241,53,0.12),rgba(198,241,53,0.04));border-bottom:1px solid rgba(198,241,53,0.15);\"><span class=\"font-mono text-[12px] text-vw-accent uppercase tracking-[0.18em] flex items-center gap-2\"><span class=\"inline-block w-1 h-1 bg-vw-accent rounded-full animate-pulse\"></span>" + pricingStrings.mostPopular[lang] + "</span><span class=\"font-mono text-[12px] text-vw-mut uppercase tracking-[0.12em]\">" + pricingStrings.bestValue[lang] + "</span></div>" : "";
-                    var btnS = item.ft ? "background:#c6f135;color:#0c0b09;font-weight:600;" : "";
-                    var btnC = item.ft ? "btn magnetic" : "btn btn--sweep";
+                    var btnC = item.ft ? "btn magnetic il-66" : "btn btn--sweep il-63";
                     var numColor = item.ft ? "text-vw-accent" : "text-vw-mut";
                     var scene = document.createElement("div");
                     scene.className = "pkg-card-scene scroll-reveal is-visible h-full " + dc;
@@ -1399,7 +1398,7 @@
                                 "<span class=\"font-mono text-[12px] text-vw-mut uppercase tracking-[0.1em] mb-5 block\">" + item.pn[lang] + "</span>" +
                                 "<p class=\"font-ui text-vw-sec text-[13px] leading-[1.7] mb-6 italic\">" + item.pitch[lang] + "</p>" +
                                 "<div class=\"flex flex-col mt-auto mb-8\">" + dItems + "</div>" +
-                                "<a href=\"contact.html?service=" + item.slug + "\" class=\"" + btnC + " flex items-center gap-3 w-full\" style=\"font-size: 12px;padding:18px 24px;" + btnS + "\">" +
+                                "<a href=\"contact.html?service=" + item.slug + "\" class=\"" + btnC + " flex items-center gap-3 w-full\">" +
                                     pricingStrings.getStarted[lang] +
                                     "<i data-lucide=\"arrow-right\" class=\"w-3.5 h-3.5 flex-shrink-0\"></i>" +
                                 "</a>" +

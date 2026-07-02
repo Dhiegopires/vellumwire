@@ -406,7 +406,8 @@
 
             submitBtn.disabled = true;
             submitBtn.textContent = "Sending...";
-            messageEl.style.display = 'none';
+            messageEl.classList.add('il-78');
+            messageEl.classList.remove('form-message--success', 'form-message--error');
             
             const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
             
@@ -430,8 +431,8 @@
 
                 if (res.ok && result.success) {
                     messageEl.textContent = "Message sent! We'll get back to you soon.";
-                    messageEl.style.color = '#c6f135';
-                    messageEl.style.display = 'block';
+                    messageEl.classList.add('form-message--success');
+                    messageEl.classList.remove('il-78');
                     if (typeof gtag === 'function') {
                         gtag('event', 'form_submit', { service: data.service || '(none)' });
                     }
@@ -443,8 +444,8 @@
                 }
             } catch (err) {
                 messageEl.textContent = "Error sending message. Please try again.";
-                messageEl.style.color = '#ff6b6b';
-                messageEl.style.display = 'block';
+                messageEl.classList.add('form-message--error');
+                messageEl.classList.remove('il-78');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Send message";

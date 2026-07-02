@@ -7,8 +7,13 @@
     --color-text-sec: #8a8680;
     --color-border: rgba(255, 255, 255, 0.12);
     --color-accent-hover: #b0d82e;
+    --color-error: #ff6b6b;
     --ease-editorial: cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* Contact form submit feedback (success/error) */
+.form-message--success { color: var(--color-accent); }
+.form-message--error { color: var(--color-error); }
 
 body {
     background-color: var(--color-bg);
@@ -263,8 +268,19 @@ select:focus-visible,
     color: #fff;
 }
 
-/* Solid accent variant for primary CTAs. The compound selector's specificity
-   beats .btn--sweep / .btn--sweep:hover on its own — no !important needed. */
+/* Solid accent variant for primary CTAs. Works standalone (e.g. with
+   .magnetic) or compounded with .btn--sweep — the compound selector's
+   higher specificity wins when both are present, no !important needed. */
+.btn--accent {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-weight: 600;
+}
+
+.btn--accent:hover {
+    background: var(--color-accent-hover);
+}
+
 .btn--sweep.btn--accent {
     background: var(--color-accent);
     color: var(--color-bg);
@@ -1420,6 +1436,7 @@ img.marquee-logo {
 .il-36 { font-size: clamp(40px, 6vw, 88px); max-width: 14ch; }
 .il-37 { font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6; }
 .il-38 { font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
+.il-38:hover { background: var(--color-accent-hover); }
 .il-39 { font-size: 12px; color: #8a8680; }
 .il-40 { display:block; width:100%; height:auto; color: rgba(255,255,255,0.07);
                     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
@@ -1441,6 +1458,7 @@ img.marquee-logo {
 .il-54 { font-size: clamp(36px, 5.5vw, 80px); max-width: 16ch; }
 .il-55 { font-size: clamp(13px, 1.1vw, 15px); color: #b0aca6; }
 .il-56 { font-size:12px; padding: 20px 40px; min-width: 240px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease; }
+.il-56:hover { background: var(--color-accent-hover); }
 .il-57 { font-size: 12px; color:#8a8680; }
 .il-58 { background: linear-gradient(180deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.6) 60%, transparent 100%); }
 .il-59 { font-size: clamp(48px, 8vw, 112px); animation-delay:0.2s; }
