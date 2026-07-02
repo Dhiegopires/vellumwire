@@ -15,7 +15,7 @@ module.exports = {
           accentHov: '#b0d82e',
           pri:       '#ede9e2',
           sec:       '#8a8680',
-          mut:       '#7a7875',
+          mut:       '#84827f',
           border:    'rgba(255,255,255,0.12)'
         }
       },
