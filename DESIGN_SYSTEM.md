@@ -72,25 +72,25 @@ Do not rename `--color-accent`, `--color-bg`, `--color-surface`, `--color-text-p
 ### 3.1 Font stack (confirmed via Google Fonts link, index.html lines 67/69, and `tailwind.css` font-role classes)
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 ```
 
 | Role | Font | Tailwind class | Weights loaded |
 |---|---|---|---|
-| Display | Instrument Serif | `.font-display` | 400, 400 italic |
+| Display | Archivo (weight 700) | `.font-display` | 400, 400 italic |
 | UI / Body | Syne | `.font-ui` | 400, 500, 600, 700 |
 | Mono / Labels | DM Mono | `.font-mono` | 400, 500, 400 italic |
 
 Compiled rules (`tailwind.css`):
 ```css
-.font-display{font-family:"Instrument Serif",serif}
+.font-display{font-family:"Archivo",serif}
 .font-ui{font-family:Syne,sans-serif}
 .font-mono{font-family:DM Mono,monospace}
 ```
 
 ### 3.2 Role rules
 
-- **Display (Instrument Serif):** hero H1, section H2, card titles. Italic spans (`<em>`) used for emphasis only, always colored with `--color-accent`. Never bold — the serif's weight axis isn't used for emphasis, italic is.
+- **Display (Archivo (weight 700)):** hero H1, section H2, card titles. Italic spans (`<em>`) used for emphasis only, always colored with `--color-accent`. Never bold — the serif's weight axis isn't used for emphasis, italic is.
 - **UI/Body (Syne):** navigation, body copy, buttons, form labels. Body text sizes 15-18px, line-height 1.7-1.75.
 - **Mono (DM Mono):** eyebrows, stat callouts, prices, footer legal links, button labels. Always uppercase, always letter-spaced. Confirmed pattern from `.eyebrow` (style.css lines 141-148): `font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c6f135;` and `.eyebrow-sub`: same but `letter-spacing: 0.16em; color: #8a8680;`. Button label pattern (`.btn`, line 163-178): `font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;`.
 
@@ -472,7 +472,7 @@ No dedicated "feature section" component class exists — sections are composed 
 ## 14. Typography components
 
 - **Eyebrow:** `.eyebrow` (accent color, 10px mono) + `.eyebrow-sub` (muted color, same size) — always paired, eyebrow first.
-- **Italic emphasis span:** `<em>` inside an Instrument Serif headline, colored `var(--color-accent)` (or the Tailwind equivalent `text-vw-accent`). Reserve for the single word/phrase that carries the sentence's turn — never decorative.
+- **Italic emphasis span:** `<em>` inside an Archivo (weight 700) headline, colored `var(--color-accent)` (or the Tailwind equivalent `text-vw-accent`). Reserve for the single word/phrase that carries the sentence's turn — never decorative.
 - **Stat/number callout:** DM Mono, uppercase, letter-spaced — used for prices, percentages, counts. Never set a number in Syne if it's meant to read as a measured fact.
 
 ---

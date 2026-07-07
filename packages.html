@@ -54,12 +54,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
     <link rel="stylesheet" href="assets/css/tailwind.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- External CSS -->
@@ -239,7 +241,8 @@
         }
 
         .price-amount {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(48px, 6vw, 72px);
             color: var(--color-text-pri);
             line-height: 1;
@@ -310,7 +313,8 @@
         }
 
         .stat-number {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(40px, 5vw, 64px);
             color: var(--color-accent);
             line-height: 1;
@@ -494,7 +498,8 @@
         }
 
         .scope-title {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(18px, 2vw, 28px);
             color: var(--color-text-pri);
             line-height: 1.2;
@@ -806,7 +811,7 @@
                         <span class="typewriter-text" data-text="[ Extend any package ]">[ Extend any package ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">Add-ons.</h2>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95]">Add-ons.</h2>
                 </div>
                 <div class="lg:pt-16 flex lg:justify-end">
                     <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-xs">Bolt these onto any tier. Each is scoped, priced separately, and delivered on the same timeline.</p>
@@ -1008,7 +1013,7 @@
                         <span class="typewriter-text" data-text="[ FAQ ]"></span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">About pricing.</h2>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92]">About pricing.</h2>
                 </div>
                 <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">No one likes surprises on an invoice. Here's how we price.</p>
             </div>
@@ -1196,7 +1201,7 @@
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm il-37">Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn flex items-center gap-3 il-38">
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
                                 <span>Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
@@ -1298,7 +1303,20 @@
         // ══════════════════════════════════════════════════════
         const pricingData = [
             {
-                n: "01", slug: "website-checkup", t: { en: "Website Checkup", pt: "Diagnóstico de Site" }, tag: { en: "Door opener", pt: "Porta de entrada" },
+                n: "01", slug: "google-listing", t: { en: "Google Listing Management", pt: "Gestão do Perfil no Google" }, tag: { en: "Ongoing service", pt: "Serviço contínuo" },
+                p: "$150 – $300", pn: { en: "/month, after a one-time setup", pt: "/mês, após configuração única" }, eta: { en: "Setup in 3–5 business days", pt: "Configuração em 3–5 dias úteis" },
+                pitch: { en: "We fix your Google listing so it shows up when local customers search for what you do, then keep it active every week so it stays there.", pt: "Arrumamos seu perfil no Google para aparecer quando clientes da sua região buscam o que você faz, e mantemos ele ativo toda semana para continuar aparecendo." },
+                del: [
+                    { en: "Full profile setup: photos, categories, hours, description", pt: "Configuração completa do perfil: fotos, categorias, horários, descrição" },
+                    { en: "Weekly posts to keep your listing active", pt: "Posts semanais para manter o perfil ativo" },
+                    { en: "Review responses within 48 hours", pt: "Respostas às avaliações em até 48 horas" },
+                    { en: "Monthly report in plain language: calls, clicks, directions", pt: "Relatório mensal em linguagem simples: ligações, cliques, direções" },
+                    { en: "No long-term contract", pt: "Sem contrato de longo prazo" }
+                ],
+                ft: false
+            },
+            {
+                n: "02", slug: "website-checkup", t: { en: "Website Checkup", pt: "Diagnóstico de Site" }, tag: { en: "Door opener", pt: "Porta de entrada" },
                 p: "$350", pn: { en: "flat fee", pt: "taxa fixa" }, eta: { en: "3–4 business days", pt: "3–4 dias úteis" },
                 pitch: { en: "A focused diagnosis of what's not working on your site. You get a video walkthrough and a prioritized fix list. Not a generic report.", pt: "Um diagnóstico focado no que não está funcionando no seu site. Você recebe um vídeo explicativo e uma lista de correções priorizada. Não é um relatório genérico." },
                 del: [
@@ -1311,7 +1329,7 @@
                 ft: false
             },
             {
-                n: "02", slug: "landing-page", t: { en: "Landing Page", pt: "Landing Page" }, tag: { en: "Quick win", pt: "Vitória rápida" },
+                n: "03", slug: "landing-page", t: { en: "Landing Page", pt: "Landing Page" }, tag: { en: "Quick win", pt: "Vitória rápida" },
                 p: "$750 – $1,200", pn: { en: "per page, delivered live", pt: "por página, entregue no ar" }, eta: { en: "5–10 business days", pt: "5–10 dias úteis" },
                 pitch: { en: "One page, one goal. Get visitors to call, book, or request a quote. Design, copy, and working code included.", pt: "Uma página, um objetivo. Faça visitantes ligarem, agendarem ou pedirem uma cotação. Design, copy e código funcional incluídos." },
                 del: [
@@ -1324,7 +1342,7 @@
                 ft: false
             },
             {
-                n: "03", slug: "homepage-redesign", t: { en: "Homepage Redesign", pt: "Reforma de Homepage" }, tag: { en: "Best value", pt: "Melhor custo-benefício" },
+                n: "04", slug: "homepage-redesign", t: { en: "Homepage Redesign", pt: "Reforma de Homepage" }, tag: { en: "Best value", pt: "Melhor custo-benefício" },
                 p: "$1,500 – $2,800", pn: { en: "fixed project", pt: "projeto fechado" }, eta: { en: "2–3 weeks", pt: "2–3 semanas" },
                 pitch: { en: "Your homepage rebuilt so visitors instantly get what you do, trust you, and know what to do next. Design, copy, and code, all included.", pt: "Sua homepage reconstruída para que visitantes entendam instantaneamente o que você faz, confiem em você e saibam o que fazer a seguir. Design, copy e código, tudo incluído." },
                 del: [
@@ -1338,7 +1356,7 @@
                 ft: true
             },
             {
-                n: "04", slug: "full-website", t: { en: "Full Website", pt: "Site Completo" }, tag: { en: "Complete build", pt: "Construção completa" },
+                n: "05", slug: "full-website", t: { en: "Full Website", pt: "Site Completo" }, tag: { en: "Complete build", pt: "Construção completa" },
                 p: "$3,000 – $5,000", pn: { en: "up to 6 pages", pt: "até 6 páginas" }, eta: { en: "4–6 weeks", pt: "4–6 semanas" },
                 pitch: { en: "A complete professional site from scratch. Structure, design, copy, code, and analytics. Everything you need to look credible and generate inbound leads.", pt: "Um site profissional completo do zero. Estrutura, design, copy, código e analytics. Tudo que você precisa para parecer credível e gerar leads inbound." },
                 del: [
@@ -1354,7 +1372,7 @@
                 ft: false
             },
             {
-                n: "05", slug: "brand-website", t: { en: "Brand + Website", pt: "Marca + Site" }, tag: { en: "Full package", pt: "Pacote completo" },
+                n: "06", slug: "brand-website", t: { en: "Brand + Website", pt: "Marca + Site" }, tag: { en: "Full package", pt: "Pacote completo" },
                 p: "$4,500 – $8,000", pn: { en: "branding quoted separately", pt: "branding cotado separadamente" }, eta: { en: "6–10 weeks", pt: "6–10 semanas" },
                 pitch: { en: "New brand, new site, one process. Our branding partner builds your identity, we design and code a site that matches. No Frankenstein result.", pt: "Marca nova, site novo, um processo só. Nosso parceiro de branding constrói sua identidade, nós desenhamos e codificamos um site à altura. Sem resultado Frankenstein." },
                 del: [

@@ -41,7 +41,8 @@
             display: flex;
             align-items: flex-end;
             gap: 0.75rem;
-            font-family: 'Instrument Serif', Georgia, serif;
+            font-family: 'Archivo', Georgia, sans-serif;
+            font-weight: 700;
             font-size: min(clamp(2.25rem, 5vw, 5rem), 9.5vh);
             line-height: 1.05;
             color: #f0ebe1;

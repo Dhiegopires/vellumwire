@@ -17,3 +17,20 @@ document.addEventListener('click', function (e) {
         page_path: window.location.pathname
     });
 });
+
+// Real conversion completion: Calendly's popup widget posts a message to the
+// parent window once a visitor actually confirms a slot. A click on the link
+// that opens the widget is only intent (cta_click above) - this is the event
+// that means a booking actually happened.
+window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://calendly.com') return;
+    if (typeof e.data !== 'object' || !e.data || typeof e.data.event !== 'string') return;
+    if (e.data.event !== 'calendly.event_scheduled') return;
+    if (typeof gtag !== 'function') return;
+
+    gtag('event', 'generate_lead', {
+        event_category: 'cta',
+        event_label: 'calendly_booking',
+        page_path: window.location.pathname
+    });
+});

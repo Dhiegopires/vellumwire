@@ -20,7 +20,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        display: ['"Instrument Serif"', 'serif'],
+        display: ['"Archivo"', 'sans-serif'],
         ui:      ['"Syne"', 'sans-serif'],
         mono:    ['"DM Mono"', 'monospace']
       }

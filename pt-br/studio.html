@@ -36,12 +36,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -57,7 +59,7 @@
             {
                 "@type": "Person",
                 "name": "Dhiego Cristofolini",
-                "jobTitle": "Design e Estratégia",
+                "jobTitle": "Design, Estratégia e Análise",
                 "affiliation": {
                     "@type": "Organization",
                     "name": "Vellumwire"
@@ -66,7 +68,7 @@
             {
                 "@type": "Person",
                 "name": "Afonso Canalle Junior",
-                "jobTitle": "Engenharia Frontend",
+                "jobTitle": "Engenharia de Software",
                 "affiliation": {
                     "@type": "Organization",
                     "name": "Vellumwire"
@@ -75,7 +77,7 @@
             {
                 "@type": "Person",
                 "name": "Vinicius Poncheck",
-                "jobTitle": "Relação com Clientes",
+                "jobTitle": "Vendas e Relacionamento com Clientes",
                 "affiliation": {
                     "@type": "Organization",
                     "name": "Vellumwire"
@@ -195,7 +197,8 @@
         .value-card:hover::before { transform: scaleX(1); }
 
         .value-num {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: 64px;
             line-height: 1;
             color: rgba(198,241,53,0.08);
@@ -282,7 +285,8 @@
         }
 
         .timeline-title {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(22px, 3vw, 32px);
             color: var(--color-text-pri);
             line-height: 1.15;
@@ -440,7 +444,8 @@
         }
 
         .scroll-text-item {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(48px, 7vw, 96px);
             color: rgba(255,255,255,0.06);
             padding: 0 clamp(24px, 4vw, 64px);
@@ -613,10 +618,10 @@
                             <span class="word-reveal-inner text-vw-pri">Nós vendemos resultados.</span>
                         </span>
                         <span class="word-reveal-line il-72" data-reveal="">
-                            <span class="word-reveal-inner text-vw-sec il-73">Se um site não gera leads</span>
+                            <span class="word-reveal-inner text-vw-sec il-73">Se um site não traz os clientes</span>
                         </span>
                         <span class="word-reveal-line" data-reveal="">
-                            <span class="word-reveal-inner text-vw-sec il-73">qualificados, ele é um centro de custo, não um ativo.</span>
+                            <span class="word-reveal-inner text-vw-sec il-73">certos, ele é um centro de custo, não um ativo.</span>
                         </span>
                         <span class="word-reveal-line il-72" data-reveal="">
                             <span class="word-reveal-inner text-vw-accent italic">Nós resolvemos isso.</span>
@@ -662,7 +667,7 @@
                         <span class="typewriter-text" data-text="[ Como trabalhamos ]">[ Como trabalhamos ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95]">Princípios,<br><em class="text-vw-accent">não slogans.</em></h2>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95]">Princípios,<br><em class="text-vw-accent">não slogans.</em></h2>
                 </div>
                 <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-md">Esses não são valores que escrevemos para um site. São as regras contra as quais já quebramos projetos. Continuam porque sobreviveram ao contato com clientes reais e prazos reais.</p>
             </div>
@@ -716,7 +721,7 @@
                     <span class="typewriter-text" data-text="[ O time ]">[ O time ]</span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">Pessoas seniores.<br><em class="text-vw-accent">Sem camada intermediária.</em></h2>
+                <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">Pessoas seniores.<br><em class="text-vw-accent">Sem camada intermediária.</em></h2>
                 <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-lg">Você fala com as mesmas pessoas que desenham, escrevem, codificam e revisam analytics. Esse é todo o modelo operacional.</p>
             </div>
 
@@ -734,7 +739,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Dhiego Cristofolini</h3>
-                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Design &amp; Estratégia</span>
+                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Design, Estratégia e Análise</span>
                         </div>
                     </div>
                 </div>
@@ -751,7 +756,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Afonso Canalle Junior</h3>
-                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Engenharia Frontend</span>
+                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Engenharia de Software</span>
                         </div>
                     </div>
                 </div>
@@ -768,7 +773,7 @@
                         </div>
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Vinicius Poncheck</h3>
-                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Relacionamento com Clientes</span>
+                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Vendas e Relacionamento com Clientes</span>
                         </div>
                     </div>
                 </div>
@@ -791,7 +796,7 @@
                         <span class="typewriter-text" data-text="[ Nossa história ]">[ Nossa história ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-6">Como<br><em class="text-vw-accent">chegamos aqui.</em></h2>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-6">Como<br><em class="text-vw-accent">chegamos aqui.</em></h2>
                     <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm">Não é uma longa história. É uma história deliberada. Cada movimento foi sobre se aproximar do tipo de trabalho que realmente move números.</p>
                 </div>
 
@@ -872,7 +877,7 @@
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm il-37">15 minutos, diagnóstico com tela compartilhada. Te dizemos o que está vazando leads e o que corrigir primeiro. Você fica com o diagnóstico, contrate ou não.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn flex items-center gap-3 il-38">
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
                                 <span>Peça um diagnóstico gratuito de 15 minutos</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>

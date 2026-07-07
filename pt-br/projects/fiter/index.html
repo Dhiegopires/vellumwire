@@ -61,10 +61,12 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
 
     <!-- Tailwind & Icons -->
     <link rel="stylesheet" href="../../../assets/css/tailwind.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <link rel="stylesheet" href="../../../assets/css/style.css">
 
@@ -89,7 +91,8 @@
         .ts:last-child { border-bottom: none; }
 
         .ts-n {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(32px, 3.5vw, 48px);
             font-style: italic;
             color: rgba(198, 241, 53, 0.12);
@@ -140,7 +143,8 @@
             content: '\201C';
             position: absolute;
             top: -20px; left: -20px;
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(100px, 12vw, 200px);
             line-height: 1;
             color: rgba(198, 241, 53, 0.06);
@@ -682,7 +686,7 @@
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Mesmo problema?<br><em class="text-vw-accent">Vamos conversar.</em></h2>
             <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">Análise de 15 minutos. Vamos pelo seu site e apontamos exatamente onde os visitantes estão desistindo. Se não houver nada para corrigir, diremos isso também.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
+                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
                 <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span>Ver mais projetos</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
@@ -713,7 +717,7 @@
     ════════════════════════════════ -->
     <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
 
-        <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">
+        <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16 max-md:pb-28">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-8 lg:gap-x-12">
 
                 <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
@@ -879,4 +883,10 @@
 
 
 
+    <!-- ── Sticky mobile CTA (CV2: primary CTA must be reachable without a long scroll on mobile) ── -->
+    <div id="vw-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-vw-base/95 backdrop-blur-md border-t border-vw-border px-4 py-3">
+        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
+            <span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span>
+        </a>
+    </div>
 </body></html>

@@ -15,6 +15,19 @@
 .form-message--success { color: var(--color-accent); }
 .form-message--error { color: var(--color-error); }
 
+/* Archivo is loaded as a variable family (not the static "Archivo Black" cut),
+   so the display weight has to be set explicitly instead of relying on the font file. */
+.font-display { font-weight: 700; }
+
+/* Titles never render italic, including any emphasis word inside them (<em>,
+   or a per-instance .il-N migrated-inline-style class that hardcodes
+   font-style:italic - those are class selectors and beat a plain "h1 em" rule
+   on specificity, which is why this needs !important and a wildcard child
+   selector rather than targeting <em> alone). That fit the old serif display
+   font; it doesn't fit Archivo's upright bulk. Emphasis inside a title is
+   color-only (text-vw-accent) now, never italic. */
+h1, h1 *, h2, h2 * { font-style: normal !important; }
+
 body {
     background-color: var(--color-bg);
     color: var(--color-text-pri);
@@ -1473,7 +1486,7 @@ img.marquee-logo {
 .il-68 { background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(198,241,53,0.03) 0%, transparent 65%); }
 .il-69 { min-height: clamp(420px, 62vh, 720px); border: 1px solid rgba(255,255,255,0.12); }
 .il-70 { font-size: clamp(44px, 7.5vw, 108px); animation-delay:0.2s; }
-.il-71 { font-size: clamp(32px, 5vw, 64px); }
+.il-71 { font-size: clamp(28px, 4vw, 50px); }
 .il-72 { margin-top: 24px; }
 .il-73 { font-size: 0.65em; }
 .il-74 { animation-delay: 0.2s; }

@@ -69,10 +69,12 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
 
     <!-- Tailwind & Icons -->
     <link rel="stylesheet" href="../../../assets/css/tailwind.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="../../../assets/css/style.css">
@@ -169,7 +171,8 @@
         }
 
         .ts-n {
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(32px, 3.5vw, 48px);
             font-style: italic;
             color: rgba(198, 241, 53, 0.15);
@@ -234,7 +237,8 @@
             position: absolute;
             top: -20px;
             left: -20px;
-            font-family: 'Instrument Serif', serif;
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
             font-size: clamp(100px, 12vw, 200px);
             line-height: 1;
             color: rgba(198, 241, 53, 0.06);
@@ -503,6 +507,74 @@
         </div>
     </section>
 
+    <!-- ════════════════════════════════
+         THE RESULTS (movido para cima da dobra —
+         quem le deve ver a prova antes da narrativa)
+    ════════════════════════════════ -->
+    <section class="relative z-10 w-full pb-24 md:pb-32 pt-16">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+            <h2 class="font-display text-[clamp(28px,3.5vw,44px)] leading-[1.1] mb-3 scroll-reveal">O site começou a converter.</h2>
+            <p class="font-ui text-[clamp(15px,1.1vw,17px)] text-vw-sec leading-relaxed max-w-[600px] mb-12 scroll-reveal delay-1">Medido nos 60 dias após o lançamento, contra a base do site anterior. Cada número abaixo responde uma coisa: isso traz mais consultas qualificadas para o escritório.</p>
+
+            <!-- Grid 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-vw-border border border-vw-border scroll-reveal delay-1">
+                <div class="rc">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="134" data-prefix="+" data-suffix="%">+0%</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Consultas qualificadas</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">11/mês → 26/mês</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-101"></div>
+                    </div>
+                </div>
+                <div class="rc">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="71" data-prefix="−" data-suffix="%">−0%</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Taxa de rejeição</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">78% → 22%</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-102"></div>
+                    </div>
+                </div>
+                <div class="rc">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="3.2" data-suffix="×" data-decimals="1">0×</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conclusão do formulário</div>
+                    <div class="text-[13px] text-vw-mut mt-1.5">2 passos vs. 11 campos</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-103"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid 2 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-vw-border border border-vw-border border-t-0 -mt-[1px] scroll-reveal delay-2">
+                <div class="rc py-6 px-5">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="4.2" data-suffix="×" data-decimals="1">0×</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conversão mobile</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-104"></div>
+                    </div>
+                </div>
+                <div class="rc py-6 px-5">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="47" data-suffix="s">0s</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Tempo médio na página</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-105"></div>
+                    </div>
+                </div>
+                <div class="rc py-6 px-5">
+                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="92" data-suffix="%">0%</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Passo-1 → Passo-2</div>
+                    <div class="mb-t">
+                        <div class="mb-f il-106"></div>
+                    </div>
+                </div>
+                <div class="rc py-6 px-5 flex flex-col justify-center">
+                    <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">$0</span>
+                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Gasto com anúncios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── THE PROBLEM ── -->
     <section class="relative z-10 w-full py-24 md:py-32">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
@@ -641,75 +713,6 @@
         </div>
     </section>
 
-    <!-- ── RESULTS ── -->
-    <section class="relative z-10 w-full pb-24 md:pb-32">
-        <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-            <div class="flex items-center gap-4 mb-12 scroll-reveal">
-                <span class="eyebrow">04 / Os Resultados</span>
-                <div class="flex-1 h-[1px] bg-vw-border"></div>
-            </div>
-
-            <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] mb-12 scroll-reveal">O site começou a converter.</h2>
-
-            <!-- Grid 1 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-vw-border border border-vw-border scroll-reveal delay-1">
-                <div class="rc">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="134" data-prefix="+" data-suffix="%">+0%</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Consultas qualificadas</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">11/mês → 26/mês</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-101"></div>
-                    </div>
-                </div>
-                <div class="rc">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="71" data-prefix="−" data-suffix="%">−0%</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Taxa de rejeição</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">78% → 22%</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-102"></div>
-                    </div>
-                </div>
-                <div class="rc">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(40px,5vw,64px)]" data-target="3.2" data-suffix="×" data-decimals="1">0×</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conclusão do formulário</div>
-                    <div class="text-[13px] text-vw-mut mt-1.5">2 passos vs. 11 campos</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-103"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grid 2 -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-vw-border border border-vw-border border-t-0 -mt-[1px] scroll-reveal delay-2">
-                <div class="rc py-6 px-5">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="4.2" data-suffix="×" data-decimals="1">0×</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Conversão mobile</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-104"></div>
-                    </div>
-                </div>
-                <div class="rc py-6 px-5">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="47" data-suffix="s">0s</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Tempo médio na página</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-105"></div>
-                    </div>
-                </div>
-                <div class="rc py-6 px-5">
-                    <span class="cnum font-display italic text-vw-accent leading-none text-[clamp(24px,3vw,36px)]" data-target="92" data-suffix="%">0%</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Passo-1 → Passo-2</div>
-                    <div class="mb-t">
-                        <div class="mb-f il-106"></div>
-                    </div>
-                </div>
-                <div class="rc py-6 px-5 flex flex-col justify-center">
-                    <span class="font-display italic text-vw-pri leading-none text-[clamp(24px,3vw,36px)]">$0</span>
-                    <div class="font-mono text-[12px] tracking-[0.12em] uppercase text-vw-sec mt-3">Gasto com anúncios</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ── CLOSING QUOTE ── -->
     <div class="relative z-10 w-full py-20 md:py-28 border-y border-vw-border bg-[#141310]">
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal">
@@ -739,7 +742,7 @@
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Familiar?<br><em class="text-vw-accent">Vamos conversar.</em></h2>
             <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">Análise de 15 minutos. Te dizemos exatamente onde os leads estão vazando. Nada para corrigir? Diremos isso também.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
+                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent"><span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span></a>
                 <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span>Ver mais projetos</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
@@ -767,7 +770,7 @@
     <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
 
     <!-- Top footer: nav links -->
-    <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">
+    <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16 max-md:pb-28">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-8 lg:gap-x-12">
 
             <!-- Col 1: Brand -->
@@ -929,4 +932,10 @@
     
     
 
+    <!-- ── Sticky mobile CTA (CV2: primary CTA must be reachable without a long scroll on mobile) ── -->
+    <div id="vw-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-vw-base/95 backdrop-blur-md border-t border-vw-border px-4 py-3">
+        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
+            <span>Agende uma análise de 15 min</span> <span aria-hidden="true">→</span>
+        </a>
+    </div>
 </body></html>

@@ -67,12 +67,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     </noscript>
 
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -175,11 +177,11 @@
 
             <!-- Right Box: Info Block matching placement -->
             <div class="w-full xl:w-[640px] shrink-0 text-center sm:text-left pb-8 lg:pb-0">
-                <h1 class="font-display text-vw-pri text-5xl md:text-7xl italic tracking-tight leading-[1.05] mb-3 md:mb-5 drop-shadow-xl reveal-up il-13">Sites bonitos são fáceis. Lucrativos, <span class="text-vw-accent">não.</span></h1>
+                <h1 class="font-display text-vw-pri text-5xl md:text-7xl tracking-tight leading-[1.05] mb-3 md:mb-5 drop-shadow-xl reveal-up il-13">Sites bonitos são fáceis. Lucrativos, <span class="text-vw-accent">não.</span></h1>
                 <p class="font-ui text-zinc-300 opacity-90 text-[15px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-4 md:mb-6 text-center sm:text-left max-w-[560px] il-14">Reformulamos sites de prestadores de serviço para que o visitante certo tome a ação certa. Estrutura clara, prova nos pontos certos e textos que vendem enquanto você está offline.</p>
                 <div class="reveal-up flex flex-wrap items-center justify-center sm:justify-start gap-6 il-15">
                     <div class="btn-wrapper-glow">
-                        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn btn--sweep btn--accent il-16">
+                        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent il-16">
                             <span>Ver onde meu site está perdendo clientes</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
@@ -302,10 +304,10 @@
                     <span class="typewriter-text" data-text="[ O Vazamento ]">[ O Vazamento ]</span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] pr-4">Onde sites de serviços perdem <span class="text-vw-accent italic opacity-90">clientes</span></h2>
+                <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[1.05] pr-4">Onde sites de serviços perdem <span class="text-vw-accent opacity-90">clientes</span></h2>
                 <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">A maioria dos sites de prestadores de serviço perde clientes por três problemas que não têm nada a ver com a aparência do site.</p>
                 <div class="mt-8 hidden lg:block">
-                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn-glow" >
+                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn-glow" >
                         <span>Peça um diagnóstico gratuito de 15 minutos</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
@@ -353,7 +355,7 @@
 
                 <!-- Bottom CTA (Mobile Only) -->
                 <div class="flex lg:hidden flex-col items-center gap-4 mt-12 scroll-reveal delay-2">
-                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn-glow" >
+                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn-glow" >
                         <span>Peça um diagnóstico gratuito de 15 minutos</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
@@ -377,8 +379,8 @@
                         <span class="typewriter-text" data-text="[ O Que Fazemos ]">[ O Que Fazemos ]</span>
                         <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05]">Três coisas que fazemos. Cada uma gera clientes.</h2>
-                    <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">Design, copy e engenharia em um único briefing. Construído para negócios de serviço que dependem de leads inbound.</p>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[1.05]">Três coisas que fazemos. Cada uma gera clientes.</h2>
+                    <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">Design, copy e engenharia em um único briefing. Construído para negócios de serviço que dependem de clientes novos.</p>
                 </div>
 
                 <!-- Steps List -->
@@ -476,7 +478,7 @@
                             <span class="typewriter-text" data-text="[ ARQUITETURA DE SERVIÇOS ]">[ ARQUITETURA DE SERVIÇOS ]</span>
                             <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
-                        <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[1.05] mt-8">Escolha por onde começar</h2>
+                        <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[1.05] mt-8">Escolha por onde começar</h2>
                         <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6">Três níveis, um objetivo: um site que traz ligações toda semana.</p>
                     </div>
                 </div>
@@ -613,7 +615,7 @@
                     <span class="typewriter-text" data-text="[ PROJETOS ]">[ PROJETOS ]</span>
                     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                 </span>
-                <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.95] mb-4">Projetos recentes</h2>
+                <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-4">Projetos recentes</h2>
                 <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-lg mb-8">Estrutura e prova trabalhando juntas. Veja como isso funciona na prática.</p>
 
                 <a href="work.html" class="btn btn--sweep min-w-[200px]">Ver todos os projetos</a>
@@ -976,7 +978,7 @@
 
                                 <!-- CTA Buttons -->
                                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn btn--sweep flex items-center gap-3 min-w-[260px] il-27">
+                                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep flex items-center gap-3 min-w-[260px] il-27">
                                         <span>Peça um diagnóstico gratuito de 15 minutos</span>
                                         <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                                     </a>
@@ -1014,7 +1016,7 @@
                     <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.16em] flex items-center gap-3 mb-6">
                         <span class="inline-block w-1.5 h-1.5 bg-vw-accent"></span>FAQ
                     </span>
-                    <h2 class="font-display text-5xl md:text-6xl text-vw-pri tracking-tight leading-[0.92]">Perguntas frequentes.</h2>
+                    <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92]">Perguntas frequentes.</h2>
                 </div>
                 <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">Tudo o que você gostaria de saber antes de nos dar quinze minutos do seu tempo.</p>
             </div>
@@ -1212,7 +1214,7 @@
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm il-37">Em 15 minutos mostramos exatamente onde seu site está perdendo esse lead. Sem custo, sem compromisso. Você fica com o diagnóstico de qualquer jeito.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" class="btn flex items-center gap-3 il-38">
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
                                 <span>Quero meu diagnóstico gratuito</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
