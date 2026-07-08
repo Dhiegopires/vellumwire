@@ -58,6 +58,8 @@
     </noscript>
 
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+        <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -822,7 +824,7 @@
 
                 <!-- Top label -->
                 <div class="il-52">
-                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Gratuito · Sem compromisso · 15 min</span>
+                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Gratuito · Sem compromisso · 30 min</span>
                 </div>
 
                 <!-- Content -->
@@ -835,8 +837,8 @@
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
                         <p class="font-ui leading-[1.65] max-w-sm il-55">Vamos analisar seu site atual em tempo real, apontar o que está bloqueando conversões e mapear o que corrigir primeiro. Você fica com o diagnóstico de qualquer jeito.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-56">
-                                <span>Peça um diagnóstico gratuito de 15 minutos</span>
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn flex items-center gap-3 il-56">
+                                <span>Peça um diagnóstico gratuito de 30 minutos</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center il-57">Próximos passos claros em até 24h. Sem spam.</span>
@@ -923,7 +925,7 @@
 </footer>
 
     <!-- ── Scripts ── -->
-    <script src="https://unpkg.com/lucide@1.22.0"></script>
+    <script src="../assets/js/lucide.min.js"></script>
     <script>
         // Init Lucide icons
         lucide.createIcons();

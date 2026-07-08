@@ -73,6 +73,8 @@
     </noscript>
 
     <link rel="stylesheet" href="../assets/css/tailwind.css">
+        <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -139,7 +141,55 @@
             <div class="il-10" data-us-project="bKN5upvoulAmWvInmHza"></div>
 
             <script type="text/javascript" defer="">
-                !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
+                // UnicornStudio (ambient WebGL background) logs its own failures
+                // straight to console.error/warn from deep inside async texture-loading,
+                // in environments where basic WebGL context creation succeeds but actual
+                // rendering doesn't (some sandboxes, some mobile browsers, some privacy
+                // modes) - since those are direct console calls, not thrown exceptions,
+                // neither try/catch nor a window 'error' listener can intercept them.
+                // This patches console.error/warn to drop only messages matching this
+                // library's own known error strings, so a purely decorative background
+                // effect can never surface a console error without silencing unrelated
+                // real bugs elsewhere on the site.
+                (function () {
+                    var patterns = [/^Renderer:/, /^TextureLoader:/, /^Texture:/, /^Curtains instance/];
+                    var isNoise = function (args) {
+                        var first = args.length ? String(args[0]) : '';
+                        for (var i = 0; i < patterns.length; i++) if (patterns[i].test(first)) return true;
+                        return false;
+                    };
+                    ['error', 'warn'].forEach(function (level) {
+                        var original = console[level].bind(console);
+                        console[level] = function () {
+                            if (isNoise(arguments)) return;
+                            original.apply(console, arguments);
+                        };
+                    });
+                    var fromUnicornStudio = function (e) {
+                        var stack = (e && e.error && e.error.stack) || '';
+                        var file = (e && e.filename) || '';
+                        return stack.toLowerCase().indexOf('unicornstudio') !== -1 ||
+                            file.toLowerCase().indexOf('unicornstudio') !== -1;
+                    };
+                    window.addEventListener('error', function (e) {
+                        if (fromUnicornStudio(e)) e.preventDefault();
+                    }, true);
+                    window.onerror = function (msg, src, line, col, err) {
+                        var stack = (err && err.stack) || '';
+                        if ((src && src.toLowerCase().indexOf('unicornstudio') !== -1) ||
+                            stack.toLowerCase().indexOf('unicornstudio') !== -1) {
+                            return true; // tells the browser this error was handled
+                        }
+                        return false;
+                    };
+                    window.addEventListener('unhandledrejection', function (e) {
+                        var stack = (e && e.reason && e.reason.stack) || '';
+                        if (stack.toLowerCase().indexOf('unicornstudio') !== -1) {
+                            e.preventDefault();
+                        }
+                    });
+                })();
+                !function () { function hasWebGL() { try { var c = document.createElement("canvas"); return !!(window.WebGLRenderingContext && (c.getContext("webgl") || c.getContext("experimental-webgl"))) } catch (e) { return !1 } } if (!hasWebGL()) return; var e = function () { try { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) } catch (err) { window.UnicornStudio && (window.UnicornStudio.isInitialized = !0) } }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
             </script>
 
             <!-- Green tint overlay -->
@@ -181,7 +231,7 @@
                 <p class="font-ui text-zinc-300 opacity-90 text-[15px] md:text-base font-medium leading-relaxed drop-shadow-md reveal-up mb-4 md:mb-6 text-center sm:text-left max-w-[560px] il-14">Reformulamos sites de prestadores de serviço para que o visitante certo tome a ação certa. Estrutura clara, prova nos pontos certos e textos que vendem enquanto você está offline.</p>
                 <div class="reveal-up flex flex-wrap items-center justify-center sm:justify-start gap-6 il-15">
                     <div class="btn-wrapper-glow">
-                        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent il-16">
+                        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn btn--sweep btn--accent il-16">
                             <span>Ver onde meu site está perdendo clientes</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
@@ -307,8 +357,8 @@
                 <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[1.05] pr-4">Onde sites de serviços perdem <span class="text-vw-accent opacity-90">clientes</span></h2>
                 <p class="font-ui text-vw-sec text-base leading-[1.6] max-w-md">A maioria dos sites de prestadores de serviço perde clientes por três problemas que não têm nada a ver com a aparência do site.</p>
                 <div class="mt-8 hidden lg:block">
-                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn-glow" >
-                        <span>Peça um diagnóstico gratuito de 15 minutos</span>
+                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn-glow" >
+                        <span>Peça um diagnóstico gratuito de 30 minutos</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -355,8 +405,8 @@
 
                 <!-- Bottom CTA (Mobile Only) -->
                 <div class="flex lg:hidden flex-col items-center gap-4 mt-12 scroll-reveal delay-2">
-                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn-glow" >
-                        <span>Peça um diagnóstico gratuito de 15 minutos</span>
+                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn-glow" >
+                        <span>Peça um diagnóstico gratuito de 30 minutos</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -479,15 +529,40 @@
                             <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
                         </span>
                         <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[1.05] mt-8">Escolha por onde começar</h2>
-                        <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6">Três níveis, um objetivo: um site que traz ligações toda semana.</p>
+                        <p class="font-ui text-vw-mut text-lg leading-[1.6] max-w-sm mt-6">Um objetivo em cada nível: um negócio que recebe ligações toda semana.</p>
                     </div>
                 </div>
 
                 <!-- Right: Services Cards Grid -->
-                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
 
-                    <a href="contact.html?service=website-checkup" class="block group">
-                    <div class="vw-service-card scroll-reveal delay-1">
+                    <a href="contact.html?service=google-listing" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-1 h-full">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">CLIENTES TE PROCURAM NO GOOGLE E ACHAM OUTRO</span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Gestão do Perfil no Google</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$150 – $300 /mês</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">Configuração em 3–5 dias úteis</div>
+
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Arrumamos seu perfil no Google para aparecer quando clientes da sua região buscam o que você faz, e mantemos ele ativo toda semana para continuar aparecendo.</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <a href="contact.html?service=website-checkup" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-2 h-full">
                         <div class="vw-card-grid-base"></div>
                         <div class="vw-card-grid-hover"></div>
                         <div class="vw-card-glow"></div>
@@ -501,21 +576,43 @@
                                 </div>
                             </div>
 
-                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Auditoria de Conversão</h3>
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Diagnóstico de Site</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$350 taxa fixa</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">3–4 dias úteis</div>
 
                             <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Destrinchamos seu site, encontramos o que está perdendo leads e entregamos uma lista de correções priorizada. Você fica com o relatório, contrate ou não.</p>
-                        </div>
-
-                        <div class="vw-card-media">
-                            <div class="vw-card-media-accent"></div>
-                            <div class="vw-card-media-gradient"></div>
-                            <img src="../assets/img/unsplash/photo-1550751827.webp" width="800" height="534" loading="lazy" class="vw-card-media-img" alt="Cyber abstract architecture">
                         </div>
                     </div>
                     </a>
 
-                    <a href="contact.html?service=homepage-redesign" class="block group">
-                    <div class="vw-service-card scroll-reveal delay-2">
+                    <a href="contact.html?service=landing-page" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-1 h-full">
+                        <div class="vw-card-grid-base"></div>
+                        <div class="vw-card-grid-hover"></div>
+                        <div class="vw-card-glow"></div>
+                        <div class="vw-card-bar"></div>
+
+                        <div class="p-8 pb-10 flex flex-col relative z-10 flex-1">
+                            <div class="flex justify-between items-start mb-8">
+                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.16em] flex items-center pr-4">VOCÊ PRECISA DE UMA PÁGINA, NÃO DE UM SITE INTEIRO</span>
+                                <div class="vw-card-arrow border-vw-border/50">
+                                    <i data-lucide="arrow-up-right"></i>
+                                </div>
+                            </div>
+
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Landing Page</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$750 – $1,200</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">5–10 dias úteis</div>
+
+                            <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Uma página, um objetivo. Faça visitantes ligarem, agendarem ou pedirem uma cotação. Design, copy e código funcional incluídos.</p>
+                        </div>
+                    </div>
+                    </a>
+
+                    <a href="contact.html?service=homepage-redesign" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-2 h-full">
                         <div class="vw-card-grid-base"></div>
                         <div class="vw-card-grid-hover"></div>
                         <div class="vw-card-glow"></div>
@@ -529,21 +626,18 @@
                                 </div>
                             </div>
 
-                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Reforma da Interface Principal</h3>
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Reforma de Homepage</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$1,500 – $2,800</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">2–3 semanas</div>
 
                             <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Reformulamos sua homepage e principais landing pages com um foco: construir confiança rápido e capturar o lead antes que ele saia.</p>
-                        </div>
-
-                        <div class="vw-card-media">
-                            <div class="vw-card-media-accent"></div>
-                            <div class="vw-card-media-gradient"></div>
-                            <img src="../assets/img/unsplash/photo-1550745165.webp" width="800" height="533" loading="lazy" class="vw-card-media-img" alt="Tech hardware grid">
                         </div>
                     </div>
                     </a>
 
-                    <a href="contact.html?service=full-website" class="block group">
-                    <div class="vw-service-card scroll-reveal delay-1">
+                    <a href="contact.html?service=full-website" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-1 h-full">
                         <div class="vw-card-grid-base"></div>
                         <div class="vw-card-grid-hover"></div>
                         <div class="vw-card-glow"></div>
@@ -557,21 +651,18 @@
                                 </div>
                             </div>
 
-                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Reconstrução Completa do Site</h3>
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Site Completo</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$3,000 – $5,000</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">4–6 semanas</div>
 
                             <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Demolição e reconstrução completa da sua presença digital ativa. Criamos a arquitetura técnica e o discurso de vendas do zero.</p>
-                        </div>
-
-                        <div class="vw-card-media">
-                            <div class="vw-card-media-accent"></div>
-                            <div class="vw-card-media-gradient"></div>
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&amp;q=80" loading="lazy" class="vw-card-media-img" alt="Wireframe grid structure">
                         </div>
                     </div>
                     </a>
 
-                    <a href="contact.html?service=brand-website" class="block group">
-                    <div class="vw-service-card scroll-reveal delay-2">
+                    <a href="contact.html?service=brand-website" class="block group h-full">
+                    <div class="vw-service-card scroll-reveal delay-2 h-full">
                         <div class="vw-card-grid-base"></div>
                         <div class="vw-card-grid-hover"></div>
                         <div class="vw-card-glow"></div>
@@ -585,20 +676,24 @@
                                 </div>
                             </div>
 
-                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Estratégia de Marca</h3>
+                            <h3 class="font-display text-3xl md:text-4xl text-vw-pri tracking-[0.02em] leading-none mb-4">Marca + Site</h3>
+
+                            <div class="font-mono text-[13px] text-vw-accent tracking-[0.06em] mb-1">$4,500 – $8,000</div>
+                            <div class="font-mono text-[12px] text-vw-mut tracking-[0.06em] mb-3">6–10 semanas</div>
 
                             <p class="font-ui text-vw-sec text-[15px] leading-[1.7] max-w-[90%]">Estabelecendo autoridade fundamental. Cuidamos do posicionamento estratégico, tom de voz e do sistema visual completo.</p>
-                        </div>
-
-                        <div class="vw-card-media">
-                            <div class="vw-card-media-accent"></div>
-                            <div class="vw-card-media-gradient"></div>
-                            <img src="../assets/img/unsplash/photo-1614729939.webp" width="800" height="640" loading="lazy" class="vw-card-media-img" alt="Abstract neon paths">
                         </div>
                     </div>
                     </a>
 
                 </div>
+            </div>
+
+            <div class="text-center mt-12 lg:mt-16 scroll-reveal">
+                <a href="packages.html" class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em] hover:text-vw-accent transition-colors duration-300 inline-flex items-center gap-2">
+                    Veja os detalhes completos e compare todos os planos
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -620,21 +715,11 @@
 
                 <a href="work.html" class="btn btn--sweep min-w-[200px]">Ver todos os projetos</a>
             </div>
-
-            <!-- Controls (Desktop right-aligned) -->
-            <div class="hidden md:flex items-center gap-6">
-                <button class="carousel-btn btn-prev" aria-label="Projeto anterior">
-                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                </button>
-                <button class="carousel-btn btn-next" aria-label="Próximo projeto">
-                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </button>
-            </div>
         </div>
 
         <!-- Carousel Track Wrapper (Full Screen Width / Infinite Loop) -->
         <div class="relative w-full z-20 scroll-reveal delay-1">
-            <div id="project-track" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-6 lg:gap-10 items-center">
+            <div id="project-track" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-6 lg:gap-10 items-start">
 
                 <!-- ================= CLONES (Prepended) ================= -->
 
@@ -651,6 +736,7 @@
                             <span class="vw-project-tag">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon &amp; Vale</h3>
+                        <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.1em] block mt-1 mb-2">Projeto conceitual</span>
                         <p class="vw-project-desc">Um escritório de advocacia de 40 anos com um site que não conseguia nem fechar uma porta, muito menos um cliente.</p>
                     </div>
                 </a>
@@ -704,6 +790,7 @@
                             <span class="vw-project-tag">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon &amp; Vale</h3>
+                        <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.1em] block mt-1 mb-2">Projeto conceitual</span>
                         <p class="vw-project-desc">Um escritório de advocacia de 40 anos com um site que não conseguia nem fechar uma porta, muito menos um cliente.</p>
                     </div>
                 </a>
@@ -757,6 +844,7 @@
                             <span class="vw-project-tag">Landing Page</span>
                         </div>
                         <h3 class="vw-project-title">Harmon &amp; Vale</h3>
+                        <span class="font-mono text-[11px] text-vw-accent uppercase tracking-[0.1em] block mt-1 mb-2">Projeto conceitual</span>
                         <p class="vw-project-desc">Um escritório de advocacia de 40 anos com um site que não conseguia nem fechar uma porta, muito menos um cliente.</p>
                     </div>
                 </a>
@@ -800,8 +888,8 @@
 
         <!-- Controls (Mobile dots & arrows block, Desktop dots only essentially) -->
         <div class="container mx-auto px-6 lg:px-12 mt-12 scroll-reveal">
-            <div class="flex items-center justify-between md:justify-center border-t border-vw-border/30 pt-8" id="carousel-dots-container">
-                <button class="carousel-btn btn-prev md:hidden" aria-label="Projeto anterior">
+            <div class="flex items-center justify-center gap-6 border-t border-vw-border/30 pt-8" id="carousel-dots-container">
+                <button class="carousel-btn btn-prev" aria-label="Projeto anterior">
                     <i data-lucide="arrow-left" class="w-5 h-5"></i>
                 </button>
 
@@ -811,7 +899,7 @@
                     <div class="carousel-dot"></div>
                 </div>
 
-                <button class="carousel-btn btn-next md:hidden" aria-label="Próximo projeto">
+                <button class="carousel-btn btn-next" aria-label="Próximo projeto">
                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -819,21 +907,15 @@
     </div></section>
 
     <!-- ============================================ -->
-    <!-- RESULTS STRIP (real case numbers)            -->
+    <!-- RESULTS STRIP (real case number only - never feature the -->
+    <!-- Concept project's fictional stat alongside a real one)   -->
     <!-- ============================================ -->
     <section class="relative z-10 w-full border-t border-b border-vw-border bg-vw-base/80 backdrop-blur-md">
         <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-vw-border scroll-reveal">
-                <div class="py-10 md:py-12 md:pr-12 text-center md:text-left">
-                    <span class="font-display text-[clamp(40px,5vw,56px)] italic text-vw-accent leading-none block">+134%</span>
-                    <div class="font-mono text-[12px] text-vw-sec tracking-[0.12em] uppercase mt-3">Consultas qualificadas em 60 dias</div>
-                    <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-vw-mut mt-4">Harmon &amp; Vale · Projeto conceitual</div>
-                </div>
-                <div class="py-10 md:py-12 md:pl-12 text-center md:text-left">
-                    <span class="font-display text-[clamp(40px,5vw,56px)] italic text-vw-accent leading-none block">+65%</span>
-                    <div class="font-mono text-[12px] text-vw-sec tracking-[0.12em] uppercase mt-3">Envios de formulário · 4 semanas do diagnóstico ao lançamento</div>
-                    <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-vw-mut mt-4">Selo H</div>
-                </div>
+            <div class="py-10 md:py-12 text-center scroll-reveal">
+                <span class="font-display text-[clamp(48px,6vw,72px)] italic text-vw-accent leading-none block">+65%</span>
+                <div class="font-mono text-[12px] text-vw-sec tracking-[0.12em] uppercase mt-3">Envios de formulário · 4 semanas do diagnóstico ao lançamento</div>
+                <div class="font-mono text-[12px] tracking-[0.14em] uppercase text-vw-mut mt-4">Selo H</div>
             </div>
         </div>
     </section>
@@ -974,15 +1056,15 @@
 
                                 <!-- Big closing statement -->
                                 <p class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.95] mb-4">A maioria dos sites perde o lead<br><em class="text-vw-accent">antes que uma única palavra seja lida.</em></p>
-                                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm mb-12">O diagnóstico leva 15 minutos. Você vai saber exatamente o que está te custando leads. Sem custo.</p>
+                                <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-sm mb-12">O diagnóstico leva 30 minutos. Você vai saber exatamente o que está te custando leads. Sem custo.</p>
 
                                 <!-- CTA Buttons -->
                                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep flex items-center gap-3 min-w-[260px] il-27">
-                                        <span>Peça um diagnóstico gratuito de 15 minutos</span>
+                                    <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn btn--sweep flex items-center gap-3 min-w-[260px] il-27">
+                                        <span>Peça um diagnóstico gratuito de 30 minutos</span>
                                         <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                                     </a>
-                                    <a href="#work" class="btn btn--ghost flex items-center gap-2 il-28">
+                                    <a href="work.html" class="btn btn--ghost flex items-center gap-2 il-28">
                                         <span>Ver nosso trabalho antes</span>
                                         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                                     </a>
@@ -1018,7 +1100,7 @@
                     </span>
                     <h2 class="font-display text-4xl md:text-5xl text-vw-pri tracking-tight leading-[0.92]">Perguntas frequentes.</h2>
                 </div>
-                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">Tudo o que você gostaria de saber antes de nos dar quinze minutos do seu tempo.</p>
+                <p class="font-ui text-vw-sec text-lg leading-[1.6] max-w-sm">Tudo o que você gostaria de saber antes de nos dar trinta minutos do seu tempo.</p>
             </div>
 
             <!-- Accordion Items -->
@@ -1116,10 +1198,10 @@
 
                 <!-- Item 6 -->
                 <div class="faq-demo scroll-reveal delay-2" data-faq="">
-                    <button class="faq-demo-q w-full" aria-expanded="false" aria-label="O que a análise de 15 minutos realmente cobre?">
+                    <button class="faq-demo-q w-full" aria-expanded="false" aria-label="O que a análise de 30 minutos realmente cobre?">
                         <div class="faq-demo-meta">
                             <span class="faq-demo-num">06</span>
-                            <span class="faq-demo-text">O que a análise de 15 minutos realmente cobre?</span>
+                            <span class="faq-demo-text">O que a análise de 30 minutos realmente cobre?</span>
                         </div>
                         <div class="faq-toggle-icon">
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -1146,7 +1228,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Um diagnóstico de site custa $350. Uma landing page sai entre $750 e $1.200. Uma reforma de homepage custa entre $1.500 e $2.800. Um site completo com até 6 páginas custa entre $3.000 e $5.000. Se você também precisar de branding, o pacote completo é de $4.500 a $8.000. Publicamos nossos preços porque não queremos perder seu tempo nem o nosso. Você recebe um valor exato antes de qualquer trabalho começar.</p>
+                        <p class="faq-demo-answer">Um diagnóstico de site custa $350. Uma landing page sai entre $750 e $1.200. Uma reforma de homepage custa entre $1.500 e $2.800. Um site completo com até 6 páginas custa entre $3.000 e $5.000. Se você também precisar de branding, o pacote completo é de $4.500 a $8.000. Se você só precisa configurar seu perfil no Google e mantê-lo ativo, isso é $150 a $300 por mês após uma configuração única. Publicamos nossos preços porque não queremos perder seu tempo nem o nosso. Você recebe um valor exato antes de qualquer trabalho começar.</p>
                     </div>
                 </div>
 
@@ -1195,7 +1277,7 @@
 
                 <!-- Top meta label -->
                 <div class="il-34">
-                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Gratuito · Sem compromisso · 15 min</span>
+                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Gratuito · Sem compromisso · 30 min</span>
                 </div>
 
                 <!-- Bottom-anchored content -->
@@ -1208,13 +1290,13 @@
                     </div>
 
                     <!-- Headline large, tight, brutal (green on last line) -->
-                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-36">Seu próximo cliente está no seu site agora.<br><em class="text-vw-accent">O que ele está vendo?</em></h2>
+                    <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-36">Seu próximo cliente está no seu site&nbsp;agora.<br><em class="text-vw-accent">O que ele está vendo?</em></h2>
 
                     <!-- Sub-copy + CTA side by side on desktop -->
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm il-37">Em 15 minutos mostramos exatamente onde seu site está perdendo esse lead. Sem custo, sem compromisso. Você fica com o diagnóstico de qualquer jeito.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">Em 30 minutos mostramos exatamente onde seu site está perdendo esse lead. Sem custo, sem compromisso. Você fica com o diagnóstico de qualquer jeito.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn flex items-center gap-3 il-38">
                                 <span>Quero meu diagnóstico gratuito</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
@@ -1361,7 +1443,7 @@
             }
         });
     </script>
-    <script src="https://unpkg.com/lucide@1.22.0"></script>
+    <script src="../assets/js/lucide.min.js"></script>
     <script>
         lucide.createIcons();
 

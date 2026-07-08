@@ -60,6 +60,8 @@
     </noscript>
 
     <link rel="stylesheet" href="assets/css/tailwind.css">
+        <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1187,7 +1189,7 @@
                 <div class="il-33"></div>
 
                 <div class="il-34">
-                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 30 min</span>
                 </div>
 
                 <div class="il-35">
@@ -1199,10 +1201,10 @@
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-54">Let's scope it<br><em class="text-vw-accent">together.</em></h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm il-37">Get a free 15-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">Get a free 30-minute diagnosis. We'll tell you which package fits, or if you even need us at all. You keep the diagnosis either way.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
-                                <span>Get a free 15-minute diagnosis</span>
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn flex items-center gap-3 il-38">
+                                <span>Get a free 30-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center il-39">Custom quote within 24h. No spam.</span>
@@ -1295,7 +1297,7 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- SCRIPTS                                               -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <script src="https://unpkg.com/lucide@1.22.0"></script>
+    <script src="assets/js/lucide.min.js"></script>
     <script>
 
         // ══════════════════════════════════════════════════════
@@ -1320,7 +1322,7 @@
                 p: "$350", pn: { en: "flat fee", pt: "taxa fixa" }, eta: { en: "3–4 business days", pt: "3–4 dias úteis" },
                 pitch: { en: "A focused diagnosis of what's not working on your site. You get a video walkthrough and a prioritized fix list. Not a generic report.", pt: "Um diagnóstico focado no que não está funcionando no seu site. Você recebe um vídeo explicativo e uma lista de correções priorizada. Não é um relatório genérico." },
                 del: [
-                    { en: "15-min video walkthrough (Loom)", pt: "Vídeo explicativo de 15 min (Loom)" },
+                    { en: "30-min video walkthrough (Loom)", pt: "Vídeo explicativo de 30 min (Loom)" },
                     { en: "Top issues ranked by impact on leads", pt: "Principais problemas ranqueados por impacto em leads" },
                     { en: "Quick-fix list you can act on immediately", pt: "Lista de correções rápidas para agir imediatamente" },
                     { en: "One competitor comparison", pt: "Uma comparação com concorrente" },
@@ -1406,10 +1408,10 @@
 
             pricingData.forEach(function(item, i) {
                     var dc = i === 1 ? "delay-1" : i === 2 ? "delay-2" : "";
-                    var isRange = item.p.indexOf(" ") > 0;
-                    var priceHtml = isRange
-                        ? "<div class=\"mb-1\"><span class=\"font-display text-vw-pri\" style=\"font-size:clamp(26px,3vw,40px);letter-spacing:-0.03em;line-height:1;\">" + item.p + "</span></div>"
-                        : "<div class=\"price-display mb-1\"><span class=\"price-currency\">$</span><span class=\"price-amount\">" + item.p.substring(1) + "</span></div>";
+                    // Same price treatment for every card regardless of flat-fee vs range -
+                    // whether "$350" has a space was never a deliberate "feature this one" signal,
+                    // just a string-format accident that made one card look randomly more important.
+                    var priceHtml = "<div class=\"mb-1\"><span class=\"font-display text-vw-pri\" style=\"font-size:clamp(26px,3vw,40px);letter-spacing:-0.03em;line-height:1;\">" + item.p + "</span></div>";
                     var dItems = item.del.map(function(d) {
                         return "<div class=\"pkg-feature\"><i data-lucide=\"check\" class=\"pkg-feature-icon\"></i><span class=\"pkg-feature-text\">" + d[lang] + "</span></div>";
                     }).join("");

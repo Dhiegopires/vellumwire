@@ -42,6 +42,8 @@
     </noscript>
 
     <link rel="stylesheet" href="assets/css/tailwind.css">
+        <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -863,7 +865,7 @@
                 <div class="il-33"></div>
 
                 <div class="il-34">
-                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 15 min</span>
+                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.18em]">Free · No commitment · 30 min</span>
                 </div>
 
                 <div class="il-35">
@@ -875,10 +877,10 @@
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-54">Let's talk about<br><em class="text-vw-accent">your site.</em></h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm il-37">15 minutes, screen-shared diagnosis. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">30 minutes, screen-shared diagnosis. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn flex items-center gap-3 il-38">
-                                <span>Get a free 15-minute diagnosis</span>
+                            <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn flex items-center gap-3 il-38">
+                                <span>Get a free 30-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center il-39">No pitch. No deck. Just a read.</span>
@@ -971,7 +973,7 @@
     <!-- ══════════════════════════════════════════════════════ -->
     <!-- SCRIPTS                                               -->
     <!-- ══════════════════════════════════════════════════════ -->
-    <script src="https://unpkg.com/lucide@1.22.0"></script>
+    <script src="assets/js/lucide.min.js"></script>
     <script>
         lucide.createIcons();
 

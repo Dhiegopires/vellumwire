@@ -73,6 +73,8 @@
 
     <!-- Tailwind & Icons -->
     <link rel="stylesheet" href="../../assets/css/tailwind.css">
+        <link rel="preconnect" href="https://calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -740,9 +742,9 @@
         <div class="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 scroll-reveal relative z-10">
             <span class="eyebrow block mb-5">Your website next</span>
             <h2 class="font-display text-[clamp(32px,4.5vw,56px)] leading-[1.1] text-vw-pri mb-4">Sound familiar?<br><em class="text-vw-accent">Let's talk.</em></h2>
-            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">15-minute teardown. We tell you exactly where the leads are leaking. Nothing to fix? We'll say so.</p>
+            <p class="text-base text-vw-sec max-w-[480px] mx-auto mb-10 leading-[1.65]">30-minute teardown. We tell you exactly where the leads are leaking. Nothing to fix? We'll say so.</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent"><span>Book a 15-min teardown</span> <span aria-hidden="true">→</span></a>
+                <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn btn--sweep btn--accent"><span>Book a 30-min teardown</span> <span aria-hidden="true">→</span></a>
                 <a href="../../work.html" class="btn btn--ghost border-vw-border hover:border-vw-accent"><span>See more work</span> <span aria-hidden="true">→</span></a>
             </div>
         </div>
@@ -934,8 +936,8 @@
 
     <!-- ── Sticky mobile CTA (CV2: primary CTA must be reachable without a long scroll on mobile) ── -->
     <div id="vw-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-vw-base/95 backdrop-blur-md border-t border-vw-border px-4 py-3">
-        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="Calendly.initPopupWidget({url:'https://calendly.com/dhiegopiresc/30min'});return false;" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
-            <span>Book a 15-min teardown</span> <span aria-hidden="true">→</span>
+        <a href="https://calendly.com/dhiegopiresc/30min" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/30min');" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
+            <span>Book a 30-min teardown</span> <span aria-hidden="true">→</span>
         </a>
     </div>
 </body></html>
