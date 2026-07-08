@@ -141,55 +141,7 @@
             <div class="il-10" data-us-project="bKN5upvoulAmWvInmHza"></div>
 
             <script type="text/javascript" defer="">
-                // UnicornStudio (ambient WebGL background) logs its own failures
-                // straight to console.error/warn from deep inside async texture-loading,
-                // in environments where basic WebGL context creation succeeds but actual
-                // rendering doesn't (some sandboxes, some mobile browsers, some privacy
-                // modes) - since those are direct console calls, not thrown exceptions,
-                // neither try/catch nor a window 'error' listener can intercept them.
-                // This patches console.error/warn to drop only messages matching this
-                // library's own known error strings, so a purely decorative background
-                // effect can never surface a console error without silencing unrelated
-                // real bugs elsewhere on the site.
-                (function () {
-                    var patterns = [/^Renderer:/, /^TextureLoader:/, /^Texture:/, /^Curtains instance/];
-                    var isNoise = function (args) {
-                        var first = args.length ? String(args[0]) : '';
-                        for (var i = 0; i < patterns.length; i++) if (patterns[i].test(first)) return true;
-                        return false;
-                    };
-                    ['error', 'warn'].forEach(function (level) {
-                        var original = console[level].bind(console);
-                        console[level] = function () {
-                            if (isNoise(arguments)) return;
-                            original.apply(console, arguments);
-                        };
-                    });
-                    var fromUnicornStudio = function (e) {
-                        var stack = (e && e.error && e.error.stack) || '';
-                        var file = (e && e.filename) || '';
-                        return stack.toLowerCase().indexOf('unicornstudio') !== -1 ||
-                            file.toLowerCase().indexOf('unicornstudio') !== -1;
-                    };
-                    window.addEventListener('error', function (e) {
-                        if (fromUnicornStudio(e)) e.preventDefault();
-                    }, true);
-                    window.onerror = function (msg, src, line, col, err) {
-                        var stack = (err && err.stack) || '';
-                        if ((src && src.toLowerCase().indexOf('unicornstudio') !== -1) ||
-                            stack.toLowerCase().indexOf('unicornstudio') !== -1) {
-                            return true; // tells the browser this error was handled
-                        }
-                        return false;
-                    };
-                    window.addEventListener('unhandledrejection', function (e) {
-                        var stack = (e && e.reason && e.reason.stack) || '';
-                        if (stack.toLowerCase().indexOf('unicornstudio') !== -1) {
-                            e.preventDefault();
-                        }
-                    });
-                })();
-                !function () { function hasWebGL() { try { var c = document.createElement("canvas"); return !!(window.WebGLRenderingContext && (c.getContext("webgl") || c.getContext("experimental-webgl"))) } catch (e) { return !1 } } if (!hasWebGL()) return; var e = function () { try { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) } catch (err) { window.UnicornStudio && (window.UnicornStudio.isInitialized = !0) } }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
+                !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
             </script>
 
             <!-- Green tint overlay -->
