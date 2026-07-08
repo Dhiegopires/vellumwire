@@ -100,6 +100,9 @@
         }
         #vw-menu-overlay .vw-menu-footer a,
         #vw-menu-overlay .vw-menu-footer span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
             font-family: 'DM Mono', 'Courier New', monospace;
             font-size: 0.7rem;
             letter-spacing: 0.1em;

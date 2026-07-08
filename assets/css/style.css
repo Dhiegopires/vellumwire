@@ -43,6 +43,8 @@ body {
 .link-reset { text-decoration: none; color: inherit; }
 .footer-top-border { border-top: 1px solid rgba(255,255,255,0.08); }
 .footer-legal-border { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px clamp(24px, 4vw, 80px); }
+/* WCAG 2.5.8: footer links default to text-line height (~17-20px); bump to a 24px minimum tap target without changing visible line spacing */
+#footer a { display: inline-flex; align-items: center; min-height: 24px; }
 .wordmark-block { padding: 0; margin-bottom: -2px; }
 
 /* Scroll-reveal stagger timing (animation-delay). Distinct from .delay-1..4
