@@ -302,8 +302,20 @@
             display: flex;
             gap: clamp(40px, 8vw, 120px);
             padding: 56px 0;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .stat-ticker::-webkit-scrollbar { display: none; }
+
+        @media (min-width: 640px) {
+            .stat-ticker {
+                overflow: hidden;
+                scroll-snap-type: none;
+            }
         }
 
         .stat-item {
@@ -312,6 +324,7 @@
             gap: 8px;
             flex-shrink: 0;
             min-width: 160px;
+            scroll-snap-align: start;
         }
 
         .stat-number {
