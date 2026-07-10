@@ -1,0 +1,638 @@
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NYDDNFV0HL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NYDDNFV0HL');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Your Site Doesn't Have a Design Problem. It Has an Order Problem. | Vellumwire</title>
+    <meta name="description" content="Your website might look fine and still not generate leads. Here's why it's a structural problem, not a design one, and how to check your own site for it.">
+    <meta name="author" content="Vellumwire">
+    <meta property="og:title" content="Your Site Doesn't Have a Design Problem. It Has an Order Problem. | Vellumwire">
+    <meta property="og:description" content="Your website might look fine and still not generate leads. Here's why it's a structural problem, not a design one, and how to check your own site for it.">
+    <meta property="og:url" content="https://www.vellumwire.com/insights/not-what-you-think/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.vellumwire.com/assets/img/og-img.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Site Doesn't Have a Design Problem. It Has an Order Problem. | Vellumwire">
+    <meta name="twitter:description" content="Your website might look fine and still not generate leads. Here's why it's a structural problem, not a design one, and how to check your own site for it.">
+    <meta name="twitter:image" content="https://www.vellumwire.com/assets/img/og-img.jpg">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.vellumwire.com/insights/not-what-you-think/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Your Site Doesn't Have a Design Problem. It Has an Order Problem.",
+      "url": "https://www.vellumwire.com/insights/not-what-you-think/",
+      "description": "Your website might look fine and still not generate leads. Here's why it's a structural problem, not a design one, and how to check your own site for it.",
+      "author": { "@type": "Organization", "name": "Vellumwire", "url": "https://www.vellumwire.com" },
+      "publisher": { "@type": "Organization", "name": "Vellumwire", "url": "https://www.vellumwire.com" },
+      "datePublished": "2026-07-10",
+      "about": { "@type": "Thing", "name": "Website Conversion Structure" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vellumwire.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.vellumwire.com/insights" },
+        { "@type": "ListItem", "position": 3, "name": "Your Site Doesn't Have a Design Problem", "item": "https://www.vellumwire.com/insights/not-what-you-think/" }
+      ]
+    }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/svg/vellumwire-favicon.svg">
+    <link rel="shortcut icon" href="../../assets/svg/vellumwire-favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;1,700&amp;family=Syne:wght@400;500;600;700&amp;family=DM+Mono:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
+
+    <!-- Tailwind & Icons -->
+    <link rel="stylesheet" href="../../assets/css/tailwind.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+    <style>
+        .cnum { font-variant-numeric: tabular-nums; }
+
+        /* ── Article prose ──
+           Line length target: 65-70 characters/line (established typographic range is
+           45-75cpl; 66 is the commonly cited ideal — Bringhurst, Baymard, NN/g all agree
+           on this band). At ~18px Syne, that lands around 640-680px — the whole article
+           column (header, prose, images) is set to max-w-[680px] below, one consistent
+           width throughout instead of images running wider than text. */
+        .article-prose p {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.75;
+            color: var(--color-text-pri);
+            margin-bottom: 24px;
+        }
+        .article-prose ul {
+            margin: 24px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .article-prose li {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.7;
+            color: var(--color-text-pri);
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 14px;
+        }
+        .article-prose li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            background: var(--color-accent);
+        }
+        .article-prose li strong { color: var(--color-text-pri); }
+        .article-prose h2 {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-size: clamp(26px, 3vw, 38px);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--color-text-pri);
+            margin-top: 56px;
+            margin-bottom: 20px;
+        }
+        .article-prose strong { color: var(--color-accent); font-weight: 600; }
+        .article-prose a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+        .article-prose a:hover { color: var(--color-accent-hover); }
+
+        /* ── Hero concept image (AI-generated, Midjourney) ── */
+        .hero-concept {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 21/6;
+            background: #141310;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-concept img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── Impact number callout ──
+           Compact, not stretched: two numbers don't have enough visual mass to fill a
+           wide grid without leaving dead space, so they sit centered as a tight pair
+           (auto-width columns, not 1fr 1fr) instead of spreading edge to edge. */
+        .impact-callout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            padding: 40px clamp(24px, 4vw, 56px);
+            background: #141310;
+            border: 1px solid var(--color-border);
+            margin: 32px 0 40px;
+        }
+        .impact-callout-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 56px;
+        }
+        .impact-item { text-align: center; position: relative; }
+        .impact-item + .impact-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: var(--color-border);
+        }
+        .impact-item .cnum {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: clamp(40px, 5vw, 64px);
+            color: var(--color-accent);
+            line-height: 1;
+            display: block;
+        }
+        .impact-item .impact-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text-sec);
+            margin-top: 10px;
+        }
+        .impact-subline {
+            width: 100%;
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-sec);
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+            padding-top: 20px;
+        }
+
+        /* ── Before/After Slider (reused from case study pages) ── */
+        .mockup-wrap {
+            position: relative;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            background: #141310;
+        }
+        .ba-slider { cursor: col-resize; user-select: none; touch-action: none; }
+        .ba-img-after { display: block; width: 100%; height: auto; }
+        .ba-img-before {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: left top;
+            clip-path: inset(0 50% 0 0);
+        }
+        .ba-div {
+            position: absolute; top: 0; bottom: 0; left: 50%;
+            width: 2px; background: var(--color-accent);
+            transform: translateX(-50%); z-index: 10; pointer-events: none;
+        }
+        .ba-handle {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--color-accent); color: #0c0b09;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 0 4px rgba(198, 241, 53, 0.2);
+            transition: box-shadow 0.3s; pointer-events: all; cursor: col-resize;
+        }
+        .ba-slider:active .ba-handle { box-shadow: 0 0 0 8px rgba(198, 241, 53, 0.15); }
+        .ba-lbl {
+            position: absolute; top: 20px; z-index: 5;
+            font-family: 'DM Mono', monospace; font-size: 12px;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            background: rgba(12, 11, 9, 0.85); padding: 5px 10px;
+            pointer-events: none; border: 1px solid var(--color-border);
+        }
+        .ba-lbl-b { left: 20px; color: #8a8680; }
+        .ba-lbl-a { right: 20px; color: var(--color-accent); }
+
+        .client-tag {
+            font-family: 'DM Mono', monospace; font-size: 12px;
+            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--color-accent); background: rgba(198, 241, 53, 0.08);
+            border: 1px solid rgba(198, 241, 53, 0.2); padding: 4px 10px; border-radius: 2px;
+        }
+
+        /* ── Closing CTA card ── */
+        .cta-card {
+            background: #141310;
+            border: 1px solid var(--color-border);
+            padding: 28px 32px;
+        }
+
+        /* ── More from Insights cards — reuses insights.html's own row-tag/soon-badge
+             visual language so a "related content" module looks consistent sitewide,
+             just presented as cards here instead of full-width rows. ── */
+        .more-insights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--color-border);
+            border: 1px solid var(--color-border);
+        }
+        @media (min-width: 640px) {
+            .more-insights-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .more-insights-card {
+            background: #141310;
+            padding: 28px;
+        }
+        .row-tag {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(198,241,53,0.7);
+        }
+        .soon-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(240,235,225,0.55);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 3px 8px;
+            white-space: nowrap;
+        }
+    </style>
+
+    <link rel="alternate" hreflang="en" href="https://www.vellumwire.com/insights/not-what-you-think/">
+    <link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/insights/not-what-you-think/">
+    <meta property="og:locale" content="en_US"></head>
+
+<body class="bg-vw-base text-vw-pri font-ui antialiased overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="relative w-full h-full">
+            <div class="grid-line-v il-79"></div>
+            <div class="grid-line-v il-80"></div>
+            <div class="grid-line-v il-81"></div>
+            <div class="grid-line-h il-8"></div>
+        </div>
+    </div>
+    <div class="ambient-noise"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-16 h-24 flex items-center justify-between">
+        <a href="../../index.html" class="flex items-center group outline-none" aria-label="Vellumwire Home">
+            <svg class="h-6 w-auto fill-vw-pri group-hover:fill-vw-accent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 223.22">
+                <polygon class="fill-inherit" points="176.23 0 125.53 128.44 74.82 0 0 0 88.11 223.22 162.94 223.22 251.05 0 176.23 0"></polygon>
+                <polygon class="fill-inherit" points="325.18 0 274.47 128.44 259.69 90.99 222.28 185.77 237.06 223.22 311.89 223.22 400 0 325.18 0"></polygon>
+            </svg>
+        </a>
+        <div class="flex items-center gap-4">
+            <a href="../../pt-br/insights/not-what-you-think/" class="font-mono text-[12px] tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors px-2 py-1 border border-vw-border rounded-sm" aria-label="Switch to Portuguese (PT)">PT</a>
+            <button class="w-10 h-10 flex flex-col justify-center gap-1.5 focus:outline-none group hover:cursor-pointer" aria-label="Open menu">
+                <span class="w-6 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-8 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+                <span class="w-4 h-[1.5px] bg-vw-pri group-hover:bg-vw-accent transition-colors self-end"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+
+    <!-- ════════════════════════════════
+         HERO
+    ════════════════════════════════ -->
+    <header class="relative z-10 w-full pt-[136px] pb-10">
+        <div class="px-6 md:px-12 lg:px-16 max-w-[920px] mx-auto">
+            <div class="max-w-[680px] mx-auto">
+                <div class="reveal-up flex items-center gap-3 mb-8 adelay-100">
+                    <a href="../../insights.html" class="font-mono text-[12px] text-vw-sec tracking-[0.14em] uppercase hover:text-vw-accent transition-colors">Insights</a>
+                    <span class="font-mono text-[12px] text-vw-mut">/</span>
+                    <span class="font-mono text-[12px] text-vw-mut tracking-[0.14em] uppercase">Your Site Doesn't Have a Design Problem</span>
+                </div>
+
+                <h1 class="reveal-up font-display text-vw-pri tracking-tight leading-[0.98] mb-6 text-[clamp(32px,5vw,58px)] adelay-200">Your Site Doesn't Have a Design Problem. <em class="text-vw-accent">It Has an Order Problem.</em></h1>
+
+                <p class="reveal-up font-ui text-vw-sec text-base md:text-lg leading-[1.65] adelay-350">Your website might look fine and still not generate leads. Here's why it's a structural problem, not a design one, and how to check your own site for it.</p>
+
+                <div class="reveal-up flex items-center gap-4 mt-8 adelay-450">
+                    <span class="font-mono text-[11px] text-vw-mut tracking-[0.12em] uppercase">~5 min read</span>
+                    <span class="font-mono text-[11px] text-vw-mut">·</span>
+                    <span class="font-mono text-[11px] text-vw-mut tracking-[0.12em] uppercase">July 10, 2026</span>
+                </div>
+
+                <div class="reveal-up flex items-center gap-2 mt-5 adelay-450">
+                    <span class="client-tag">Conversion</span>
+                    <span class="client-tag">UX / IA</span>
+                    <span class="client-tag">Strategy</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ════════════════════════════════
+         ARTICLE BODY
+         Two widths sharing one center axis: media (hero image, before/after, impact
+         numbers) runs the full 920px column; prose nests a narrower 680px column inside
+         it for the 65-70 char/line reading target. Images are NOT held to that limit —
+         only running text is.
+    ════════════════════════════════ -->
+    <article class="relative z-10 w-full pb-16 md:pb-20">
+
+        <!-- ARTIFACT 1: hero concept image — AI-generated (Midjourney), abstract "order out of
+             disorder" concept. Full-bleed: breaks out of the 920px column entirely, the largest,
+             most prominent image on the page. -->
+        <div class="hero-concept mb-16 scroll-reveal">
+            <img src="img/hero-concept.webp" width="2016" height="576" alt="Abstract composition of scattered lines resolving into an ordered grid, representing structural order versus visual chaos" loading="eager">
+        </div>
+
+        <div class="px-6 md:px-12 lg:px-16 max-w-[920px] mx-auto">
+
+            <div class="article-prose max-w-[680px] mx-auto scroll-reveal delay-1">
+                <p>You've looked at your own site more times than any customer ever will. You know every page. So when it isn't producing calls or quote requests, you go looking for what's wrong the same way you'd look at anything you own: you look at how it looks. The fonts feel dated. The photos feel generic. Maybe it just needs a refresh.</p>
+
+                <p>That's usually the wrong diagnosis.</p>
+
+                <h2>"Looks good" and "makes money" are different problems</h2>
+
+                <p>"Looks good" and "makes money" are not the same engineering problem, and they don't share a fix. A site can be visually current (modern fonts, clean layout, decent photography) and still fail to convert a single visitor into a call. A site can also look a little rough around the edges and still close deals, if it does the one thing that actually matters: get the right information in front of the right person, in the right order, with an obvious next step.</p>
+
+                <p>That second thing is structure. Not "UX" in the vague, unfalsifiable sense the word usually gets used in. Something much more concrete:</p>
+
+                <ul>
+                    <li><strong>What does a visitor see first</strong>, and does it answer the question they actually came with?</li>
+                    <li><strong>Where does your proof sit</strong> (the thing that makes a stranger trust you), relative to the point where you're asking them to act?</li>
+                    <li><strong>How many steps, clicks, or scrolls stand between "interested" and "contacted you"?</strong></li>
+                </ul>
+
+                <p>None of that is about typography or color palette. All of it is about sequencing. A "make it prettier" redesign doesn't touch any of it, because it was never a visual problem to begin with.</p>
+
+                <h2>What this looked like at Selo H</h2>
+
+                <p>Selo H is Brazil's first workplace mental-health certification built to international standards, grounded in real regulation (NR-01, Lei 14.831/24), WHO guidelines, and ICD-11 — <a href="../../projects/seloh/index.html">the full compliance grounding is documented on the case study itself</a>. The product had genuine legal and scientific credibility. The old website didn't have a design problem. It had two structural ones.</p>
+
+                <p>There was no clear primary action. Multiple competing calls-to-action diluted intent, so a visitor with real interest had no single, obvious next step to take.</p>
+
+                <p>And the information was sequenced backward. The most persuasive content on the entire site (the legal compliance grounding, the companies already certified, the actual four-step process) was buried or poorly ordered. The site answered questions in the wrong order: it led with description, not with the proof a skeptical visitor needed first.</p>
+
+                <p>Neither of those is a font problem. Both are order problems, and both are fixable without touching how the site looks.</p>
+            </div>
+
+            <!-- ARTIFACT 2: before/after — real capture, existing assets already used on
+                 projects/seloh/index.html. Not AI-generated: this is evidence. Full column
+                 width (920px) — this is the second-largest image on the page. -->
+            <div class="scroll-reveal delay-2">
+                <div class="mockup-wrap ba-slider mb-3" id="baSlider">
+                    <img class="ba-img-after" src="../../assets/img/seloh/after.webp" width="1282" height="738" alt="Selo H redesigned website" loading="lazy">
+                    <img class="ba-img-before" src="../../assets/img/seloh/before.webp" width="1440" height="844" alt="Selo H original website" loading="lazy">
+                    <span class="ba-lbl ba-lbl-b">Before</span>
+                    <span class="ba-lbl ba-lbl-a">After</span>
+                    <div class="ba-div">
+                        <div class="ba-handle">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="6,3 2,9 6,15"></polyline>
+                                <polyline points="12,3 16,9 12,15"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <p class="font-mono text-[12px] text-vw-mut tracking-[0.12em] uppercase">Fig. 1: Drag to compare — old seloh.org vs. the rebuild. Same information, reordered.</p>
+            </div>
+
+            <!-- ARTIFACT 3: impact number callout — real, cited, count-up on scroll. Post-width
+                 container, but the numbers sit as a compact centered pair, not stretched full-width. -->
+            <div class="impact-callout scroll-reveal delay-2">
+                <div class="impact-callout-row">
+                    <div class="impact-item">
+                        <span class="cnum" data-target="65" data-prefix="+" data-suffix="%">+0%</span>
+                        <span class="impact-label">Form submissions / month</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="cnum" data-target="40" data-prefix="&minus;" data-suffix="%">&minus;0%</span>
+                        <span class="impact-label">Bounce rate</span>
+                    </div>
+                </div>
+                <div class="impact-subline">Measured against a 30-day baseline before launch. Zero paid traffic behind either number.</div>
+            </div>
+
+            <div class="article-prose max-w-[680px] mx-auto scroll-reveal delay-3">
+                <h2>Why you can't see this on your own site</h2>
+
+                <p>You already know your own product. You already believe the case for it. So when you look at your own homepage, your brain fills in the gaps a stranger's won't. You don't notice the proof is missing or buried, because you already know it's true.</p>
+
+                <p>That's why "we don't open Figma until we know what's broken" isn't a slogan. It's a sequencing rule. Design decisions made before the structural diagnosis just make the wrong structure look nicer.</p>
+
+                <h2>Check your own site right now</h2>
+
+                <p>Open your homepage on your phone, the way an actual visitor would. Time how long it takes a total stranger to find two things: what you actually do, and how to contact you. If it takes longer than a few seconds, or if the answer requires scrolling past several sections of description first, that's not a visual problem. That's the same order problem Selo H had.</p>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- ════════════════════════════════
+         CLOSING ZONE — one cohesive section instead of two disconnected ones: a quiet
+         CTA card (deliberately modest, this is a TOFU article, not a sales page — see
+         editorial-standards-vellumwire.md), then real "More from Insights" cards reusing
+         insights.html's own row-tag/soon-badge visual language, not a plain link list.
+    ════════════════════════════════ -->
+    <section class="relative z-10 w-full pb-24 md:pb-32">
+        <div class="px-6 md:px-12 lg:px-16 max-w-[920px] mx-auto">
+
+            <div class="max-w-[680px] mx-auto scroll-reveal mb-16">
+                <div class="cta-card">
+                    <p class="font-ui text-vw-sec text-base leading-[1.65]">Want a second pair of eyes on your own site? <a href="../../studio.html" class="text-vw-accent hover:text-vw-accent-hover underline underline-offset-2">Get a free 30-minute diagnosis</a> — what's actually broken, not what looks dated.</p>
+                </div>
+            </div>
+
+            <div class="scroll-reveal delay-1">
+                <span class="font-mono text-[12px] uppercase tracking-[0.2em] text-muted-inline block mb-6">More from Insights</span>
+                <div class="more-insights-grid">
+                    <div class="more-insights-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="row-tag">Performance</span>
+                            <span class="soon-badge">Coming soon</span>
+                        </div>
+                        <div class="font-display text-vw-pri text-[clamp(18px,2vw,22px)] leading-snug">Speed is a design decision: 95+ Lighthouse without sacrificing visuals</div>
+                    </div>
+                    <div class="more-insights-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="row-tag">Strategy</span>
+                            <span class="soon-badge">Coming soon</span>
+                        </div>
+                        <div class="font-display text-vw-pri text-[clamp(18px,2vw,22px)] leading-snug">When to redesign and when to just fix what's broken</div>
+                    </div>
+                </div>
+                <a href="../../insights.html" class="font-mono text-[12px] uppercase tracking-[0.14em] text-vw-sec hover:text-vw-accent transition-colors duration-300 inline-flex items-center gap-2 mt-8">
+                    <span>Browse all Insights</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ════════════════════════════════
+         FOOTER
+    ════════════════════════════════ -->
+    <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
+
+        <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-8 lg:gap-x-12">
+
+                <div class="sm:col-span-2 lg:col-span-4 xl:col-span-5 flex flex-col gap-8 justify-start">
+                    <div>
+                        <a href="../../index.html" aria-label="Vellumwire Home" class="inline-block hover:opacity-80 transition-opacity">
+                            <img src="../../assets/svg/vellumwire-favicon.svg" alt="Vellumwire" class="h-8 w-auto" onerror="this.style.display='none'">
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-block w-4 h-px bg-vw-accent"></span>
+                        <span class="font-mono text-[12px] uppercase tracking-[0.16em] text-muted-inline">Curitiba, BR · Est. 2024</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 lg:col-span-2">
+                    <span class="font-mono text-[12px] uppercase tracking-[0.2em] mb-2 text-muted-inline">Pages</span>
+                    <a href="../../index.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Home</a>
+                    <a href="../../work.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Work</a>
+                    <a href="../../packages.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Packages</a>
+                </div>
+
+                <div class="flex flex-col gap-4 lg:col-span-2">
+                    <span class="font-mono text-[12px] uppercase tracking-[0.2em] mb-2 text-muted-inline">Company</span>
+                    <a href="../../studio.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Studio</a>
+                    <a href="../../insights.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Insights</a>
+                    <a href="../../contact.html" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">Contact</a>
+                </div>
+
+                <div class="flex flex-col gap-4 lg:col-span-4 xl:col-span-3">
+                    <span class="font-mono text-[12px] uppercase tracking-[0.2em] mb-2 text-muted-inline">Contact</span>
+                    <a href="mailto:contact@vellumwire.com" class="font-ui text-sm text-vw-sec hover:text-vw-accent transition-colors duration-300">contact@vellumwire.com</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="relative w-full overflow-hidden select-none wordmark-block">
+            <svg class="il-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" role="presentation" aria-hidden="true">
+                <polygon fill="currentColor" points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
+                <path fill="currentColor" d="M143.74,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
+                <rect fill="currentColor" x="206.95" y="0" width="26.79" height="89.71"></rect>
+                <rect fill="currentColor" x="252.01" y="0" width="26.89" height="89.71"></rect>
+                <path fill="currentColor" d="M323.91,67c3.45,0,6.46.06,11.29.06,8.77,0,15.61-9.89,15.61-22.08h.08V0h26.77v45.21h.04c0,24.71-13.56,44.74-38.27,44.74h-42.5V0h26.77l.2,67Z"></path>
+                <path fill="currentColor" d="M396.08,0v89.47h26.77v-49.8c0-4.91-.02-10.61-.02-16.99,4.15,0,4.75-.03,11.52-.03,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.83v-49.8c0-4.57-.02-13.1-.02-16.96,3.97,0,6.28-.06,11.51-.06,12.2,0,12.08,9.89,12.08,22.08h.08v44.74h26.77v-44.74h.04c0-24.71-10.03-44.74-34.74-44.74h-92.99Z"></path>
+                <path fill="currentColor" d="M543.25,89.47V0h26.77v49.8c0,4.91-.02,10.61-.02,16.99,4.15,0,4.75.03,11.52.03,12.2,0,12.08-9.89,12.08-22.08h.08V0h26.83v49.8c0,4.57-.02,13.1-.02,16.96,3.97,0,6.28.06,11.51.06,12.2,0,12.08-9.89,12.08-22.08h.08V0h70.04v22.4h-43.26v22.34h.04c0,24.71-10.03,44.74-34.74,44.74h-92.99Z"></path>
+                <rect fill="currentColor" x="687.33" y="44.74" width="26.87" height="44.74"></rect>
+                <path fill="currentColor" d="M758.82,14.67V0h-26.87v89.7h26.87v-44.74c0-12.2,23.42-22.38,35.62-22.38V0c-13.19,0-26.28,5.8-35.62,14.96Z"></path>
+                <path fill="currentColor" d="M848.85,0c-24.83,0-44.97,20.03-44.97,44.74s20.13,44.74,44.97,44.74c18.07,0,33.65-10.61,40.79-25.91h-29.18c-3.38,2.07-7.35,3.26-11.61,3.26-12.26,0-22.2-9.89-22.2-22.08s9.94-22.08,22.2-22.08c9.02,0,16.78,5.36,20.25,13.05h-26.42v17.97h50.23c.59-2.89.9-5.87.9-8.93,0-24.71-20.13-44.74-44.97-44.74Z"></path>
+            </svg>
+        </div>
+
+        <div class="footer-legal-border">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="font-mono text-[12px] uppercase tracking-[0.14em] text-muted-inline">© 2026 Vellumwire. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a href="../../privacy-policy.html" class="font-mono text-[12px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent text-muted-inline">Privacy Policy</a>
+                    <a href="../../terms-of-use.html" class="font-mono text-[12px] uppercase tracking-[0.14em] transition-colors duration-300 hover:text-vw-accent text-muted-inline">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- ── Scripts ── -->
+    <script src="../../assets/js/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        const ro = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                    ro.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.scroll-reveal').forEach(el => ro.observe(el));
+
+        const co = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (!e.isIntersecting) return;
+                const el = e.target;
+                if (el.dataset.counted) return;
+                el.dataset.counted = '1';
+                const t = parseFloat(el.dataset.target), p = el.dataset.prefix || '', s = el.dataset.suffix || '',
+                      d = parseInt(el.dataset.decimals || '0'), dur = 1800, st = performance.now();
+                function u(n) {
+                    const pr = Math.min((n - st) / dur, 1), ea = 1 - Math.pow(1 - pr, 3);
+                    el.textContent = p + (t * ea).toFixed(d) + s;
+                    if (pr < 1) requestAnimationFrame(u);
+                }
+                requestAnimationFrame(u);
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.cnum[data-target]').forEach(el => co.observe(el));
+
+        (function () {
+            const slider = document.getElementById('baSlider');
+            if (!slider) return;
+            const before = slider.querySelector('.ba-img-before');
+            const div = slider.querySelector('.ba-div');
+            let dragging = false;
+            function setPos(pct) {
+                pct = Math.max(3, Math.min(97, pct));
+                before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+                div.style.left = pct + '%';
+            }
+            function clientX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+            function onMove(e) {
+                if (!dragging) return;
+                const r = slider.getBoundingClientRect();
+                setPos(((clientX(e) - r.left) / r.width) * 100);
+            }
+            slider.addEventListener('mousedown', () => { dragging = true; });
+            slider.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('touchmove', onMove, { passive: true });
+            window.addEventListener('mouseup', () => { dragging = false; });
+            window.addEventListener('touchend', () => { dragging = false; });
+        })();
+    </script>
+    <script>window.VW_BASE_PATH = "../../";</script>
+    <script src="../../assets/js/menu.min.js" defer=""></script>
+    <script src="../../assets/js/analytics.js" defer></script>
+</body></html>
