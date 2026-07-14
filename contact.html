@@ -134,7 +134,7 @@
 
         <!-- Contact Form -->
         <div class="max-w-xl mx-auto">
-            <div class="border-2 border-vw-border bg-[#141310] p-8 md:p-12 il-77">
+            <div class="border-2 border-vw-border bg-vw-card p-8 md:p-12 il-77">
             <form id="contact-form" class="space-y-8">
                 
                 <!-- Name -->
@@ -156,13 +156,14 @@
                         <select id="service" name="service" class="sr-only" tabindex="-1">
                             <option value="">Select an option</option>
                             <option value="free-diagnosis">Free 30-min diagnosis</option>
+                            <option value="google-listing">Google Listing Management (from $150/mo)</option>
                             <option value="website-checkup">Website Checkup ($350)</option>
                             <option value="landing-page">Landing Page</option>
                             <option value="homepage-redesign">Homepage Redesign</option>
                             <option value="full-website">Full Website</option>
                             <option value="brand-website">Brand + Website</option>
-                            <option value="hold">Hold (monthly retainer)</option>
-                            <option value="build">Build (monthly retainer)</option>
+                            <option value="hold">Hold (monthly plan)</option>
+                            <option value="build">Build (monthly plan)</option>
                             <option value="not-sure">Not sure yet, let's talk</option>
                         </select>
                         <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-label="Select a service" class="custom-select-trigger w-full bg-transparent border-b border-vw-border py-3 text-lg flex items-center justify-between cursor-pointer focus:outline-none focus:border-vw-accent transition-colors">
@@ -171,17 +172,18 @@
                                 <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </button>
-                        <div role="listbox" aria-label="Available services" class="custom-select-dropdown hidden absolute top-full left-0 right-0 z-50 mt-1 border border-vw-border bg-[#1c1a17] shadow-lg max-h-60 overflow-y-auto il-78">
-                            <button type="button" role="option" aria-selected="false" data-value="" class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-[#2a2722] hover:text-vw-pri transition-colors">Select an option</button>
-                            <button type="button" role="option" aria-selected="false" data-value="free-diagnosis" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Free 30-min diagnosis</button>
-                            <button type="button" role="option" aria-selected="false" data-value="website-checkup" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Website Checkup ($350)</button>
-                            <button type="button" role="option" aria-selected="false" data-value="landing-page" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Landing Page</button>
-                            <button type="button" role="option" aria-selected="false" data-value="homepage-redesign" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Homepage Redesign</button>
-                            <button type="button" role="option" aria-selected="false" data-value="full-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Full Website</button>
-                            <button type="button" role="option" aria-selected="false" data-value="brand-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Brand + Website</button>
-                            <button type="button" role="option" aria-selected="false" data-value="hold" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Hold (monthly retainer)</button>
-                            <button type="button" role="option" aria-selected="false" data-value="build" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Build (monthly retainer)</button>
-                            <button type="button" role="option" aria-selected="false" data-value="not-sure" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-[#2a2722] transition-colors">Not sure yet, let's talk</button>
+                        <div role="listbox" aria-label="Available services" class="custom-select-dropdown hidden absolute top-full left-0 right-0 z-50 mt-1 border border-vw-border bg-vw-surface shadow-lg max-h-60 overflow-y-auto il-78">
+                            <button type="button" role="option" aria-selected="false" data-value="" class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-vw-surfaceHover hover:text-vw-pri transition-colors">Select an option</button>
+                            <button type="button" role="option" aria-selected="false" data-value="free-diagnosis" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Free 30-min diagnosis</button>
+                            <button type="button" role="option" aria-selected="false" data-value="google-listing" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Google Listing Management (from $150/mo)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="website-checkup" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Website Checkup ($350)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="landing-page" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Landing Page</button>
+                            <button type="button" role="option" aria-selected="false" data-value="homepage-redesign" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Homepage Redesign</button>
+                            <button type="button" role="option" aria-selected="false" data-value="full-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Full Website</button>
+                            <button type="button" role="option" aria-selected="false" data-value="brand-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Brand + Website</button>
+                            <button type="button" role="option" aria-selected="false" data-value="hold" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Hold (monthly plan)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="build" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Build (monthly plan)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="not-sure" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Not sure yet, let's talk</button>
                         </div>
                     </div>
                 </div>
@@ -213,7 +215,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
+    <footer id="footer" class="relative overflow-hidden bg-vw-footer footer-top-border">
 
     <!-- Top footer: nav links -->
     <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">
@@ -363,13 +365,13 @@
                     if (dropdown.style.display !== 'block') { open(); return; }
                     const current = wrapper.querySelector('[role="option"]:hover, [role="option"].selected');
                     const next = current ? current.nextElementSibling : options[0];
-                    if (next && next.getAttribute('role') === 'option') { next.focus(); next.classList.add('bg-[#2a2722]'); if (current) current.classList.remove('bg-[#2a2722]'); }
+                    if (next && next.getAttribute('role') === 'option') { next.focus(); next.classList.add('bg-vw-surfaceHover'); if (current) current.classList.remove('bg-vw-surfaceHover'); }
                 }
                 if (e.key === 'ArrowUp') {
                     e.preventDefault();
                     const current = wrapper.querySelector('[role="option"]:hover, [role="option"].selected');
                     const prev = current ? current.previousElementSibling : null;
-                    if (prev && prev.getAttribute('role') === 'option') { prev.focus(); prev.classList.add('bg-[#2a2722]'); if (current) current.classList.remove('bg-[#2a2722]'); }
+                    if (prev && prev.getAttribute('role') === 'option') { prev.focus(); prev.classList.add('bg-vw-surfaceHover'); if (current) current.classList.remove('bg-vw-surfaceHover'); }
                 }
             });
 
@@ -434,7 +436,12 @@
                     messageEl.classList.add('form-message--success');
                     messageEl.classList.remove('il-78');
                     if (typeof gtag === 'function') {
-                        gtag('event', 'form_submit', { service: data.service || '(none)' });
+                        gtag('event', 'generate_lead', {
+                            event_category: 'contact_form',
+                            event_label: 'contact_form_submit',
+                            service: data.service || '(none)',
+                            page_path: window.location.pathname
+                        });
                     }
                     form.reset();
                     if (typeof window.__customSelectReset === 'function') window.__customSelectReset();

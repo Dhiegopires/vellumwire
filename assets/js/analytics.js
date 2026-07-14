@@ -60,48 +60,29 @@ function openCalendlyPopup(url) {
 
     var overlay = document.createElement('div');
     overlay.id = 'vw-calendly-modal';
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:2147483647;background:rgba(12,11,9,0.85);' +
-        'display:flex;align-items:center;justify-content:center;';
+    overlay.className = 'vw-calendly-overlay';
 
     var panel = document.createElement('div');
-    // 1050px+ matters, not just an arbitrary size bump: below Calendly's own
-    // ~1000px internal breakpoint their embed stacks the details panel above
-    // the calendar instead of beside it, which is what was pushing the actual
-    // time-slot picker down and forcing extra scroll to reach it.
-    panel.style.cssText = 'position:relative;width:100%;height:100%;max-width:1080px;max-height:760px;' +
-        'margin:0;background:#0c0b09;border:0;display:flex;flex-direction:column;overflow:hidden;';
-    // Desktop gets breathing room and a frame; mobile stays edge-to-edge (booking flow needs the space).
-    var mq = window.matchMedia('(min-width: 640px)');
-    if (mq.matches) {
-        panel.style.width = 'calc(100% - 48px)';
-        panel.style.height = 'calc(100% - 48px)';
-        panel.style.border = '1px solid rgba(255,255,255,0.12)';
-    }
+    panel.className = 'vw-calendly-panel';
 
     var header = document.createElement('div');
-    header.style.cssText = 'display:flex;justify-content:space-between;align-items:center;' +
-        'padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.12);flex-shrink:0;background:#0c0b09;';
+    header.className = 'vw-calendly-header';
 
     var label = document.createElement('span');
     label.textContent = 'Book a 30-min call';
-    label.style.cssText = 'font-family:monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8680;';
+    label.className = 'vw-calendly-label';
 
     var closeBtn = document.createElement('button');
     closeBtn.setAttribute('aria-label', 'Close scheduling window');
     closeBtn.innerHTML = '&times;';
-    closeBtn.style.cssText = 'width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);' +
-        'background:transparent;color:#ede9e2;font-size:22px;line-height:1;cursor:pointer;flex-shrink:0;' +
-        'display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s,border-color 0.2s;';
-    closeBtn.onmouseover = function () { closeBtn.style.background = '#c6f135'; closeBtn.style.color = '#0c0b09'; closeBtn.style.borderColor = '#c6f135'; };
-    closeBtn.onmouseout = function () { closeBtn.style.background = 'transparent'; closeBtn.style.color = '#ede9e2'; closeBtn.style.borderColor = 'rgba(255,255,255,0.25)'; };
+    closeBtn.className = 'vw-calendly-close';
 
     var widgetWrap = document.createElement('div');
-    widgetWrap.style.cssText = 'flex:1;min-height:0;position:relative;background:#0c0b09;';
+    widgetWrap.className = 'vw-calendly-widget-wrap';
 
     var loading = document.createElement('div');
     loading.textContent = 'Loading…';
-    loading.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;' +
-        'color:#8a8680;font-family:monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;pointer-events:none;';
+    loading.className = 'vw-calendly-loading';
     widgetWrap.appendChild(loading);
 
     header.appendChild(label);
@@ -112,7 +93,7 @@ function openCalendlyPopup(url) {
 
     function closeModal() {
         overlay.remove();
-        document.body.style.overflow = '';
+        document.body.classList.remove('vw-modal-open');
         document.removeEventListener('keydown', escHandler);
     }
     function escHandler(e) {
@@ -124,7 +105,7 @@ function openCalendlyPopup(url) {
     });
     document.addEventListener('keydown', escHandler);
 
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('vw-modal-open');
     document.body.appendChild(overlay);
 
     Calendly.initInlineWidget({
@@ -139,7 +120,7 @@ function openCalendlyPopup(url) {
         var frame = widgetWrap.querySelector('iframe');
         if (frame) {
             clearInterval(waitForIframe);
-            frame.style.cssText = 'width:100%;height:100%;border:0;';
+            frame.classList.add('vw-calendly-iframe');
             frame.addEventListener('load', function () { loading.remove(); });
         }
     }, 50);

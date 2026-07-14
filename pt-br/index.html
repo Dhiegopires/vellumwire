@@ -140,8 +140,25 @@
             <!-- Unicorn Studio canvas (slightly oversized to avoid 1px gap) -->
             <div class="il-10" data-us-project="bKN5upvoulAmWvInmHza"></div>
 
-            <script type="text/javascript" defer="">
-                !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
+            <script type="text/javascript">
+                (function () {
+                    // See index.html (EN) for the full explanation - same fix, kept in sync.
+                    // Only defers when the effect loads, never whether.
+                    function start() {
+                        var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) };
+                        if (window.UnicornStudio) { e(); return; }
+                        window.UnicornStudio = { isInitialized: !1 };
+                        var n = document.createElement("script");
+                        n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
+                        n.onload = e;
+                        (document.head || document.body).appendChild(n);
+                    }
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(start, { timeout: 2000 });
+                    } else {
+                        window.addEventListener('load', start);
+                    }
+                })();
             </script>
 
             <!-- Green tint overlay -->
@@ -154,7 +171,7 @@
 
             <!-- Left: Massive Wordmark -->
             <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0 il-12">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" class="w-full h-auto text-[#ede9e2] drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]" fetchpriority="high">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" class="w-full h-auto text-vw-pri drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]" fetchpriority="high">
                     <!-- V -->
                     <polygon points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
                     <!-- e (first) -->
@@ -411,7 +428,7 @@
                         </div>
                         <span class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">03.</span>
                         <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Site rápido, com rastreamento desde o dia um</h3>
-                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">Código leve, carregamento rápido e GA4 + rastreamento de eventos configurados antes do lançamento. Você vê números reais desde a primeira semana.</p>
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">Código leve, carregamento rápido e analytics + rastreamento de eventos configurados antes do lançamento. Você vê números reais desde a primeira semana.</p>
                     </div>
                 </div>
 
@@ -420,7 +437,7 @@
 
         <!-- Right full-bleed video (Desktop) -->
         <div class="hidden lg:block absolute top-0 bottom-0 right-0 w-[50%] 2xl:w-[55%] z-0 border-l border-vw-border">
-            <div class="sticky top-0 h-screen w-full bg-[#0a0a09] overflow-hidden flex items-center justify-center">
+            <div class="sticky top-0 h-screen w-full bg-vw-deep overflow-hidden flex items-center justify-center">
                 <!-- Gentle Texture and darkening Overlays -->
                 <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none mix-blend-multiply"></div>
                 <div class="absolute inset-0 bg-vw-accent mix-blend-color opacity-50 z-10 pointer-events-none"></div>
@@ -433,7 +450,7 @@
     </section>
 
     <!-- Marquee Separator: Services Structure -->
-    <section class="w-full border-t border-vw-border bg-[#0a0a09] py-5 md:py-8 overflow-hidden relative z-10 flex items-center shadow-2xl">
+    <section class="w-full border-t border-vw-border bg-vw-deep py-5 md:py-8 overflow-hidden relative z-10 flex items-center shadow-2xl">
         <div class="absolute inset-0 bg-gradient-to-r from-vw-base via-transparent to-vw-base opacity-90 z-10 pointer-events-none w-full">
         </div>
         <div class="relative flex w-max animate-marquee text-5xl md:text-7xl font-display text-vw-pri tracking-tighter opacity-80 hover:opacity-100 transition-opacity">
@@ -462,7 +479,7 @@
     </section>
 
     <!-- Services Section (Design System Brutalist) -->
-    <section id="services" class="relative z-10 w-full bg-[#0c0b09] py-12 lg:py-24 border-t border-vw-border overflow-hidden">
+    <section id="services" class="relative z-10 w-full bg-vw-base py-12 lg:py-24 border-t border-vw-border overflow-hidden">
 
         <!-- Inherit Global Grid Background -->
         <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-0">
@@ -987,7 +1004,7 @@
                             <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">Design, copy e engenharia rodam em paralelo. Não te arrastamos para loops infinitos de feedback. Mostramos o trabalho quando há algo real para revisar. Cada decisão volta ao briefing, não ao gosto pessoal.</p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">Entrega: ambiente de homologação, semana 2 a 3</span>
+                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">Entrega: prévia privada, semana 2 a 3</span>
                             </div>
                         </div>
 
@@ -1108,7 +1125,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Depende do que seu site precisa fazer. Webflow para sites de marketing que precisam de controle editorial. Next.js para builds próximos de produto. HTML/CSS customizado para performance máxima. Não vamos te prender em uma stack que nos serve melhor do que serve você.</p>
+                        <p class="faq-demo-answer">Depende do que seu site precisa fazer. Alguns projetos precisam de uma plataforma fácil de editar você mesmo, outros precisam de código customizado enxuto pra velocidade máxima. Vamos te dizer o que serve melhor, não te prender no que é mais fácil pra gente.</p>
                     </div>
                 </div>
 
@@ -1126,7 +1143,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Não automaticamente. O diagnóstico determina isso. Alguns sites precisam de uma reconstrução completa: estrutura errada, CMS ruim, mobile quebrado. Outros só precisam de texto melhor, uma primeira tela mais ajustada e um caminho de CTA limpo. Vamos te dizer o que é realmente necessário, não o que maximiza nossa fatura.</p>
+                        <p class="faq-demo-answer">Não automaticamente. O diagnóstico determina isso. Alguns sites precisam de uma reconstrução completa: estrutura errada, um sistema que briga com você toda vez que precisa atualizar algo, mobile quebrado. Outros só precisam de texto melhor, uma primeira tela mais ajustada e um caminho de CTA limpo. Vamos te dizer o que é realmente necessário, não o que maximiza nossa fatura.</p>
                     </div>
                 </div>
 
@@ -1265,7 +1282,7 @@
     <!-- ============================================ -->
     <!-- FOOTER                                       -->
     <!-- ============================================ -->
-    <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
+    <footer id="footer" class="relative overflow-hidden bg-vw-footer footer-top-border">
 
         <!-- Top footer: nav links -->
         <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">

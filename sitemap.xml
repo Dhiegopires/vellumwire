@@ -98,6 +98,13 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.vellumwire.com/insights/not-what-you-think/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/insights/not-what-you-think/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/insights/not-what-you-think/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.vellumwire.com/projects/harmon-and-vale/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/projects/harmon-and-vale/" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/projects/harmon-and-vale/" />

@@ -140,8 +140,30 @@
             <!-- Unicorn Studio canvas (slightly oversized to avoid 1px gap) -->
             <div class="il-10" data-us-project="bKN5upvoulAmWvInmHza"></div>
 
-            <script type="text/javascript" defer="">
-                !function () { var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }; window.UnicornStudio ? e() : (window.UnicornStudio = { isInitialized: !1 }, function () { var n = document.createElement("script"); n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js", n.onload = e, (document.head || document.body).appendChild(n) }()) }();
+            <script type="text/javascript">
+                (function () {
+                    // Lighthouse/real-user perf: unicornStudio.umd.js costs 8s+ of main-thread
+                    // script evaluation once it runs (measured this session). Loading it
+                    // eagerly on parse competes with FCP/LCP for the hero text above it.
+                    // Deferring the load itself until the browser is idle (or window.load,
+                    // whichever fires first) keeps the same visual effect but stops it from
+                    // blocking the metrics that measure what a visitor sees first. The effect
+                    // always loads - this only changes when, never whether.
+                    function start() {
+                        var e = function () { window.UnicornStudio && !window.UnicornStudio.isInitialized && (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) };
+                        if (window.UnicornStudio) { e(); return; }
+                        window.UnicornStudio = { isInitialized: !1 };
+                        var n = document.createElement("script");
+                        n.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js";
+                        n.onload = e;
+                        (document.head || document.body).appendChild(n);
+                    }
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(start, { timeout: 2000 });
+                    } else {
+                        window.addEventListener('load', start);
+                    }
+                })();
             </script>
 
             <!-- Green tint overlay -->
@@ -154,7 +176,7 @@
 
             <!-- Left: Massive Wordmark -->
             <div class="w-full xl:flex-1 reveal-up flex items-end justify-start shrink-0 il-12">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" class="w-full h-auto text-[#ede9e2] drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]" fetchpriority="high">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 893.81 89.71" class="w-full h-auto text-vw-pri drop-shadow-2xl fill-current pointer-events-none opacity-[0.98]" fetchpriority="high">
                     <!-- V -->
                     <polygon points="72.26 0 49.38 57.07 26.51 0 0 0 35.87 89.47 36.4 89.47 62.37 89.47 62.9 89.47 98.77 0 72.26 0"></polygon>
                     <!-- e (first) -->
@@ -411,7 +433,7 @@
                         </div>
                         <span class="block font-mono text-vw-mut group-hover:text-vw-accent transition-colors text-sm mb-4 relative z-10">03.</span>
                         <h3 class="font-display text-2xl md:text-3xl text-vw-pri mb-3 relative z-10">Fast site, tracking from day one</h3>
-                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">Lightweight code, fast load times, and GA4 + event tracking configured before launch. You see real numbers from week one.</p>
+                        <p class="font-ui text-vw-sec text-sm md:text-base leading-relaxed relative z-10">Lightweight code, fast load times, and analytics + event tracking configured before launch. You see real numbers from week one.</p>
                     </div>
                 </div>
 
@@ -420,7 +442,7 @@
 
         <!-- Right full-bleed video (Desktop) -->
         <div class="hidden lg:block absolute top-0 bottom-0 right-0 w-[50%] 2xl:w-[55%] z-0 border-l border-vw-border">
-            <div class="sticky top-0 h-screen w-full bg-[#0a0a09] overflow-hidden flex items-center justify-center">
+            <div class="sticky top-0 h-screen w-full bg-vw-deep overflow-hidden flex items-center justify-center">
                 <!-- Gentle Texture and darkening Overlays -->
                 <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none mix-blend-multiply"></div>
                 <div class="absolute inset-0 bg-vw-accent mix-blend-color opacity-50 z-10 pointer-events-none"></div>
@@ -433,7 +455,7 @@
     </section>
 
     <!-- Marquee Separator: Services Structure -->
-    <section class="w-full border-t border-vw-border bg-[#0a0a09] py-5 md:py-8 overflow-hidden relative z-10 flex items-center shadow-2xl">
+    <section class="w-full border-t border-vw-border bg-vw-deep py-5 md:py-8 overflow-hidden relative z-10 flex items-center shadow-2xl">
         <div class="absolute inset-0 bg-gradient-to-r from-vw-base via-transparent to-vw-base opacity-90 z-10 pointer-events-none w-full">
         </div>
         <div class="relative flex w-max animate-marquee text-5xl md:text-7xl font-display text-vw-pri tracking-tighter opacity-80 hover:opacity-100 transition-opacity">
@@ -462,7 +484,7 @@
     </section>
 
     <!-- Services Section (Design System Brutalist) -->
-    <section id="services" class="relative z-10 w-full bg-[#0c0b09] py-12 lg:py-24 border-t border-vw-border overflow-hidden">
+    <section id="services" class="relative z-10 w-full bg-vw-base py-12 lg:py-24 border-t border-vw-border overflow-hidden">
 
         <!-- Inherit Global Grid Background -->
         <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none z-0">
@@ -987,7 +1009,7 @@
                             <p class="font-ui text-vw-sec text-lg leading-[1.65] max-w-md">Design, copy, and engineering run in parallel. We don't drag you into endless feedback loops. We show you work when there's something real to review. Every decision ties back to the brief, not personal taste.</p>
                             <div class="mt-8 flex items-center gap-3">
                                 <span class="inline-block w-8 h-px bg-vw-accent"></span>
-                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">Delivery: Staging environment, week 2 to 3</span>
+                                <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">Delivery: Private preview, week 2 to 3</span>
                             </div>
                         </div>
 
@@ -1025,7 +1047,7 @@
                                 <!-- Social proof line -->
                                 <div class="mt-10 flex items-center gap-3">
                                     <span class="inline-block w-6 h-px bg-vw-accent/60"></span>
-                                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">No pitch. No retainer trap. Just an honest read of your site.</span>
+                                    <span class="font-mono text-[12px] text-vw-mut uppercase tracking-[0.14em]">No pitch. No monthly-plan trap. Just an honest read of your site.</span>
                                 </div>
 
                             </div>
@@ -1108,7 +1130,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Depends on what your site needs to do. Webflow for marketing sites that need editorial control. Next.js for product-adjacent builds. Custom HTML/CSS for maximum performance. We won't lock you into a stack that serves us better than it serves you.</p>
+                        <p class="faq-demo-answer">Depends on what your site needs to do. Some projects need a platform built for easy self-editing, others need lean custom code for maximum speed. We'll tell you which fits, not lock you into whichever's easiest for us.</p>
                     </div>
                 </div>
 
@@ -1126,7 +1148,7 @@
                         </div>
                     </button>
                     <div class="faq-demo-body">
-                        <p class="faq-demo-answer">Not automatically. The diagnosis determines that. Some sites need a full rebuild: wrong structure, bad CMS, broken mobile. Others just need better copy, a tighter above-the-fold, and one clean CTA path. We'll tell you what's actually warranted, not what maximizes our invoice.</p>
+                        <p class="faq-demo-answer">Not automatically. The diagnosis determines that. Some sites need a full rebuild: wrong structure, a backend that fights you every time you try to update it, broken mobile. Others just need better copy, a tighter above-the-fold, and one clean CTA path. We'll tell you what's actually warranted, not what maximizes our invoice.</p>
                     </div>
                 </div>
 
@@ -1265,7 +1287,7 @@
     <!-- ============================================ -->
     <!-- FOOTER                                       -->
     <!-- ============================================ -->
-    <footer id="footer" class="relative overflow-hidden bg-[#0a0908] footer-top-border">
+    <footer id="footer" class="relative overflow-hidden bg-vw-footer footer-top-border">
 
         <!-- Top footer: nav links -->
         <div class="w-full px-6 md:px-12 lg:px-16 xl:pl-[144px] pt-20 pb-16">

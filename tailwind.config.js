@@ -10,14 +10,18 @@ module.exports = {
     extend: {
       colors: {
         vw: {
-          base:      '#0c0b09',
-          surface:   '#1c1a17',
-          accent:    '#c6f135',
-          accentHov: '#b0d82e',
-          pri:       '#ede9e2',
-          sec:       '#8a8680',
-          mut:       '#84827f',
-          border:    'rgba(255,255,255,0.12)'
+          base:         '#0c0b09',
+          surface:      '#1c1a17',
+          surfaceHover: '#2a2722',
+          card:         '#141310',
+          footer:       '#0a0908',
+          deep:         '#0a0a09',
+          accent:       '#c6f135',
+          accentHov:    '#b0d82e',
+          pri:          '#ede9e2',
+          sec:          '#8a8680',
+          mut:          '#84827f',
+          border:       'rgba(255,255,255,0.12)'
         }
       },
       fontFamily: {
