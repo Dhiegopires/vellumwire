@@ -72,78 +72,8 @@
             #particles-canvas { display: none; }
         }
 
-        /* ── Article row ── */
-        .insight-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: end;
-            gap: 1rem 3rem;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            text-decoration: none;
-            cursor: default;
-        }
-        @media (min-width: 768px) {
-            .insight-row {
-                grid-template-columns: auto 1fr auto;
-                padding: 3rem 0;
-            }
-        }
-        .insight-row .row-index {
-            display: none;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.12em;
-            color: rgba(240,235,225,0.45);
-            padding-bottom: 0.35em;
-            min-width: 2.5rem;
-        }
-        @media (min-width: 768px) {
-            .insight-row .row-index { display: block; }
-        }
-        .insight-row .row-tag {
-            display: inline-flex;
-            align-items: center;
-            font-family: 'DM Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(198,241,53,0.7);
-            margin-bottom: 0.75rem;
-        }
-        .insight-row h2 {
-            font-family: 'Archivo', sans-serif;
-            font-weight: 700;
-            font-size: clamp(1.5rem, 2.8vw, 2.25rem);
-            line-height: 1.15;
-            letter-spacing: -0.015em;
-            color: #ede9e2;
-            margin: 0;
-        }
-        .insight-row .row-soon {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.5rem;
-            padding-bottom: 0.25rem;
-        }
-        .insight-row .soon-badge {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(240,235,225,0.55);
-            border: 1px solid rgba(255,255,255,0.25);
-            padding: 3px 8px;
-            white-space: nowrap;
-        }
-        .insight-row .read-time {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            color: rgba(240,235,225,0.45);
-            white-space: nowrap;
-        }
+        /* .filter-bar/.filter-tab/.work-card family lives in assets/css/style.css -
+           shared with insights.html and work.html, not duplicated here. */
 
         /* ── Email block ── */
         .email-capture {
@@ -246,60 +176,104 @@
     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
 </span>
             <span class="eyebrow typewriter-wrap">
-    <span class="typewriter-text" data-text="[ 4 artigos em rascunho ]">[ 4 artigos em rascunho ]</span>
+    <span class="typewriter-text" data-text="[ 2 artigos ainda sem versão em português ]">[ 2 artigos ainda sem versão em português ]</span>
     <span class="typewriter-cursor w-1.5 h-6 bg-vw-accent inline-block"></span>
 </span>
         </div>
 
+        <!-- Filter Tabs -->
+        <div class="filter-bar reveal-up my-8" id="filter-bar" role="tablist" aria-label="Filtrar artigos por tema">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+                <span>Todos</span> <span class="tab-count">04</span>
+            </button>
+            <button class="filter-tab" data-filter="conversion" role="tab" aria-selected="false">
+                <span>Conversão</span> <span class="tab-count">02</span>
+            </button>
+            <button class="filter-tab" data-filter="copy" role="tab" aria-selected="false">
+                <span>Copy</span> <span class="tab-count">01</span>
+            </button>
+            <button class="filter-tab" data-filter="performance" role="tab" aria-selected="false">
+                <span>Performance</span> <span class="tab-count">01</span>
+            </button>
+            <button class="filter-tab" data-filter="strategy" role="tab" aria-selected="false">
+                <span>Estratégia</span> <span class="tab-count">02</span>
+            </button>
+        </div>
+
         <!-- Row 1 -->
-        <div class="insight-row scroll-reveal">
-            <span class="row-index">01</span>
-            <div class="row-main">
-                <div class="row-tag">Conversão</div>
-                <h2>Por que sua seção hero está perdendo clientes antes de eles rolarem a página</h2>
+        <div class="work-card is-soon scroll-reveal" data-categories="conversion strategy">
+            <div class="work-card-meta">
+                <div class="work-card-eyebrow">
+                    <span class="work-card-num">01</span>
+                    <span class="work-card-type">~5 min de leitura</span>
+                </div>
+                <h2 class="work-card-title">O Problema de Ordem do Seu Site Está Custando Leads</h2>
+                <p class="work-card-desc">Seu site pode parecer bom e ainda assim não gerar leads. Já está publicado em inglês — a versão em português vem em breve.</p>
+                <div class="work-card-tags">
+                    <span class="work-tag">Conversão</span>
+                    <span class="work-tag">Estrutura</span>
+                    <span class="work-tag">Estratégia</span>
+                </div>
+                <span class="soon-badge">Em breve em PT</span>
             </div>
-            <div class="row-soon">
-                <span class="soon-badge">Em breve</span>
-                <span class="read-time">~5 min</span>
+            <div class="work-card-image">
+                <div class="work-card-image-placeholder">Em breve em PT</div>
             </div>
         </div>
 
         <!-- Row 2 -->
-        <div class="insight-row scroll-reveal">
-            <span class="row-index">02</span>
-            <div class="row-main">
-                <div class="row-tag">Copy</div>
-                <h2>Uma reescrita, +40% de leads. O que realmente mudou na página</h2>
+        <div class="work-card is-soon scroll-reveal" data-categories="conversion copy">
+            <div class="work-card-meta">
+                <div class="work-card-eyebrow">
+                    <span class="work-card-num">02</span>
+                    <span class="work-card-type">~4 min de leitura</span>
+                </div>
+                <h2 class="work-card-title">Uma Reforma de Site Aumenta Leads? Aqui Está o Número Real.</h2>
+                <p class="work-card-desc">Toda estatística de "reforma aumenta leads" por aí não tem fonte. Já está publicado em inglês — a versão em português vem em breve.</p>
+                <div class="work-card-tags">
+                    <span class="work-tag">Conversão</span>
+                    <span class="work-tag">Copy</span>
+                </div>
+                <span class="soon-badge">Em breve em PT</span>
             </div>
-            <div class="row-soon">
-                <span class="soon-badge">Em breve</span>
-                <span class="read-time">~7 min</span>
+            <div class="work-card-image">
+                <div class="work-card-image-placeholder">Em breve em PT</div>
             </div>
         </div>
 
         <!-- Row 3 -->
-        <div class="insight-row scroll-reveal">
-            <span class="row-index">03</span>
-            <div class="row-main">
-                <div class="row-tag">Performance</div>
-                <h2>Velocidade é uma decisão de design: nota de performance 95+ sem sacrificar o visual</h2>
-            </div>
-            <div class="row-soon">
+        <div class="work-card is-soon scroll-reveal" data-categories="performance">
+            <div class="work-card-meta">
+                <div class="work-card-eyebrow">
+                    <span class="work-card-num">03</span>
+                    <span class="work-card-type">~6 min de leitura</span>
+                </div>
+                <h2 class="work-card-title">Velocidade é uma decisão de design: nota de performance 95+ sem sacrificar o visual</h2>
+                <div class="work-card-tags">
+                    <span class="work-tag">Performance</span>
+                </div>
                 <span class="soon-badge">Em breve</span>
-                <span class="read-time">~6 min</span>
+            </div>
+            <div class="work-card-image">
+                <div class="work-card-image-placeholder">Em breve</div>
             </div>
         </div>
 
         <!-- Row 4 -->
-        <div class="insight-row scroll-reveal il-82">
-            <span class="row-index">04</span>
-            <div class="row-main">
-                <div class="row-tag">Estratégia</div>
-                <h2>Quando reformular e quando só corrigir o que está quebrado</h2>
-            </div>
-            <div class="row-soon">
+        <div class="work-card is-soon scroll-reveal il-82" data-categories="strategy">
+            <div class="work-card-meta">
+                <div class="work-card-eyebrow">
+                    <span class="work-card-num">04</span>
+                    <span class="work-card-type">~8 min de leitura</span>
+                </div>
+                <h2 class="work-card-title">Quando reformular e quando só corrigir o que está quebrado</h2>
+                <div class="work-card-tags">
+                    <span class="work-tag">Estratégia</span>
+                </div>
                 <span class="soon-badge">Em breve</span>
-                <span class="read-time">~8 min</span>
+            </div>
+            <div class="work-card-image">
+                <div class="work-card-image-placeholder">Em breve</div>
             </div>
         </div>
 
@@ -325,7 +299,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div>
                     <p class="eyebrow mb-5">[ Seja notificado ] <span class="w-1.5 h-6 bg-vw-accent inline-block"></span></p>
-                    <h2 class="font-display text-vw-pri leading-[1.05] tracking-tight mb-4 il-86">Seja o primeiro a ler,<br><em>quando estiver pronto.</em></h2>
+                    <h2 class="font-display text-vw-pri leading-[1.05] tracking-tight mb-4 il-86">Seja o primeiro a ler, <em>quando estiver pronto.</em></h2>
                     <p class="font-ui text-vw-sec text-sm leading-relaxed max-w-sm">Sem e-mails de resumo. Sem enchimento. Um artigo, quando estiver pronto.</p>
                 </div>
                 <div>
@@ -502,34 +476,42 @@
             });
         }, { threshold: 0.08 });
         document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Filter Logic ──
+        (function () {
+            const filterBar = document.getElementById('filter-bar');
+            if (!filterBar) return;
+            const filterBtns = filterBar.querySelectorAll('.filter-tab');
+            const allRows = Array.from(document.querySelectorAll('.work-card'));
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+
+                    allRows.forEach(row => {
+                        const cats = (row.dataset.categories || '').split(' ');
+                        const match = filter === 'all' || cats.includes(filter);
+                        if (match) {
+                            row.removeAttribute('data-filtered-out');
+                        } else {
+                            row.setAttribute('data-filtered-out', 'true');
+                        }
+                    });
+                });
+            });
+        })();
     </script>
     <script>window.VW_BASE_PATH = "";</script>
     <script src="../assets/js/menu.min.js"></script>
     <script src="../assets/js/analytics.js" defer></script>
-    
-    
 
-    <style>
-        .typewriter-text {
-            visibility: hidden;
-        }
-        .typewriter-text.typing {
-            visibility: visible;
-        }
-        .typewriter-cursor {
-            animation: blink 0.7s steps(1) infinite;
-            vertical-align: baseline;
-            margin-left: 2px;
-        }
-        .typewriter-cursor.done {
-            animation: none;
-            opacity: 0;
-        }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-    </style>
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
             el.textContent = '';
@@ -567,7 +549,5 @@
             observer.observe(el);
         });
     </script>
-
-
 
 </body></html>

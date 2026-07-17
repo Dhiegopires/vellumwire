@@ -1644,3 +1644,650 @@ img.marquee-logo {
     height: 100%;
     border: 0;
 }
+
+/* ── Filter tabs + work-card list component ──
+   Shared by work.html and insights.html (and their pt-br mirrors) — was duplicated
+   independently into each page's own <style> block instead of living here, which is
+   why pt-br/insights.html silently diverged from insights.html's layout: it never got
+   a copy. Centralized here so every page that uses this component picks it up from
+   one place, in every language, automatically. */
+#filter-bar,
+.filter-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.filter-tab {
+    flex: 1;
+    min-width: 0; /* flex items refuse to shrink below content width by default - without this, a long label forces the bar wider than the viewport on mobile */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-sec);
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-editorial);
+    white-space: nowrap;
+}
+
+.filter-tab:last-child { border-right: none; }
+
+@media (max-width: 479px) {
+    .filter-tab {
+        flex-direction: column;
+        white-space: normal;
+        text-align: center;
+        gap: 3px;
+        padding: 10px 4px;
+        font-size: 10px;
+        line-height: 1.3;
+    }
+}
+
+.filter-tab:hover { color: var(--color-text-pri); background: rgba(255,255,255,0.03); }
+.filter-tab.active { color: #0c0b09; background: var(--color-accent); border-color: var(--color-accent); }
+.filter-tab .tab-count { font-size: 12px; opacity: 0.6; }
+.filter-tab.active .tab-count { opacity: 0.7; }
+
+.work-card {
+    position: relative;
+    display: grid;
+    color: inherit;
+    text-decoration: none;
+    grid-template-columns: minmax(0, 1fr); /* minmax(0,..) not 1fr alone -- grid tracks default to a content-based min-width, which can push the card past the viewport on narrow phones */
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 0;
+    gap: 0;
+    cursor: pointer;
+    transition: padding-left 0.4s var(--ease-editorial);
+    overflow: hidden;
+    align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .work-card { grid-template-columns: minmax(0, 1fr) 38%; gap: 0; padding: 0; }
+}
+
+@media (min-width: 1280px) {
+    .work-card { grid-template-columns: minmax(0, 1fr) 42%; }
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--color-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s var(--ease-editorial);
+}
+
+.work-card:hover::before { transform: scaleY(1); }
+
+@media (max-width: 767px) {
+    .work-card:hover { padding-left: 4px; }
+}
+
+.work-card.is-soon { cursor: default; }
+.work-card.is-soon::before { display: none; }
+
+/* Hidden for filter / pagination - work.html and insights.html use different
+   attribute names for the same "hide this card" purpose; both are supported here
+   rather than forcing one page to match the other's JS convention. */
+.work-card[data-hidden="true"],
+.work-card[data-page-hidden="true"],
+.work-card[data-filtered-out] {
+    display: none;
+}
+
+.work-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 48px 32px 48px clamp(28px, 4vw, 64px);
+}
+
+@media (min-width: 768px) {
+    .work-card-meta { padding: 56px 56px 56px clamp(40px, 5vw, 88px); }
+}
+
+.work-card-eyebrow { display: flex; align-items: center; gap: 12px; }
+.work-card-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--color-text-sec); letter-spacing: 0.12em; opacity: 0.5; }
+.work-card-type { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--color-accent); letter-spacing: 0.14em; text-transform: uppercase; }
+
+.work-card-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.05;
+    color: var(--color-text-pri);
+    transition: color 0.3s ease;
+}
+
+.work-card:hover .work-card-title { color: var(--color-accent); }
+.work-card-desc { font-family: 'Syne', sans-serif; font-size: 14px; line-height: 1.7; color: var(--color-text-sec); max-width: 480px; }
+.work-card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+
+.work-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--color-text-sec);
+    transition: all 0.3s ease;
+}
+
+.work-card:hover .work-tag { border-color: rgba(198,241,53,0.25); color: var(--color-accent); }
+
+.work-card-result { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
+.work-card-result-num { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 32px; font-style: italic; color: var(--color-accent); line-height: 1; }
+.work-card-result-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-sec); max-width: 160px; line-height: 1.4; }
+
+.work-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #0f0e0c;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+    order: 1; /* image always after meta in source order on mobile too */
+}
+
+@media (min-width: 768px) {
+    .work-card-image { aspect-ratio: unset; min-height: 300px; border-top: none; border-left: 1px solid rgba(255,255,255,0.08); }
+}
+
+.work-card-image img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+    opacity: 0.6;
+    transition: all 0.7s var(--ease-editorial);
+}
+
+.work-card:hover .work-card-image img { filter: grayscale(20%) contrast(1.05); opacity: 0.9; transform: scale(1.04); }
+
+.work-card-image-placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-sec);
+    text-align: center;
+    padding: 20px;
+}
+
+.work-card-image-corner { position: absolute; width: 14px; height: 14px; border-color: var(--color-accent); border-style: solid; opacity: 0; z-index: 10; transition: all 0.4s var(--ease-editorial); }
+.work-card-image-corner.tl { top: 12px; left: 12px; border-width: 2px 0 0 2px; transform: translate(-6px,-6px); }
+.work-card-image-corner.br { bottom: 12px; right: 12px; border-width: 0 2px 2px 0; transform: translate(6px, 6px); }
+.work-card:hover .work-card-image-corner { opacity: 1; transform: translate(0,0); }
+
+.work-card-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-sec); margin-top: 24px; transition: all 0.3s ease; }
+.work-card:hover .work-card-link { color: var(--color-accent); gap: 12px; }
+
+.soon-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,235,225,0.55);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
+    white-space: nowrap;
+    display: inline-block;
+    margin-top: 24px;
+}
+
+/* ── Case study components ──
+   Shared by projects/seloh, projects/fiter, projects/harmon-and-vale — each had
+   its own near-identical copy of this block in its own <style> tag. Centralized
+   here; each page keeps only its own genuine deltas (see comments in-page). */
+.cnum { font-variant-numeric: tabular-nums; }
+
+.pi {
+    display: flex;
+    gap: 16px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.pi:last-child { border-bottom: none; }
+
+.ts {
+    display: grid;
+    grid-template-columns: clamp(40px, 5vw, 72px) 1fr;
+    gap: 20px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.ts:last-child { border-bottom: none; }
+
+.ts-n {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-style: italic;
+    color: rgba(198, 241, 53, 0.12);
+    line-height: 1;
+    transition: color 0.4s;
+}
+.ts:hover .ts-n { color: rgba(198, 241, 53, 0.4); }
+
+.rc {
+    background: #141310;
+    border: 1px solid var(--color-border);
+    padding: clamp(28px, 3.5vw, 44px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.rc::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s var(--ease-editorial);
+}
+.rc:hover::after { transform: scaleX(1); }
+
+.mb-t {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 2px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+.mb-f {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.4s var(--ease-editorial);
+}
+.mb-f.an { transform: scaleX(var(--p)); }
+
+.pullquote::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: -20px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(100px, 12vw, 200px);
+    line-height: 1;
+    color: rgba(198, 241, 53, 0.06);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stat-item { position: relative; }
+.stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; height: 60%;
+    width: 1px;
+    background: var(--color-border);
+}
+@media(max-width: 640px) {
+    .stat-item + .stat-item:nth-child(3)::before { display: none; }
+}
+
+.client-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: rgba(198, 241, 53, 0.08);
+    border: 1px solid rgba(198, 241, 53, 0.2);
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.mockup-wrap {
+    position: relative;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background: #141310;
+}
+.mockup-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s var(--ease-editorial);
+}
+.mockup-wrap:hover img { transform: scale(1.015); }
+
+/* ── Before/After slider ── */
+.ba-slider {
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+}
+.ba-slider:hover img { transform: none !important; }
+.ba-img-after {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.ba-img-before {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    clip-path: inset(0 50% 0 0);
+}
+.ba-div {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--color-accent);
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+.ba-handle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #0c0b09;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(198, 241, 53, 0.2);
+    transition: box-shadow 0.3s;
+    pointer-events: all;
+    cursor: col-resize;
+}
+.ba-slider:active .ba-handle { box-shadow: 0 0 0 8px rgba(198, 241, 53, 0.15); }
+.ba-lbl {
+    position: absolute;
+    top: 20px;
+    z-index: 5;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(12, 11, 9, 0.85);
+    padding: 5px 10px;
+    pointer-events: none;
+    border: 1px solid var(--color-border);
+    transition: opacity 0.3s;
+}
+.ba-lbl-b { left: 20px; color: #8a8680; }
+.ba-lbl-a { right: 20px; color: var(--color-accent); }
+
+/* ── Next case ── */
+.nc {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background 0.4s;
+    overflow: hidden;
+    text-decoration: none;
+}
+@media(min-width: 768px) { .nc { grid-template-columns: 1fr 45%; } }
+.nc:hover { background: rgba(198, 241, 53, 0.02); }
+.nc::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--color-accent);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 0.4s var(--ease-editorial);
+}
+.nc:hover::before { transform: scaleY(1); }
+.nc-img {
+    position: relative; overflow: hidden;
+    background: #141310;
+    border-left: 1px solid var(--color-border);
+    min-height: 280px;
+}
+.nc-img img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(60%) contrast(1.05);
+    opacity: 0.6;
+    transition: all 0.7s var(--ease-editorial);
+}
+.nc:hover .nc-img img { filter: grayscale(0%); opacity: 0.9; transform: scale(1.03); }
+
+/* ── Typewriter effect ──
+   Shared by index.html, work.html, insights.html, packages.html, studio.html
+   (and every pt-br mirror) — was copy-pasted into each page's own <style>
+   block instead of living here. */
+.typewriter-text { visibility: hidden; }
+.typewriter-text.typing { visibility: visible; }
+.typewriter-cursor {
+    animation: blink 0.7s steps(1) infinite;
+    vertical-align: baseline;
+    margin-left: 2px;
+}
+.typewriter-cursor.done { animation: none; opacity: 0; }
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ── Legal page prose ──
+   Shared by privacy-policy.html and terms-of-use.html (and their pt-br
+   mirrors) — was duplicated per page instead of living here. */
+.prose-policy h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ede9e2;
+    margin-top: 3rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+.prose-policy p {
+    color: #8a8680;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+.prose-policy ul {
+    color: #8a8680;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+    list-style-type: disc;
+}
+.prose-policy ul li { margin-bottom: 0.375rem; }
+.prose-policy a { color: #c6f135; transition: opacity 0.3s; }
+.prose-policy a:hover { opacity: 0.7; }
+.prose-policy strong { color: #ede9e2; font-weight: 600; }
+@media (min-width: 768px) {
+    .prose-policy p, .prose-policy ul { font-size: 1rem; }
+    .prose-policy h2 { font-size: 1.375rem; }
+}
+
+/* ── Insights article template ──
+   Shared by every article under insights/ (not-what-you-think, not-an-average,
+   and future ones) — was copy-pasted per article instead of living here. */
+.article-prose p {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.75;
+    color: var(--color-text-pri);
+    margin-bottom: 24px;
+}
+.article-prose ul {
+    margin: 24px 0;
+    padding-left: 0;
+    list-style: none;
+}
+.article-prose li {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.7;
+    color: var(--color-text-pri);
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 14px;
+}
+.article-prose li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+}
+.article-prose li strong { color: var(--color-text-pri); }
+.article-prose h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-text-pri);
+    margin-top: 56px;
+    margin-bottom: 20px;
+}
+.article-prose strong { color: var(--color-accent); font-weight: 600; }
+.article-prose a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.article-prose a:hover { color: var(--color-accent-hover); }
+
+.hero-concept {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21/6;
+    background: #141310;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-concept img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.impact-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 40px clamp(24px, 4vw, 56px);
+    background: #141310;
+    border: 1px solid var(--color-border);
+    margin: 32px 0 40px;
+}
+.impact-callout-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+}
+.impact-item { text-align: center; position: relative; }
+.impact-item + .impact-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: var(--color-border);
+}
+.impact-item .cnum {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--color-accent);
+    line-height: 1;
+    display: block;
+}
+.impact-item .impact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-sec);
+    margin-top: 10px;
+}
+.impact-subline {
+    width: 100%;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-sec);
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+}
+
+.cta-card {
+    background: #141310;
+    border: 1px solid var(--color-border);
+    padding: 28px 32px;
+}
+
+.more-insights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+}
+@media (min-width: 640px) {
+    .more-insights-grid { grid-template-columns: 1fr 1fr; }
+}
+.more-insights-card {
+    background: #141310;
+    padding: 28px;
+}
+.row-tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(198,241,53,0.7);
+}
+.more-insights-card .soon-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    margin-top: 0;
+}

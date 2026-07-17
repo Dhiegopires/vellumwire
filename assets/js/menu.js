@@ -257,7 +257,11 @@
         overlay.appendChild(inner);
         document.body.appendChild(overlay);
 
-        var btn = document.querySelector('nav button[aria-label="Open menu"]');
+        // Language-agnostic: the hamburger is the only <button> in <nav> (the PT/EN
+        // toggle is an <a>), so this must not hardcode the English aria-label - that
+        // silently failed to find the button on every pt-br page (aria-label="Abrir
+        // menu" there), leaving the click listener never attached.
+        var btn = document.querySelector('nav button');
         if (btn) {
             btn.classList.add('vw-menu-btn');
             btn.addEventListener('click', toggleMenu);
