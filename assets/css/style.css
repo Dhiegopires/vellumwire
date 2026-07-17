@@ -1448,7 +1448,7 @@ img.marquee-logo {
 .il-33 { position:absolute;bottom:24px;right:24px;width:16px;height:16px;border-bottom:2px solid rgba(198,241,53,0.6);border-right:2px solid rgba(198,241,53,0.6);z-index:10;pointer-events:none; }
 .il-34 { position:absolute;top:28px;right:48px;z-index:10; }
 .il-35 { position:absolute;bottom:0;left:0;right:0;z-index:10;padding: clamp(32px, 5vw, 64px) clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px); }
-.il-36 { font-size: clamp(40px, 6vw, 88px); max-width: 14ch; }
+.il-36 { font-size: clamp(40px, 6vw, 88px); }
 .il-37 { font-size: clamp(14px, 1.1vw, 16px); color: #b0aca6; }
 .il-38 { font-size:12px; padding: 20px 40px; min-width: 260px; background: #c6f135; color: #0c0b09; font-weight: 600; transition: background 0.3s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); }
 .il-38:hover { background: var(--color-accent-hover); }
