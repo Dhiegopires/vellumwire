@@ -9,5 +9,6 @@ node_modules
 .agents
 .claude
 methodology
+design-system
 claude.md
 content
