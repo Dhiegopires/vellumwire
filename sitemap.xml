@@ -50,6 +50,54 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.vellumwire.com/services/google-listing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/google-listing/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/google-listing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/google-listing/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vellumwire.com/pt-br/services/google-listing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/google-listing/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/google-listing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/google-listing/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vellumwire.com/services/landing-page/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/landing-page/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/landing-page/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/landing-page/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vellumwire.com/pt-br/services/landing-page/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/landing-page/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/landing-page/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/landing-page/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.vellumwire.com/services/full-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/full-website/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/full-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/full-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.vellumwire.com/pt-br/services/full-website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/services/full-website/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/services/full-website/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vellumwire.com/services/full-website/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.vellumwire.com/contact</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vellumwire.com/contact" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.vellumwire.com/pt-br/contact" />

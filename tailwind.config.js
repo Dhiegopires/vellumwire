@@ -4,6 +4,8 @@ module.exports = {
     './*.html',
     './projects/**/*.html',
     './insights/**/*.html',
+    './services/**/*.html',
+    './pt-br/**/*.html',
     './assets/**/*.html',
   ],
   theme: {

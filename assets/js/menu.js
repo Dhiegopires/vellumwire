@@ -164,8 +164,19 @@
     // basePath: path from this page back to the root of its own language tree.
     // Declared explicitly per page via window.VW_BASE_PATH (see each page's <head>),
     // since it must NOT be inferred from this script's own (possibly deeper, shared-asset) src path.
-    var basePath = typeof window.VW_BASE_PATH === 'string' ? window.VW_BASE_PATH : '';
-    if (basePath === '') {
+    // A root page's correct basePath IS the empty string, so the fallback below must trigger
+    // only when VW_BASE_PATH was never declared at all - checking `=== ''` after the ternary
+    // can't tell "declared empty on purpose" from "not declared", and previously fell through
+    // to auto-detection on every root page. That auto-detect derives basePath from menu.min.js's
+    // own src depth, which happens to equal '' on EN root pages (assets/ is a same-level sibling)
+    // but resolves to '../' on pt-br root pages (assets/ lives one level up) - silently sending
+    // every nav link on the pt-br homepage, packages, studio, work, contact, and insights pages
+    // to their English counterpart one directory up instead of the pt-br one right there.
+    var basePath;
+    if (typeof window.VW_BASE_PATH === 'string') {
+        basePath = window.VW_BASE_PATH;
+    } else {
+        basePath = '';
         var scripts = document.getElementsByTagName('script');
         for (var i = 0; i < scripts.length; i++) {
             var src = scripts[i].getAttribute('src');

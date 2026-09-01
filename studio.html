@@ -42,10 +42,6 @@
     </noscript>
 
     <link rel="stylesheet" href="assets/css/tailwind.css">
-        <link rel="preconnect" href="https://calendly.com">
-    <link rel="preconnect" href="https://assets.calendly.com">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -71,15 +67,6 @@
                 "@type": "Person",
                 "name": "Afonso Canalle Junior",
                 "jobTitle": "Software Engineering",
-                "affiliation": {
-                    "@type": "Organization",
-                    "name": "Vellumwire"
-                }
-            },
-            {
-                "@type": "Person",
-                "name": "Vinicius Poncheck",
-                "jobTitle": "Sales & Client Relations",
                 "affiliation": {
                     "@type": "Organization",
                     "name": "Vellumwire"
@@ -727,7 +714,7 @@
                 <p class="font-ui text-vw-sec text-base leading-[1.7] max-w-lg">You talk to the same people who design, write, code, and review analytics. That's the entire operating model.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-[42rem]">
 
                 <!-- Dhiego Cristofolini -->
                 <div id="dhiego-cristofolini" class="team-card scroll-reveal">
@@ -750,7 +737,7 @@
                 <div id="afonso-canalle-junior" class="team-card scroll-reveal delay-1">
                     <div class="team-card-inner">
                         <div class="team-img-wrap">
-                                <img src="assets/img/104839981.jpeg" alt="Afonso Canalle Junior" class="team-img team-img-bw" loading="lazy" width="600" height="800">
+                                <img src="assets/img/104839981.jpeg" alt="Afonso Canalle Junior" class="team-img" loading="lazy" width="600" height="800">
                             <div class="team-scan"></div>
                             <div class="team-corner tl"></div>
                             <div class="team-corner br"></div>
@@ -759,23 +746,6 @@
                         <div class="pt-5 pb-2">
                             <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Afonso Canalle Junior</h3>
                             <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Software Engineering</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vinicius Poncheck -->
-                <div id="vinicius-poncheck" class="team-card scroll-reveal delay-2">
-                    <div class="team-card-inner">
-                        <div class="team-img-wrap">
-                                <img src="assets/img/vinicius-poncheck.webp" alt="Vinicius Poncheck" class="team-img team-img-bw" loading="lazy" width="872" height="1160">
-                            <div class="team-scan"></div>
-                            <div class="team-corner tl"></div>
-                            <div class="team-corner br"></div>
-                            <div class="team-accent-bar"></div>
-                        </div>
-                        <div class="pt-5 pb-2">
-                            <h3 class="font-display text-xl text-vw-pri tracking-tight mb-1">Vinicius Poncheck</h3>
-                            <span class="font-mono text-[12px] text-vw-accent uppercase tracking-[0.14em]">Sales &amp; Client Relations</span>
                         </div>
                     </div>
                 </div>
@@ -877,10 +847,10 @@
                     <h2 class="font-display text-vw-pri tracking-tight leading-[0.9] mb-10 il-54">Let's talk about <em class="text-vw-accent">your site.</em></h2>
 
                     <div class="flex flex-col items-center md:flex-row md:items-end gap-8 md:gap-16">
-                        <p class="font-ui leading-[1.65] max-w-sm il-37">30 minutes, screen-shared diagnosis. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.</p>
+                        <p class="font-ui leading-[1.65] max-w-sm il-37">15 minutes, screen-shared diagnosis. We tell you what's leaking leads and what to fix first. You keep the diagnosis whether you hire us or not.</p>
                         <div class="flex flex-col gap-4 flex-shrink-0">
-                            <a href="https://calendly.com/dhiegopiresc/vellumwire-30-min-live-website-teardown-clone" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/vellumwire-30-min-live-website-teardown-clone');" class="btn flex items-center gap-3 il-38">
-                                <span>Get a free 30-minute diagnosis</span>
+                            <a href="contact.html" class="btn flex items-center gap-3 il-38">
+                                <span>Get a free 15-minute diagnosis</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 flex-shrink-0"></i>
                             </a>
                             <span class="font-mono uppercase tracking-[0.12em] text-center il-39">No pitch. No deck. Just a read.</span>
@@ -1116,8 +1086,6 @@
     <script>window.VW_BASE_PATH = "";</script>
     <script src="assets/js/menu.min.js"></script>
     <script src="assets/js/analytics.js" defer></script>
-    
-    
 
     <script>
         document.querySelectorAll('.typewriter-text').forEach(el => {
@@ -1159,8 +1127,8 @@
 
     <!-- ── Sticky mobile CTA (CV2: primary CTA must be reachable without a long scroll on mobile) ── -->
     <div id="vw-sticky-cta" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-vw-base/95 backdrop-blur-md border-t border-vw-border px-4 py-3">
-        <a href="https://calendly.com/dhiegopiresc/vellumwire-30-min-live-website-teardown-clone" target="_blank" rel="noopener" onclick="return openCalendlyPopup('https://calendly.com/dhiegopiresc/vellumwire-30-min-live-website-teardown-clone');" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
-            <span>Get a free 30-minute diagnosis</span> <span aria-hidden="true">→</span>
+        <a href="contact.html" class="btn btn--sweep btn--accent w-full flex items-center justify-center gap-2">
+            <span>Get a free 15-minute diagnosis</span> <span aria-hidden="true">→</span>
         </a>
     </div>
 
