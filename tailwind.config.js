@@ -7,6 +7,7 @@ module.exports = {
     './services/**/*.html',
     './pt-br/**/*.html',
     './assets/**/*.html',
+    './pt-br/**/*.html',
   ],
   theme: {
     extend: {

@@ -139,8 +139,49 @@
                     <input type="email" id="email" name="email" required="" placeholder="you@company.com" class="w-full bg-transparent border-b border-vw-border py-3 text-vw-pri placeholder-vw-mut focus:border-vw-accent focus:outline-none transition-colors text-lg">
                 </div>
 
+<<<<<<< HEAD
                 <!-- Service (oculto, preenchido a partir de ?service= pra manter o contexto do CTA de uma página de serviço, sem virar um campo pra preencher) -->
                 <input type="hidden" id="service" name="service">
+=======
+                <!-- Service -->
+                <div>
+                    <label for="service" class="font-mono text-[12px] uppercase tracking-[0.2em] text-vw-mut block mb-3">O que te trouxe até aqui?</label>
+                    <div class="custom-select relative">
+                        <select id="service" name="service" class="sr-only" tabindex="-1">
+                            <option value="">Selecione uma opção</option>
+                            <option value="free-diagnosis">Diagnóstico gratuito de 30 min</option>
+                            <option value="google-listing">Gestão do Perfil no Google (a partir de R$ 150/mês)</option>
+                            <option value="website-checkup">Diagnóstico de Site (R$ 350)</option>
+                            <option value="landing-page">Landing Page</option>
+                            <option value="homepage-redesign">Reforma de Homepage</option>
+                            <option value="full-website">Site Completo</option>
+                            <option value="brand-website">Marca + Site</option>
+                            <option value="hold">Hold (plano mensal)</option>
+                            <option value="build">Build (plano mensal)</option>
+                            <option value="not-sure">Ainda não sei, vamos conversar</option>
+                        </select>
+                        <button type="button" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-label="Selecione um serviço" class="custom-select-trigger w-full bg-transparent border-b border-vw-border py-3 text-lg flex items-center justify-between cursor-pointer focus:outline-none focus:border-vw-accent transition-colors">
+                            <span class="custom-select-value text-vw-mut">Selecione uma opção</span>
+                            <svg class="custom-select-arrow w-4 h-4 text-vw-sec transition-transform duration-200 flex-shrink-0" viewBox="0 0 12 12" fill="none">
+                                <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <div role="listbox" aria-label="Serviços disponíveis" class="custom-select-dropdown hidden absolute top-full left-0 right-0 z-50 mt-1 border border-vw-border bg-vw-surface shadow-lg max-h-60 overflow-y-auto il-78">
+                            <button type="button" role="option" aria-selected="false" data-value="" class="w-full text-left px-4 py-3 text-base text-vw-mut hover:bg-vw-surfaceHover hover:text-vw-pri transition-colors">Selecione uma opção</button>
+                            <button type="button" role="option" aria-selected="false" data-value="free-diagnosis" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Diagnóstico gratuito de 30 min</button>
+                            <button type="button" role="option" aria-selected="false" data-value="google-listing" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Gestão do Perfil no Google (a partir de R$ 150/mês)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="website-checkup" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Diagnóstico de Site (R$ 350)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="landing-page" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Landing Page</button>
+                            <button type="button" role="option" aria-selected="false" data-value="homepage-redesign" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Reforma de Homepage</button>
+                            <button type="button" role="option" aria-selected="false" data-value="full-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Site Completo</button>
+                            <button type="button" role="option" aria-selected="false" data-value="brand-website" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Marca + Site</button>
+                            <button type="button" role="option" aria-selected="false" data-value="hold" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Hold (plano mensal)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="build" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Build (plano mensal)</button>
+                            <button type="button" role="option" aria-selected="false" data-value="not-sure" class="w-full text-left px-4 py-3 text-base text-vw-pri hover:bg-vw-surfaceHover transition-colors">Ainda não sei, vamos conversar</button>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> db99f5e9754c7c6a1da28533b151fd888384ff25
 
                 <!-- Message -->
                 <div>
