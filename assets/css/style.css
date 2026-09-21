@@ -397,6 +397,13 @@ select:focus-visible,
     }
 }
 
+/* --- SUBTITLE PUSHED RIGHT (block keeps left-aligned text) --- */
+@media (min-width: 640px) {
+    .hero-subtitle {
+        margin-left: auto;
+    }
+}
+
 /* --- UHD DESKTOP (1440px+) --- */
 @media (min-width: 1440px) {
     .hero-right-col {
