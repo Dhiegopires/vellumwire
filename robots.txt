@@ -1,4 +1,48 @@
 User-agent: *
 Allow: /
 
+# AI training crawlers: disallowed. These harvest site content into model
+# training datasets with no attribution and no way to opt out later.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+# AI answer-time retrieval agents: allowed on purpose. These fetch a page
+# live to answer a specific user's question, which is how this site gets
+# found and cited by AI assistants. See /llms.txt for a curated summary.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 Sitemap: https://www.vellumwire.com/sitemap.xml

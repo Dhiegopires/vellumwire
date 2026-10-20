@@ -1,0 +1,38 @@
+# Vellumwire
+
+> A small senior web design studio based in Curitiba, Brazil, building conversion-focused websites for service businesses. Two people, no account managers, no agency layers — design, copy, and engineering under one brief. Offerings: Google Business Profile management, single landing pages, and full website rebuilds (up to 6 pages).
+
+A Portuguese (pt-BR) version of this entire site is available at https://www.vellumwire.com/pt-br/ — every page below has a pt-BR equivalent at the same path under /pt-br/.
+
+## Services
+
+- [Google Business Profile Management](https://www.vellumwire.com/services/google-listing/): Fixes and actively manages a business's Google listing so it shows up in local search, with weekly posts and review responses. $250 one-time setup, then $150/month.
+- [Landing Page Design](https://www.vellumwire.com/services/landing-page/): A single page built around one conversion goal (call, booking, or quote request). Custom design, copy, and a working page live in 5-10 business days. $750-$1,200.
+- [Custom Website Design & Development](https://www.vellumwire.com/services/full-website/): A complete website built from scratch — structure, design, copy, and code — up to 6 pages, live in 4-6 weeks, from $3,000.
+- [Packages & Pricing](https://www.vellumwire.com/packages): Full pricing breakdown for all three services above, plus the monthly maintenance plan available after a site launches.
+
+## Work
+
+- [Case Studies](https://www.vellumwire.com/work): Index of real web design case studies — service-business websites rebuilt for conversion, with what changed and what it produced.
+- [Selo H](https://www.vellumwire.com/projects/seloh/): Case study rebuilding seloh.org, a certification platform, from a performance liability into a conversion-ready site.
+- [Fiter](https://www.vellumwire.com/projects/fiter/): Case study rebuilding a deeptech SaaS company's website to reach enterprise B2B buyers — strategy, information architecture, and front-end.
+- [Harmon & Vale](https://www.vellumwire.com/projects/harmon-and-vale/): A concept project (not a paid client engagement) demonstrating how conversion-focused redesign applies to a law firm website.
+
+## Company
+
+- [Studio](https://www.vellumwire.com/studio): About Vellumwire — a two-person senior team in Curitiba, Brazil, and how they work.
+- [Contact](https://www.vellumwire.com/contact): Contact form and free website diagnosis request.
+
+## Insights
+
+- [Insights](https://www.vellumwire.com/insights): Blog on web design, conversion, and building websites that last.
+- [Your Site's Order Problem Is Costing You Leads](https://www.vellumwire.com/insights/not-what-you-think/): Why a website can look fine and still fail to generate leads, and how to check for the underlying cause.
+- [Does a Website Redesign Increase Leads?](https://www.vellumwire.com/insights/not-an-average/): A critique of unattributed "redesign increases leads" statistics, with one real, sourced number instead.
+- [The Lead Filled Out Your Form. Then They Called Someone Else.](https://www.vellumwire.com/insights/called-someone-else/): What happens in the gap between a form submission and a callback, and how to close it.
+- [Nobody Notices Their Own Website Getting Slower](https://www.vellumwire.com/insights/nobody-notices/): Why site owners can't feel their own site's slowness, and how to actually measure it.
+- [Web Design Agency Red Flags Worth Actually Checking](https://www.vellumwire.com/insights/before-you-sign/): Two verifiable things to check before hiring a web design agency, sourced from government data rather than vague checklists.
+
+## Optional
+
+- [Privacy Policy](https://www.vellumwire.com/privacy-policy)
+- [Terms of Use](https://www.vellumwire.com/terms-of-use)
